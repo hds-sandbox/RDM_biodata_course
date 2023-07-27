@@ -1,0 +1,27 @@
+title: About
+title_url: /about
+subitems:
+  - title: Community
+    subitems:
+      - title: Contributors
+        url: /contributors
+      - title: Editorial board
+        url: /editorial_board
+      - title: Support
+        url: /support
+  - title: Contact
+    url: /contact
+  - title: RDMkit Alliance
+    url: /rdmkit_alliance
+  - title: News
+    url: /news
+  - title: Events
+    url: /events
+  - title: Media kit
+    url: /media_kit
+  - title: Outreach
+    url: /outreach
+  - title: Accessibility
+    url: /accessibility
+  - title: Privacy
+    url: /privacy

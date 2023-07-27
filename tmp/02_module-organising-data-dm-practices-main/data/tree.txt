@@ -1,0 +1,67 @@
+.
+├── Example_project_begin
+│   ├── Foster et al 1999 - Rattus genome annotation.pdf
+│   ├── Foster et al 1999 - Rattus sequence data - A new pipeline for metagenomics.pdf
+│   ├── Li et al 2021.pdf
+│   ├── Manuscript_new1.docx
+│   ├── Manuscript_new2.docx
+│   ├── Manuscript_old.docx
+│   ├── Manuscript_draft.docx
+│   ├── Manuscript_publish.docx
+│   ├── Meeting notes Jan 13 2022.docx
+│   ├── Meeting notes Jan 13 2022 added.docx
+│   ├── Smith et al 2019.pdf
+│   ├── data
+│   │   ├── canis_lupus_genbank.fastq
+│   │   ├── cow_genbank.fastq
+│   │   ├── new_data
+│   │   │   ├── felis_catus.bam
+│   │   │   ├── felis_catus.fastq
+│   │   │   ├── rattus_norwegicus.bam
+│   │   │   └── rattus_norwegicus.fastq
+│   │   ├── result_analysis1.tsv
+│   │   └── result_analysis2.tsv
+│   ├── group-meeting-20211216 final.docx
+│   ├── group-meeting-20211216 notes.docx
+│   ├── group-meeting-161221 agenda.docx
+│   ├── process-sequences.py
+│   ├── Summary function for linear regression.R
+│   └── summarize_results.R
+
+.
+├── Example_project_improved.zip
+│   ├── README.md
+│   ├── analyses
+│   │   ├── result_analysis1.tsv
+│   │   └── result_analysis2.tsv
+│   ├── data
+│   │   ├── genbank_data
+│   │   │   ├── bos_taurus_genbank.fastq
+│   │   │   └── canis_lupus_genbank.fastq
+│   │   └── raw_data
+│   │       ├── felis_catus.bam
+│   │       ├── felis_catus.fastq
+│   │       ├── rattus_norwegicus.bam
+│   │       └── rattus_norwegicus.fastq
+│   ├── manuscript
+│   │   ├── Manuscript_v1.docx
+│   │   ├── Manuscript_v2.docx
+│   │   ├── Manuscript_v4.docx
+│   │   ├── Manuscript_v3.1.docx
+│   │   └── Manuscript_v3.docx
+│   ├── meeting_notes
+│   │   ├── 20220113-group-meeting-v2.docx
+│   │   ├── 20220113-group-meeting-v1.docx
+│   │   ├── 20211216-group-meeting-v3.docx
+│   │   ├── 20211216-group-meeting-v2.docx
+│   │   └── 20211216-group-meeting-v1.docx
+│   ├── pdfs
+│   │   ├── Foster et al 1999 - Rattus genome annotation.pdf
+│   │   ├── Foster et al 1999 - Rattus sequence data - A new pipeline for metagenomics.pdf
+│   │   ├── Li et al 2021.pdf
+│   │   └── Smith et al 2019.pdf
+│   └── scripts
+│       ├── process_sequences.py
+│       ├── Summary function for linear regression.R
+│       └── summarize_results.R
+└── tree.txt

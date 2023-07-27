@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  #- git
+  - ruby>=2.7.1
+  #- rb-bundler # This and *many* other ruby gems are out of date, use gem install rb-bundler
+  #- rb-github-pages # This and *many* other ruby gems are out of date, use bundle install
+#Run:
+# $ conda activate name-of-your-env
+# $ gem install bundler
+# $ bundle install

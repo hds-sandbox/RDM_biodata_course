@@ -1,13 +1,13 @@
 # Project information
-site_name: Course Template
-site_url: 'https://hds-sandbox.github.io/course-template/' #  # This should be the final hosting url
-site_author: Conor O'Hare and Jose Alejandro Romero Herrera # Change authors accordingly
+site_name: 'RDM for NGS course'
+site_url: 'https://hds-sandbox.github.io/RDM_NGS_course/' #  # This should be the final hosting url
+site_author: Jose Alejandro Romero Herrera # Change authors accordingly
 site_description: >-
-  Outline for course
+  This workshop a basic intro to RDM, and how to apply good RDM practices to your NGS data.
 
 # Repository
-repo_name: course-template # Modify this to your repo name
-repo_url: https://github.com/hds-sandbox/course-template # Modify this to your repo url
+repo_name: RDM_NGS_course # Modify this to your repo name
+repo_url: https://github.com/hds-sandbox/RDM_NGS_course # Modify this to your repo url
 
 # Configuration
 theme:
@@ -158,8 +158,6 @@ copyright: CC-BY-SA 4.0 license
 nav:
   - Introduction: index.md
   - General Page: empty.md
-  - Jupyter notebook: jupyter_example.ipynb
-  - Knitted Rmarkdown: rmarkdown_example.md
   - Keyword index: keywords.md
   - Contributors: contributors.md
   

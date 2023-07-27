@@ -1,0 +1,92 @@
+sample id,patient id,sex,date,location,age,health state,symptoms,disease outcome,tissue
+PE300_COVseq_OAS-1,OAS-1,female,31 March,"Italy, Turin, Nizza Millefonti",48,ill,"fever, sore throat",dead,laryngopharynx
+PE150_COVseq_OAS-1,OAS-1,Female,32 March,"Italy, Turin, Nizza Millefonti",48,ill,"fever, sore throat",dead,laryngopharynx
+NEBNext_OAS-1,OAS-1,female,33 March,"Italy, Turin, Nizza Millefonti",48,ill,"fever, sore throat",dead,laryngopharynx
+PE300_COVseq_OAS-10,OAS-10,male,2020-03-31,"Italy, Turin, Turin",35,,N/A,,lung
+PE150_COVseq_OAS-10,OAS-10,male,2020-03-31,"Italy, Turin, Turin",35,,N/A,,lung
+NEBNext_OAS-10,OAS-10,male,2020-03-31,"Italy, Turin, Turin",35,,N/A,,lung
+PE300_COVseq_OAS-11,OAS-11,male,2020-03-31,"Italy, Turin, Piemonte",59,healthy,N/A,healthy,nasopharynx
+PE150_COVseq_OAS-11,OAS-11,Male,2020-03-31,"Italy, Turin, Piemonte",59,healthy,N/A,healthy,nasopharynx
+NEBNext_OAS-11,OAS-11,Male,2020-03-31,"Italy, Turin, Piemonte",59,healthy,N/A,healthy,nasopharynx
+PE300_COVseq_OAS-12,OAS-12,female,2020-03-31,"Italy, Turin, Turin",60,healthy,N/A,healthy,nasopharynx
+PE150_COVseq_OAS-12,OAS-12,female,2020-03-31,"Italy, Turin, Turin",60,healthy,N/A,healthy,nasopharynx
+NEBNext_OAS-12,OAS-12,female,2020-03-31,"Italy, Turin, Turin",60,healthy,N/A,healthy,nasopharynx
+PE300_COVseq_OAS-13,OAS-13,female,31/3/2020,"Italy, Turin, Torino",83,ill,"fatigue, loss of taste",dead,laryngopharynx
+PE150_COVseq_OAS-13,OAS-13,female,31/3/2020,"Italy, Turin, Torino",83,ill,"fatigue, loss of taste",dead,laryngopharynx
+NEBNext_OAS-13,OAS-13,female,31/3/2020,"Italy, Turin, Torino",83,ill,"fatigue, loss of taste",dead,laryngopharynx
+PE300_COVseq_OAS-14,OAS-14,Male,4/1/2020,"Italy, Turin, Campidoglio",21,ill,fever,dead,laryngopharynx
+PE150_COVseq_OAS-14,OAS-14,M,4/1/2021,"Italy, Turin, Campidoglio",21,ill,fever,dead,laryngopharynx
+NEBNext_OAS-14,OAS-14,M,4/1/2022,"Italy, Turin, Campidoglio",21,ill,fever,dead,laryngopharynx
+PE300_COVseq_OAS-15,OAS-15,Female,1/4/2020,"Italy, Turin, Turin",44,healthy,N/A,healthy,lung
+PE150_COVseq_OAS-15,OAS-15,female,1/4/2020,"Italy, Turin, Turin",44,healthy,N/A,healthy,lung
+NEBNext_OAS-15,OAS-15,female,1/4/2020,"Italy, Turin, Turin",44,healthy,N/A,healthy,lung
+PE300_COVseq_OAS-16,OAS-16,male,2020-04-01,"Italy, Turin, Campidoglio",55,healthy,N/A,healthy,lung
+PE150_COVseq_OAS-16,OAS-16,mail,2020-04-01,"Italy, Turin, Campidoglio",55,healthy,N/A,healthy,lung
+NEBNext_OAS-16,OAS-16,male,2020-04-01,"Italy, Turin, Campidoglio",55,healthy,N/A,healthy,lung
+PE300_COVseq_OAS-17,OAS-17,female,2020-03-31,"Italy, Turin, Torino",81,ill,"loss of taste, sore throt",dead,nasopharynx
+PE150_COVseq_OAS-17,OAS-17,female,2020-03-31,"Italy, Turin, Torino",81,ill,"loss of taste, sore throt",dead,nasopharynx
+NEBNext_OAS-17,OAS-17,female,2020-03-31,"Italy, Turin, Torino",81,ill,"loss of taste, sore throt",dead,nasopharynx
+PE300_COVseq_OAS-18,OAS-18,Female,1/4/2020,"Italy, Turin, Turin",63,healthy,N/A,healthy,laryngopharynx
+PE150_COVseq_OAS-18,OAS-18,Female,1/4/2020,"Italy, Turin, Turin",63,healthy,N/A,healthy,laryngopharynx
+NEBNext_OAS-18,OAS-18,Female,1/4/2020,"Italy, Turin, Turin",63,healthy,N/A,healthy,laryngopharynx
+PE300_COVseq_OAS-19,OAS-19,F,1/4/2020,"Italy, Turin, Turin",78,ill,"fatigue, fever",dead,lung
+PE150_COVseq_OAS-19,OAS-19,f,1/4/2020,"Italy, Turin, Turin",78,ill,"fatigue, fever",dead,lung
+NEBNext_OAS-19,OAS-19,f,1/4/2020,"Italy, Turin, Turin",78,ill,"fatigue, fever",dead,lung
+PE300_COVseq_OAS-2,OAS-2,female,31/3/2020,"Italy, Turin, Mirafiori Sud",24,ill,tired,dead,lung
+PE150_COVseq_OAS-2,OAS-2,female,31/3/2020,"Italy, Turin, Mirafiori Sud",24,ill,tired,dead,lung
+NEBNext_OAS-2,OAS-2,female,31/3/2020,"Italy, Turin, Mirafiori Sud",24,ill,tired,dead,lung
+PE300_COVseq_OAS-20,OAS-20,male,31/3/2020,"Italy, Turin, Piemonte",74,,N/A,,laryngopharynx
+PE150_COVseq_OAS-20,OAS-20,male,31/3/2020,"Italy, Turin, Piemonte",74,,N/A,,laryngopharynx
+NEBNext_OAS-20,OAS-20,m,31/3/2020,"Italy, Turin, Piemonte",74,,N/A,,laryngopharynx
+PE300_COVseq_OAS-21,OAS-21,Male,8/4/2020,"Italy, Turin, Turin",76,healthy,fever,healthy,laryngopharynx
+PE150_COVseq_OAS-21,OAS-21,male,8/4/2020,"Italy, Turin, Turin",76,healthy,fever,healthy,laryngopharynx
+NEBNext_OAS-21,OAS-21,Male,8/4/2020,"Italy, Turin, Turin",76,healthy,fever,healthy,laryngopharynx
+PE300_COVseq_OAS-22,OAS-22,female,4/8/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,lung
+PE150_COVseq_OAS-22,OAS-22,Female,4/8/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,lung
+NEBNext_OAS-22,OAS-22,female,4/8/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,lung
+PE300_COVseq_OAS-23,OAS-23,male,2020-4-8,"Italy, Turin, Mirafiori Sud",44,healthy,N/A,healthy,nasopharynx
+PE150_COVseq_OAS-23,OAS-23,male,2020-4-8,"Italy, Turin, Mirafiori Sud",44,healthy,N/A,healthy,nasopharynx
+NEBNext_OAS-23,OAS-23,male,2020-4-8,"Italy, Turin, Mirafiori Sud",44,healthy,N/A,healthy,nasopharynx
+PE300_COVseq_OAS-24,OAS-24,male,8/4/2020,"Italy, Turin, Torino",96,ill,"fever, sore throat",dead,nasopharynx
+PE150_COVseq_OAS-24,OAS-24,male,8/4/2020,"Italy, Turin, Torino",96,ill,"fever, sore throat",dead,nasopharynx
+NEBNext_OAS-24,OAS-24,male,8/4/2020,"Italy, Turin, Torino",96,ill,"fever, sore throat",dead,nasopharynx
+PE300_COVseq_OAS-25,OAS-25,female,8/4/2020,"Italy, Turin, Turin",80,healthy,N/A,healthy,lung
+PE150_COVseq_OAS-25,OAS-25,female,8/4/2021,"Italy, Turin, Turin",80,healthy,N/A,healthy,lung
+NEBNext_OAS-25,OAS-25,female,8/4/2022,"Italy, Turin, Turin",80,healthy,N/A,healthy,lung
+PE300_COVseq_OAS-26,OAS-26,Female,8/4/2020,"Italy, Turin, Madonna di Campagna",19,,N/A,,nasopharynx
+PE150_COVseq_OAS-26,OAS-26,female,8/4/2020,"Italy, Turin, Madonna di Campagna",19,,N/A,,nasopharynx
+NEBNext_OAS-26,OAS-26,female,8/4/2020,"Italy, Turin, Madonna di Campagna",19,,N/A,,nasopharynx
+PE300_COVseq_OAS-27,OAS-27,male,8/4/2020,"Italy, Turin, Turin",68,ill,no taste,dead,laryngopharynx
+PE150_COVseq_OAS-27,OAS-27,male,8/4/2020,"Italy, Turin, Turin",68,ill,no taste,dead,laryngopharynx
+NEBNext_OAS-27,OAS-27,male,8/4/2020,"Italy, Turin, Turin",68,ill,no taste,dead,laryngopharynx
+PE300_COVseq_OAS-28,OAS-28,female,7 April,"Italy, Turin, Torino",30,healthy,N/A,healthy,lung
+PE150_COVseq_OAS-28,OAS-28,F,7 April,"Italy, Turin, Torino",30,healthy,N/A,healthy,lung
+NEBNext_OAS-28,OAS-28,Female,7 April,"Italy, Turin, Torino",30,healthy,N/A,healthy,lung
+PE300_COVseq_OAS-29,OAS-29,male,7/4/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,laryngopharynx
+PE150_COVseq_OAS-29,OAS-29,male,7/4/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,laryngopharynx
+NEBNext_OAS-29,OAS-29,Male,7/4/2020,"Italy, Turin, Turin",56,healthy,N/A,healthy,laryngopharynx
+PE300_COVseq_OAS-3,OAS-3,female,31/3/2020,"Italy, Turin, Turin",41,ill,"sore throat, fatigue, fever",dead,lung
+PE150_COVseq_OAS-3,OAS-3,female,31/3/2020,"Italy, Turin, Turin",41,ill,"sore throat, fatigue, fever",dead,lung
+NEBNext_OAS-3,OAS-3,female,31/3/2020,"Italy, Turin, Turin",41,ill,"sore throat, fatigue, fever",dead,lung
+PE300_COVseq_OAS-4,OAS-4,male,1/4/2020,"Italy, Turin, Nizza Millefonti",0.4,ill,fever,dead,lung
+PE150_COVseq_OAS-4,OAS-4,male,1/4/2020,"Italy, Turin, Nizza Millefonti",0.4,ill,fever,dead,lung
+NEBNext_OAS-4,OAS-4,male,1/4/2020,"Italy, Turin, Nizza Millefonti",0.4,ill,fever,dead,lung
+PE300_COVseq_OAS-5,OAS-5,male,31/3/2020,"Italy, Turin, Turin",23,ill,"fatigue, loss of taste",dead,laryngopharynx
+PE150_COVseq_OAS-5,OAS-5,male,31/3/2020,"Italy, Turin, Turin",23,ill,"fatigue, loss of taste",dead,laryngopharynx
+NEBNext_OAS-5,OAS-5,M,31/3/2020,"Italy, Turin, Turin",23,ill,"fatigue, loss of taste",dead,laryngopharynx
+PE300_COVseq_OAS-6,OAS-6,female,31/3/2020,"Italy, Turin, Turin",59,ill,"fever, sore throat",dead,nasopharynx
+PE150_COVseq_OAS-6,OAS-6,female,31/3/2020,"Italy, Turin, Turin",59,ill,"fever, sore throat",dead,nasopharynx
+NEBNext_OAS-6,OAS-6,female,31/3/2020,"Italy, Turin, Turin",59,ill,"fever, sore throat",dead,nasopharynx
+PE300_COVseq_OAS-7,OAS-7,male,31/3/2020,"Italy, Turin, Turin",45,ill,"fever, throat ache, loss of taste, tired",dead,nasopharynx
+PE150_COVseq_OAS-7,OAS-7,male,31/3/2020,"Italy, Turin, Turin",45,ill,"fever, throat ache, loss of taste, tired",dead,nasopharynx
+NEBNext_OAS-7,OAS-7,male,31/3/2020,"Italy, Turin, Turin",45,ill,"fever, throat ache, loss of taste, tired",dead,nasopharynx
+PE300_COVseq_OAS-8,OAS-8,female,31/3/2020,"Italy, Turin, Madonna di Campagna",76,ill,fever,dead,nasopharynx
+PE150_COVseq_OAS-8,OAS-8,f,31/3/2020,"Italy, Turin, Madonna di Campagna",76,ill,fever,dead,nasopharynx
+NEBNext_OAS-8,OAS-8,f,31/3/2020,"Italy, Turin, Madonna di Campagna",76,ill,fever,dead,nasopharynx
+PE300_COVseq_OAS-9,OAS-9,Female,31/3/2020,"Italy, Turin, Turin",49,ill,fatigue,dead,laryngopharynx
+PE150_COVseq_OAS-9,OAS-9,Female,31/3/2020,"Italy, Turin, Turin",49,ill,fatigue,dead,laryngopharynx
+NEBNext_OAS-9,OAS-9,female,31/3/2020,"Italy, Turin, Turin",49,ill,fatigue,dead,laryngopharynx
+TN9,supernatant-1,Female,31/3/2020,"Italy, Turin, Turin",48,ill,not applicable,dead,
+MS65,supernatant-1,female,31/3/2020,"Italy, Turin, Turin",48,ill,not applicable,dead,
+MS47,supernatant-1,female,31/3/2020,"Italy, Turin, Turin",48,ill,not applicable,dead,
+MS45,supernatant-1,female,31/3/2020,"Italy, Turin, Turin",48,ill,not applicable,dead,

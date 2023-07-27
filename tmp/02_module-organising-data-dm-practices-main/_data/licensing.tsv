@@ -1,0 +1,48 @@
+contentUrl	license
+fig/file-formats/csv-mistake.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/file-formats/excel-to-csv.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/awesome_names.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/chronological_order.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/data1.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/data2.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/data3.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/files_messy_tidy.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/hierarchy.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/human_readable_not_options.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/logical_order.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/plasmid_delimiters.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/plasmid_mac_os_search.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/plasmid_names.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/plasmid_regex.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_attribute2.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_attribute3.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_ex1.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_ex2.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_ex3.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_ex4.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_files.png	Illustration from The Great Data Cleanup Summer Campaign, CC-BY 4.0 2020-2021 by Julie Goldman, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slug_filenames.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/plasmid_delimiters_code.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_data-validation-auto-complete.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_conditional-formatting.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_data-validation-alert.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_data-validation-error-msg.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_data-validation-input-message.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/4_data-validation-whole-num.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/swe-validation.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/data_validation_window.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/data_validation.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/quality-control/eng-validation.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/storage/life-cycle.png	Data life cycle by SciLifeLab
+fig/storage/Provenance.jpg	The Turing Way project illustration CC-BY 4.0 by Scriberia, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/2_Multiple_Tables.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/3_white_table_1.jpg	Table 1 from Nine simple ways to make it easier to (re)use your data, CC-BY 4.0 by Ethan P. White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp, https://doi.org/10.4033/iee.2013.6b.6.f
+fig/tabular-data/5_excel_dates_1.jpg	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/formatting.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/good_formatting.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/multiple-info.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/single-info.png	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/tabular-data/spreadsheet-setup-updated.png	Data Organization in Spreadsheets for Ecologists, CC-BY 4.0 by Data Carpentry, https://datacarpentry.org/spreadsheet-ecology-lesson/
+data/training_attendance.xlsx	Tidy data for librarians, CC-BY 4.0 by Library Carpentry, https://creativecommons.org/licenses/by/4.0/
+fig/files-and-folders/slide_docs2.png	File Organization, CC-BY 4.0 by Data Carpentry, https://creativecommons.org/licenses/by/4.0/
+data/module-organising-data-dm-practice-oct-2021.pdf	Presentation CC BY 4.0 by NBIS, https://creativecommons.org/licenses/by/4.0/ 

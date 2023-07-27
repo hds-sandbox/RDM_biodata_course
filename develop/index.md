@@ -31,7 +31,11 @@ Research Data Management (RDM) for Next Generation Sequencing (NGS) data is a fo
 <!-- AUTHORS -->
 <h4>Authors</h4>
 
+<center>
+
 [cards cols="3"(./develop/cards/cards.yaml)]
+
+</center>
 
 <hr>
 

@@ -83,23 +83,41 @@ Effective data management can significantly benefit research, providing advantag
 
 ### The cost of bad RDM practices
 
-Do these pictures look familiar to you?
-
-<p align="right">
-
-<a href="https://www.su.se/staff/researchers/research-data/manage-store-data">
-<img src="./images/data_mess.jpg" alt="Messy office"/>
-<figcaption>Photo by Wonderlane on Unsplash.</figcaption>
-
-</p>
-
-
-Several surveys have shown that data scientists spend between 50-70% of their time loading and cleaning data, becoming the most consuming tasks (and many would call it tedious) of their jobs [@anaconda_report;@forbes_article]. Below we show the number figures from the [Anaconda "State of data science 2020" report](https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020)[@anaconda_report].
+Several surveys have shown that data scientists spend between 40-60% of their time loading and cleaning data, becoming the most consuming tasks and many would call it tedious of their jobs[@anaconda_report;@forbes_article]. Below we show the number figures from the [Anaconda "State of data science 2020" report](https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020)[@anaconda_report].
 
 <p align="center">
 
 <img src="./images/cleaning_data.png" alt="Time spent in different tasks by data scientists"/>
 <figcaption>Time spent in different tasks by data scientists, Anaconda State of data science report 2020.</figcaption>
+
+</p>
+
+Could you think why? Maybe this pictures look familiar to you...
+
+<p align="center">
+
+<a href="https://www.su.se/staff/researchers/research-data/manage-store-data">
+<img src="./images/data_mess.jpg" alt="Messy office"/>
+<figcaption>Photo by Wonderlane on Unsplash.</figcaption>
+</a>
+
+</p>
+
+<p align="center">
+
+<img src="./images/messy_folder_structure.jpg" alt="Messy folder structuree"/>
+<figcaption>Messy folder structure, by my old-self.</figcaption>
+
+</p>
+
+Or ever felt like this?
+
+<p align="center">
+
+<a href="https://reproducibility.stanford.edu/how-not-to-get-lost-in-your-data/">
+<img src="./images/data_wave.png" alt="Data wave"/>
+<figcaption>From Stanford Center for Reproducible Neuroscience.</figcaption>
+</a>
 
 </p>
 

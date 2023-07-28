@@ -157,16 +157,17 @@ copyright: CC-BY-SA 4.0 license
 
 nav:
   - Introduction: index.md
-  - What is RDM: 01_RDM_intro.md
-  - NGS data: 02_NGS_data.md
-  - Data Life Cycle: 03_data_life_cycle.md
-  - Open Science and FAIR principles: 04_OS_FAIR.md
-  - Data Management Plans: 05_DMP.md
-  - Folder and file structures: 06_file_structure.md
-  - Metadata applied to NGS data: 07_metadata.md
-  - Create a database of your data and projects: 08_database.md
-  - Version control of your data analysis: 09_version_control.md
-  - Archiving and repositories: 10_repos.md
+  - Course contents:
+    - What is RDM: 01_RDM_intro.md
+    - NGS data: 02_NGS_data.md
+    - Data Life Cycle: 03_data_life_cycle.md
+    - Open Science and FAIR principles: 04_OS_FAIR.md
+    - Data Management Plans: 05_DMP.md
+    - Folder and file structures: 06_file_structure.md
+    - Metadata applied to NGS data: 07_metadata.md
+    - Create a database of your data and projects: 08_database.md
+    - Version control of your data analysis: 09_version_control.md
+    - Archiving and repositories: 10_repos.md
   - Keyword index: keywords.md
   - Contributors: contributors.md
   

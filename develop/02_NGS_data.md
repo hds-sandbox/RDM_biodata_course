@@ -1,8 +1,6 @@
 ﻿---
 title: General page
 summary: A brief description of my document.
-hide:
-  - navigation
 ---
 
 <!--

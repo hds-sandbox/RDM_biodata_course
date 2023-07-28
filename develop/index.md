@@ -31,11 +31,7 @@ Research Data Management (RDM) for Next Generation Sequencing (NGS) data is a fo
 <!-- AUTHORS -->
 <h4>Authors</h4>
 
-<center>
-
 [cards cols="3"(./develop/cards/cards.yaml)]
-
-</center>
 
 <hr>
 
@@ -63,7 +59,7 @@ Research Data Management (RDM) for Next Generation Sequencing (NGS) data is a fo
     :man_technologist: **Target Audience:** PhD, MsC, anyone interested in RDM for NGS data.
     [comment]: # (Property in Bioschema: audience)
 
-    :woman_student: **Level:** Beginner
+    :woman_student: **Level:** Beginner.
     [comment]: # (Property in Bioschema: educationalLevel)
 
     :lock: **License:** [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license.](https://creativecommons.org/licenses/by-sa/4.0/legalcode)

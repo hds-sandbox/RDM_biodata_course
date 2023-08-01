@@ -12,9 +12,10 @@ summary: In this lesson we talk about what is NGS, and what kind of data falls u
     &#128368; **Time Estimation:** X minutes  
 
     &#128172; **Learning Objectives:**    
-        1. Learn about what is Next Generation Sequencing  
-        2. Learn about different types of NGS data
-        3. Learn about the specific challenges regarding RDM for NGS data
+    
+    1. Learn about what is Next Generation Sequencing  
+    2. Learn about different types of NGS data
+    3. Learn about the specific challenges regarding RDM for NGS data
 
 In this session, we'll explore the essentials of Next Generation Sequencing technology, which generates vast data volumes in a single experiment. We'll examine the types of data produced during an NGS experiment and the results created from the downstream analysis. Moreover, we'll address specific challenges NGS encounters in RDM, such as, managing genomic resources, pipelines/workflows, data analysis, data preservation and documentation. We will also mention briefly concerns regarding sensitive data and GDPR protection of NGS data.
 

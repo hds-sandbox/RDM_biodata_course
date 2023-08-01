@@ -33,13 +33,17 @@ Let's take a look at each of the phases:
 
 ### Plan
 
-The management of research data must be thoroughly considered before physical materials and digital data are collected, observed, generated, created or reused. Data management plans (DMP) must be developed and documented, preferably in electronic format. DMPs should be updated when significant changes to the management of research data occur and (references to) the DMP should be stored with the corresponding research data as long as they exist.
+In the planning stage, researchers define the objectives of their data collection and analysis, identify data requirements, and develop a data management plan. This plan outlines how data will be collected, stored, and shared, as well as ethical and legal considerations.
+
+The management of research data must be thoroughly considered before physical materials (samples, model organisms, reagents or media, etc) and digital data (bioinformatics data) are collected, observed, generated, created or reused. Data management plans (DMP) must be developed and documented, preferably in electronic format. DMPs should be updated when significant changes to the management of research data occur and (references to) the DMP should be stored with the corresponding research data as long as they exist.
 
 The DMP should be discussed with project collaborators, research managers and supervisors (if any), ensuring that agreements are reached regarding responsibilities for different research data management activities during and after research projects.
 
 We will check about how to write a DMP for NGS data in the [5th lesson](./05_DMP.md).
 
 ### Collect and Document
+
+In this stage, researchers gather the data according to their plan. They document important details about the data, such as its source, collection methods, and any modifications made during data acquisition. Proper documentation ensures data quality and facilitates later use.
 
 Research data should be collected and processed in line with best practice in the research discipline. Research projects should be documented in a way that allows them to be repeated by others. Among other things, this includes clearly and accurately describing project methodology and any equipment, software or code used. This includes workflows for data preprocessing and how you will structure and organize your files.
 
@@ -49,7 +53,19 @@ In addition, research data should be described using appropriate metadata to fac
 
 We will see about what kind of metadata you can use for your NGS data in the [7th lesson](./07_metadata.md)
 
+### Process and analyse
+
+This in the data life cycle for NGS data is a critical phase that involves transforming raw sequencing data into meaningful biological insights. During this stage, researchers apply computational methods and bioinformatics tools to extract valuable information from the vast amount of sequencing data generated in NGS experiments.
+
+Throughout this phase, researchers should adhere to good coding practices, ensuring well-documented and reproducible analyses. Code notebooks and version control tools, such as Git, help maintain transparency and facilitate the sharing of methods and results with the scientific community.
+
+To streamline and standardize the data analysis process, researchers often employ workflows and pipelines. Workflows automate the execution of multiple analysis steps, enhancing efficiency and consistency while promoting reproducibility. The NGS research community benefits from collaborative efforts, such as the nf-core community, which provides pre-established and validated Nextflow-based pipelines for various NGS applications. Leveraging community-developed pipelines ensures adherence to best practices and accelerates the pace of research through shared expertise.
+
+We will see more about version control in [lesson 9](./09_version_control.md)
+
 ### Store and Secure
+
+Storing data securely is essential to protect it from loss, unauthorized access, and corruption. Researchers must choose appropriate storage solutions and implement data security measures to safeguard sensitive or confidential information.
 
 Research data must be classified at the start of a research project on the basis of the level of sensitivity and the impact to the University if data are disclosed, altered or destroyed without authorisation. Risks to data security and of data loss should be assessed in relation to the data classification. This includes evaluating:
 
@@ -69,6 +85,8 @@ e. Financial, regulatory and technical consequences of working with data, data s
 
 ### Sharing
 
+Sharing data is an important aspect of the data life cycle. Researchers are encouraged to share their data openly whenever possible, adhering to Open Science and FAIR principles. Data sharing fosters collaboration, increases the visibility of research, and enables data reuse by others.
+
 Legislation or agreements may preclude research data sharing or impose conditions for sharing. Before sharing research data, the relevant approvals need to be obtained and, if necessary, the appropriate agreements set up to allow data and material sharing.
 
 By default, research data should be made openly available after project end, as a minimum for data sets underlying research publications. Concerns relating to intellectual property rights, personal data protection, information security as well as commercial and national interests and legislation must be taken into account in accordance with the principle of ‘as open as possible, as closed as necessary’.  If the research data cannot be made available, sharing the metadata associated with the research data should be considered.
@@ -82,6 +100,8 @@ d. Providing the information necessary to understand how data sets were created 
 The level of compliance with the FAIR principles, in addition to the minimum requirements described above, is defined by the individual research discipline in relation to international norms and standards in that discipline.
 
 ### Preserve
+
+Data preservation ensures that valuable research data is available and usable in the long term. Researchers should deposit data in trusted data repositories or archives, ensuring its ongoing accessibility and future use by the scientific community.
 
 Appropriate arrangements for the long-term preservation of digital data, physical material and associated metadata must be made, adhering to legislation and/or agreements. This should include:
 

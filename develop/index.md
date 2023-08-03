@@ -92,10 +92,12 @@ The course concludes with a focus on archiving and data repositories, enabling p
 ### Acknowledgements
 
 - University of Copenhagen Research Data Management Team.
-- Richard Dennis, Data Steward, NNF Center for Stem Cell Biology (reNEW), University of Copenhagen.
-- NBISweden.
-- RDMkit, Elixir Research Data Management Platform.
+- [Richard Dennis](https://data-champions.renew-platforms.dk/), Data Steward, NNF Center for Stem Cell Biology (reNEW), University of Copenhagen.
+- [NBISweden](https://uppsala.instructure.com/courses/48087/pages/introduction-to-data-management-practices).
+- [RDMkit](https://rdmkit.elixir-europe.org/index), Elixir Research Data Management Platform.
 
+<!-- 
 ### References
 
-\bibliography
+\full_bibliography
+OVERVIEW OF COURSE -->

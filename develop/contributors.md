@@ -15,17 +15,17 @@ hide:
 
 | CRediT role                                                                                     | Initials |
 |-------------------------------------------------------------------------------------------------|----------|
-| [Conceptualization](https://credit.niso.org/contributor-roles/conceptualization/)               |          |
-| [Data curation](https://credit.niso.org/contributor-roles/data-curation/)                       |          |
-| [Formal Analysis](https://credit.niso.org/contributor-roles/formal-analysis/)                   |          |
-| [Funding acquisition](https://credit.niso.org/contributor-roles/funding-acquisition/)           |          |
-| [Investigation](https://credit.niso.org/contributor-roles/investigation/)                       |          |
-| [Methodology](https://credit.niso.org/contributor-roles/methodology/)                           |          |
-| [Project administration](https://credit.niso.org/contributor-roles/project-administration/)     |          |
-| [Resources](https://credit.niso.org/contributor-roles/resources/)                               |          |
-| [Software](https://credit.niso.org/contributor-roles/software/)                                 |          |
-| [Supervision](https://credit.niso.org/contributor-roles/supervision/)                           |          |
-| [Validation](https://credit.niso.org/contributor-roles/validation/)                             |          |
-| [Visualization](https://credit.niso.org/contributor-roles/visualization/)                       |          |
-| [Writing - original draft](https://credit.niso.org/contributor-roles/writing-original-draft/)   |          |
-| [Writing - review & editing](https://credit.niso.org/contributor-roles/writing-review-editing/) |          |
+| [Conceptualization](https://credit.niso.org/contributor-roles/conceptualization/)               |   JARH   |
+| [Data curation](https://credit.niso.org/contributor-roles/data-curation/)                       |   JARH   |
+| [Formal Analysis](https://credit.niso.org/contributor-roles/formal-analysis/)                   |   JARH   |
+| [Funding acquisition](https://credit.niso.org/contributor-roles/funding-acquisition/)           |   JARH   |
+| [Investigation](https://credit.niso.org/contributor-roles/investigation/)                       |   JARH   |
+| [Methodology](https://credit.niso.org/contributor-roles/methodology/)                           |   JARH   |
+| [Project administration](https://credit.niso.org/contributor-roles/project-administration/)     |   JARH   |
+| [Resources](https://credit.niso.org/contributor-roles/resources/)                               |   JARH   |
+| [Software](https://credit.niso.org/contributor-roles/software/)                                 |   JARH   |
+| [Supervision](https://credit.niso.org/contributor-roles/supervision/)                           |   JARH   |
+| [Validation](https://credit.niso.org/contributor-roles/validation/)                             |   JARH   |
+| [Visualization](https://credit.niso.org/contributor-roles/visualization/)                       |   JARH   |
+| [Writing - original draft](https://credit.niso.org/contributor-roles/writing-original-draft/)   |   JARH   |
+| [Writing - review & editing](https://credit.niso.org/contributor-roles/writing-review-editing/) |   JARH   |

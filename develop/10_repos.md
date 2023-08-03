@@ -30,72 +30,11 @@ hide:
     
 Write your introduction to the page here.
 
-<hr>
+## 6. `Project` archiving in Zenodo
 
-## Useful functions
+Before submitting, link the repository to [Zenodo](https://zenodo.org/) and then create a Git release. This release will be caught by Zenodo and will give you a DOI that you can submit along the manuscript.
 
-You should continue to write your markdown document as normal. But here are some useful functions. 
-You can find more in the Reference guide listed on the tab above. **Be sure to delete the guide 
-and the tips below when finished with them.**
+## 7. Data upload to GEO
 
-### Code
-
-Text will be highlighted appropriately when you include language abbreviation:
-
-```py
-import tensorflow as tf
-```
-
-### Admonitions
-
-The admonitions used for course/section overview and requirements should be consistent, though you 
-can use any other admonitions freely.
-
-Examples (both drop-down and not):
-
-<!-- !!! = no drop-down -->
-
-!!! quote
-    Here is a quote
-
-<!-- ??? = drop-down -->
-
-??? question "What is the smallest country in the world?"
-    A: Vatican City
-
-
-### Footnotes
-
-We can include footnotes like this one[^1].
-
-
-### LaTeX
-
-You write an equation as normal:
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
-
-### Images 
-
-Format is similar to links, but include an exclamation mark before: 
-
-![Image title](https://dummyimage.com/600x400/eee/aaa)
-
-You can link to a URL or to somewhere locally.
-
-### Tables
-
-You can render tables directly like this:
-
-```
-{{ read_csv('./assets/samplesheet.csv') }}
-```
-
-{{ read_csv('./assets/samplesheet.csv') }}
-
-<!-- Footnote content -->
-
-[^1]: Remember to eat your vegetables.
+The raw data from NGS experiments will be uploaded to the [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/).
+Whenever a new Assay folder is created, the data owner must fill up the required documentation and information needed to make the GEO submission as smooth as possible.

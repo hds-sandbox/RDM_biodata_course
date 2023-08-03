@@ -148,15 +148,7 @@ The project folder should be named after a unique identifier, such as:
 
 <!-- **Note2**: shouldn't there be also a project_metadata.yaml here as well? also a project_description.yaml too? -->
 
-### 1.4 Synchronization with DanGPU server
-
-We will have to setup a cron job to perform one-way sync between the `/projects`
-folder and `NGS_data` folder. All the analysis will be done on danGPU server,
-with **no exceptions**!
-
-After project is done and published, it will be moved to `NGS_data`.
-
-### 1.5 General naming conventions and more info
+### General naming conventions
 
 - date format: `YYYYMMDD`
 - authors: initials

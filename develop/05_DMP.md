@@ -30,72 +30,16 @@ hide:
     
 Write your introduction to the page here.
 
-<hr>
-
-## Useful functions
-
-You should continue to write your markdown document as normal. But here are some useful functions. 
-You can find more in the Reference guide listed on the tab above. **Be sure to delete the guide 
-and the tips below when finished with them.**
-
-### Code
-
-Text will be highlighted appropriately when you include language abbreviation:
-
-```py
-import tensorflow as tf
-```
-
-### Admonitions
-
-The admonitions used for course/section overview and requirements should be consistent, though you 
-can use any other admonitions freely.
-
-Examples (both drop-down and not):
-
-<!-- !!! = no drop-down -->
-
-!!! quote
-    Here is a quote
-
-<!-- ??? = drop-down -->
-
-??? question "What is the smallest country in the world?"
-    A: Vatican City
 
 
-### Footnotes
+!!! quote "From the University of Copenhagen RDM team"
+    ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​A Data Management Plan (DMP) is a planning tool that helps researchers to establish good practices for working with physical m​aterial and data in a research project. A DMP covers all relevant aspects of research data management throughout the project.
+    Writing a DMP early on in a project helps:
 
-We can include footnotes like this one[^1].
+    - identify potential issues with the management of research data.
+    - comply with relevant legislation, policies, and funder requirements.
+    - document agreements related to the collection, usage, and dissemination of research data between project partners or between student and supervisor.
 
+We are have written a DMP template that it is prefilled with repetitive information using [DMPonline](https://dmponline.deic.dk/) and the Horizon Europe guidelines. This template contains all the necessary information regarding common practices that we will use, the repositories we use for NGS, etc. The template is part of the `project` folder template, under `documents`. You can check the file [here](https://github.com/brickmanlab/ngs-template/blob/master/project/%7B%7B%20cookiecutter.project%20%7D%7D/documents/Non-sensitive_NGS_research_project_template.docx).
 
-### LaTeX
-
-You write an equation as normal:
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
-
-### Images 
-
-Format is similar to links, but include an exclamation mark before: 
-
-![Image title](https://dummyimage.com/600x400/eee/aaa)
-
-You can link to a URL or to somewhere locally.
-
-### Tables
-
-You can render tables directly like this:
-
-```
-{{ read_csv('./assets/samplesheet.csv') }}
-```
-
-{{ read_csv('./assets/samplesheet.csv') }}
-
-<!-- Footnote content -->
-
-[^1]: Remember to eat your vegetables.
+The Horizon Europe template is mostly focused on digital data and so, it is maybe not the best option regarding the needs of the Brickman Lab, due to the fact that it is mostly a wet lab with some bioinformatics. We will start working on another DMP based on the KU template, which is designed for both physical and digital data.

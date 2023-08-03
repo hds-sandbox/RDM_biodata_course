@@ -30,72 +30,16 @@ hide:
     
 Write your introduction to the page here.
 
-<hr>
+## 3. Data catalogue and browser
 
-## Useful functions
+@SLundregan is in the process of building a prototype for `Assay`, using the metadata contained in all `description.yml` and `metadata.yml` files in the assay folder.
+This will be in the form of an SQLite database that that is easily updatable by running a helper script.
 
-You should continue to write your markdown document as normal. But here are some useful functions. 
-You can find more in the Reference guide listed on the tab above. **Be sure to delete the guide 
-and the tips below when finished with them.**
+@SLundregan is also working on a browsable database using [Panel python app](https://panel.holoviz.org/).
+The app will display the latest version of the SQLite database. Clicking on an item from the database
+will open a tab containing all available metadata for the assay.
 
-### Code
+Also, it would be nice if you can create an `Assay` folder directly from there,
+making it easy to fill up the info for the metadata and GEO submission ([see below](#8-data-upload-to-geo))
 
-Text will be highlighted appropriately when you include language abbreviation:
-
-```py
-import tensorflow as tf
-```
-
-### Admonitions
-
-The admonitions used for course/section overview and requirements should be consistent, though you 
-can use any other admonitions freely.
-
-Examples (both drop-down and not):
-
-<!-- !!! = no drop-down -->
-
-!!! quote
-    Here is a quote
-
-<!-- ??? = drop-down -->
-
-??? question "What is the smallest country in the world?"
-    A: Vatican City
-
-
-### Footnotes
-
-We can include footnotes like this one[^1].
-
-
-### LaTeX
-
-You write an equation as normal:
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
-
-### Images 
-
-Format is similar to links, but include an exclamation mark before: 
-
-![Image title](https://dummyimage.com/600x400/eee/aaa)
-
-You can link to a URL or to somewhere locally.
-
-### Tables
-
-You can render tables directly like this:
-
-```
-{{ read_csv('./assets/samplesheet.csv') }}
-```
-
-{{ read_csv('./assets/samplesheet.csv') }}
-
-<!-- Footnote content -->
-
-[^1]: Remember to eat your vegetables.
+In the future, you could ideally visualize an analysed single cell RNAseq dataset by opening [Cirrocumulus](https://cirrocumulus.readthedocs.io/en/latest/) session.

@@ -27,75 +27,21 @@ hide:
         1. First item  
         2. Second item  
 
-    
 Write your introduction to the page here.
 
-<hr>
+## 2. Metadata and documentation
 
-## Useful functions
+Accurate documentation and metadata play a crucial role in facilitating data discovery and interpretation. Consider the following guidelines:
 
-You should continue to write your markdown document as normal. But here are some useful functions. 
-You can find more in the Reference guide listed on the tab above. **Be sure to delete the guide 
-and the tips below when finished with them.**
+- Metadata capture: Record essential metadata for each dataset, including type of experiment, date, organisms, etc. This information provides context and helps others understand and reuse the data effectively.
+- Readme files: Create readme files for each project or dataset. These files should provide a brief overview of the project, list the files and their descriptions, and explain any specific instructions or dependencies required for data analysis.
 
-### Code
+### 2.1 Assay metadata fields
 
-Text will be highlighted appropriately when you include language abbreviation:
+{{ read_table('./assets/assay_metadata.tsv') }}
 
-```py
-import tensorflow as tf
-```
+### 2.2 Project metadata fields
 
-### Admonitions
+In development.
 
-The admonitions used for course/section overview and requirements should be consistent, though you 
-can use any other admonitions freely.
-
-Examples (both drop-down and not):
-
-<!-- !!! = no drop-down -->
-
-!!! quote
-    Here is a quote
-
-<!-- ??? = drop-down -->
-
-??? question "What is the smallest country in the world?"
-    A: Vatican City
-
-
-### Footnotes
-
-We can include footnotes like this one[^1].
-
-
-### LaTeX
-
-You write an equation as normal:
-
-$$
-\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
-$$
-
-
-### Images 
-
-Format is similar to links, but include an exclamation mark before: 
-
-![Image title](https://dummyimage.com/600x400/eee/aaa)
-
-You can link to a URL or to somewhere locally.
-
-### Tables
-
-You can render tables directly like this:
-
-```
-{{ read_csv('./assets/samplesheet.csv') }}
-```
-
-{{ read_csv('./assets/samplesheet.csv') }}
-
-<!-- Footnote content -->
-
-[^1]: Remember to eat your vegetables.
+{{ read_table('./assets/project_metadata.tsv') }}

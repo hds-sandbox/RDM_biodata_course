@@ -3,18 +3,6 @@ title: Introduction to Open Science and FAIR principles
 summary: In this lesson we provide a short intro to what is Open Science and FAIR principles
 ---
 
-<!--
-# Put above to hide navigation (left), toc (right) or footer (bottom)
-
-hide:
-  - navigation 
-  - toc
-  - footer 
-
-# You should hide the navigation if there are no subsections
-# You should hide the Table of Contents if there are no important titles
--->
-
 # Introduction to Open Science and FAIR principles
 
 **Last updated:** *{{ git_revision_date_localized }}*

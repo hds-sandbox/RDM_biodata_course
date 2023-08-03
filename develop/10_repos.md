@@ -24,10 +24,10 @@ hide:
     &#128368; **Time Estimation:** X minutes  
 
     &#128172; **Learning Objectives:**    
-        1. First item  
-        2. Second item  
-
     
+    1. First item  
+    2. Second item  
+  
 Write your introduction to the page here.
 
 ## 6. `Project` archiving in Zenodo

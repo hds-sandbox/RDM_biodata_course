@@ -3,18 +3,6 @@ title: RDM intro
 summary: An introduction to Research Data Management from the point of view of the University of Copenhagen.
 ---
 
-<!--
-# Put above to hide navigation (left), toc (right) or footer (bottom)
-
-hide:
-  - navigation 
-  - toc
-  - footer 
-
-# You should hide the navigation if there are no subsections
-# You should hide the Table of Contents if there are no important titles
--->
-
 # Introduction to Research Data Management
 
 **Last updated:** *{{ git_revision_date_localized }}*
@@ -45,7 +33,6 @@ While the meaning of Research Data Management might be obvious, it is a good ide
 
     The literal [meaning](https://www.merriam-webster.com/dictionary/management) of *Management* is "the practice of managing; handling, supervision, or control."
 
-
 On the other hand, we have *Research Data*:
 
 !!! note "Meaning of Research Data"
@@ -53,7 +40,6 @@ On the other hand, we have *Research Data*:
     In accordance with the UCPH Policy for Research Data Management[@UCPH_guidelines], research data encompasses both physical material and digital information gathered, observed, produced, or formulated during research activities carried out at UCPH. This broad definition includes various types of data serving as the foundation for the research, such as specimens, notebooks, interviews, texts, literature, digital raw data, recordings, computer code, and meticulous documentation of these materials and data, forming the core of the analysis that underlies the research outcomes.
 
 So, our goal is to handle and control the data that we generate during our research, including **both physical and digital** data! This must be done **throughout the whole life [cycle of the data](#research-data-cycle)**.
-
 
 Nonetheless, we will focus on the **digital part** of our data.
 

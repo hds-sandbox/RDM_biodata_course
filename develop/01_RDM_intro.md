@@ -15,7 +15,7 @@ hide:
 # You should hide the Table of Contents if there are no important titles
 -->
 
-# General Page
+# Introduction to Research Data Management
 
 **Last updated:** *{{ git_revision_date_localized }}*
 

@@ -24,13 +24,12 @@ hide:
     &#128368; **Time Estimation:** X minutes  
 
     &#128172; **Learning Objectives:**    
-        1. First item  
-        2. Second item  
+    1. First item  
+    2. Second item  
 
-    
 Write your introduction to the page here.
 
-## 1. Folder structure and organization
+## Folder structure and organization
 
 To ensure efficient data management, it is important to establish a consistent approach to organizing research data. We consider the following practices:
 
@@ -38,7 +37,7 @@ To ensure efficient data management, it is important to establish a consistent a
 - Subfolders: Use subfolders to further categorize data based on their contents, such as code notebooks, results, reports, etc. This helps to keep data organized and facilitates quick retrieval.
 - File naming conventions: implement a standardized file naming convention to ensure consistency and clarity. Use descriptive names that include relevant information, such as type of plots, results tables, etc.
 
-### 1.1 Template engine
+### Template engine
 
 We are currently using a [cookiecutter](https://github.com/cookiecutter/cookiecutter)
 template to generate a [folder structure](https://github.com/brickmanlab/ngs-template).
@@ -47,7 +46,7 @@ allow us to validate and sync old templates with the latest version.
 
 See [this section](./starting-assay-project.md) to get started with a new project/assay.
 
-### 1.2 Assay folder
+### Assay folder
 
 For each NGS experiment there should be an `Assay` folder that will contain all experimental datasets (raw files and pipeline processed files).
 Inside `Assay` there will be subfolders named after a unique NGS ID and the date it was created:
@@ -92,7 +91,7 @@ CHIP_20230424
     - *.fastq.gz*:In the case of NGS assays, there should be fastq files.
     - *samplesheet.csv*: file that contains metadata information for the samples. This file is used to run the nf-core pipelines. Ideally, it will also contain a column with info regarding the experimental variables and batches so it can be used for down stream analysis as well.
 
-### 1.3 Project folder
+### Project folder
 
 There should be another folder called `Projects` that will contain project information and data analysis.
 

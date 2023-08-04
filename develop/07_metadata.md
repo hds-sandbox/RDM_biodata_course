@@ -35,3 +35,6 @@ Accurate documentation and metadata play a crucial role in facilitating data dis
 In development.
 
 {{ read_table('./assets/project_metadata.tsv') }}
+
+
+[Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)

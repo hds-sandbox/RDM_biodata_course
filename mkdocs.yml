@@ -163,7 +163,7 @@ nav:
     - Data Life Cycle: 03_data_life_cycle.md
     - Open Science and FAIR principles: 04_OS_FAIR.md
     - Data Management Plans: 05_DMP.md
-    - Folder and file structures: 06_file_structure.md
+    - File structure and naming conventions: 06_file_structure.md
     - Metadata applied to NGS data: 07_metadata.md
     - Create a database of your data and projects: 08_database.md
     - Version control of your data analysis: 09_version_control.md

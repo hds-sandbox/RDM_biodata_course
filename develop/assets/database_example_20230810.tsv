@@ -1,0 +1,6 @@
+assay_ID	assay_type	assay_subtype	owner	platform	extraction_method	library_method	external_accessions	keyword	date	nsamples	is_paired	pipeline	strandedness	processed_by	organism	origin	path	short_desc	ELN_ID
+RNA_oct4_20200101	RNAseq	bulk RNAseq	Sarah Lundregan	NextSeq 2000				oct4	20200101	9	paired	nf-core/chipseq 2.3.1	*	SL	Mus musculus	internal		Bulk RNAseq of Oct4 knockout	234
+CHIP_oct4_20200101	ChIPseq	bulk ChIPseq	Jose Romero	NextSeq 2000				oct4	20200101	9	single	nf-core/rnaseq 3.12.0	*	JARH	Mus musculus	internal		Bulk ChIPseq of Oct4 overexpression	123
+CHIP_med1_20190204	ChIPseq	bulk ChIPseq	Martin Proks	NextSeq 2000				med1	20190204	12	single	nf-core/rnaseq 3.12.0	*	MP	Mus musculus	internal		Bulk ChIPseq of Med1 overexpression	345
+SCR_humanSkin_20210302	RNAseq	single cell RNAseq	Jose Romero	NextSeq 2000				humanSkin	20210302	23123	paired	nf-core/scrnaseq 1.8.2	*	JARH	Homo sapiens	external		scRNAseq analysis of human skin development	
+SCR_humanBrain_20220610	RNAseq	single cell RNAseq	Martin Proks	NextSeq 2000				humanBrain	20220610	1234	paired	custom	*	MP	Homo sapiens	external		scRNAseq analysis of human brain development	

@@ -38,8 +38,6 @@ Version control is a systematic approach to tracking changes made to a project o
 
 !!! success "Advantages of using version control"
 
-    It offers a methodical way to:
-
     1. **Document Progress**: Version control keeps a detailed history of changes, making it easier to understand how a project has developed, what modifications were made, and by whom.
     2. **Ensure Data Integrity**: It safeguards data by preventing accidental overwrites or deletions. Each change is tracked, enabling easy recovery in case of errors.
     3. **Facilitate Collaboration**: In collaborative research, version control enables multiple team members to work simultaneously on a project without conflicts. Changes can be merged seamlessly.
@@ -51,7 +49,7 @@ Version control is a systematic approach to tracking changes made to a project o
 
 !!! warning
 
-    In this section we will only talk briefly about what is Git and Github. Explaining how git works is beyond the scope of this course. If you want to know more, please check out our [courses](https://heads.ku.dk/course/git_github/)!
+    In this section we will only talk briefly about what is Git and Github. Explaining how git works is beyond the scope of this course. If you want to know more, please check out our [course](https://heads.ku.dk/course/git_github/)! You can also check [GitHub documentation](https://docs.github.com/get-started), which cover all the basics to work with Git and GitHub.
 
 ### Version control using Git
 
@@ -80,15 +78,15 @@ We will show you two ways to make your `Project` folder into a Git repository
 
 !!! warning "What about my Assay folder?"
 
-    An assay folder contains very big files that are not suitable for version control, at least in GitHub. We recommend that you deposit the data into a domain specific archive such as GEO or ArrayExpress. Even Zenodo would be a better option in this case. 
+    An assay folder contains very big files that are not suitable for version control, at least in GitHub. We recommend that you deposit the data into a domain specific archive such as [GEO](https://www.ncbi.nlm.nih.gov/geo/) or [ArrayExpress/Annotare](https://www.ebi.ac.uk/fg/annotare/login/). Even [Zenodo](https://zenodo.org/) would be a better option in this case. We will look at them in the [next session](./10_repos.md).
     
     Remember to link the original dataset with the data analysis repository!
 
 ### Creating a git repo from an existing folder
 
-Your project may already exist locally, but it doesn't have Git yet. `git init` is probably the right choice for you if you have created a `Project` folder using the cookiecutter template we saw in the [previous lesson](./06_file_structure.md).
+Using [`git init`](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github) is probably the right choice for you if you have created a `Project` folder using the cookiecutter template we saw in the [previous lesson](./06_file_structure.md).
 
-The `git init` command will only be run once, even if other collaborators share the project.
+The `git init` command should only be run once, even if other collaborators share will the project!
 
 - First, initialize the repository (`git init`) and make at least one commit (`git add` and `git commit`).
 - Once you have initialized the repository, create a remote repository in [GitHub](https://github.com/)
@@ -108,4 +106,81 @@ If the repository already exists on a remote, you would choose to `git clone` an
 
 Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns or html reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub as put for you.
 
-There are many different ways to create your webpages. We recommend using Mkdocs and Mkdocs materials as a framework to create a super nice webpage in a simple manner. The folder templates that we used as an example in [lesson 06](./06_file_structure.md) already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of [MkDocs](https://www.mkdocs.org/) and [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website.
+There are many different ways to create your webpages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage in a simple manner. The folder templates that we used as an example in [lesson 06](./06_file_structure.md) already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of [MkDocs](https://www.mkdocs.org/) and [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their webpages to get started!
+
+## A full setup example
+
+In this section we will showcase a full example about how to setup Git, MkDocs and a github account so you can do it yourself!
+
+### Install all required tools and software
+
+There are several tools and softwares that you need to install. First you will need `pip` and install the following packages using pip in the command line:
+
+```bash
+pip install cookiecutter # cookiecutter to create folder templates
+pip install cruft # cruft is used to version control your templates
+pip install mkdocs # mkdocs to create your webpages
+pip install mkdocs-material # mkdocs extension to customize your templates
+pip install mkdocs-video # mkdocs extension to add videos or embed internet videos, like youtube, to your webpages
+pip install mkdocs-bibtex # mkdocs extension to add references in your text from a bib file
+pip install neoteroi-mkdocs # mkdocs extension to create author cards
+pip install mkdocs-minify-plugin # mkdocs extension to minimize the html code created by mkdocs
+pip install mkdocs-git-revision-date-localized-plugin  # mkdocs extension to show "last updated" date of your webpage
+pip install mkdocs-jupyter # mkdocs extension to include jupyter notebooks without needing to convert them
+pip install mkdocs-table-reader-plugin # mkdocs extension to embed tabular format files like tsv or csv
+```
+
+Lastly and very importantly, install Git from their [webpage](https://git-scm.com/downloads).
+
+### Create your own GitHub account
+
+Go to [Github](https://github.com/) and create a new user.
+
+### Create a GitHub organization for your lab or department
+
+GitHub allows users to create organizations and teams that will collaborate together or create repositories under the same umbrella organization. If you would like to create an educational organization in GitHub, you can do so for free! For example, you could create a GitHub account for your lab.
+
+In order to create a GitHub organization, follow these [instructions](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+
+After you have created the GitHub organization, make sure that you create your repositories under the organization space and not your own user!
+
+### Configure your main GitHub Page and its repo
+
+The next step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow [these steps](https://pages.github.com/).
+
+After you have created the *organization*github.io, it is time to configure your webpage using MkDocs!
+
+#### Use mkdocs to create your webpage
+
+Follow the steps on the [MkDocs documentation](https://www.mkdocs.org/getting-started/) to get started on your webpage! You can use a simple markdown file describing your organization (your lab or department), its main goals and missions and maybe a couple of images showcasing your research.
+
+When you are happy with your webpage and are ready too publish it, make sure to add, commit and push the changes to the remote! Instead of using the basic setup that GitHub offers, we recommend that you build up your webpage using MkDocs and the [`mkdocs gh-deploy`](https://www.mkdocs.org/user-guide/deploying-your-docs/) command! This requires a couple of changes in your GitHub organization settings.
+
+#### Publishing your GitHub Page
+
+Go to your GitHub organization settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website from:
+
+![picture of Page section with correct setup]()
+
+- Branch should be `gh-pages`
+- Folder should be `root`
+
+After a couple of minutes, your webpage should be ready!
+
+### Make a repo for your cookiecutter template
+
+Your GitHub organization account and webpage is ready! Now it is time to create a cookiecutter template for your folders using what you learned in this [lesson](./06_file_structure.md).
+
+### Start a new project from cookiecutter
+
+Using cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the [previous section](#creating-a-git-repo-from-an-existing-folder).
+
+Next, link your data of interest and make an example of data analysis notebook/report. Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using `pip` allows you to directly add a Jupyter Notebook file to the `mkdocs.yml` navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an html page or a github document.
+
+### Publishing your project as a GitHub Page
+
+Remember to make sure that your markdowns, images, reports, etc., are included in the `docs` folder and properly set up in the navigation section of your `mkdocs.yml` file.
+
+Git add, commit and push your changes. Then, run `mkdocs gh-deploy`. You will still need to configure the settings of this repositories in GitHub, so that the Page is taken from the `gh-pages` branch and the `root` folder. You should be able to see your webpage through the link provided in the Page section!
+
+Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.

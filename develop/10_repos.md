@@ -1,6 +1,6 @@
 ﻿---
-title: General page
-summary: A brief description of my document.
+title: Repositories for NGS
+summary: In this lesson we navigate through different types of repositories and which ones are ideal to deposit your NGS datasets and data analyses.
 ---
 
 <!--
@@ -15,7 +15,7 @@ hide:
 # You should hide the Table of Contents if there are no important titles
 -->
 
-# General Page
+# Repositories for NGS data
 
 **Last updated:** *{{ git_revision_date_localized }}*
 
@@ -25,16 +25,26 @@ hide:
 
     &#128172; **Learning Objectives:**    
     
-    1. First item  
-    2. Second item  
-  
-Write your introduction to the page here.
+    1. Learn what are repositories and which ones are relevant for NGS data
+    2. Learn where to archive your GitHub data analysis repositories
 
-## 6. `Project` archiving in Zenodo
+## What is a repository/archive?
+
+## Why are they important?
+
+## Types of repositories
+
+### General
+
+### Domain specific
+
+### Repositories for NGS data
+
+## `Project` archiving in Zenodo
 
 Before submitting, link the repository to [Zenodo](https://zenodo.org/) and then create a Git release. This release will be caught by Zenodo and will give you a DOI that you can submit along the manuscript.
 
-## 7. Data upload to GEO
+## Data upload to GEO or Array Express
 
 The raw data from NGS experiments will be uploaded to the [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/).
 Whenever a new Assay folder is created, the data owner must fill up the required documentation and information needed to make the GEO submission as smooth as possible.

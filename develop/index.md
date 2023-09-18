@@ -73,21 +73,21 @@ Research Data Management (RDM) for Next Generation Sequencing (NGS) data is a fo
 
 This course provides participants with an overall introduction to effectively manage the vast amounts of data generated in modern NGS studies. Participants will gain a practical understanding of RDM principles and the significance of handling NGS data efficiently. The course covers the unique characteristics of NGS data, its life cycle, and the importance of adopting Open Science and FAIR principles for data accessibility and reusability.
 
-Throughout the course, participants will learn useful skills for organizing NGS data, including creating folder and file structures and implementing metadata to enhance data discoverability and interpretation. Effective data management plans (DMPs) tailored to NGS data will be explored, ensuring data integrity and compliance with institutional and funding agency requirements. Attendees will also gain insights into setting up databases and using version control systems to track changes in data analysis, promoting collaboration and reproducibility.
+Throughout the course, participants will learn useful skills for organizing NGS data, including creating folder and file structures and implementing metadata to enhance data discoverability and interpretation. Data management plans (DMPs) tailored to NGS data will be explored, ensuring data integrity and compliance with institutional and funding agency requirements. Attendees will also gain insights into setting up simple databases and using version control systems to track changes in data analysis, promoting collaboration and reproducibility.
 
-The course concludes with a focus on archiving and data repositories, enabling participants to preserve and share NGS data for long-term scientific consumption. By the end of the program, attendees will be equipped with the necessary tools and techniques to navigate the challenges prevalent in today's NGS research landscape, fostering successful data management practices and enhancing collaboration in the scientific community.
+The course concludes with a focus on archiving and data repositories, enabling participants to preserve and share NGS data for long-term scientific usage. By the end of the course, attendees will be equipped with the necessary tools and techniques to navigate the challenges prevalent in today's NGS research landscape, fostering successful data management practices and enhancing collaboration in the scientific community.
 
 !!! info "Goals"
     By the end of this workshop, you should be able to apply the following concepts in the context of Next Generation Sequencing data:
 
     - Understand what is RDM and why it is important
     - Understand FAIR and Open Science Principles
-    - Structure and establish naming conventions your files and folders
-    - Add relevant metadata to your data
-    - Select a repository to archive your data
-    - Version control your data analysis
-    - Make your data analysis and workflows reproducible
     - Write a Data Management Plan for your NGS data
+    - Structure and establish naming conventions for your files and folders
+    - Add relevant metadata to your data
+    - Version control your data analysis
+    - Select a repository to archive your data
+    - Make your data analysis and workflows reproducible
 
 ### Acknowledgements
 

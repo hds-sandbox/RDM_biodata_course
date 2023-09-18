@@ -1,6 +1,10 @@
 ﻿---
 title: RDM intro
 summary: An introduction to Research Data Management from the point of view of the University of Copenhagen.
+tags:
+    - RDM
+    - Bad RDM
+    - Good RDM
 ---
 
 # Introduction to Research Data Management
@@ -16,14 +20,16 @@ summary: An introduction to Research Data Management from the point of view of t
     1. Learn the basics about what is Research Data Management
     2. Learn why good RDM are important
 
-The University of Copenhagen (UCPH) defines Research Data Management (RDM) as a "collective term for the planning, collection, storage, sharing and preservation of research data"[@UCPH_guidelines].
+The University of Copenhagen (UCPH) defines Research Data Management (RDM) as a "*collective term for the planning, collection, storage, sharing and preservation of research data*"[@UCPH_guidelines].
 
-RDM is of paramount importance in modern scientific investigations due to the exponential growth of data in various disciplines, particularly in fields like genomics, climate research, and social sciences. Effectively managing research data offers several key benefits:
+Proper RDM practices have great importance in modern scientific research due to the exponential growth of data in various disciplines, particularly in fields like genomics, climate research, and social sciences. Effectively managing research data offers many benefits! For example:
 
-- First, it enhances the reliability and credibility of research findings by providing a transparent and structured approach to data collection, organization, and analysis.
-- Second, RDM promotes data discoverability, allowing researchers to locate and utilize existing data for new investigations, thus maximizing the value of research efforts.
-- Third, proper data management facilitates collaboration and knowledge sharing within the scientific community, accelerating the pace of discoveries and advancements. 
-- Finally, RDM ensures compliance with ethical and legal requirements, safeguarding sensitive data and promoting responsible data use. By adopting robust RDM practices, researchers can optimize their workflow, increase research impact, and contribute to the overall progress of science.
+1. It enhances the reliability and credibility of research findings by providing a transparent and structured approach to data collection, organization, and analysis.
+2. RDM promotes data discoverability, allowing researchers to find and use existing data for new investigations, thus maximizing the value of the research.
+3. Proper data management facilitates collaboration and knowledge sharing within the scientific community, accelerating the pace of discoveries and advancements.
+4. RDM ensures compliance with ethical and legal requirements, safeguarding sensitive data and promoting responsible data use.
+
+By adopting robust RDM practices, researchers can optimize their workflow, increase research impact, and contribute to the overall progress of science. In the next sections, we will dive deeper into the meaning of RDM and its benefits.
 
 ## What is Research Data Management
 
@@ -41,11 +47,11 @@ On the other hand, we have *Research Data*:
 
 So, our goal is to handle and control the data that we generate during our research, including **both physical and digital** data! This must be done **throughout the whole life [cycle of the data](#research-data-cycle)**.
 
-Nonetheless, we will focus on the **digital part** of our data.
+Nonetheless, since this is a workshop on bioinformatics data, NGS to be specific, we will focus on the **digital part** of our data. We will not talk much about wet lab RDM, such as protocols, instruments, reagents, ELM or LIMS systems, although this would ideally be integrated as part of the whole RDM process.
 
 !!! warning
 
-    This workshop focuses on RDM of digital data and how it was generated!
+    This workshop focuses on RDM of digital data and how it was generated.
 
 ### Research Data Cycle
 
@@ -62,15 +68,15 @@ The Research Data Life Cycle is a conceptual framework that illustrates the vari
 
 Effective data management can significantly benefit research, providing advantages for individual researchers:
 
-- Careful planning aids in the early identification and resolution of potential issues, aligns expectations among collaborators, and clarifies data rights and ownership.
-- Thorough data documentation streamlines the process of locating and comprehending previous research, promoting efficiency and building upon existing knowledge.
-- Conducting risk assessments and devising robust data storage and security strategies mitigate the risk of data loss, breaches, or unauthorized use, safeguarding valuable research assets.
-- Sharing data with others beyond the project's conclusion enhances research visibility and fosters increased citations, expanding the impact of the findings.
+- Careful planning helps in the early identification and resolution of potential issues, aligns expectations among collaborators, and clarifies data rights and ownership.
+- Clear data documentation streamlines the process of locating and comprehending previous research, promoting efficiency and building upon existing knowledge.
+- Conducting risk assessments and devising robust data storage and security strategies mitigate the risk of data loss, breaches, or unauthorized use, safeguarding valuable research.
+- Sharing data with others beyond the project's conclusion enhances research visibility and fosters increased citations, expanding the impact of your findings.
 - Developing a data preservation plan ensures the long-term availability of research data well after the project's completion, contributing to data accessibility and continued research relevance.
 
 ### The cost of bad RDM practices
 
-Several surveys have shown that data scientists spend between 40-60% of their time loading and cleaning data, becoming the most consuming tasks and many would call it tedious of their jobs[@anaconda_report;@forbes_article]. Below we show the number figures from the [Anaconda "State of data science 2020" report](https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020)[@anaconda_report].
+Several surveys have shown that data scientists spend between 40-60% of their time loading and cleaning data, becoming the most consuming, and what many would call tedious, tasks of their jobs[@anaconda_report;@forbes_article]. Below we show the number figures from the [Anaconda "State of data science 2020" report](https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020)[@anaconda_report].
 
 <p align="center">
 
@@ -79,7 +85,7 @@ Several surveys have shown that data scientists spend between 40-60% of their ti
 
 </p>
 
-Could you think why? Maybe this pictures look familiar to you...
+Could you think why we spend so much time? Maybe this pictures look familiar to you...
 
 <p align="center">
 
@@ -133,7 +139,7 @@ By not practicing proper data management, researchers risk impeding their own pr
 
 Let's see what could we have done to avoid or fix the issues we have previously mentioned:
 
-1. To avoid this, the researcher could have implemented a clear and consistent folder structure with descriptive file names. Additionally, using version control systems, such as Git, for code and analysis files can help track changes and facilitate easy retrieval.
+1. To avoid this, the researcher could have implemented a clear and consistent folder structure with descriptive file names. Additionally, using version control systems, such as Git, for code and analysis files can help track changes and facilitate easy retrieval of previous versions of analyses and results.
 2. Proper data documentation, including detailed metadata, could have been maintained throughout the data collection process, providing necessary context and reducing the risk of incomplete or ambiguous data.
 3. The researcher could have followed the FAIR principles (Findable, Accessible, Interoperable, Reusable) by making their data, along with detailed methods and documentation, openly accessible in a reputable data repository.
 4. By implementing data management strategies from the outset of the research project, researchers can save time and resources later on, ensuring that data is well-organized and properly documented.
@@ -146,4 +152,6 @@ All in all, good data management absolutely have a positive impact on research. 
 - Sharing data with others after project end can enhance the visibility of research and lead to an increase in citations.
 - Drafting a data preservation plan can help ensure the availability of research data for years after the end of the project.​
 
-We will see different resources, tools and guidelines that can be applied to all kinds of data, and we will also talk more about specific examples for NGS data in the next sections.
+## Wrap up
+
+In this lesson we have learned about what is RDM, the consequences of poor RDM practices and how following good RDM practices will help you to to avoid them! In the next lessons we will explore different resources, tools and guidelines that can be applied to all kinds of data and how to apply it specifically for NGS data.

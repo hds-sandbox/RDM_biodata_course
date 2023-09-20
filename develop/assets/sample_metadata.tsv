@@ -12,7 +12,7 @@ organism	Organism origin of the sample	<Genus species>	Taxonomy	Mus musculus
 replicate	Replicate number	<integer\>		1
 batch	Batch information	wordWord	camelCase	1
 disease	Any diseases that may affect the sample		Disease Ontology or MONDO	
-developmenta_stage	The developmental stage of the sample			
+developmental_stage	The developmental stage of the sample			
 sample_type	The type of the collected specimen, eg tissue biopsy, blood draw or throat swab			
 strain	Strain of the species from which the sample was collected, if applicable		ontology field - e.g. NCBITaxonomy	
 genetic variation	Any relevant genetic differences from the specimen or sample to the expected genomic information for this species, eg abnormal chromosome counts, major translocations or indels			

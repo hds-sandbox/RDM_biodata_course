@@ -17,17 +17,20 @@ summary: A brief description of my document.
     2. Learn what metadata is associated to NGS data
     3. Learn sources for controlled vocabularies for NGS data
 
-Metadata is like the behind-the-scenes information that makes sense of data. It's the extra layer of details that help you understand what the data is all about. Imagine you have a book – the words on the pages are the data, while the title, author, and table of contents are the metadata. In a similar way, metadata gives data context and structure. For NGS data, metadata includes stuff like when and where the data was collected, what it represents, and how it was processed. So, in this section, we will explore what kind of relevant metadata is available for NGS data, and how to capture it in your [Assays or Project folders](./06_file_structure.md)!
+Metadata is the behind-the-scenes information that makes sense of data. It's the extra layer of details that help you understand what the data is all about. Imagine you have a book – the words on the pages are the data, while the title, author, and table of contents are the metadata. In a similar way, metadata gives data context and structure. For NGS data, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. In this section, we will explore what kind of relevant metadata is available for NGS data, and how to capture it in your [Assays or Project folders](./06_file_structure.md).
 
 ## What is metadata and why it is important
 
-Say you've got a batch of DNA sequences from different people. The raw sequences are like the jigsaw puzzle pieces, and metadata? Well, it's the cheat sheet that tells you which pieces fit where. It could include details like when and where the samples were collected, the lab procedures used, who did the science magic, and even the equipment involved. It's a bit like a treasure map: it helps you discover the gems hidden within your data by providing context, making sense of the who, what, when, where, and why.
+![metadata](images/metadata.png)
+*From [ontotext.com](https://www.ontotext.com/knowledgehub/fundamentals/metadata-fundamental/)*
+
+Imagine you have a batch of DNA sequences from different people. The raw sequences are like jigsaw puzzle pieces, and metadata is a cheat sheet that tells you which pieces fit where. It could include details like when and where the samples were collected, the lab procedures used, who did created them, and even the equipment involved, providing context and making sense of the who, what, when, where, and why.
 
 !!! note "Definition of metadata"
 
     Metadata refers to data that provides information about other data. It describes various aspects of the data, such as its origin, structure, format, and context. Metadata is typically used to facilitate the organization, management, and interpretation of data, making it easier to locate, access, and understand. In essence, metadata adds valuable context and attributes to the primary data, enhancing its usability and ensuring efficient data management."
 
-Let's think of an example that shows why metadata is so important. Imagine you're in a bustling lab with loads of different datasets all saved under generic folder names. Without metadata, it's like searching for a needle in a haystack. You'd have folders labeled 'Experiment123,' 'DataBatch42,' and so on, but zero clues about what's inside. With metadata, 'Experiment123' is not just that anymore, but 'DNA Sequencing of Human Cells, March 2023'. Providing relevant metadata converts data chaos into an organized repository, turning data exploration, interpretation, and insight extraction into a seamless journey. This is true not only for yourself or your lab, but to other researchers that might want to reuse your data. Collecting metadata from the very beginning of the research project will help tremendously to alleviate future efforts to understand the data. It can also help you make an organised collection of data, so that you do not lose any information regarding the data, or that you do not repeat an unnecessary experiment that someone else has done it before, but you couldn't find! That is, it helps you save money and time!
+Let's think of an example that shows why metadata is extremelly important. Imagine you're in a big lab with a plethora of different datasets all saved under generic folder names. Without metadata, it would be like searching for a needle in a haystack. You'd have folders labeled 'Experiment123,' 'DataBatch42,' and so on, but zero clues about what's inside. With metadata, 'Experiment123' is not just that anymore, but 'DNA Sequencing of Human Cells, March 2023'. Providing relevant metadata converts data chaos into an organized repository, turning data exploration, interpretation, and insight extraction into a much easier journey. This is true not only for yourself or your lab, but to other researchers that might want to reuse your data. Collecting metadata from the very beginning of the research project will help tremendously to alleviate future efforts to understand the data. It can also help you make an organised collection of data, so that you do not lose any information regarding the data, or that you do not repeat an unnecessary experiment that someone else has done it before, but you could not find. That is, it helps you save money and time!
 
 !!! note "Benefits of collecting proper metadata"
 
@@ -39,11 +42,11 @@ Let's think of an example that shows why metadata is so important. Imagine you'r
 
 ## How to collect metadata in your folders
 
-In our previous section, we learnt about how to organize your data into different types of folders: `Assays` and `Projects`. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files!
+In our previous lesson, we learnt about how to organize your data into different types of folders: `Assays` and `Projects`. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.
 
 ### README.md file
 
-The README.md file is a [markdown file](https://www.markdownguide.org/) that allows you to write a long description of the data contained in the folder that contains it. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, how and when. If it is an `Assay` folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment and any sort of comments that would help to understand the context of the experiment. On the other hand, a 'Project' README file may contain a description of the project, what are its aims, why is it important, what 'Assays' is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.
+The README.md file is a [markdown file](https://www.markdownguide.org/) that allows you to write a long description of the data placed in a folder. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, how and when. If it is an `Assay` folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment and any sort of comments that would help to understand the context of the experiment. On the other hand, a 'Project' README file may contain a description of the project, what are its aims, why is it important, what 'Assays' is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.
 
 Here is an example of a README file for a Project folder
 
@@ -77,13 +80,13 @@ For more details, refer to our [Jupyter Notebook](link-to-jupyter-notebook.ipynb
 
 ### metadata.yml
 
-The metadata file is a [yml file](https://fileinfo.com/extension/yml) is a text document that contains data formatted using a human-readable data format for data serialization. It is not mandatory that you use yml format, any other structured file format will work too, such as json files! We recommend using yml format because it is easily readable for humans, so non-coding people will have an easier time checking, writing or modifying the file if they need to.
+The metadata file is a [yml file](https://fileinfo.com/extension/yml), which is a text document that contains data formatted using a human-readable data format for data serialization. It is not mandatory that you use yml format, any other structured file format will work too, such as json files. We recommend using yml format because it is easily readable for humans, so non-coding people will have an easier time checking, writing or modifying the file if they need to.
 
 ![yaml file example](./images/yml_example.png)
 
 ## Metadata fields
 
-There is a ton of information you can collect regarding an NGS assay or a project. Some information fields are very general, such as author or date, while others are specific to the Assay or Project folder. Below, we will take a look at minimal information you should collect in each of the folders! But before that, we need to talk about controlled vocabularies/ontologies.
+There is a ton of information you can collect regarding an NGS assay or a project. Some information fields are very general, such as author or date, while others are specific to the Assay or Project folder. Below, we will take a look at minimal information you should collect in each of the folders. But before that, we need to talk about controlled vocabularies/ontologies.
 
 Imagine this scenario: a researcher in genomics us excited to explore various NGS datasets from different human tissue samples to study gene expression patterns. However, she encounters a significant hurdle: the tissue names used in the datasets are inconsistent and lack standardized terms. Some datasets refer to "brain," while others use "cerebral cortex" or "cortical tissue." This lack of controlled vocabularies for tissue names complicates her data integration efforts, requiring her to spend additional time curating and mapping tissue labels to establish meaningful cross-dataset comparisons.
 
@@ -137,4 +140,15 @@ In development.
 
 ## More info
 
-[Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
+The information provided in this lesson is not at all exhaustive. There might be many more fields and controlled vocabularies that could be useful for your NGS data. We recommend that you take a look at the following sources for more information!
+
+- [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
+- [Bionty](https://lamin.ai/docs/bionty): Biological ontologies for data scientists.
+
+!!! question "Exercise: modify the metadata.yml files in your cookiecutter templates"
+
+    We have seen some examples of metadata for NGS data. It is time now to customize your cookiecutter templates and modify the metadata.yml files so that they fit your needs! Think about what kind of metadata you would like to include and add them to your metadata.yml file from your cookiecutter template. Remember to modify as well the `cookiecutter.json` file so the metadata fields are mandatory!
+
+## Wrap up
+
+In this lesson we have learned about what metadata should be attached to your data in order to be reusable and understood in the future. Not only that, the metadata provided can help to process your samples adequately, and could even be useful for metadata studies. We have also briefly introduced some controlled vocabularies and sources for different fields, such as Disease Ontologies, Cell type ontologies, Organisms, etc. However, since this course is not aimed at enforcing the use of these vocabularies (that would be very complex), their implementation and use is up to you! In the next lesson we will learn how we can collect all the metadata information in each of the folders in order to make a database of assays and projects, allowing you to browse all your data so that they are always at hand!

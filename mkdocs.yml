@@ -165,9 +165,9 @@ nav:
     - Data Management Plans: 05_DMP.md
     - File structure and naming conventions: 06_file_structure.md
     - Metadata applied to NGS data: 07_metadata.md
-    - Create a database of your data and projects: 08_database.md
+    - Database of your data and projects: 08_database.md
     - Version control of your data analysis: 09_version_control.md
-    - Archiving and repositories: 10_repos.md
+    - Archiving your data: 10_repos.md
   - Keyword index: keywords.md
   - Contributors: contributors.md
   

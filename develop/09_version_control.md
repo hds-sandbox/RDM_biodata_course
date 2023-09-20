@@ -30,7 +30,7 @@ hide:
     3. Make your own repositories
     4. Make a Github page to show off your data analysis reports
 
-In this lesson, we will explore the concept of version control and its pivotal role in modern research and development workflows. We'll introduce Git, a widely adopted version control system that empowers you to systematically track changes in your work. Additionally, we will check GitHub, a collaborative platform for hosting Git repositories, enabling you to share your work with others and increase the visibility of your projects. By the end of this lesson, you'll have a introductory understanding of version control, the ability to create Git repositories, and the skills to build a GitHub page to showcase your data analysis.
+In this lesson, we will explore the concept of version control and its role in modern research and development workflows. We'll introduce Git, a widely adopted version control system that allows you to systematically track changes in your work. Additionally, we will check GitHub, a collaborative platform for hosting Git repositories, enabling you to share your work with others and increase the visibility of your projects. By the end of this lesson, you'll have a introductory understanding of version control, the ability to create Git repositories, and the skills to build a GitHub page to showcase your data analysis.
 
 ## Version control
 
@@ -160,7 +160,7 @@ When you are happy with your webpage and are ready too publish it, make sure to 
 
 Go to your GitHub organization settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website from:
 
-![picture of Page section with correct setup]()
+![GitHub Pages setup](./images/git_pages.png)
 
 - Branch should be `gh-pages`
 - Folder should be `root`
@@ -184,3 +184,5 @@ Remember to make sure that your markdowns, images, reports, etc., are included i
 Git add, commit and push your changes. Then, run `mkdocs gh-deploy`. You will still need to configure the settings of this repositories in GitHub, so that the Page is taken from the `gh-pages` branch and the `root` folder. You should be able to see your webpage through the link provided in the Page section!
 
 Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.
+
+## Wrap up

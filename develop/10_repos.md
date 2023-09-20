@@ -90,3 +90,5 @@ Operating on a user-friendly web platform, Zenodo allows researchers to easily u
 Once your [accounts are linked](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), creating a Zenodo archive is as simple as tagging a release in your GitHub repository. Zenodo will automatically detect the release and generate a corresponding archive. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work. So, before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
 
 By leveraging this integration, you ensure that significant milestones in your project are preserved in a reliable and accessible manner. This not only facilitates proper attribution but also contributes to the broader scientific community's ability to reproduce and build upon your research.
+
+## Wrap up

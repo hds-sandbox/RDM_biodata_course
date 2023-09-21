@@ -92,3 +92,9 @@ Once your [accounts are linked](https://docs.github.com/en/repositories/archivin
 By leveraging this integration, you ensure that significant milestones in your project are preserved in a reliable and accessible manner. This not only facilitates proper attribution but also contributes to the broader scientific community's ability to reproduce and build upon your research.
 
 ## Wrap up
+
+In this final lesson we have learned how to wrap up a project/manuscript experiment by submitting your data to a domain-specific repository, while archiving your data analysis GitHub repositories in Zenodo. By following the simple lessons shown in this workshop, you will dramatically improve the FAIRability of your data, as well as organizing and structuring it in a way that will be much more useful in the future. This advantages do not serve yourself only, but your teammates, group leader and the general scientific population!
+
+We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form! 
+
+[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)

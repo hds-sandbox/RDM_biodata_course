@@ -186,3 +186,5 @@ Git add, commit and push your changes. Then, run `mkdocs gh-deploy`. You will st
 Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.
 
 ## Wrap up
+
+In this lesson we have learned about version control and how we can use Git and GitHub to create data analyses repositories from your `Project` folders. We have also seen how one can create a GitHub organization and use GitHub Pages to display your data analyses scripts and notebooks for the general public! In the next lesson we will learn about where to archive the raw NGS data (and its metadata), as well as archiving your GitHub repositories.

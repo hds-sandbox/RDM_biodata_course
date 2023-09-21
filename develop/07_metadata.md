@@ -48,7 +48,7 @@ In our previous lesson, we learnt about how to organize your data into different
 
 The README.md file is a [markdown file](https://www.markdownguide.org/) that allows you to write a long description of the data placed in a folder. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, how and when. If it is an `Assay` folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment and any sort of comments that would help to understand the context of the experiment. On the other hand, a 'Project' README file may contain a description of the project, what are its aims, why is it important, what 'Assays' is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.
 
-Here is an example of a README file for a Project folder
+Here is an example of a README file for a `Project`` folder:
 
 ```
 # NGS Analysis Project: Exploring Gene Expression in Human Tissues

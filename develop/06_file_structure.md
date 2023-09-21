@@ -44,8 +44,6 @@ You will probably want to divide your NGS data into three different types of fol
 
 This will help you to keep your data tidied up, specially if you are working on a big lab where assays may be used for different purposes and different people!
 
-**INSERT FIGURE HERE OF GENERAL FOLDER STRUCTURE WITH EXAMPLES AND INTERACTION BETWEEN FOLDERS**
-
 ## Assay folder
 
 For each NGS experiment there should be an `Assay` folder that will contain all experimental datasets, that is, an `Assay` (raw files and pipeline processed files). Raw files should not be modified at all, but you should probably lock modifications to the final results once you are done with preprocessing the data. This will help you prevent unwanted modifications to the data. Each `Assay` subfolder should be named in a way that it is unique, easily readable, distinguishable and understood at a glance. For example, you could name an NGS assay using an acronym for the type of NGS assay (RNAseq, ChIPseq, ATACseq), a keyword that represents a unique descriptive element of that assay, and the date. Like this:

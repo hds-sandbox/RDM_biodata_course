@@ -1,6 +1,8 @@
 ﻿---
 title: DTU workshop 2023
 summary: This is a summarized workshop focused on practical lessons of RDM for NGS data
+hide: 
+    - navigation
 tags:
     - Practical lessons
     - Exercises
@@ -151,25 +153,31 @@ It is very easy to create a folder template using [cookiecutter](https://github.
 
     **Assay**
 
-    1. First, fork our `https://github.com/hds-sandbox/assay-template` from the GitHub page into your own account/organization. 
-    2. Then, use `git clone` to put it in your computer.
+    1. First, fork our `https://github.com/hds-sandbox/assay-template` from the GitHub page into your own account/organization.
+    ![fork_repo_example](./images/fork_repo.png)
+    2. Then, use `git clone <your URL to the template>` to put it in your computer.
     3. Modify the contents of the repository so that it matches the **Assay** example above. You are welcome to do changes as you please!
-    4. Modify the `cookiecutter.json` file so that it will include the Assay name template
+    4. Modify the `cookiecutter.json` file so that it will include the **Assay** name template
     5. Git add, commit and push your changes
     6. Test your folder by using `cookiecutter <URL to your GitHub repository for "assay-template>`
     
     **Project**
     
-    1. First, fork our `https://github.com/hds-sandbox/assay-template` from the GitHub page into your own account/organization. 
-    2. Then, use `git clone` to put it in your computer.
-    3. Modify the contents of the repository so that it matches the **Project** example above. You are welcome to do changes as you please!
-    4. Modify the `cookiecutter.json` file so that it will include the **Project** name template
-    5. Git add, commit and push your changes
-    6. Test your folder by using `cookiecutter <URL to your GitHub repository for "project-template>`
+    7. First, fork our `https://github.com/hds-sandbox/project-template` from the GitHub page into your own account/organization.
+    ![fork_repo_example](./images/fork_repo.png)
+    8. Then, use `git clone <your URL to the template>` to put it in your computer.
+    9.  Modify the contents of the repository so that it matches the **Project** example above. You are welcome to do changes as you please!
+    10. Modify the `cookiecutter.json` file so that it will include the **Project** name template
+    11. Git add, commit and push your changes
+    12. Test your folder by using `cookiecutter <URL to your GitHub repository for "project-template>`
 
 ## 2. Metadata and naming conventions
 
 Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For NGS data, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let's check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.
+
+!!! warning "Metadata and controlled vocabularies"
+
+    In order for metadata to be most useful, you should try to use controlled vocabularies for all your fields. For example, tissue could be described with the [UBERON ontologies](https://www.ebi.ac.uk/ols/ontologies/uberon), species using the [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy), diseases using the [Mondo database](https://mondo.monarchinitiative.org/), etc. Unfortunately, implementing a systematic way of using these vocabularies is rather complex and outside the scope of this workshop, but you are very welcome to try to implement them on your own!
 
 ### README.md file
 
@@ -250,11 +258,13 @@ The information provided in this lesson is not at all exhaustive. There might be
 
     We have seen some examples of metadata for NGS data. It is time now to customize your cookiecutter templates and modify the metadata.yml files so that they fit your needs! 
     
-    1. Think about what kind of metadata you would like to include and add them to your metadata.yml file from your cookiecutter template. 
+    1. Think about what kind of metadata you would like to include.
     2. Modify the `cookiecutter.json` file so that when you create a new folder template, all the metadata is filled accordingly.
+    ![cookiecutter_json_example](./images/cookiecutter_json.png)
     3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file.
+    ![assay_metadata_example](./images/assay_metadata.png)
     4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file.
-    5. Git add, commit and push the changes
+    5. Git add, commit and push the changes of your template.
     6. Test your folders by using the command `cookiecutter <URL to your cookiecutter repository in GitHub>`
 
 ## 3. Naming conventions
@@ -292,7 +302,46 @@ More info on naming conventions for different types of files and analysis is in 
 
 ## 4. Create a catalog of your assays folder
 
+The next step is to collect all the NGS datasets that you have created in the manner explained above. Since your folders all should contain the `metadata.yml` file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. This table can be then browsed easily with Microsoft Excel, for example. If you are interested in making a Shiny app or Python Panel tool to interactively browse the catalog, check out this [lesson](./08_database.md).
 
+!!! question "Exercise 4: create a metadata.tsv catalog"
+
+    We will make a small script in R (or you can make one with python) that recursively goes through all the folders inside a input path (like your `Assays` folder), fetch all the `metadata.yml` files and merge them. Finally, it will write a tsv file as an output. 
+
+    1. Create a folder call `Assays`
+    2. Under that folder, make three new `Assay` folders from your cookiecutter template
+    3. Run the script below with R (or create your own with python). Modify the `folder_path` variable so it matches the path tot the folder `Assays`. The table will be written under the same `folder_path`.
+    4. Visualize your `Assays` table with Excel
+
+    ```R
+    library(yaml)
+    library(dplyr)
+    library(lubridate)
+
+    # Function to recursively fetch metadata.yml files
+    get_metadata <- function(folder_path) {
+        file_list <- list.files(path = folder_path, pattern = "metadata\\.yml$", recursive = TRUE, full.names = TRUE)
+        metadata_list <- lapply(file_list, yaml::yaml.load_file)
+        return(metadata_list)
+        }
+
+    # Specify the folder path
+    folder_path <- "/path/to/your/folder"
+
+    # Fetch metadata from the specified folder
+    metadata <- get_metadata(folder_path)
+
+    # Convert metadata to a data frame
+    metadata_df <- data.frame(matrix(unlist(metadata), ncol = length(metadata), byrow = TRUE))
+    colnames(metadata_df) <- names(metadata[[1]])
+
+    # Save the data frame as a TSV file
+    output_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".tsv")
+    write.table(metadata_df, file = output_file, sep = "\t", quote = FALSE, row.names = FALSE)
+
+    # Print confirmation message
+    cat("Database saved as", output_file, "\n")
+    ```
 
 ## 5. Version control of your data analysis using Git and Github
 
@@ -311,7 +360,7 @@ On the other hand, [GitHub](https://github.com/) is a web-based platform that en
 
 ### Creating a git repo online and copying your project folder
 
-If the repository already exists on a remote, you would choose to `git clone` and not `git init`. On the other hand, if you create a remote repository first with the intent of moving your project to it later, you may have a few other steps to follow. If there are no commits in the remote repository, you can follow the steps above for `git init`. If there are commits and files in the remote repository but you would still like it to contain your project files, `git clone` that repository. Then, move the project's files into that cloned repository. `git add`, `git commit`, and `git push` to create a history that makes sense for the beginning of your project. Then, your team can interact with the repository without `git init` again.
+Version controlling your data analysis folders, a.k.a. `Project` folder, is very easy once you have set up your cookiecutter templates. The simplest way of doing this is to first create a remote GitHub repository from the webpage (or from the Desktop app, if you are using it) with a proper project name. Then `git clone` that repository you just made into your `Projects` main folder. Then, use cookiecutter to create a project folder template and copy-paste the contents of the folder template to your cloned repo. If you wish, you could already git add, commit and push the first changes to the folders and continue from there on.
 
 !!! tip "Tips to write good commit messages"
 
@@ -319,71 +368,51 @@ If the repository already exists on a remote, you would choose to `git clone` an
 
 ### GitHub Pages
 
-Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns or html reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub as put for you.
+Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns or html reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub as put for you. Nonetheless, we will see the main steps in the exercise below.
 
-There are many different ways to create your webpages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage in a simple manner. The folder templates that we used as an example in [lesson 06](./06_file_structure.md) already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of [MkDocs](https://www.mkdocs.org/) and [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their webpages to get started!
+There are many different ways to create your webpages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage in a simple manner. The folder templates that we used as an example in the previous exercise already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of [MkDocs](https://www.mkdocs.org/) and [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their webpages to get started!
 
-!!! question "Exercise 4: make a webpage"
+!!! question "Exercise 5: make a project folder and publish a data analysis webpage"
 
-### Configure your main GitHub Page and its repo
+    1. Configure your main GitHub Page and its repo
 
-The next step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow [these steps](https://pages.github.com/).
+    The first step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow [these steps](https://pages.github.com/).
+    After you have created the *organization/username*github.io, it is time to configure your `Project` repository webpage using MkDocs!
 
-After you have created the *organization*github.io, it is time to configure your webpage using MkDocs!
+    2. Start a new project from cookiecutter or use one from the previous exercise.
 
-#### Use mkdocs to create your webpage
+    If you use a `Project` repo from the first exercise, go to the next paragraph. Using cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the [previous section](#creating-a-git-repo-online-and-copying-your-project-folder).
 
-Follow the steps on the [MkDocs documentation](https://www.mkdocs.org/getting-started/) to get started on your webpage! You can use a simple markdown file describing your organization (your lab or department), its main goals and missions and maybe a couple of images showcasing your research.
+    Next, link your data of interest (or create a small fake dataset) and make an example of data analysis notebook/report (this could be just a scatter plot of a random matrix of values). Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using `pip` allows you to directly add a Jupyter Notebook file to the `mkdocs.yml` navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an html page or a github document.
+    
+    For the purposes of this exercise, we have already included a basic `index.md` markdown file that can serve as the intro page of your repo, and a `jupyter_example.ipynb` with some code in it. You are welcome to modify them further to test them out!
 
-When you are happy with your webpage and are ready too publish it, make sure to add, commit and push the changes to the remote! Instead of using the basic setup that GitHub offers, we recommend that you build up your webpage using MkDocs and the [`mkdocs gh-deploy`](https://www.mkdocs.org/user-guide/deploying-your-docs/) command! This requires a couple of changes in your GitHub organization settings.
+    3. Use MkDocs to create your webpage
 
-#### Publishing your GitHub Page
+    When you are happy with your files and are ready too publish them, make sure to add, commit and push the changes to the remote. Then, build up your webpage using MkDocs and the [`mkdocs gh-deploy`](https://www.mkdocs.org/user-guide/deploying-your-docs/) command from the same directory where the `mkdocs.yml` file is. For example, if your `mkdocs.yml` for your `Project` folder is in `/Users/JARH/Projects/project1_JARH_20231010/mkdocs.yml`, do `cd /Users/JARH/Projects/project1_JARH_20231010/` and then `mkdocs gh-deploy`.
 
-Go to your GitHub organization settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website from:
+    Finally, we only need to set up the GitHub `Project` repo settings.
 
-![GitHub Pages setup](./images/git_pages.png)
+    4. Publishing your GitHub Page
+    
+    Go to your GitHub repo settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website from:
 
-- Branch should be `gh-pages`
-- Folder should be `root`
+    ![GitHub Pages setup](./images/git_pages.png)
 
-After a couple of minutes, your webpage should be ready!
+    - Branch should be `gh-pages`
+    - Folder should be `root`
 
-### Start a new project from cookiecutter
-
-Using cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the [previous section](#creating-a-git-repo-from-an-existing-folder).
-
-Next, link your data of interest and make an example of data analysis notebook/report. Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using `pip` allows you to directly add a Jupyter Notebook file to the `mkdocs.yml` navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an html page or a github document.
-
-### Publishing your project as a GitHub Page
-
-Remember to make sure that your markdowns, images, reports, etc., are included in the `docs` folder and properly set up in the navigation section of your `mkdocs.yml` file.
-
-Git add, commit and push your changes. Then, run `mkdocs gh-deploy`. You will still need to configure the settings of this repositories in GitHub, so that the Page is taken from the `gh-pages` branch and the `root` folder. You should be able to see your webpage through the link provided in the Page section!
-
-Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.
+    After a couple of minutes, your webpage should be ready!
 
 ## 6. Archive GitHub repositories on Zenodo
 
-In this lesson, we're going to explore repositories like Zenodo, Gene Expression Omnibus, and Annotare. While platforms like GitHub are great for version control and collaborative coding, these repositories serve a different purpose. They're designed specifically for archiving and sharing scientific data, ensuring it's preserved for the long term and accessible to the global research community. You could think of them as secure digital libraries for your valuable NGS data.
+Archives are dedicated digital platforms designed for the secure storage, curation, and dissemination of scientific data. These repositories hold great importance in the research community as they serve as reliable archives for preserving valuable datasets. Their standardized formats and robust curation processes ensure the long-term accessibility and citability of research findings. Researchers worldwide rely on these repositories to share, discover, and validate scientific information, thereby fostering transparency, collaboration, and the advancement of knowledge across various domains of study.
 
-### What is a repository/archive?
+The next practical exercise will be to archive your `Project` folder that contains the data analyses performed on your NGS data in a repository like Zenodo. We can do this by linking your Zenodo account to your GitHub account.
 
-Specialized repositories/archives are dedicated digital platforms designed for the secure storage, curation, and dissemination of scientific data. These repositories hold great importance in the research community as they serve as reliable archives for preserving valuable datasets. Their standardized formats and robust curation processes ensure the long-term accessibility and citability of research findings. Researchers worldwide rely on these repositories to share, discover, and validate scientific information, thereby fostering transparency, collaboration, and the advancement of knowledge across various domains of study.
+!!! warning "Archiving your NGS data"
 
-#### NGS Data upload to GEO or Annotare
-
-[GEO](https://www.ncbi.nlm.nih.gov/geo/) and [Annotare](https://www.ebi.ac.uk/fg/annotare/login/) are excellent repository choices to deposit your NGS data. Both Annotare and GEO adhere to established community standards for data submission and sharing in the field of functional genomics:
-
-1. [**Minimum Information About a Microarray Experiment (MIAME)**](https://pubmed.ncbi.nlm.nih.gov/11726920/): This is a set of guidelines established to ensure the comprehensive and standardized reporting of microarray experiments. Both Annotare and GEO require compliance with MIAME standards for microarray data submissions.
-2. [**Minimum Information about a high-throughput SeQuencing Experiment (MIxS)**](https://www.fged.org/projects/minseqe/): MIxS is a set of standards developed by the Genomic Standards Consortium to ensure consistent reporting of metadata for high-throughput sequencing experiments. Annotare and GEO require adherence to MIxS standards for sequencing data submissions.
-3. [**Sequence Read Archive (SRA) Submission Guidelines**](https://www.ncbi.nlm.nih.gov/sra/docs/submit/): Both Annotare and GEO follow the submission guidelines set forth by the Sequence Read Archive, which include requirements for data formatting, metadata inclusion, and quality control.
-4. **Community-Specific Standards**: In addition to the above, Annotare and GEO may also adhere to community-specific standards and guidelines established by the functional genomics research community. These standards are designed to ensure that submitted data meets the specific requirements and expectations of the field.
-
-By adhering to these standards, Annotare and GEO ensure that the data submitted to their repositories is of high quality, well-documented, and compliant with community best practices. This facilitates data discovery, reproducibility, and interoperability within the scientific community.
-
-These repositories will only accept NGS data and information related to the creation of the data. This includes the raw FASTQ files, sample metadata, including protocols and descriptions of how the samples and data where processed, as well as final pre-processing results such as read count matrices or genomic position files (like BED). If you adhere to the `Assay` folder creation guideline of [lesson 6](./06_file_structure.md), you will have a very easy time filling up the required documentation and information needed to submit the data in your `Assay` folder to one of these repositories.
-
-Nonetheless, the repositories will not accept other data created by your down-stream analyses, neither the code used for data analyses! This means anything that you have done in your `Project` folder. However, your `Project` folder is already version controlled by GitHub ([see previous lesson](./09_version_control.md)), so there is no need to worry. We will see in the section below how to archive your `Project`` folder as well using a general repository like Zenodo.
+    In this practical lesson, we will only archive our data analyses in the `Project` folders. Your actual NGS data should be deposited in a domain-specific archive such as [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/) or [Annotare](https://www.ebi.ac.uk/fg/annotare/login/). If you want to know more about these archives, check out this [lesson](./10_repos.md)
 
 ### Zenodo
 
@@ -391,10 +420,22 @@ Zenodo[https://zenodo.org/] is an open-access digital repository designed to fac
 
 Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to [link you GitHub account](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project's progress for long-term accessibility and citation.
 
-#### `Project` archiving in Zenodo
+!!! question "Exercise 6: Archive a `Project` GitHub repo in Zenodo"
 
-Once your [accounts are linked](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), creating a Zenodo archive is as simple as tagging a release in your GitHub repository. Zenodo will automatically detect the release and generate a corresponding archive. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work. So, before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
+    1. In order to archive your GitHub repos in Zenodo, you will first need to [link your Zenodo and GitHub accounts](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+    2. Once your accounts are linked, go to your Zenodo GitHub account settings and turn on the GitHub repository you want to archive.
+    ![zenodo_github_link](./images/zenodo_github.png)
+    3. Creating a Zenodo archive is now as simple as [making a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in your GitHub repository. Remember to make a proper tag! **NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!**
+    ![github_release](./images/github_release.png)
+    4. Zenodo will automatically detect the release and it should appear in your Zenodo upload page.
+    ![zenodo_archives](./images/zenodo_archives.png)
+    5. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work.
+    ![zenodo_example](./images/zenodo_example.png)
 
-By leveraging this integration, you ensure that significant milestones in your project are preserved in a reliable and accessible manner. This not only facilitates proper attribution but also contributes to the broader scientific community's ability to reproduce and build upon your research.
+    Before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
 
 ## Wrap up
+
+In this small workshop we have learned how improve the FAIRability of your data, as well as organizing and structuring it in a way that will be much more useful in the future. This advantages do not serve yourself only, but your teammates, group leader and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form!
+
+[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)

@@ -68,7 +68,7 @@ Version control is a systematic approach to tracking changes made to a project o
 
 ### Hosting your git repos using Github
 
-On the other hand, [GitHub](https://github.com/) is a web-based platform that enhances Git's capabilities by providing a collaborative and centralized hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allows you to create websites to showcase your proyects. We will see more about Github Pages in the section below. In addition, you can set your repository as **private** until you are ready to publish your work!
+On the other hand, [GitHub](https://github.com/) is a web-based platform that enhances Git's capabilities by providing a collaborative and centralized hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allows you to create websites to showcase your projects. We will see more about Github Pages in the section below. In addition, you can set your repository as **private** until you are ready to publish your work!
 
 If you do not have an account in Github already, we recommend you to do one now! There are other alternatives to GitHub, such as [BitBucket](https://bitbucket.org/) and [GitLab](https://about.gitlab.com/), Some features might be different, so we will stick to Github for the rest of the lesson!
 

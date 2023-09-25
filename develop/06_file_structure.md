@@ -193,6 +193,28 @@ Now, using only cookiecutter might have some issues. If you update the template,
 
     Using cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs! In order to create your cookiecutter template, your will need to install python, [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html), Git and a GitHub account. If you do not have Git and a GitHub account, we suggest you do one as soon as possible. We will take a deeper look at Git and GitHub in the [version control lesson](./09_version_control.md).
 
+    We have prepared already two simple cookiecutter templates in GitHub repositories.
+
+    **Assay**
+
+    1. First, fork our `https://github.com/hds-sandbox/assay-template` from the GitHub page into your own account/organization.
+    ![fork_repo_example](./images/fork_repo.png)
+    2. Then, use `git clone <your URL to the template>` to put it in your computer.
+    3. Modify the contents of the repository so that it matches the **Assay** example above. You are welcome to do changes as you please!
+    4. Modify the `cookiecutter.json` file so that it will include the **Assay** name template
+    5. Git add, commit and push your changes
+    6. Test your folder by using `cookiecutter <URL to your GitHub repository for "assay-template>`
+    
+    **Project**
+    
+    7. First, fork our `https://github.com/hds-sandbox/project-template` from the GitHub page into your own account/organization.
+    ![fork_repo_example](./images/fork_repo.png)
+    8. Then, use `git clone <your URL to the template>` to put it in your computer.
+    9.  Modify the contents of the repository so that it matches the **Project** example above. You are welcome to do changes as you please!
+    10. Modify the `cookiecutter.json` file so that it will include the **Project** name template
+    11. Git add, commit and push your changes
+    12. Test your folder by using `cookiecutter <URL to your GitHub repository for "project-template>`
+
 ## Genomic resources folder
 
 Preprocessing NGS data usually requires different genomic resources in order to align and and annotate fastq files. First and most importantly, you will need reference genomes (human and mouse are the most common ones) in FASTA format. In addition, aligner tools such as STAR, Bowtie, etc., require indexed fasta files to perform alignment of reads. Moreover, GTF or GFF files are necessary in order to quantify reads into genomic regions (such as genes or promoters). Nonetheless, these genomic resources are often updated and are released periodically under different versions from different sources. In order to make your data reproducible, you will need to control and manage these genomic resources and specify their versions and sources. For example, the latest mouse reference genome is GRCm39, but may studies still align their reads to the version GRCm38.

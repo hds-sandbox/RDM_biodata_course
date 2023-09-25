@@ -185,6 +185,38 @@ Git add, commit and push your changes. Then, run `mkdocs gh-deploy`. You will st
 
 Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.
 
+!!! question "Exercise 5: make a project folder and publish a data analysis webpage"
+
+    1. Configure your main GitHub Page and its repo
+
+    The first step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow [these steps](https://pages.github.com/).
+    After you have created the *organization/username*github.io, it is time to configure your `Project` repository webpage using MkDocs!
+
+    2. Start a new project from cookiecutter or use one from the previous exercise.
+
+    If you use a `Project` repo from the first exercise, go to the next paragraph. Using cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the [previous section](#creating-a-git-repo-online-and-copying-your-project-folder).
+
+    Next, link your data of interest (or create a small fake dataset) and make an example of data analysis notebook/report (this could be just a scatter plot of a random matrix of values). Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using `pip` allows you to directly add a Jupyter Notebook file to the `mkdocs.yml` navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an html page or a github document.
+    
+    For the purposes of this exercise, we have already included a basic `index.md` markdown file that can serve as the intro page of your repo, and a `jupyter_example.ipynb` with some code in it. You are welcome to modify them further to test them out!
+
+    3. Use MkDocs to create your webpage
+
+    When you are happy with your files and are ready too publish them, make sure to add, commit and push the changes to the remote. Then, build up your webpage using MkDocs and the [`mkdocs gh-deploy`](https://www.mkdocs.org/user-guide/deploying-your-docs/) command from the same directory where the `mkdocs.yml` file is. For example, if your `mkdocs.yml` for your `Project` folder is in `/Users/JARH/Projects/project1_JARH_20231010/mkdocs.yml`, do `cd /Users/JARH/Projects/project1_JARH_20231010/` and then `mkdocs gh-deploy`.
+
+    Finally, we only need to set up the GitHub `Project` repo settings.
+
+    4. Publishing your GitHub Page
+    
+    Go to your GitHub repo settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website from:
+
+    ![GitHub Pages setup](./images/git_pages.png)
+
+    - Branch should be `gh-pages`
+    - Folder should be `root`
+
+    After a couple of minutes, your webpage should be ready!
+
 ## Wrap up
 
 In this lesson we have learned about version control and how we can use Git and GitHub to create data analyses repositories from your `Project` folders. We have also seen how one can create a GitHub organization and use GitHub Pages to display your data analyses scripts and notebooks for the general public! In the next lesson we will learn about where to archive the raw NGS data (and its metadata), as well as archiving your GitHub repositories.

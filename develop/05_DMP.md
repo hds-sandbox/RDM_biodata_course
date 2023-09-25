@@ -105,6 +105,10 @@ We are have written a DMP template that it is prefilled with repetitive informat
 
 The Horizon Europe template is mostly focused on digital data and so, it is maybe not the best option if you are also interested in recording in your DMP physical data, such as samples, reagents, media, cultures, model organisms, etc.
 
+!!! question "Exercise: write a draft for a DMP"
+
+    You can write a DMP draft from scratch, or you could use the template mentioned above and modify it to your own needs!
+
 ## Wrap up
 
 In this lesson we have learned about DMPs and tools that could help you write one, as well as shown you a possible template for your own projects! DMPs are a great tool to help you think about your project, the data you will reuse/generate, and how to preserve it properly for future use, either by you, collaborators or the broad scientific community. In the next lesson we will explore how you could organize your NGS data using a simple but clear system, and provide you some tools that will make the job easier.

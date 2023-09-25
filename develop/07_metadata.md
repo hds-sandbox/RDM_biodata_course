@@ -145,9 +145,18 @@ The information provided in this lesson is not at all exhaustive. There might be
 - [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
 - [Bionty](https://lamin.ai/docs/bionty): Biological ontologies for data scientists.
 
-!!! question "Exercise: modify the metadata.yml files in your cookiecutter templates"
+!!! question "Exercise: modify the metadata files in your cookiecutter templates"
 
-    We have seen some examples of metadata for NGS data. It is time now to customize your cookiecutter templates and modify the metadata.yml files so that they fit your needs! Think about what kind of metadata you would like to include and add them to your metadata.yml file from your cookiecutter template. Remember to modify as well the `cookiecutter.json` file so the metadata fields are mandatory!
+    We have seen some examples of metadata for NGS data. It is time now to customize your cookiecutter templates and modify the metadata.yml files so that they fit your needs! 
+    
+    1. Think about what kind of metadata you would like to include.
+    2. Modify the `cookiecutter.json` file so that when you create a new folder template, all the metadata is filled accordingly.
+    ![cookiecutter_json_example](./images/cookiecutter_json.png)
+    3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file.
+    ![assay_metadata_example](./images/assay_metadata.png)
+    4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file.
+    5. Git add, commit and push the changes of your template.
+    6. Test your folders by using the command `cookiecutter <URL to your cookiecutter repository in GitHub>`
 
 ## Wrap up
 

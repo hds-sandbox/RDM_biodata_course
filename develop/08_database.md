@@ -252,7 +252,10 @@ Nonetheless, implementing these ideas are beyond the scope of this course, it wo
 
 !!! question "Exercise: create a catalog of your NGS folders"
 
-    Create at least three test folders of NGS datasets using your cookiecutter template with filled metadata. Then use one the options explained above to create a catalog, either with a tsv file or a SQLite database. Finally, make your own browsable app and explore the test datasets!
+    1. Create a folder call `Assays`
+    2. Under that folder, make three new `Assay` folders from your cookiecutter template
+    3. Run the script above with R to create a database on a tsv file (or create your own with python). Modify the `folder_path` variable so it matches the path tot the folder `Assays`. The table will be written under the same `folder_path`.
+    4. Visualize your `Assays` table with Excel
 
 ## Wrap up
 

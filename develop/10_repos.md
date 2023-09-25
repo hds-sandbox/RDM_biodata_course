@@ -91,6 +91,20 @@ Once your [accounts are linked](https://docs.github.com/en/repositories/archivin
 
 By leveraging this integration, you ensure that significant milestones in your project are preserved in a reliable and accessible manner. This not only facilitates proper attribution but also contributes to the broader scientific community's ability to reproduce and build upon your research.
 
+!!! question "Exercise 6: Archive a `Project` GitHub repo in Zenodo"
+
+    1. In order to archive your GitHub repos in Zenodo, you will first need to [link your Zenodo and GitHub accounts](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+    2. Once your accounts are linked, go to your Zenodo GitHub account settings and turn on the GitHub repository you want to archive.
+    ![zenodo_github_link](./images/zenodo_github.png)
+    3. Creating a Zenodo archive is now as simple as [making a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in your GitHub repository. Remember to make a proper tag! **NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!**
+    ![github_release](./images/github_release.png)
+    4. Zenodo will automatically detect the release and it should appear in your Zenodo upload page.
+    ![zenodo_archives](./images/zenodo_archives.png)
+    5. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work.
+    ![zenodo_example](./images/zenodo_example.png)
+
+    Before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
+
 ## Wrap up
 
 In this final lesson we have learned how to wrap up a project/manuscript experiment by submitting your data to a domain-specific repository, while archiving your data analysis GitHub repositories in Zenodo. By following the simple lessons shown in this workshop, you will dramatically improve the FAIRability of your data, as well as organizing and structuring it in a way that will be much more useful in the future. This advantages do not serve yourself only, but your teammates, group leader and the general scientific population!

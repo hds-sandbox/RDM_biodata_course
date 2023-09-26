@@ -99,7 +99,9 @@ The course concludes with a focus on archiving and data repositories, enabling p
 
 ## Feedback form
 
-https://forms.office.com/e/BZkpzDKL0L
+We would greatly appreciate to know your thoughts about this workshop. Please, follow this [link](https://forms.office.com/e/BZkpzDKL0L) to answer 9 fast questions!
+
+
 
 <!-- 
 ### References

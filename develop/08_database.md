@@ -238,7 +238,7 @@ shinyApp(ui, server)
 
 Below we have added an example of a SQLite database catalog created by the Brickman Lab at the Center for Stem Cell Medicine. Simple, but effective! As an additional feature, the Brickman lab has added the option to open the metadata.yml file whenever you click on a data row, allowing you to see the full extent of the metadata for that `Assay`.
 
-![type:video](./assets/database_example.mov)
+![type:video](./assets/database_example_480p.mp4)
 
 ## Future ideas
 

@@ -101,7 +101,7 @@ Standard DMP templates can typically be found at funder agencies, e.g. [Swedish 
 
 ## Example of a DMP for NGS data
 
-We are have written a DMP template that it is prefilled with repetitive information using [DMPonline](https://dmponline.deic.dk/) and the Horizon Europe guidelines. This template contains all the necessary information regarding common practices that we will use, the repositories we use for NGS, etc. The template is part of the `project` folder template, under `documents`. You can check the file [here](https://github.com/brickmanlab/ngs-template/blob/master/project/%7B%7B%20cookiecutter.project%20%7D%7D/documents/Non-sensitive_NGS_research_project_template.docx).
+We are have written a DMP template that it is prefilled with repetitive information using [DMPonline](https://dmponline.deic.dk/) and the Horizon Europe guidelines. This template contains all the necessary information regarding common practices that we will use, the repositories we use for NGS, etc. The template is part of the `project` folder template, under `documents`. You can check the file [here](./assets/Non-sensitive_NGS_research_project_template.docx).
 
 The Horizon Europe template is mostly focused on digital data and so, it is maybe not the best option if you are also interested in recording in your DMP physical data, such as samples, reagents, media, cultures, model organisms, etc.
 

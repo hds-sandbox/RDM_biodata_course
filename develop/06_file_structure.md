@@ -208,7 +208,7 @@ Now, using only cookiecutter might have some issues. If you update the template,
     **Project**
     
     7. First, fork our `https://github.com/hds-sandbox/project-template` from the GitHub page into your own account/organization.
-    ![fork_repo_example](./images/fork_repo.png)
+    ![fork_repo_example](./images/fork_repo_project.png)
     8. Then, use `git clone <your URL to the template>` to put it in your computer.
     9.  Modify the contents of the repository so that it matches the **Project** example above. You are welcome to do changes as you please!
     10. Modify the `cookiecutter.json` file so that it will include the **Project** name template

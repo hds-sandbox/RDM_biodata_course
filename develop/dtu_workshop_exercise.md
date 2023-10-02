@@ -90,7 +90,7 @@ CHIP_Oct4_20230101/
     - *.fastq.gz*:In the case of NGS assays, there should be fastq files.
     - *samplesheet.csv*: file that contains metadata information for the samples. This file is used to run the nf-core pipelines. You can also add extra columns with info regarding the experimental variables and batches so it can be used for downstream analysis as well.
 
-## Project folder
+### Project folder
 
 On the other hand, we have the other type of folder called `Projects`. In this folder you will save a **subfolder for each project** that you (or your lab) works on. Each `Project` subfolder will contain project information and all the data analysis notebooks and scripts used in that project.
 
@@ -101,8 +101,6 @@ As like for an Assay folder, the Project folder should be named in a way that it
 ```
 
 For example, `JARH_Oct4_20230101`, is a project about the gene Oct4 owned by Jose Alejandro Romero Herrera, created on the 1st of January of 2023.
-
-### Project folder structure
 
 Next, let's take a look at a possible folder structure and what kind of files you can find there.
 
@@ -153,7 +151,7 @@ It is very easy to create a folder template using [cookiecutter](https://github.
 
     **Assay**
 
-    1. First, fork our `https://github.com/hds-sandbox/assay-template` from the GitHub page into your own account/organization.
+    1. First, fork our [Assay folder template](https://github.com/hds-sandbox/assay-template) from the GitHub page into your own account/organization.
     ![fork_repo_example](./images/fork_repo.png)
     2. Then, use `git clone <your URL to the template>` to put it in your computer.
     3. Modify the contents of the repository so that it matches the **Assay** example above. You are welcome to do changes as you please!
@@ -163,8 +161,8 @@ It is very easy to create a folder template using [cookiecutter](https://github.
     
     **Project**
     
-    7. First, fork our `https://github.com/hds-sandbox/project-template` from the GitHub page into your own account/organization.
-    ![fork_repo_example](./images/fork_repo.png)
+    7. First, fork our [Project folder template](https://github.com/hds-sandbox/project-template) from the GitHub page into your own account/organization.
+    ![fork_repo_example](./images/fork_repo_project.png)
     8. Then, use `git clone <your URL to the template>` to put it in your computer.
     9.  Modify the contents of the repository so that it matches the **Project** example above. You are welcome to do changes as you please!
     10. Modify the `cookiecutter.json` file so that it will include the **Project** name template

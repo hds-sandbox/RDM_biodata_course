@@ -69,7 +69,10 @@ Research Data Management (RDM) for Next Generation Sequencing (NGS) data is a fo
     [comment]: # (Funding by NNF and others)
 
 !!! warning "Course Requirements"
-    - Understanding Next Generation Sequencing data and formats.
+    - Basic understanding Next Generation Sequencing data and formats.
+    - Command Line experience
+    - Basic programming experience
+    - Mkdocs and mkdocs material
 
 This course provides participants with an overall introduction to effectively manage the vast amounts of data generated in modern NGS studies. Participants will gain a practical understanding of RDM principles and the significance of handling NGS data efficiently. The course covers the unique characteristics of NGS data, its life cycle, and the importance of adopting Open Science and FAIR principles for data accessibility and reusability.
 

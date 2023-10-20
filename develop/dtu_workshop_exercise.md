@@ -32,10 +32,11 @@ This is a practical version of the full RDM on NGS data workshop. The main key p
 
     In order to follow this tutorial you will need:
     
-    - A [GitHub account](https://github.com/)
+    - A [GitHub account](https://github.com/) and git installed in your computer.
     - A [Zenodo account](https://zenodo.org/)
     - [Python](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installation/) installed
-    - MkDocs and MkDocs material theme (can be installed through pip)
+    - [MkDocs](https://www.mkdocs.org/) and [MkDocs material](https://squidfunk.github.io/mkdocs-material/) theme (can be installed through pip)
+    - [Cookicutter](https://cookiecutter.readthedocs.io/en/stable/) (can be installed through pip)
 
     In addition, you should install the following MkDocs extensions
 

@@ -144,6 +144,75 @@ Next, let's take a look at a possible folder structure and what kind of files yo
 
 It is very easy to create a folder template using [cookiecutter](https://github.com/cookiecutter/cookiecutter). Cookiecutter is a command-line utility that creates projects from cookiecutters (that is, a template), e.g. creating a Python package project from a Python package project template. Here you can find an example of a cookiecutter folder template directed to [NGS data](https://github.com/brickmanlab/ngs-template), where we have applied the structures explained in the previous sections. You are very welcome to adapt it or modify it to your needs!
 
+#### Quick tutorial on cookiecutter
+
+Creating a Cookiecutter template from scratch involves defining a folder structure, creating a `cookiecutter.json` file, and specifying the placeholders (keywords) that will be replaced during project generation. Let's walk through the process step by step:
+
+##### Step 1: Create a Folder Template
+
+Start by creating a folder with the structure you want for your template. For example, let's create a simple Python project template:
+
+```plaintext
+my_template/
+|-- {{cookiecutter.project_name}}
+|   |-- main.py
+|-- tests
+|   |-- test_{{cookiecutter.project_name}}.py
+|-- README.md
+```
+
+In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used.
+
+##### Step 2: Create `cookiecutter.json`
+
+In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:
+
+```json
+{
+  "project_name": "MyProject",
+  "author_name": "Your Name",
+  "description": "A short description of your project"
+}
+```
+
+These are the questions users will be asked when generating a project based on your template. The values provided here will be used to replace the corresponding placeholders in the template files.
+
+In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
+
+Certainly! In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
+
+Modify the `my_template/main.py` file to include a placeholder inside its contents:
+
+```python
+# main.py
+
+def hello():
+    print("Hello, {{cookiecutter.project_name}}!")
+```
+
+Now, the `{{cookiecutter.project_name}}` placeholder is inside the `main.py` file. When you run Cookiecutter, it will automatically replace the placeholders not only in file and directory names but also within the contents of text files. After running Cookiecutter, your generated `main.py` file might look like this:
+
+```python
+# main.py
+
+def hello():
+    print("Hello, MyProject!")  # Assuming "MyProject" was entered as the project_name
+```
+
+##### Step 3: Use Cookiecutter
+
+Now that your template is set up, you can use Cookiecutter to generate a project based on it. Open a terminal and run:
+
+```bash
+cookiecutter path/to/your/template
+```
+
+Cookiecutter will prompt you to fill in the values for `project_name`, `author_name`, and `description`. After you provide these values, Cookiecutter will replace the placeholders in your template files with the entered values.
+
+##### Step 4: Explore the Generated Project
+
+Once the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will see a project structure with the placeholders replaced by the values you provided.
+
 !!! question "Exercise 1: Create your own template"
 
     Using cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs!

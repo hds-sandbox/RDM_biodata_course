@@ -189,6 +189,75 @@ You may be thinking right now that doing this kind of setup every time you need 
 
 Now, using only cookiecutter might have some issues. If you update the template, it might be really hard to maintain older folders. By using another tool, [cruft](https://github.com/cruft/cruft), when generating assay and project folders, it allows the user to validate and syncronize old templates with the latest version.
 
+### Quick tutorial on cookiecutter
+
+Creating a Cookiecutter template from scratch involves defining a folder structure, creating a `cookiecutter.json` file, and specifying the placeholders (keywords) that will be replaced during project generation. Let's walk through the process step by step:
+
+#### Step 1: Create a Folder Template
+
+Start by creating a folder with the structure you want for your template. For example, let's create a simple Python project template:
+
+```plaintext
+my_template/
+|-- {{cookiecutter.project_name}}
+|   |-- main.py
+|-- tests
+|   |-- test_{{cookiecutter.project_name}}.py
+|-- README.md
+```
+
+In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used.
+
+#### Step 2: Create `cookiecutter.json`
+
+In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:
+
+```json
+{
+  "project_name": "MyProject",
+  "author_name": "Your Name",
+  "description": "A short description of your project"
+}
+```
+
+These are the questions users will be asked when generating a project based on your template. The values provided here will be used to replace the corresponding placeholders in the template files.
+
+In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
+
+Certainly! In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
+
+Modify the `my_template/main.py` file to include a placeholder inside its contents:
+
+```python
+# main.py
+
+def hello():
+    print("Hello, {{cookiecutter.project_name}}!")
+```
+
+Now, the `{{cookiecutter.project_name}}` placeholder is inside the `main.py` file. When you run Cookiecutter, it will automatically replace the placeholders not only in file and directory names but also within the contents of text files. After running Cookiecutter, your generated `main.py` file might look like this:
+
+```python
+# main.py
+
+def hello():
+    print("Hello, MyProject!")  # Assuming "MyProject" was entered as the project_name
+```
+
+#### Step 3: Use Cookiecutter
+
+Now that your template is set up, you can use Cookiecutter to generate a project based on it. Open a terminal and run:
+
+```bash
+cookiecutter path/to/your/template
+```
+
+Cookiecutter will prompt you to fill in the values for `project_name`, `author_name`, and `description`. After you provide these values, Cookiecutter will replace the placeholders in your template files with the entered values.
+
+#### Step 4: Explore the Generated Project
+
+Once the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will see a project structure with the placeholders replaced by the values you provided.
+
 !!! question "Exercise: Create your own template"
 
     Using cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs! In order to create your cookiecutter template, your will need to install python, [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html), Git and a GitHub account. If you do not have Git and a GitHub account, we suggest you do one as soon as possible. We will take a deeper look at Git and GitHub in the [version control lesson](./09_version_control.md).

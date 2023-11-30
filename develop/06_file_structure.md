@@ -224,9 +224,7 @@ These are the questions users will be asked when generating a project based on y
 
 In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
 
-Certainly! In addition to replacing placeholders in file and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
-
-Modify the `my_template/main.py` file to include a placeholder inside its contents:
+First, modify the `my_template/main.py` file to include a placeholder inside its contents:
 
 ```python
 # main.py

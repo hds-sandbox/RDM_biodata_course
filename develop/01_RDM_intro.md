@@ -17,8 +17,8 @@ tags:
 
     &#128172; **Learning Objectives:**    
         
-    1. Learn the basics about what is Research Data Management 
-    2. Learn why effective RDM are important
+    1. Fundamentals of Research Data Management 
+    2. Importance of effective Research Data Management  
 
 The University of Copenhagen (UCPH) defines Research Data Management (RDM) as a "*collective term for the planning, collection, storage, sharing and preservation of research data*"[@UCPH_guidelines].
 

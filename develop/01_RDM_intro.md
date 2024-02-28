@@ -4,7 +4,7 @@ summary: An introduction to Research Data Management from the point of view of t
 tags:
     - RDM
     - Bad RDM
-    - Good RDM
+    - Effective RDM
 ---
 
 # Introduction to Research Data Management
@@ -17,8 +17,8 @@ tags:
 
     &#128172; **Learning Objectives:**    
         
-    1. Learn the basics about what is Research Data Management
-    2. Learn why good RDM are important
+    1. Learn the basics about what is Research Data Management 
+    2. Learn why effective RDM are important
 
 The University of Copenhagen (UCPH) defines Research Data Management (RDM) as a "*collective term for the planning, collection, storage, sharing and preservation of research data*"[@UCPH_guidelines].
 

@@ -2,9 +2,9 @@
 title: RDM intro
 summary: An introduction to Research Data Management from the point of view of the University of Copenhagen.
 tags:
-    - RDM
-    - Bad RDM
-    - Good RDM
+    - RDM practices
+    - Poor RDM
+    - Effective RDM
 ---
 
 # Introduction to Research Data Management
@@ -17,8 +17,8 @@ tags:
 
     &#128172; **Learning Objectives:**    
         
-    1. Learn the basics about what is Research Data Management
-    2. Learn why good RDM are important
+    1. Fundamentals of Research Data Management 
+    2. Importance of effective Research Data Management  
 
 The University of Copenhagen (UCPH) defines Research Data Management (RDM) as a "*collective term for the planning, collection, storage, sharing and preservation of research data*"[@UCPH_guidelines].
 
@@ -74,7 +74,7 @@ Effective data management can significantly benefit research, providing advantag
 - Sharing data with others beyond the project's conclusion enhances research visibility and fosters increased citations, expanding the impact of your findings.
 - Developing a data preservation plan ensures the long-term availability of research data well after the project's completion, contributing to data accessibility and continued research relevance.
 
-### The cost of bad RDM practices
+### The cost of poor RDM practices
 
 Several surveys have shown that data scientists spend between 40-60% of their time loading and cleaning data, becoming the most consuming, and what many would call tedious, tasks of their jobs[@anaconda_report;@forbes_article]. Below we show the number figures from the [Anaconda "State of data science 2020" report](https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020)[@anaconda_report].
 
@@ -121,7 +121,7 @@ What about these situations? Have you ever encounter any?
 3. A researcher publishes a groundbreaking study, but their data and methods lack proper documentation and are not made available to others. As a result, other researchers find it challenging or impossible to reproduce the study's results, leading to doubts about the validity of the findings.
 4. Suppose a research team spends weeks trying to clean and validate poorly organized data before they can start their analysis. This wasted time and effort could have been better spent on more productive research tasks.
 
-Bad data management practices can have significant consequences that affect both your future self and colleagues who may have to deal with your data, as well as those handling other people's data. The implications of poor data management include:
+Ineffective data management practices can have significant consequences that affect both your future self and colleagues who may have to deal with your data, as well as those handling other people's data. The implications of poor data management include:
 
 - **Difficulty in Data Retrieval**: Without proper organization and documentation, finding specific data files or understanding their content becomes challenging and time-consuming. This leads to inefficiency and frustration when attempting to retrieve relevant information.
 - **Loss of Data**: Inadequate data backup and storage strategies increase the risk of data loss due to hardware failures, accidental deletions, or other unforeseen events. Losing valuable research data can be devastating and may result in the loss of months or even years of work.
@@ -154,4 +154,4 @@ All in all, good data management absolutely have a positive impact on research. 
 
 ## Wrap up
 
-In this lesson we have learned about what is RDM, the consequences of poor RDM practices and how following good RDM practices will help you to to avoid them! In the next lessons we will explore different resources, tools and guidelines that can be applied to all kinds of data and how to apply it specifically for NGS data.
+In this lesson we have learned about what is RDM, the consequences of poor RDM practices and how following good RDM practices will help you to avoid them! In the next lessons we will explore different resources, tools and guidelines that can be applied to all kinds of data and how to apply it specifically for NGS data.

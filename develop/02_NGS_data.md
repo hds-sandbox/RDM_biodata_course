@@ -47,9 +47,9 @@ A laboratory protocol is documented set of procedures and methodologies outlinin
 
 In the context of molecular biology and Next-Generation Sequencing (NGS), a sample refers to a specific biological material or substance that is collected and prepared for genetic analysis. This material can encompass various biological entities such as DNA, RNA, or proteins, depending on the objectives of the study. For instance, a DNA sample might be extracted from a tissue or blood sample to analyze genetic variations or sequences. In NGS experiments, samples are typically processed according to specific protocols to generate large amounts of sequencing data, allowing researchers to delve into the genetic information contained within the sample.
 
-!!! note "Bioinformatics data from your samples"
+!!! note "Bioinformatics Data from Your Samples"
 
-    The experimental conditions of each of the samples should be registered in a metadata file that can be used later in your data analyses, such as treatment, cell type, timepoints, etc.
+    Please ensure that the experimental conditions of each sample are recorded in a metadata file. This information will be crucial for future data analyses (including treatment, cell type, timepoints, and more).
 
 ### Library Preparation
 
@@ -63,7 +63,7 @@ The sequencing process produces raw data in the form of short reads, each repres
 
 !!! note "Bioinformatics data from sequencing"
 
-    - **FASTQ:** This is one of the primary file formats used to store raw NGS data. FASTQ files contain nucleotide sequences and their corresponding quality scores. Each read from the sequencing process is represented as a set of four lines: a read identifier, the sequence of nucleotides, a separator (usually a '+'), and the quality scores for each base in the sequence.
+    **FASTQ:** This is one of the primary file formats used to store raw NGS data. FASTQ files contain nucleotide sequences and their corresponding quality scores. Each read from the sequencing process is represented as a set of four lines: a read identifier, the sequence of nucleotides, a separator (usually a '+'), and the quality scores for each base in the sequence.
 
 ## Data produced during preprocessing
 
@@ -71,18 +71,18 @@ The sequencing process produces raw data in the form of short reads, each repres
 
 Before proceeding with data analysis, quality control is performed to assess the accuracy and reliability of the raw sequencing data. Low-quality reads and potential sequencing artifacts are filtered out to ensure the reliability of downstream analyses. Most useful tools to track Quality Control are FastQC and MultiQC.
 
-!!! "Bioinformatics data from QC"
+!!! note "Bioinformatics data from QC"
 
-    - **FastQC**: FastQC is a widely-used bioinformatics tool that provides a comprehensive assessment of the quality of sequencing data, generating valuable insights into potential issues or biases in the data. 
+    - *FastQC**: FastQC is a widely-used bioinformatics tool that provides a comprehensive assessment of the quality of sequencing data, generating valuable insights into potential issues or biases in the data. 
     - **MultiQC**: MultiQC is a companion tool that simplifies the process of aggregating and visualizing quality control metrics from multiple samples or datasets, allowing for a quick overview of data quality across an entire project.
 
 ### Data Alignment
 
 In DNA sequencing, the reads are aligned to a reference genome using alignment algorithms to determine the specific location of each read in the genome. For RNA-Seq experiments, reads are aligned to a reference transcriptome to identify gene expression levels.
 
-!!! "Bioinformatics data from alignment"
+!!! note "Bioinformatics data from alignments"
 
-    - **BAM/SAM**: These are binary and text versions, respectively, of Sequence Alignment/Map (SAM) files. SAM files store the alignment information of sequencing reads to a reference genome or transcriptome. BAM files are compressed and more space-efficient, making them the preferred format for storing aligned reads.
+    -  **BAM/SAM**: These are binary and text versions, respectively, of Sequence Alignment/Map (SAM) files. SAM files store the alignment information of sequencing reads to a reference genome or transcriptome. BAM files are compressed and more space-efficient, making them the preferred format for storing aligned reads.
     - **FASTA**: FASTA files store nucleotide or amino acid sequences, and they are often used for reference sequences or assembled contigs. Each sequence in a FASTA file begins with a single-line description, followed by the actual sequence data.
     - **GTF/GFF**: These files are used to annotate genomic features, such as genes, exons, and transcripts. Gene Transfer Format (GTF) and General Feature Format (GFF) files include information on feature positions, names, and additional attributes.
     - **Alignment indexes**: These are reference data structures that facilitate efficient and rapid mapping of sequencing reads to a reference genome or transcriptome during Next Generation Sequencing (NGS) data analysis.
@@ -91,23 +91,24 @@ In DNA sequencing, the reads are aligned to a reference genome using alignment a
 
 For genomic DNA sequencing, variant calling identifies differences (mutations, insertions, deletions) between the sequenced sample and the reference genome. This step is crucial for detecting genetic variations associated with diseases or phenotypic traits.
 
-!!! "Bioinformatics data from VC"
+!!! note "Bioinformatics data from VC"
 
-    - **VCF**: Variant Call Format (VCF) files store genetic variations, such as single nucleotide variants (SNVs), insertions, deletions, and structural variants, identified during variant calling. VCF files include variant position, alleles, genotype information, and quality scores.
+    **VCF**: Variant Call Format (VCF) files store genetic variations, such as single nucleotide variants (SNVs), insertions, deletions, and structural variants, identified during variant calling. VCF files include variant position, alleles, genotype information, and quality scores.
 
 ### RNA Expression Analysis
 
 In RNA-Seq experiments, data analysis includes quantification of gene expression levels, detection of alternative splicing events, and identification of differentially expressed genes under different experimental conditions.
 
-!!! "Bioinformatics data from Expression Analyses"
 
-    - **Count matrix**: represents the quantified number of times each gene or genomic feature is observed in a set of biological samples. Each row typically corresponds to a gene, while each column represents a sample.
+!!! note "Bioinformatics data from Expression Analyses"
+
+    **Count matrix**: represents the quantified number of times each gene or genomic feature is observed in a set of biological samples. Each row typically corresponds to a gene, while each column represents a sample.
 
 ### Epigenetic Profiling
 
 Epigenetic analyses, such as ChIP-Seq, assess DNA modifications and protein-DNA interactions, providing insights into gene regulation and chromatin structure.
 
-!!! "Bioinformatics data from Epigenetic profiling"
+!!! note "Bioinformatics data from Epigenetic profiling"
 
     - **Peak Calling Results**: For ChIP-Seq or other genomic profiling experiments, peak calling identifies regions with enriched signal intensity. The results are typically presented in BED or BEDGraph formats, indicating the genomic positions and signal intensities of detected peaks, or BigWig files for visualization in a genome browser.
     - **BED/BEDGraph**: These files are used to represent genomic intervals, such as gene coordinates, regions of interest, or coverage information. BED files define genomic regions with start and end coordinates, while BEDGraph files represent continuous data (e.g., coverage) as a graph.

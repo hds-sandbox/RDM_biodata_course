@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-11-30">
+
+<title>RDM for NGS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RDM for NGS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../develop/01_RDM_intro.html"> 
+<span class="menu-text">Course material</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../use_cases.html"> 
+<span class="menu-text">Use cases</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hds-sandbox"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/ucph-heads/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#metadata-for-ngs-data" id="toc-metadata-for-ngs-data" class="nav-link active" data-scroll-target="#metadata-for-ngs-data">Metadata for NGS data</a>
+  <ul class="collapse">
+  <li><a href="#what-is-metadata-and-why-it-is-important" id="toc-what-is-metadata-and-why-it-is-important" class="nav-link" data-scroll-target="#what-is-metadata-and-why-it-is-important">What is metadata and why it is important</a></li>
+  <li><a href="#how-to-collect-metadata-in-your-folders" id="toc-how-to-collect-metadata-in-your-folders" class="nav-link" data-scroll-target="#how-to-collect-metadata-in-your-folders">How to collect metadata in your folders</a>
+  <ul class="collapse">
+  <li><a href="#readme.md-file" id="toc-readme.md-file" class="nav-link" data-scroll-target="#readme.md-file">README.md file</a></li>
+  <li><a href="#metadata.yml" id="toc-metadata.yml" class="nav-link" data-scroll-target="#metadata.yml">metadata.yml</a></li>
+  </ul></li>
+  <li><a href="#metadata-fields" id="toc-metadata-fields" class="nav-link" data-scroll-target="#metadata-fields">Metadata fields</a>
+  <ul class="collapse">
+  <li><a href="#general-metadata-fields" id="toc-general-metadata-fields" class="nav-link" data-scroll-target="#general-metadata-fields">General metadata fields</a></li>
+  <li><a href="#assay-metadata-fields" id="toc-assay-metadata-fields" class="nav-link" data-scroll-target="#assay-metadata-fields">Assay metadata fields</a></li>
+  <li><a href="#sample-metadata-fields" id="toc-sample-metadata-fields" class="nav-link" data-scroll-target="#sample-metadata-fields">Sample metadata fields</a></li>
+  <li><a href="#project-metadata-fields" id="toc-project-metadata-fields" class="nav-link" data-scroll-target="#project-metadata-fields">Project metadata fields</a></li>
+  </ul></li>
+  <li><a href="#more-info" id="toc-more-info" class="nav-link" data-scroll-target="#more-info">More info</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Metadata for NGS data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">March 5, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="metadata-for-ngs-data" class="level1">
+<h1>Metadata for NGS data</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="Course Overview">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Overview
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>⏰ <strong>Time Estimation:</strong> X minutes<br>
+💬 <strong>Learning Objectives:</strong><br>
+1. Learn what is metadata<br>
+2. Learn what metadata is associated to NGS data 3. Learn sources for controlled vocabularies for NGS data</p>
+</div>
+</div>
+<p>Metadata is the behind-the-scenes information that makes sense of data. It’s the extra layer of details that help you understand what the data is all about. Imagine you have a book – the words on the pages are the data, while the title, author, and table of contents are the metadata. In a similar way, metadata gives data context and structure. For NGS data, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. In this section, we will explore what kind of relevant metadata is available for NGS data, and how to capture it in your <a href="./06_file_structure.md">Assays or Project folders</a>.</p>
+<section id="what-is-metadata-and-why-it-is-important" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-metadata-and-why-it-is-important">What is metadata and why it is important</h2>
+<p><img src="images/metadata.png" class="img-fluid" alt="metadata"> <em>From <a href="https://www.ontotext.com/knowledgehub/fundamentals/metadata-fundamental/">ontotext.com</a></em></p>
+<p>Imagine you have a batch of DNA sequences from different people. The raw sequences are like jigsaw puzzle pieces, and metadata is a cheat sheet that tells you which pieces fit where. It could include details like when and where the samples were collected, the lab procedures used, who did created them, and even the equipment involved, providing context and making sense of the who, what, when, where, and why.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition of metadata">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition of metadata
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>Metadata refers to data that provides information about other data. It describes various aspects of the data, such as its origin, structure, format, and context. Metadata is typically used to facilitate the organization, management, and interpretation of data, making it easier to locate, access, and understand. In essence, metadata adds valuable context and attributes to the primary data, enhancing its usability and ensuring efficient data management."</code></pre>
+</div>
+</div>
+<p>Let’s think of an example that shows why metadata is extremelly important. Imagine you’re in a big lab with a plethora of different datasets all saved under generic folder names. Without metadata, it would be like searching for a needle in a haystack. You’d have folders labeled ‘Experiment123,’ ‘DataBatch42,’ and so on, but zero clues about what’s inside. With metadata, ‘Experiment123’ is not just that anymore, but ‘DNA Sequencing of Human Cells, March 2023’. Providing relevant metadata converts data chaos into an organized repository, turning data exploration, interpretation, and insight extraction into a much easier journey. This is true not only for yourself or your lab, but to other researchers that might want to reuse your data. Collecting metadata from the very beginning of the research project will help tremendously to alleviate future efforts to understand the data. It can also help you make an organised collection of data, so that you do not lose any information regarding the data, or that you do not repeat an unnecessary experiment that someone else has done it before, but you could not find. That is, it helps you save money and time!</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Benefits of collecting proper metadata">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of collecting proper metadata
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>1. **Data Context and Interpretation**: Metadata provides crucial context to NGS data, offering insights into the experimental conditions, sample origins, and processing methods. This context is vital for understanding data variations, drawing accurate conclusions, and interpreting results correctly.
+2. **Data Discovery and Access**: With metadata, researchers can easily locate and access specific NGS datasets within large repositories. Details like sample identifiers, experimental parameters, and timestamps help researchers quickly identify relevant data for their analyses.
+3. **Reproducibility and Collaboration**: Metadata ensures that NGS experiments can be replicated and validated by others. By sharing comprehensive metadata, researchers enable colleagues to reproduce analyses, compare results, and collaborate effectively, bolstering the integrity of scientific findings.
+4. **Quality Control and Validation**: Metadata supports data quality assessment by allowing researchers to track the origin and handling of NGS data. It enables the identification of potential errors or biases, helping researchers validate the accuracy and reliability of their analyses.
+5. **Long-Term Data Preservation**: Properly documented metadata is essential for preserving NGS data over time. As research evolves, metadata ensures that future generations can understand and utilize archived NGS datasets, ensuring the continued impact of scientific discoveries.</code></pre>
+</div>
+</div>
+</section>
+<section id="how-to-collect-metadata-in-your-folders" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-collect-metadata-in-your-folders">How to collect metadata in your folders</h2>
+<p>In our previous lesson, we learnt about how to organize your data into different types of folders: <code>Assays</code> and <code>Projects</code>. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.</p>
+<section id="readme.md-file" class="level3">
+<h3 class="anchored" data-anchor-id="readme.md-file">README.md file</h3>
+<p>The README.md file is a <a href="https://www.markdownguide.org/">markdown file</a> that allows you to write a long description of the data placed in a folder. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, how and when. If it is an <code>Assay</code> folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment and any sort of comments that would help to understand the context of the experiment. On the other hand, a ‘Project’ README file may contain a description of the project, what are its aims, why is it important, what ‘Assays’ is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.</p>
+<p>Here is an example of a README file for a `Project`` folder:</p>
+<pre><code># NGS Analysis Project: Exploring Gene Expression in Human Tissues
+
+## Aims
+
+This project aims to investigate gene expression patterns across various human tissues using Next Generation Sequencing (NGS) data. By analyzing the transcriptomes of different tissues, we seek to uncover tissue-specific gene expression profiles and identify potential markers associated with specific biological functions or diseases.
+
+## Why It's Important
+
+Understanding tissue-specific gene expression is crucial for deciphering the molecular basis of health and disease. Identifying genes that are uniquely expressed in certain tissues can provide insights into tissue function, development, and potential therapeutic targets. This project contributes to our broader understanding of human biology and has implications for personalized medicine and disease research.
+
+## Datasets
+
+We have used internal datasets with IDs: RNA_humanSkin_20201030, RNA_humanBrain_20210102, RNA_humanLung_20220304.
+
+In addition, we utilized publicly available NGS datasets from the GTEx (Genotype-Tissue Expression) project, which provides comprehensive RNA-seq data across multiple human tissues. These datasets offer a wealth of information on gene expression levels and isoform variations across diverse tissues, making them ideal for our analysis.
+
+## Summary of Results
+
+Our analysis revealed distinct gene expression patterns among different human tissues. We identified tissue-specific genes enriched in brain tissues, highlighting their potential roles in neurodevelopment and function. Additionally, we found a set of genes that exhibit consistent expression across a range of tissues, suggesting their fundamental importance in basic cellular processes.
+
+Furthermore, our differential expression analysis unveiled significant changes in gene expression between healthy and diseased tissues, shedding light on potential molecular factors underlying various diseases. Overall, this project underscores the power of NGS data in unraveling intricate gene expression networks and their implications for human health.
+
+---
+
+For more details, refer to our [Jupyter Notebook](link-to-jupyter-notebook.ipynb) for the complete analysis pipeline and code.</code></pre>
+</section>
+<section id="metadata.yml" class="level3">
+<h3 class="anchored" data-anchor-id="metadata.yml">metadata.yml</h3>
+<p>The metadata file is a <a href="https://fileinfo.com/extension/yml">yml file</a>, which is a text document that contains data formatted using a human-readable data format for data serialization. It is not mandatory that you use yml format, any other structured file format will work too, such as json files. We recommend using yml format because it is easily readable for humans, so non-coding people will have an easier time checking, writing or modifying the file if they need to.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/yml_example.png" class="img-fluid figure-img"></p>
+<figcaption>yaml file example</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="metadata-fields" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-fields">Metadata fields</h2>
+<p>There is a ton of information you can collect regarding an NGS assay or a project. Some information fields are very general, such as author or date, while others are specific to the Assay or Project folder. Below, we will take a look at minimal information you should collect in each of the folders. But before that, we need to talk about controlled vocabularies/ontologies.</p>
+<p>Imagine this scenario: a researcher in genomics us excited to explore various NGS datasets from different human tissue samples to study gene expression patterns. However, she encounters a significant hurdle: the tissue names used in the datasets are inconsistent and lack standardized terms. Some datasets refer to “brain,” while others use “cerebral cortex” or “cortical tissue.” This lack of controlled vocabularies for tissue names complicates her data integration efforts, requiring her to spend additional time curating and mapping tissue labels to establish meaningful cross-dataset comparisons.</p>
+<p>So, what happened here? If the original creators of the NGS datasets had adopted a standardized vocabulary for tissue names, Dr.&nbsp;Smith could have seamlessly integrated the data without the need for extensive curation. By employing a widely accepted tissue ontology, like the Uberon Ontology, dataset contributors could have consistently used predefined terms, such as “brain” or “cerebral cortex.” This practice would have not only simplified data integration but also facilitated accurate cross-dataset comparisons and enabled more reliable downstream analyses.</p>
+<p>In the context of NGS data, ontologies and controlled vocabularies play a pivotal role in clarifying and categorizing many concepts and information about your data. More examples are: the Gene Ontology (GO), which provides a shared vocabulary to describe gene functions, molecular processes, and cellular components, enhancing the consistency and comparability of NGS results, and Ensembl gene IDs, which are used to uniquely represent individual genes and provide a standardized way of referencing and accessing gene-related information across various species. By leveraging ontologies, researchers ensure that metadata fields capture specific details consistently across experiments, from sample sources and protocols to experimental conditions.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition of ontology">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition of ontology
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>An ontology is a formal representation of knowledge that encompasses concepts, their attributes, and the relationships between them within a particular domain or subject area. It serves as a structured framework for organizing and categorizing information, facilitating the interpretation, sharing, and integration of knowledge across diverse applications and disciplines. Ontologies employ standardized vocabularies and define the semantics of terms, enabling effective communication and reasoning among humans and computer systems. They play a pivotal role in knowledge representation, data integration, and semantic interoperability, contributing to enhanced understanding, collaboration, and analysis within complex domains.</code></pre>
+</div>
+</div>
+<p>This standardization not only enhances data discoverability and interoperability but also empowers robust data analysis, accelerates knowledge sharing, and enables meaningful cross-study comparisons. In essence, ontologies serve as the universal translators of the scientific language, fostering a harmonious symphony of data interpretation and collaboration.</p>
+<section id="general-metadata-fields" class="level3">
+<h3 class="anchored" data-anchor-id="general-metadata-fields">General metadata fields</h3>
+<p>Here you can find a list of suggestions for general metadata fields that can be used for both assays and project folders:</p>
+<ul>
+<li><strong>Title</strong>: A brief yet informative name for the dataset.</li>
+<li><strong>Author(s)</strong>: The individual(s) or organization responsible for creating the dataset. You can use your <a href="https://orcid.org/">ORCID</a></li>
+<li><strong>Date Created</strong>: The date when the dataset was originally generated or compiled. Use YYYY-MM-DD format!</li>
+<li><strong>Date Modified</strong>: The date when the dataset was last updated or modified. Use YYYY-MM-DD format!</li>
+<li><strong>Object ID</strong>: The project or assay ID for tracking and reference purposes.</li>
+<li><strong>Description</strong>: A short narrative explaining the content, purpose, and context.</li>
+<li><strong>Keywords</strong>: A set of descriptive terms or phrases that capture the folder’s main topics and attributes.</li>
+<li><strong>Ethical and Legal Considerations</strong>: Information about ethical approvals, consent, and any legal restrictions.</li>
+<li><strong>Version</strong>: The version number or identifier for the folder, useful for tracking changes.</li>
+<li><strong>Related Publications</strong>: Links or references to any scientific publications associated with the folder. Try to add here the DOI!</li>
+<li><strong>Funding Source</strong>: Details about the funding agency or source that supported the research and data generation.</li>
+<li><strong>License</strong>: The type of license or terms of use associated with the dataset/project.</li>
+<li><strong>Contact Information</strong>: Contact details for individuals who can provide further information about the dataset/project.</li>
+</ul>
+</section>
+<section id="assay-metadata-fields" class="level3">
+<h3 class="anchored" data-anchor-id="assay-metadata-fields">Assay metadata fields</h3>
+<p>Here you will find a table with possible metadata fields that you can use to annotate and track your <code>Assay</code> folders:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="mtlwfolwgl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mtlwfolwgl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mtlwfolwgl thead, #mtlwfolwgl tbody, #mtlwfolwgl tfoot, #mtlwfolwgl tr, #mtlwfolwgl td, #mtlwfolwgl th {
+  border-style: none;
+}
+
+#mtlwfolwgl p {
+  margin: 0;
+  padding: 0;
+}
+
+#mtlwfolwgl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mtlwfolwgl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mtlwfolwgl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mtlwfolwgl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mtlwfolwgl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mtlwfolwgl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mtlwfolwgl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mtlwfolwgl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mtlwfolwgl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mtlwfolwgl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mtlwfolwgl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mtlwfolwgl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mtlwfolwgl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mtlwfolwgl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mtlwfolwgl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtlwfolwgl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mtlwfolwgl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mtlwfolwgl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mtlwfolwgl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtlwfolwgl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mtlwfolwgl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtlwfolwgl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mtlwfolwgl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtlwfolwgl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mtlwfolwgl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mtlwfolwgl .gt_left {
+  text-align: left;
+}
+
+#mtlwfolwgl .gt_center {
+  text-align: center;
+}
+
+#mtlwfolwgl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mtlwfolwgl .gt_font_normal {
+  font-weight: normal;
+}
+
+#mtlwfolwgl .gt_font_bold {
+  font-weight: bold;
+}
+
+#mtlwfolwgl .gt_font_italic {
+  font-style: italic;
+}
+
+#mtlwfolwgl .gt_super {
+  font-size: 65%;
+}
+
+#mtlwfolwgl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mtlwfolwgl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mtlwfolwgl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mtlwfolwgl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mtlwfolwgl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mtlwfolwgl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mtlwfolwgl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Metadata field" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metadata field</th>
+<th id="Definition" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definition</th>
+<th id="Format" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Format</th>
+<th id="Ontology" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ontology</th>
+<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Example</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">assay_ID</td>
+<td class="gt_row gt_left" headers="Definition">Identifier for the assay that is at least unique within the project</td>
+<td class="gt_row gt_left" headers="Format">&lt;Assay-ID\&gt;_&lt;keyword\&gt;_YYYYMMDD</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">CHIP_Oct4_20200101</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">assay_type</td>
+<td class="gt_row gt_left" headers="Definition">The type of experiment performed, eg ATAC-seq or seqFISH</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">ChIPseq</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">assay_subtype</td>
+<td class="gt_row gt_left" headers="Definition">More specific type or assay like bulk nascent RNAseq or single cell ATACseq</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">bulk ChIPseq</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">owner</td>
+<td class="gt_row gt_left" headers="Definition">Owner of the assay (who made the experiment?).</td>
+<td class="gt_row gt_left" headers="Format">&lt;First Name\&gt; &lt;Last Name\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">Jose Romero</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">platform</td>
+<td class="gt_row gt_left" headers="Definition">The type of instrument used to perform the assay, eg Illumina HiSeq 4000 or Fluidigm C1 microfluidics platform</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">Illumina</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">extraction_method</td>
+<td class="gt_row gt_left" headers="Definition">Technique used to extract the nucleic acid from the cell</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">library_method</td>
+<td class="gt_row gt_left" headers="Definition">Technique used to amplify a cDNA library</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">external_accessions</td>
+<td class="gt_row gt_left" headers="Definition">Accession numbers from external resources to which assay or protocol information was submitted</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">eg protocols.io, AE, GEO accession number, etc</td>
+<td class="gt_row gt_left" headers="Example">GSEXXXXX</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">keyword</td>
+<td class="gt_row gt_left" headers="Definition">Keyword for easy identification</td>
+<td class="gt_row gt_left" headers="Format">wordWord</td>
+<td class="gt_row gt_left" headers="Ontology">camelCase</td>
+<td class="gt_row gt_left" headers="Example">Oct4ChIP</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">date</td>
+<td class="gt_row gt_left" headers="Definition">Date of assay creation</td>
+<td class="gt_row gt_left" headers="Format">YYYYMMDD</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">20200101</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">nsamples</td>
+<td class="gt_row gt_left" headers="Definition">Number of samples analyzed in this assay</td>
+<td class="gt_row gt_left" headers="Format">&lt;integer\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">is_paired</td>
+<td class="gt_row gt_left" headers="Definition">Paired fastq files or not</td>
+<td class="gt_row gt_left" headers="Format">&lt;single OR paired\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">single</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">pipeline</td>
+<td class="gt_row gt_left" headers="Definition">Pipeline used to process data and version</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">nf-core/chipseq -r 1.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">strandedness</td>
+<td class="gt_row gt_left" headers="Definition">The strandedness of the cDNA library</td>
+<td class="gt_row gt_left" headers="Format">&lt;+ OR - OR *\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">*</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">processed_by</td>
+<td class="gt_row gt_left" headers="Definition">Who processed the data</td>
+<td class="gt_row gt_left" headers="Format">&lt;First Name\&gt; &lt;Last Name\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">Sarah Lundregan</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">organism</td>
+<td class="gt_row gt_left" headers="Definition">Organism origin</td>
+<td class="gt_row gt_left" headers="Format">&lt;Genus species\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">Taxonomy name</td>
+<td class="gt_row gt_left" headers="Example">Mus musculus</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">origin</td>
+<td class="gt_row gt_left" headers="Definition">Is internal or external (from a public resources) data</td>
+<td class="gt_row gt_left" headers="Format">&lt;internal OR external\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">internal</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">path</td>
+<td class="gt_row gt_left" headers="Definition">Path to files</td>
+<td class="gt_row gt_left" headers="Format">&lt;/path/to/file\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">short_desc</td>
+<td class="gt_row gt_left" headers="Definition">Short description of the assay</td>
+<td class="gt_row gt_left" headers="Format">plain text</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">Oct4 ChIP after pERK activation</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">ELN_ID</td>
+<td class="gt_row gt_left" headers="Definition">ID of the experiment/assay in your Electronic Lab Notebook software, like labguru or benchling</td>
+<td class="gt_row gt_left" headers="Format">plain text</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-metadata-fields" class="level3">
+<h3 class="anchored" data-anchor-id="sample-metadata-fields">Sample metadata fields</h3>
+<p>There is some information that will be specific to your samples. For example, which samples are treated, which are control, which tissue do they come from, which cell type, etc. In this case, it would be beneficial if you include all this information in the <a href="./06_file_structure.md"><code>samplesheet.csv</code></a> that describes the fastq files. Here is a list of possible metadata fields that you can use:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="hknfvqyusl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hknfvqyusl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hknfvqyusl thead, #hknfvqyusl tbody, #hknfvqyusl tfoot, #hknfvqyusl tr, #hknfvqyusl td, #hknfvqyusl th {
+  border-style: none;
+}
+
+#hknfvqyusl p {
+  margin: 0;
+  padding: 0;
+}
+
+#hknfvqyusl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hknfvqyusl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hknfvqyusl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hknfvqyusl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hknfvqyusl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hknfvqyusl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hknfvqyusl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hknfvqyusl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hknfvqyusl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hknfvqyusl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hknfvqyusl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hknfvqyusl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hknfvqyusl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hknfvqyusl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hknfvqyusl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hknfvqyusl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hknfvqyusl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hknfvqyusl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hknfvqyusl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hknfvqyusl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hknfvqyusl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hknfvqyusl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hknfvqyusl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hknfvqyusl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hknfvqyusl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hknfvqyusl .gt_left {
+  text-align: left;
+}
+
+#hknfvqyusl .gt_center {
+  text-align: center;
+}
+
+#hknfvqyusl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hknfvqyusl .gt_font_normal {
+  font-weight: normal;
+}
+
+#hknfvqyusl .gt_font_bold {
+  font-weight: bold;
+}
+
+#hknfvqyusl .gt_font_italic {
+  font-style: italic;
+}
+
+#hknfvqyusl .gt_super {
+  font-size: 65%;
+}
+
+#hknfvqyusl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hknfvqyusl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hknfvqyusl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hknfvqyusl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hknfvqyusl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hknfvqyusl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hknfvqyusl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Metadata field" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metadata field</th>
+<th id="Definition" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definition</th>
+<th id="Format" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Format</th>
+<th id="Ontology" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ontology</th>
+<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Example</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">sample</td>
+<td class="gt_row gt_left" headers="Definition">Name of the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">control_rep1, treat_rep1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">fastq_1</td>
+<td class="gt_row gt_left" headers="Definition">Path to fastq file 1</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">AEG588A1_S1_L002_R1_001.fastq.gz</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">fastq_2</td>
+<td class="gt_row gt_left" headers="Definition">Path to paired fastq file, if it is a paired experiment</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">AEG588A1_S1_L002_R2_001.fastq.gz</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">strandedness</td>
+<td class="gt_row gt_left" headers="Definition">The strandedness of the cDNA library</td>
+<td class="gt_row gt_left" headers="Format">&lt;unstranded OR forward OR reverse \&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">unstranded</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">condition</td>
+<td class="gt_row gt_left" headers="Definition">Variable of interest of the experiment, such as "control", "treatment", etc</td>
+<td class="gt_row gt_left" headers="Format">wordWord</td>
+<td class="gt_row gt_left" headers="Ontology">camelCase</td>
+<td class="gt_row gt_left" headers="Example">control, treat1, treat2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">cell_type</td>
+<td class="gt_row gt_left" headers="Definition">The cell type(s) known or selected to be present in the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">tissue</td>
+<td class="gt_row gt_left" headers="Definition">The tissue from which the sample was taken</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">Uberon</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">sex</td>
+<td class="gt_row gt_left" headers="Definition">The biological/genetic sex of the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">cell_line</td>
+<td class="gt_row gt_left" headers="Definition">Cell line of the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field- e.g. EFO or OBI</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">organism</td>
+<td class="gt_row gt_left" headers="Definition">Organism origin of the sample</td>
+<td class="gt_row gt_left" headers="Format">&lt;Genus species&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">Taxonomy</td>
+<td class="gt_row gt_left" headers="Example">Mus musculus</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">replicate</td>
+<td class="gt_row gt_left" headers="Definition">Replicate number</td>
+<td class="gt_row gt_left" headers="Format">&lt;integer\&gt;</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">batch</td>
+<td class="gt_row gt_left" headers="Definition">Batch information</td>
+<td class="gt_row gt_left" headers="Format">wordWord</td>
+<td class="gt_row gt_left" headers="Ontology">camelCase</td>
+<td class="gt_row gt_left" headers="Example">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">disease</td>
+<td class="gt_row gt_left" headers="Definition">Any diseases that may affect the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">Disease Ontology or MONDO</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">developmental_stage</td>
+<td class="gt_row gt_left" headers="Definition">The developmental stage of the sample</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">sample_type</td>
+<td class="gt_row gt_left" headers="Definition">The type of the collected specimen, eg tissue biopsy, blood draw or throat swab</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">strain</td>
+<td class="gt_row gt_left" headers="Definition">Strain of the species from which the sample was collected, if applicable</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">ontology field - e.g. NCBITaxonomy</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">genetic variation</td>
+<td class="gt_row gt_left" headers="Definition">Any relevant genetic differences from the specimen or sample to the expected genomic information for this species, eg abnormal chromosome counts, major translocations or indels</td>
+<td class="gt_row gt_left" headers="Format">NA</td>
+<td class="gt_row gt_left" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="project-metadata-fields" class="level3">
+<h3 class="anchored" data-anchor-id="project-metadata-fields">Project metadata fields</h3>
+<p>Here you will find a table with possible metadata fields that you can use to annotate and track your <code>Project</code> folders:</p>
+<p>In development.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="pfjpeenuam" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pfjpeenuam table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pfjpeenuam thead, #pfjpeenuam tbody, #pfjpeenuam tfoot, #pfjpeenuam tr, #pfjpeenuam td, #pfjpeenuam th {
+  border-style: none;
+}
+
+#pfjpeenuam p {
+  margin: 0;
+  padding: 0;
+}
+
+#pfjpeenuam .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pfjpeenuam .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pfjpeenuam .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pfjpeenuam .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pfjpeenuam .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pfjpeenuam .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pfjpeenuam .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pfjpeenuam .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pfjpeenuam .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pfjpeenuam .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pfjpeenuam .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pfjpeenuam .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pfjpeenuam .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pfjpeenuam .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pfjpeenuam .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pfjpeenuam .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pfjpeenuam .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pfjpeenuam .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pfjpeenuam .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pfjpeenuam .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pfjpeenuam .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pfjpeenuam .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pfjpeenuam .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pfjpeenuam .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pfjpeenuam .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pfjpeenuam .gt_left {
+  text-align: left;
+}
+
+#pfjpeenuam .gt_center {
+  text-align: center;
+}
+
+#pfjpeenuam .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pfjpeenuam .gt_font_normal {
+  font-weight: normal;
+}
+
+#pfjpeenuam .gt_font_bold {
+  font-weight: bold;
+}
+
+#pfjpeenuam .gt_font_italic {
+  font-style: italic;
+}
+
+#pfjpeenuam .gt_super {
+  font-size: 65%;
+}
+
+#pfjpeenuam .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pfjpeenuam .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pfjpeenuam .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pfjpeenuam .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pfjpeenuam .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pfjpeenuam .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pfjpeenuam .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Metadata field" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metadata field</th>
+<th id="Definition" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definition</th>
+<th id="Format" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Format</th>
+<th id="Ontology" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Ontology</th>
+<th id="Example" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Example</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">project</td>
+<td class="gt_row gt_left" headers="Definition">Project ID</td>
+<td class="gt_row gt_left" headers="Format">&lt;surname\&gt;_et_al_2023</td>
+<td class="gt_row gt_center" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">proks_et_al_2023</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">author</td>
+<td class="gt_row gt_left" headers="Definition">Owner of the project</td>
+<td class="gt_row gt_left" headers="Format">&lt;First name\&gt; &lt;Surname\&gt;</td>
+<td class="gt_row gt_center" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">Martin Proks</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Metadata field">date</td>
+<td class="gt_row gt_left" headers="Definition">Date of creation</td>
+<td class="gt_row gt_left" headers="Format">YYYYMMDD</td>
+<td class="gt_row gt_center" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">20230101</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Metadata field">description</td>
+<td class="gt_row gt_left" headers="Definition">Short description of the project</td>
+<td class="gt_row gt_left" headers="Format">Plain text</td>
+<td class="gt_row gt_center" headers="Ontology">NA</td>
+<td class="gt_row gt_left" headers="Example">This is a project describing the effect of Oct4 perturbation after pERK activation</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="more-info" class="level2">
+<h2 class="anchored" data-anchor-id="more-info">More info</h2>
+<p>The information provided in this lesson is not at all exhaustive. There might be many more fields and controlled vocabularies that could be useful for your NGS data. We recommend that you take a look at the following sources for more information!</p>
+<ul>
+<li><a href="https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata">Transcriptomics metadata standards and fields</a></li>
+<li><a href="https://lamin.ai/docs/bionty">Bionty</a>: Biological ontologies for data scientists.</li>
+</ul>
+<p>::: {.callout-tip appearance=“simple”} # “Exercise: modify the metadata files in your cookiecutter templates” We have seen some examples of metadata for NGS data. It is time now to customize your cookiecutter templates and modify the metadata.yml files so that they fit your needs!</p>
+<pre><code>1. Think about what kind of metadata you would like to include.
+2. Modify the `cookiecutter.json` file so that when you create a new folder template, all the metadata is filled accordingly.
+![cookiecutter_json_example](./images/cookiecutter_json.png)
+3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file.
+![assay_metadata_example](./images/assay_metadata.png)
+4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file.
+5. Git add, commit and push the changes of your template.
+6. Test your folders by using the command `cookiecutter &lt;URL to your cookiecutter repository in GitHub&gt;`</code></pre>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>In this lesson we have learned about what metadata should be attached to your data in order to be reusable and understood in the future. Not only that, the metadata provided can help to process your samples adequately, and could even be useful for metadata studies. We have also briefly introduced some controlled vocabularies and sources for different fields, such as Disease Ontologies, Cell type ontologies, Organisms, etc. However, since this course is not aimed at enforcing the use of these vocabularies (that would be very complex), their implementation and use is up to you! In the next lesson we will learn how we can collect all the metadata information in each of the folders in order to make a database of assays and projects, allowing you to browse all your data so that they are always at hand!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

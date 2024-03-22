@@ -1,0 +1,127 @@
+﻿---
+title: 7. Repositories for NGS data
+format: html
+date-modified: last-modified
+date-format: long
+date: 2023-11-30
+summary: In this lesson we navigate through different types of repositories and which ones are ideal to deposit your NGS datasets and data analyses.
+---
+
+<!--
+ We recommend that you deposit the data into a domain specific archive such as [GEO](https://www.ncbi.nlm.nih.gov/geo/) or [ArrayExpress/Annotare](https://www.ebi.ac.uk/fg/annotare/login/). Even [Zenodo](https://zenodo.org/) would be a better option in this case.
+-->
+
+:::{.callout-note title="Course Overview"}
+
+⏰ **Time Estimation:** X minutes  
+💬 **Learning Objectives:**    
+
+1. Repositories for managing biological data
+2. Archive your GitHub data analysis repositories
+:::
+
+While platforms like GitHub excel in version control and collaborative coding, repositories like Zenodo, Gene Expression Omnibus, and Annotare serve a distinct purpose. These platforms are tailored for archiving and sharing scientific data, guaranteeing long-term preservation and accessibility for the global research community. 
+
+## Data Repositories and Archives
+
+Digital platforms known as specialized repositories or archives play a crucial role in securely storing, curating, and disseminating scientific data. Their standardized formats and rigorous curation processes guarantee the long-term accessibility, transparency and citability of research findings.
+
+:::{.callout-definition}
+# List of repositories for biological data
+  - NCBI Gene Expression Omnibus (GEO)
+  - European Nucleotide Archive (ENA)
+  - Sequence Read Archive (SRA)
+  - Protein Data Bank (PDB)
+  - Kyoto Encyclopedia of Genes and Genomes (KEGG)
+  - Universal Protein Resource (UniProt)
+  - Human Protein Atlas
+  - ArrayExpress
+  - Model Organism Databases (MODs)
+  - Functional Annotation of Animal Genomes (FAANG) Data Repository
+:::
+
+*Importance of archiving scientific data*
+
+- **Long-term accessibility and preservation**: Ensures data remains accessible for future researchers.
+- **Enhanced visibility and attribution** : Unique identifiers like DOIs enable citation of datasets, enhancing visibility and proper attribution.
+- **Improved dataset discoverability and interpretability**: Comprehensive metadata, including methodology and experimental details, facilitates understanding and usability by other researchers.
+- **Promotion of Transparency, Reproducibility, and Research Integrity**: Mandatory data deposition fosters transparency and upholds research integrity.
+- **Amplification of Research Impact and Contribution**: Archiving data elevates research quality and extends its impact within the scientific community.
+- **Fulfilling Scholarly Obligations**: Compliance with requirements set by scientific journals and funding agencies ensures adherence to scholarly standards.
+
+## Types of repositories
+
+- General repositories: relevant to a wide range of disciplines. 
+   - [Zenodo](https://zenodo.org/)
+- Doman-specific: repositories are customized for specific fields, providing specialized curation and context-specific features. This tailored approach ensures alignment with standards and maximizes utility and impact. By catering to particular research areas, these repositories offer researchers a more focused audience, deeper domain expertise, and increased visibility within their specific research community.
+  - GEO and Annotare for NGS data
+
+### Domain specific repositories for NGS data: GEO or Annotare
+
+#### Gene Expression Omnibus
+
+The Gene Expression Omnibus, commonly known as [GEO](https://www.ncbi.nlm.nih.gov/geo/), is a specialized repository curated by the National Center for Biotechnology Information (NCBI). It is dedicated to archiving and sharing high-throughput functional genomic data sets, primarily focused on gene expression data.
+
+Researchers can easily deposit and access a wide range of genomic data, including microarray and high-throughput sequencing studies. GEO provides a structured platform for researchers to share their findings with the scientific community, enhancing data transparency and reproducibility.
+
+GEO assigns unique accession numbers to each dataset, ensuring traceability and enabling proper citation in research publications. Its domain-specific focus on functional genomics makes it an invaluable resource for researchers in genetics, genomics, and related fields, allowing for the comprehensive exploration of gene expression patterns across various biological conditions and experimental designs.
+
+#### Annotare
+
+[ArrayExpress/Annotare](https://www.ebi.ac.uk/fg/annotare/login/) is a specialized repository hosted by the European Bioinformatics Institute (EBI) that is tailored for the submission and storage of functional genomics experiments, particularly those involving high-throughput sequencing data. Unlike general repositories, Annotare provides a domain-specific platform optimized for researchers in the field of functional genomics.
+
+Researchers can upload their experimental data along with comprehensive metadata, ensuring that the context and details of the experiment are preserved. Annotare supports a wide range of genomic data types, making it a versatile platform for archiving diverse functional genomics studies.
+
+By focusing specifically on functional genomics, Annotare offers researchers a curated environment that aligns closely with the standards and practices of this specialized field. This ensures that data is stored and curated in a manner that is most useful for researchers in the genomics community. The platform's specialization enhances data discoverability, promotes collaboration, and facilitates deeper insights into the functional aspects of the genome.
+
+#### NGS Data upload to GEO or Annotare
+
+[GEO](https://www.ncbi.nlm.nih.gov/geo/) and [Annotare](https://www.ebi.ac.uk/fg/annotare/login/) are excellent repository choices to deposit your NGS data. Both Annotare and GEO adhere to established community standards for data submission and sharing in the field of functional genomics:
+
+1. [**Minimum Information About a Microarray Experiment (MIAME)**](https://pubmed.ncbi.nlm.nih.gov/11726920/): This is a set of guidelines established to ensure the comprehensive and standardized reporting of microarray experiments. Both Annotare and GEO require compliance with MIAME standards for microarray data submissions.
+2. [**Minimum Information about a high-throughput SeQuencing Experiment (MIxS)**](https://www.fged.org/projects/minseqe/): MIxS is a set of standards developed by the Genomic Standards Consortium to ensure consistent reporting of metadata for high-throughput sequencing experiments. Annotare and GEO require adherence to MIxS standards for sequencing data submissions.
+3. [**Sequence Read Archive (SRA) Submission Guidelines**](https://www.ncbi.nlm.nih.gov/sra/docs/submit/): Both Annotare and GEO follow the submission guidelines set forth by the Sequence Read Archive, which include requirements for data formatting, metadata inclusion, and quality control.
+4. **Community-Specific Standards**: In addition to the above, Annotare and GEO may also adhere to community-specific standards and guidelines established by the functional genomics research community. These standards are designed to ensure that submitted data meets the specific requirements and expectations of the field.
+
+By adhering to these standards, Annotare and GEO ensure that the data submitted to their repositories is of high quality, well-documented, and compliant with community best practices. This facilitates data discovery, reproducibility, and interoperability within the scientific community.
+
+These repositories will only accept NGS data and information related to the creation of the data. This includes the raw FASTQ files, sample metadata, including protocols and descriptions of how the samples and data where processed, as well as final pre-processing results such as read count matrices or genomic position files (like BED). If you adhere to the `Assay` folder creation guideline of [lesson 6](./06_file_structure.md), you will have a very easy time filling up the required documentation and information needed to submit the data in your `Assay` folder to one of these repositories.
+
+Nonetheless, the repositories will not accept other data created by your down-stream analyses, neither the code used for data analyses! This means anything that you have done in your `Project` folder. However, your `Project` folder is already version controlled by GitHub ([see previous lesson](./09_version_control.md)), so there is no need to worry. We will see in the section below how to archive your `Project`` folder as well using a general repository like Zenodo.
+
+### A general repository: Zenodo
+
+Zenodo[https://zenodo.org/] is an open-access digital repository designed to facilitate the archiving of scientific research outputs. It operates under the umbrella of the European Organization for Nuclear Research (CERN) and is supported by the European Commission. Zenodo accommodates a broad spectrum of research outputs, including datasets, papers, software, and multimedia files. This versatility makes it an invaluable resource for researchers across a wide array of domains, promoting transparency, collaboration, and the advancement of knowledge on a global scale.
+
+Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to [link you GitHub account](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project's progress for long-term accessibility and citation.
+
+#### `Project` archiving in Zenodo
+
+Once your [accounts are linked](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), creating a Zenodo archive is as simple as tagging a release in your GitHub repository. Zenodo will automatically detect the release and generate a corresponding archive. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work. So, before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
+
+By leveraging this integration, you ensure that significant milestones in your project are preserved in a reliable and accessible manner. This not only facilitates proper attribution but also contributes to the broader scientific community's ability to reproduce and build upon your research.
+
+!!! question "Exercise 6: Archive a `Project` GitHub repo in Zenodo"
+
+    1. In order to archive your GitHub repos in Zenodo, you will first need to [link your Zenodo and GitHub accounts](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+    2. Once your accounts are linked, go to your Zenodo GitHub account settings and turn on the GitHub repository you want to archive.
+    ![zenodo_github_link](./images/zenodo_github.png)
+    3. Creating a Zenodo archive is now as simple as [making a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in your GitHub repository. Remember to make a proper tag! **NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!**
+    ![github_release](./images/github_release.png)
+    4. Zenodo will automatically detect the release and it should appear in your Zenodo upload page.
+    ![zenodo_archives](./images/zenodo_archives.png)
+    5. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work.
+    ![zenodo_example](./images/zenodo_example.png)
+
+    Before submitting your work in a journal, make sure to link your data analysis repository to [Zenodo](https://zenodo.org/), get a DOI and cite it in your manuscript!
+
+## Wrap up
+
+In this final lesson we have learned how to wrap up a project/manuscript experiment by submitting your data to a domain-specific repository, while archiving your data analysis GitHub repositories in Zenodo. By following the simple lessons shown in this workshop, you will dramatically improve the FAIRability of your data, as well as organizing and structuring it in a way that will be much more useful in the future. This advantages do not serve yourself only, but your teammates, group leader and the general scientific population!
+
+We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form! 
+
+[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)
+
+### Sources
+-  Version Control and Code Repository Links: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729.

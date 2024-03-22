@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-11-30">
+
+<title>RDM for NGS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RDM for NGS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../develop/01_RDM_intro.html" aria-current="page"> 
+<span class="menu-text">Course material</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../use_cases.html"> 
+<span class="menu-text">Use cases</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../develop/practical_workshop.html"> 
+<span class="menu-text">Practical material</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hds-sandbox"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/ucph-heads/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/01_RDM_intro.html">Basics</a></li><li class="breadcrumb-item"><a href="../develop/01_RDM_intro.html">1. Introduction to RDM</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/01_RDM_intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Introduction to RDM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/02_DMP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Data Management Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Key practices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/03_DOD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Best Practices for Data Storage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/04_metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Metadata for NGS data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fair-research-data-management-and-the-data-lifecycle" id="toc-fair-research-data-management-and-the-data-lifecycle" class="nav-link active" data-scroll-target="#fair-research-data-management-and-the-data-lifecycle">FAIR Research Data Management and the Data Lifecycle</a>
+  <ul class="collapse">
+  <li><a href="#guidelines-and-benefits-of-effective-rdm" id="toc-guidelines-and-benefits-of-effective-rdm" class="nav-link" data-scroll-target="#guidelines-and-benefits-of-effective-rdm">Guidelines and benefits of effective RDM</a></li>
+  <li><a href="#research-data-cycle" id="toc-research-data-cycle" class="nav-link" data-scroll-target="#research-data-cycle">Research Data Cycle</a>
+  <ul class="collapse">
+  <li><a href="#plan" id="toc-plan" class="nav-link" data-scroll-target="#plan">1. Plan</a></li>
+  <li><a href="#collect-and-document" id="toc-collect-and-document" class="nav-link" data-scroll-target="#collect-and-document">2. Collect and Document</a></li>
+  <li><a href="#process-and-analyse" id="toc-process-and-analyse" class="nav-link" data-scroll-target="#process-and-analyse">3. Process and analyse</a></li>
+  <li><a href="#store-and-secure" id="toc-store-and-secure" class="nav-link" data-scroll-target="#store-and-secure">4. Store and Secure</a></li>
+  <li><a href="#share-and-publish" id="toc-share-and-publish" class="nav-link" data-scroll-target="#share-and-publish">5. Share and publish</a></li>
+  <li><a href="#preserve" id="toc-preserve" class="nav-link" data-scroll-target="#preserve">6. Preserve</a></li>
+  </ul></li>
+  <li><a href="#fair-and-open-science" id="toc-fair-and-open-science" class="nav-link" data-scroll-target="#fair-and-open-science">FAIR and Open science</a>
+  <ul class="collapse">
+  <li><a href="#open-science" id="toc-open-science" class="nav-link" data-scroll-target="#open-science">Open Science</a></li>
+  <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles">FAIR principles</a></li>
+  </ul></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a>
+  <ul class="collapse">
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/01_RDM_intro.html">Basics</a></li><li class="breadcrumb-item"><a href="../develop/01_RDM_intro.html">1. Introduction to RDM</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1. Introduction to RDM</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">March 20, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled" title="Section Overview">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Section Overview
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>⏰ <strong>Time Estimation:</strong> X minutes</p>
+<p>💬 <strong>Learning Objectives:</strong></p>
+<ol type="1">
+<li>Fundamentals of Research Data Management</li>
+<li>Effective Research Data Management guidelines</li>
+<li>Data Lifecycle Management and phases</li>
+<li>FAIR principles and Open Science</li>
+</ol>
+</div>
+</div>
+<section id="fair-research-data-management-and-the-data-lifecycle" class="level1">
+<h1>FAIR Research Data Management and the Data Lifecycle</h1>
+<p>Research Data Management (RDM) can be defined as a “<em>collective term for the planning, collection, storage, sharing and preservation of research data</em>” <span class="citation" data-cites="UCPH_guidelines">(<a href="#ref-UCPH_guidelines" role="doc-biblioref">University of Copenhagen RDM Team 2022</a>)</span>. While the meaning of Research Data Management might be obvious, it is a good idea to break down its components to make a good sense of what it implies.</p>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Semantics of RDM
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<p>The definition of <a href="https://www.merriam-webster.com/dictionary/management"><strong>Management</strong></a> is “the practice of managing; handling, supervision, or control.”.</p>
+<p>In accordance with the UCPH Policy for Research Data Management, <strong>research data</strong> encompasses both physical material and digital information gathered, observed, produced, or formulated during research activities carried out during research. This broad definition includes various types of data serving as the foundation for the research, such as specimens, notebooks, interviews, texts, literature, digital raw data, recordings, computer code, and meticulous documentation of these materials and data, forming the core of the analysis that underlies the research outcomes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Proper RDM practices are crucial in modern scientific research due to the exponential growth of data across various disciplines, such as genomics, climate research, and social sciences. By adopting robust RDM practices, researchers can optimize their workflows, increase research impact, and contribute to scientific progress. Let’s explore RDM in more detail and its advantages.</p>
+<section id="guidelines-and-benefits-of-effective-rdm" class="level2">
+<h2 class="anchored" data-anchor-id="guidelines-and-benefits-of-effective-rdm">Guidelines and benefits of effective RDM</h2>
+<p>RDM ensures ethical and legal compliance with research requirements. Effective RDM can significantly benefit research and provide advantages for individual researchers:</p>
+<ol type="1">
+<li><strong>Detailed data management planning</strong> helps in identifying and addressing potential uses, alining expectations among collaborators, and clarifying data rights and ownership</li>
+<li><strong>Transparent and Structured Data Management</strong> enhances reliability and credibility of research findings</li>
+<li><strong>Data documentation and data sharing</strong> promotes discoverability and facilitates collaborations. Clear documentation of research also streamlines access to previous work, enhancing efficiency, building upon existing knowledge, maximizing research value, accelerating scientific discoveries, and improving visibility and impact</li>
+<li><strong>Risk assessments and strategies for data storage and security</strong> can prevent data loss, breaches or misuse and safeguard sensitive data</li>
+<li><strong>Long-Term Preservation</strong>. Data accessibility well after the project’s completion contributes to data accessibility and continued research relevance</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Consequences of poor RDM">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Consequences of poor RDM
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Several surveys have shown that data scientists spend almost half of their time loading and cleaning data, becoming the most consuming, and what many would call tedious, tasks of their jobs <span class="citation" data-cites="anaconda_report forbes_article">(<a href="#ref-anaconda_report" role="doc-biblioref"><span>“The State of Data Science 2020 Moving from Hype Toward Maturity”</span> 2020</a>; <a href="#ref-forbes_article" role="doc-biblioref"><span>“Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says”</span> 2016</a>)</span>.</p>
+<p>Can you consider why we dedicate such a significant amount of time? Perhaps these images look familiar to you!</p>
+<p><img src="./images/image133.png" class="img-fluid"> <em>Caption: Top-left: <a href="https://www.su.se/staff/researchers/research-data/manage-store-data">Photo by Wonderlane on Unsplash</a>; Top-right: <a href="https://reproducibility.stanford.edu/how-not-to-get-lost-in-your-data/">From Stanford Center for Reproducible Neuroscience</a>; Bottom: Messy folder structure, by J.A.HR</em></p>
+<p>Ineffective data management practices can have significant consequences that affect both your future self, colleagues or collaborators who may have to deal with your data. The implications of poor data management include:</p>
+<ul>
+<li><strong>Difficulty in Data Retrieval</strong>: Without proper organization and documentation, finding specific data files or understanding their content becomes challenging and time-consuming, leading to inefficiency.</li>
+<li><strong>Loss of Data</strong>: Inadequate backup and storage strategies increase the risk of data loss (hardware failures, accidental deletions…), potentially erasing months or years of work.</li>
+<li><strong>Data Incompleteness and Errors</strong>: Insufficient documentation leads to ambiguity and errors in data interpretation undermining research credibility.</li>
+<li><strong>Difficulty in Reproducibility</strong>: Poor data management hinders scientific progress by impeding the reproduction of research results.</li>
+<li><strong>Delayed or Compromised Collaboration</strong>: disorganized data slows down collaborative research projects, hindering communication.</li>
+<li><strong>Data Security and Privacy Risks</strong>: Inadequate security measures measures expose sensitive information to breaches, risking privacy.</li>
+<li><strong>Wasted Time and Resources</strong>: Poor management diverts resources from research tasks, increasing labor costs (additional time on data management).</li>
+<li><strong>Financial Implications</strong>: Time-consuming data management tasks lead to increased labor costs and potential project delays. Data loss can also have negative implications.</li>
+<li><strong>Reputational Damage</strong>: Inaccurate or irreproducible research outcomes harm a researcher’s credibility in the scientific community.</li>
+</ul>
+<p>To address these challenges, prioritizing and investing in effective RDM practices like organization, documentation, backup strategies, and data security and preservation protocols, can prevent setbacks, ensure data integrity, and enhance scientific research reliability.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 1: RDM practices
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-exercise">
+<p>Think about situations that you believe are consequences of poor data management that may have occurred in your research environment, or discuss if you have encountered any of the following.</p>
+<ol type="1">
+<li>A researcher struggles over time with disorganized data, hindering efficient locating of files and causing delays in analysis.</li>
+<li>Inadequate documentation of data collection leads to misinterpretations and errors in analysis by other researchers or colleagues.</li>
+<li>Poorly organized data requires extensive cleaning, wasting valuable research time.</li>
+<li>Lack of proper documentation and data availability in a groundbreaking study raises doubts about the validity of its findings (from the lack of reproducibility).</li>
+</ol>
+<p>How would you approach these issues differently or what steps would you take to address them?</p>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<ol type="1">
+<li>Implementation of a clear and consistent folder structure with descriptive file names. Additionally, using version control systems, such as Git, for code and analysis files can help track changes and facilitate easy retrieval of previous versions of analyses and results.</li>
+<li>Proper data documentation, including detailed metadata, could have been maintained throughout the data collection process, providing necessary context and reducing the risk of incomplete or ambiguous data. 3.Following FAIR principles (Findable, Accessible, Interoperable, Reusable) by making their data, along with detailed methods and documentation, openly accessible in a reputable data repository.</li>
+<li>Implementation of management strategies from the outset of the research project saves time and resources later on, ensuring that data is well-organized and properly documented.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="research-data-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="research-data-cycle">Research Data Cycle</h2>
+<p>The Research Data Life Cycle is a structured framework depicting the stages of data from its creation or collection to its eventual archiving or disposal. Comprising inception, collection, processing, analysis, sharing, and preservation stages, the cycle parallels a living organism’s growth, demanding tailored management at each phase. Mastering this cycle is vital for researchers to maintain data integrity, accessibility, and long-term (re)usability, as it fosters transparency, reproducibility, and collaboration in scientific research.</p>
+<p>The data life cycle is described in 6 phases:</p>
+<ol type="1">
+<li><strong>Plan</strong>: definition of the objectives, data requirements, and develop a data management plan outlining data collection, storage, sharing, and ethical/legal considerations.</li>
+<li><strong>Collect and Document</strong>: data is gathered according to the plan, and important details such as source, collection methods, and modifications are documented to ensure quality and facilitate future use.</li>
+<li><strong>Process and Analyse</strong>: data is processed and analyzed using various methods and tools to extract meaningful insights. This involves transforming, cleaning, and formatting data for analysis.</li>
+<li><strong>Store and Secure</strong>: data is stored securely to prevent loss, unauthorized access, or corruption. Researchers select appropriate storage solutions and implement security measures to protect sensitive information.</li>
+<li><strong>Publish and Share</strong>: sharing data openly, following Open Science and FAIR principles, to foster collaboration, increase research visibility, and enable data reuse by others.</li>
+<li><strong>Preserve</strong>: Valuable data is preserved in trusted repositories or archives to ensure long-term accessibility and usability for the scientific community.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/RD_lifeCycle.png" class="img-fluid figure-img" alt="Research Data Life Cycle"></p>
+<figcaption>Research Data Life Cycle, University of Copenhagen RDM guidelines</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Read more on your institution’s website
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<ul>
+<li><a href="https://kunet.ku.dk/work-areas/research/data/introduction/Pages/default.aspx">University of Copenhagen</a> and <a href="https://research.ku.dk/integrity/documents/UCPH_Policy_for_Research_Data_Management_2022.pdf">pdf link</a></li>
+<li><a href="https://medarbejdere.au.dk/en/research-data-management">Aarhus University</a></li>
+<li><a href="https://www.dtu.dk/english/research/research-framework/research-data-management">University of Southern Denmark, SDU</a></li>
+<li><a href="https://www.researcher.aau.dk/guides/research-data/data-management">Aalborg University</a> and <a href="https://www.en.its.aau.dk/instructions/fair-data-management">FAIR link</a></li>
+<li><a href="https://sdunet.dk/en/research/research-data-management-support/best-data-practices">University of Southern Denmark, SDU</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>To delve deeper into this topic, click below and explore each phase of the data life cycle. You will find tips and links to future material.</p>
+<details>
+<summary>
+<span style="color:#4b4646;font-weight:bold;font-size:x-large"> Phases of the data life cycle in detail
+</span></summary>
+<p>
+</p><section id="plan" class="level3">
+<h3 class="anchored" data-anchor-id="plan">1. Plan</h3>
+<p>The management of research data must be thoroughly considered before physical materials and digital data are collected, observed, generated, created or reused. This includes developing and documenting data management plans (DMP) in electronic format.DMPs should be updated when significant changes occur and stored alongside the corresponding research data. It’s essential to discuss DMPs with project collaborators, research managers, and supervisors to establish responsibilities for data management activities during and after research projects.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check out <a href="../develop/02_DMP.html">next lesson</a> to learn more about creating effective DMPs.</p>
+</div>
+</div>
+</section>
+<section id="collect-and-document" class="level3">
+<h3 class="anchored" data-anchor-id="collect-and-document">2. Collect and Document</h3>
+<p>Research data collection and processing should be in line with the best practices within the respective research discipline. Research projects should be documented in a way that enables reproducibility by others. This entails providing clear and accurate descriptions of project methodology, software, and code utilized. Additionally, workflows for data preprocessing and file structuring should be outlined.</p>
+<p>Research data should be described in a metadata to enable effective searching, identification, and interpretation of the data, with metadata linked to the research data for as long as they exist.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We will cover strategies for organizing your files and folder in <a href="../develop/03_DOD.html">lesson 3</a>.</li>
+<li>We will discuss different types of metadata in <a href="./07_metadata.qmd">lesson 4</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="process-and-analyse" class="level3">
+<h3 class="anchored" data-anchor-id="process-and-analyse">3. Process and analyse</h3>
+<p>During this phase, researchers employ computational methods and bioinformatics tools to extract meaningful information from the data. Good coding practices ensure well-documented and reproducible analyses. For example, code notebooks and version control tools, such as Git, are essential for transparency and sharing results with the scientific community.</p>
+<p>To streamline and standardize the data analysis process, researchers often implement workflows and pipelines, automating multiple analysis steps to enhance efficiency and consistency while promoting reproducibility.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Collaborative efforts by the <a href="https://nf-co.re/">nf-core</a> community provide curated pipelines across different areas of bioinformatics and genomics.</li>
+<li>Learn more about version control in <a href="./09_version_control.qmd">lesson 5</a></li>
+<li>If you want to implement your own pipelines, we have the course for you [IN DEVELOPMENT].</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="store-and-secure" class="level3">
+<h3 class="anchored" data-anchor-id="store-and-secure">4. Store and Secure</h3>
+<p>Research data must be classified based on sensitivity and the potential impact to the research institution from unauthorized disclosure, alteration, or destruction. Risks to data security and of data loss should be assessed accordingly. This includes evaluating:</p>
+<ul>
+<li>Physical and digital access to research data</li>
+<li>Risks associated with data management procedures</li>
+<li>Backup requirements and backup procedures</li>
+<li>External and internal threats to data confidentiality, integrity and accessibility</li>
+<li>Financial, regulatory and technical consequences of working with data, data storage and data preservation</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This step is very specific to the setup used in your environment.so we cannot include in a comprehensive guideline on this matter.</p>
+<ul>
+<li>Enroll in the next <a href="https://heads.ku.dk/course/gdpr_workshop/">GDPR course</a> offered by Center for Health Data Science to learn more about data protection and GDPR compliance.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="share-and-publish" class="level3">
+<h3 class="anchored" data-anchor-id="share-and-publish">5. Share and publish</h3>
+<p>Legislation or agreements may restrict research data sharing and require obtaining relevant approvals and establishing agreements allowing sharing. By default, research data should be made openly available post-project, especially for data underlying research publications. This approach balances openness with considerations like intellectual property, personal data protection, and national interests in accordance with the principle of ‘as open as possible, as closed as necessary’. When data cannot be openly shared, sharing associated metadata is encouraged.</p>
+<p>Adherence to FAIR principles (findable, accessible, interoperable, and reusable) is crucial, which includes:</p>
+<ul>
+<li>Providing open access to data (Open Data) by depositing data in a data repository, or by providing access to information on whether, when, how, and to what extent data can be accessed if data sets cannot be made openly available.</li>
+<li>Using persistent identifiers (PID) and metadata (such as descriptive keywords) that help locate the data set.</li>
+<li>Communicating terms for data reuse, for example by attaching a data license.</li>
+<li>Offering the necessary information to understand the process of data creation, purpose and structure.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>More on FAIR and OS principles in the <a href="#fair-and-open-science">next section</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="preserve" class="level3">
+<h3 class="anchored" data-anchor-id="preserve">6. Preserve</h3>
+<p>Arrangements for long-term preservation (data and metadata) must adhere to legislation and agreements. This should include:</p>
+<ul>
+<li>Information on research data: At least the data sets supporting published research must be preserved to address objections or criticisms.</li>
+<li>Preservation duration: Retain data supporting research publications for at least five years post-project or publication.</li>
+<li>Choose preservation format and location: Determine format, location, and associated metadata.</li>
+<li>Delete/destroy data if excluded by legislation or agreements, or if preservation isn’t necessary or possible (for example, when research data can easily be reproduced or is too costly to store or when material quality will deteriorate over time).</li>
+<li>Assign responsibility: Appoint individuals or roles to safeguard data integrity post-project.</li>
+<li>Determine access rights: Establish rights for accessing and using preserved data sets.</li>
+</ul>
+<p>Check with your institution their requirements for data preservation, such as keeping copies accessible to research managers and peers at the institution’s premises.</p>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example - University of Copenhagen
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<p>For example, the UCPH mandates that a copy of data sets and associated metadata must remain at UCPH after project end and/or when employment with the University ceases, in a way in which they are accessible to research managers and understandable for research managers and peers, unless legislation or agreements determine otherwise.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will check about which repositories you can use to preserve your NGS data in the <a href="./10_repos.qmd">10th lesson</a></p>
+</div>
+</div>
+<p></p>
+</section></details>
+<p>To guarantee effective RDM, researchers should follow the FAIR principles.</p>
+</section>
+</section>
+<section id="fair-and-open-science" class="level2">
+<h2 class="anchored" data-anchor-id="fair-and-open-science">FAIR and Open science</h2>
+<p>Open Science and FAIR principles have become essential frameworks for promoting transparency, accessibility and reusability in scientific research. While Open Science advocates for unrestricted access to research outputs, data, and methodologies, FAIR principles emphasize making data Findable, Accessible, Interoperable, and Reusable. Together, they foster collaboration, transcend disciplinary boundaries, and support long-term data preservation. However, they were not directly relevant to software until recently. Governments and funding agencies worldwide increasingly recognize their value and are actively promoting their adoption in academia. In this section, you will learn how to apply these principles to your research.</p>
+<section id="open-science" class="level3">
+<h3 class="anchored" data-anchor-id="open-science">Open Science</h3>
+<p><a href="https://unesdoc.unesco.org/ark:/48223/pf0000383323">Open Science</a> facilitates wider accessibility of research outputs, fosters collaboration, and promotes transparency and reproducibility, thus enhancing responsible research conduct. Economically, promoting Open Access and data sharing maximizes the return on research investments and fuels innovation and entrepreneurship. This approach enables businesses and startups to leverage research findings, while researchers can integrate large datasets for new discoveries.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/Open-Science.png" class="img-fluid figure-img" alt="Open Science"></p>
+<figcaption>Open Science, Australian Citizen Science Association</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples of Open Science Initiatives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<ul>
+<li>National Institutes of Health (NIH): in the USA encourages Open Science practices, including data sharing, through policies like the NIH Data Sharing Policy.</li>
+<li>Wellcome Trust: mandates open access globally to research outputs funded by the foundation.</li>
+<li>European Molecular Biology Organization (EMBO): supports Open Access and provides guidelines for data sharing.</li>
+<li>Bill &amp; Melinda Gates Foundation: advocates for Open Access and data sharing to maximize the impact of its research.</li>
+<li>European Research Council (ERC): promotes Open Access to research publications and adheres to the FAIR principles for data management.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Benefits of Open Science for Researchers">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of Open Science for Researchers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Increased Visibility and Impact</strong>: as more people can access and engage with your findings.</li>
+<li><strong>Facilitated Collaboration</strong>: leading to the development of innovative ideas and impactful projects.</li>
+<li><strong>Enhanced Credibility</strong>: sharing data and methods openly allows for validation of research findings by others.</li>
+<li><strong>Accelerated Research Progress:</strong>: by enabling researchers to build upon each other’s work and leverage shared data.</li>
+<li><strong>Stimulation of New Research</strong>: shared data can inspire novel research questions and discoveries.</li>
+<li><strong>Attract Funding Opportunities</strong>: adhering to Open Science principles may make you eligible for additional funding opportunities.</li>
+<li><strong>Transparency and Accountability</strong>: promoting responsible conduct in research.</li>
+<li><strong>PLong-Term Data Preservation</strong>: by archiving research data in repositories.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fair-principles" class="level3">
+<h3 class="anchored" data-anchor-id="fair-principles">FAIR principles</h3>
+<p>The <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a> complementing Open Science, aim to improve research data management, sharing, and usability. FAIR stands for Findable, Accessible, Interoperable, and Reusable, enhancing the value, impact, and sustainability of research data. Adhering to FAIR principles benefits individual researchers and fosters collaboration, data-driven discoveries, knowledge advancement and long-term preservation. However, achieving FAIR compliance is nuanced, with some aspects being more complex, especially concerning metadata standards and controlled vocabularies.</p>
+<p>We strongly endorse these recommendations for those developing software or performing data analyses: https://fair-software.nl/endorse.</p>
+<details>
+<summary>
+<span style="color:#4b4646;font-weight:bold;font-size:x-large">Breaking down the FAIR Principles
+</span></summary>
+<p>
+</p><section id="findable" class="level4">
+<h4 class="anchored" data-anchor-id="findable">Findable</h4>
+<p><img src="./images/fair-findable.png" class="img-fluid"></p>
+<p>Research data should be easily identifiable, achieved through the following key components:</p>
+<ol type="1">
+<li><strong>Assign Persistent and Unique Identifiers</strong>: such as Digital Object Identifiers (DOIs) or Uniform Resource Identifiers (URIs).</li>
+<li><strong>Create Rich and Standard Metadata</strong>: describing the content, context, and characteristics of the data (such as origin, format, version, licensing, and the conditions for reuse).</li>
+<li><strong>Use a Data Repository or Catalog</strong>: following FAIR principles to deposit your data, enhancing data discoverability and access from a centralized and reliable source.</li>
+</ol>
+<p>Clear and comprehensive metadata facilitates data discovery by both researchers and machines through various search engines and data repositories.</p>
+</section>
+<section id="accessible" class="level4">
+<h4 class="anchored" data-anchor-id="accessible">Accessible</h4>
+<p><img src="./images/fair-accessible.png" class="img-fluid"></p>
+<p>Research data should be accessible with minimal restrictions on access and downloading, to facilitate collaboration, verification of findings, and ensuring transparency. Key elements to follow:</p>
+<ol type="1">
+<li><strong>Open Access</strong>: Ensure data is freely accessible without unnecessary barriers. Choose suitable licenses for broad data reuse (such as MIT, Apache-2.0).</li>
+<li><strong>Authentication and Authorization</strong>: Implement secure mechanisms for access control, especially for sensitive data</li>
+<li><strong>Metadata</strong>: Deposit metadata even when data access is restricted, providing valuable information about the dataset (version control systems).</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled" title="**Important note: As open as possible, as closed as necessary**">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Important note: As open as possible, as closed as necessary</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ensure data accessibility aligns with privacy regulations like GDPR, and when necessary, limit access to sensitive data. When dealing with sensitive data, share query details and data sources to maintain transparency.</p>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<p>You are working with sensitive data from a national authority regarding personal information. You won’t be able to publish or deposit the data but you can describe what was the query you used to obtain the data and its source (e.g., sample population: people between 20-30 years old, smoker).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interoperable" class="level4">
+<h4 class="anchored" data-anchor-id="interoperable">Interoperable</h4>
+<p><img src="./images/fair-interoperable.png" class="img-fluid"></p>
+<p>Interoperability involves structuring and formatting data to seamlessly integrate with other datasets. Utilizing standard data formats, widely accepted vocabularies and ontologies enables integration and comparison across various sources. Key components to follow:</p>
+<ol type="1">
+<li><strong>Standard Data Formats</strong>: facilitating data exchange and interoperability with various software tools and platforms.</li>
+<li><strong>Vocabularies and Ontologies</strong>: commonly used by the scientific community ensuring data can be understood and combined with other datasets more effectively.</li>
+<li><strong>Linked Data</strong>: to related data and resources, to enrich contextualization of datasets, facilitating integration and discovery of interconnected information.</li>
+</ol>
+</section>
+<section id="reusable" class="level4">
+<h4 class="anchored" data-anchor-id="reusable">Reusable</h4>
+<p><img src="./images/fair-reusable.png" class="img-fluid"></p>
+<p>Data should be thoroughly documented and prepared, with detailed descriptions of data collection, processing, and methodology provided for replication by other researchers. Clear statements on licensing and ethical considerations are essential for enabling data reuse. Key components to follow:</p>
+<ol type="1">
+<li><strong>Documentation and Provenance</strong>: Comprehensive documentation on data collection, processing, and analysis. Provenance information elucidates data origin and processing history.</li>
+<li><strong>Ethical and Legal Considerations</strong>: related to data collection and use. Additionally, adherence to legal requirements ensuring responsible and ethical data reuse.</li>
+<li><strong>Data Licensing</strong>: Clearly stated licensing terms facilitate data reuse, specifying usage, modification, and redistribution while respecting intellectual property rights and legal constraints.</li>
+</ol>
+<p></p>
+</section></details>
+<div class="callout callout-style-default callout-tip callout-titled" title="Test your knowledge: use cases">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test your knowledge: use cases
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Before moving on to the next lesson, take a moment to explore this <a href="../develop/examples/NGS_OS_FAIR.html">practical example</a> if you’re working with NGS data. Here, you’ll find exercises and examples to reinforce the knowledge you’ve acquired in this lesson.</strong></p>
+</div>
+</div>
+<section id="key-online-links" class="level5">
+<h5 class="anchored" data-anchor-id="key-online-links">Key online links</h5>
+<ul>
+<li><a href="https://www.howtofair.dk/">How to FAIR DK</a></li>
+<li><a href="https://www.go-fair.org/fair-principles/">FAIR principles</a></li>
+<li><a href="https://fair-software.nl/">FAIR software</a></li>
+<li><a href="https://www.openaire.eu/rdm-handbook">Open AIRE</a></li>
+<li><a href="https://www.deic.dk/en/RDMElearn">DeiC - RDMElearn</a></li>
+</ul>
+</section>
+</section>
+</section>
+
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>In this lesson, we’ve covered the definition of RDM, the advantages of effective RDM practices the phases of the research data life cycle and teh FAIR principles and Open Science. While much of the guidelines are the context of omics data, it’s worth noting its applicability to other fields and institutions. Nonetheless, we recommend exploring these guidelines further at your institution (links provided above).</p>
+<p>In the next lessons, we will explore different resources, tools and guidelines that can be applied to all kinds of data and how to apply it specifically for NGS data.</p>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<ul>
+<li><a href="https://rdmkit.elixir-europe.org/index">RDMkit</a>: ELIXIR (2021) Research Data Management Kit. A deliverable from the EU-funded ELIXIR-CONVERGE project (grant agreement 871075).</li>
+</ul>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-forbes_article" class="csl-entry" role="listitem">
+<span>“Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says.”</span> 2016. Forbes. <a href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/">https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/</a>.
+</div>
+<div id="ref-anaconda_report" class="csl-entry" role="listitem">
+<span>“The State of Data Science 2020 Moving from Hype Toward Maturity.”</span> 2020. Anaconda. <a href="https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020">https://www.anaconda.com/resources/whitepapers/state-of-data-science-2020</a>.
+</div>
+<div id="ref-UCPH_guidelines" class="csl-entry" role="listitem">
+University of Copenhagen RDM Team. 2022. <span>“Policy for Research Data Management.”</span>
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>CC-BY-SA 4.0 license</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

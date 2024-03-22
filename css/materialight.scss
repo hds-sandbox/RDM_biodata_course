@@ -1,0 +1,77 @@
+/*-- scss:defaults --*/
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+// Base document colors
+
+$navbar-bg: #4266A1;
+$sidebar-bg: white;
+$footer-bg: #4266A1;
+
+// Remove arrow from details element
+details > summary {
+  list-style: none;
+}
+
+details > summary::before {
+  content: "> ";
+  font-size: 1.5em;
+  margin: -5px 7px 0 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+// Exercise callout styling
+div {
+    &.callout-exercise {
+      border-left-color: #3eab1f !important;
+    }
+    &.callout-exercise {
+        .callout-header {
+            background-color: #9df980 !important; 
+            height: 30px;
+        }
+    }
+}
+
+.callout-exercise > .callout-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f303";
+    margin-right: 10px;
+  }
+
+  div.callout-exercise.callout-style-default div.callout-body { 
+    padding-bottom: 0em !important; 
+    margin-bottom: -1.5em !important; 
+  } 
+
+// Hint callout styling
+.callout-hint > .callout-header::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f12e ";
+  margin-right: 10px;
+  color:#0c0b0c;
+}
+
+div.callout-hint.callout-style-default > .callout-header {
+    background-color: #f3f3f6 !important; 
+    height: 25px;}
+
+
+// definition callout styling
+.callout-definition > .callout-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f15c ";
+    margin-right: 10px;
+    color:#bebcbc;
+  }
+  
+div.callout-definition.callout-style-default > .callout-header {
+    background-color: #ffffff !important; 
+    height: 30px;
+}
+
+// div.callout-hint.callout-style-default {
+//     background-color: #ff0000; /* Change to the desired background color */
+//   }   

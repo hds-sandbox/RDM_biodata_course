@@ -1,0 +1,17 @@
+---
+title: "Computational Research Data Management"
+format: 
+  html:
+    toc: false
+date-modified: last-modified
+date-format: long
+date: 2023-11-30
+bibliography: resources/references.bib
+summary: workflow
+---
+
+# Workflow
+
+If you develop your own software make sure you follow FAIR principles. We highly endorse these recommendations: https://fair-software.nl/endorse
+
+Register your computational workflow here: https://workflowhub.eu/

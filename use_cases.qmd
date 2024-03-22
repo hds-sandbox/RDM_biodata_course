@@ -1,0 +1,11 @@
+---
+title: "RDM use cases"
+format: html
+date-modified: last-modified
+date-format: long
+date: 2023-11-30
+summary: Use cases
+#https://emojidb.org/quarto-emojis for emojis copypaste
+---
+
+Here, you will find practical examples demonstrating the application of omics data.

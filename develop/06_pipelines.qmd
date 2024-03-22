@@ -1,0 +1,53 @@
+
+---
+title: "6. Reproducible Research Practices and Data analysis"
+format: 
+  html:
+    toc: false
+date-modified: last-modified
+date-format: long
+date: 2023-11-30
+bibliography: ../resources/references.bib
+summary: Index page, intro to course
+#https://emojidb.org/quarto-emojis for emojis copypaste
+---
+
+Reproducibility and Replicability
+
+Principles of reproducible research and its importance in computational research
+Techniques for creating reproducible analyses, including scripting, containerization (e.g., Docker), and virtual environments
+Publishing reproducible workflows and ensuring transparency in research outputs
+Techniques for data preprocessing, cleaning, transformation, and analysis
+Best practices for documenting data processing steps, parameters, and results
+Tools and libraries for statistical analysis, machine learning, and data visualization
+
+Introduction to computational notebooks (e.g., Jupyter, R Markdown) for interactive data analysis and documentation
+Writing, sharing, and publishing computational notebooks for reproducible research
+Using computational notebooks for exploratory data analysis, prototyping, and sharing insights
+
+
+two ways 
+- **Code notebooks**: use tools for data documentation (e.g. Jupyter Notebook, Rmarkdown) which enables combining code with descriptive text and visualizations.   
+- Integrated development environments ([knitr](https://yihui.org/knitr/) or [MLflow](https://mlflow.org/))
+- **Pipeline frameworks or workflow management systems**: are deisgned to streamline and automate various steps involved in data analysis (data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages.  
+
+
+- **Nextflow**: Nextflow is a popular workflow management system that enables scalable and portable NGS data analysis pipelines, allowing researchers to process data across various computing environments and platforms.
+- **Snakemake**: Snakemake is a workflow management system that uses Python-based scripting to create flexible and automated NGS data analysis pipelines, facilitating parallel processing and easy integration with existing tools.
+
+Connect this to 03_DOD.qmd:
+    Using annotated notebooks is ideal for reproducibility and readability purposes. Notebooks should be labeled numerically in order they were created, or the order of the data analysis steps, if they are related to each other e.g. `00_preprocessing.rmd` - `01_Differential_Expression_Analysis.rmd` - `02_Functional_Analysis.rmd`
+
+    We strongly recommend that you use reproducible and community curated pipelines, such as the ones developed by the [nf-core community](https://nf-co.re/), which have a through documentation on the results they produce. 
+
+    - **environment**: files for reproducing the environment used to generate the results, such as a Dockerfile, conda yaml file, or a text file ([See 6th lesson](./06_pipelines.qmd) for more tips on making your pipelines reproducible). 
+
+
+Comment your code
+
+
+### Sources
+- Code documentation by Johns Hopkins sharidan libraries: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729. Bst practices, style guides, r markdown, jupyter notebook and version control and code repository 
+- [Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf
+
+- [Best practices for Scientific computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)

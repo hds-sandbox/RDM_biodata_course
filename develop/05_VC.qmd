@@ -40,7 +40,7 @@ if you're interested in delving deeper, explore our course on [Git and GitHub](h
 
 Alternatively, here are some examples and online resources to expand your understanding:
 
-- [Git and Github online resources] https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources
+- [Git and GitHub online resources] https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources
 - [GitHub documentation](https://docs.github.com/get-started)
 - [Git documentation](https://git-scm.com/doc)
 :::
@@ -119,7 +119,7 @@ Once you have created your repository (and put it in GitHub), you have now the o
 For simplicity, we recommend using [Quarto](https://quarto.org/) or [MkDocs](https://www.mkdocs.org/). Visit their websites and follow the instructions to get started. 
 
 :::{.callout-note title="Tutorial links"}
-- Get started in quarto: <https://quarto.org/docs/get-started/>. We recommend using VS code tool, if you do, follow this [tutorial](https://quarto.org/docs/get-started/hello/vscode.html). 
+- Get started in quarto: <https://quarto.org/docs/get-started/>. We recommend using the VS code tool, if you do, follow this [tutorial](https://quarto.org/docs/get-started/hello/vscode.html). 
 - [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to further customize MkDocs websites. 
 :::
 

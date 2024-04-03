@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-11-30">
+<meta name="dcterms.date" content="2024-04-02">
 
-<title>RDM for NGS - 6. Reproducible Research Practices and Data analysis</title>
+<title>RDM for NGS - 6. Code and Pipelines for Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../develop/01_RDM_intro.html"> 
+    <a class="nav-link active" href="../develop/01_RDM_intro.html" aria-current="page"> 
 <span class="menu-text">Course material</span></a>
   </li>  
   <li class="nav-item">
@@ -128,18 +128,107 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/06_pipelines.html">6. Code and Pipelines for Data Analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/01_RDM_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introduction to RDM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/02_DMP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Data Management Plan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Key practices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/03_DOD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Best Practices for Data Storage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/04_metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Metadata for NGS data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/05_VC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Data Analysis with Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/06_pipelines.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6. Code and Pipelines for Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../develop/07_repos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Repositories for bio data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/06_pipelines.html">6. Code and Pipelines for Data Analysis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">6. Reproducible Research Practices and Data analysis</h1>
+<h1 class="title">6. Code and Pipelines for Data Analysis</h1>
 </div>
 
 
@@ -150,14 +239,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 30, 2023</p>
+      <p class="date">April 2, 2024</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 20, 2024</p>
+      <p class="date-modified">April 3, 2024</p>
     </div>
   </div>
     
@@ -168,29 +257,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Reproducibility and Replicability</p>
-<p>Principles of reproducible research and its importance in computational research Techniques for creating reproducible analyses, including scripting, containerization (e.g., Docker), and virtual environments Publishing reproducible workflows and ensuring transparency in research outputs Techniques for data preprocessing, cleaning, transformation, and analysis Best practices for documenting data processing steps, parameters, and results Tools and libraries for statistical analysis, machine learning, and data visualization</p>
-<p>Introduction to computational notebooks (e.g., Jupyter, R Markdown) for interactive data analysis and documentation Writing, sharing, and publishing computational notebooks for reproducible research Using computational notebooks for exploratory data analysis, prototyping, and sharing insights</p>
-<p>two ways - <strong>Code notebooks</strong>: use tools for data documentation (e.g.&nbsp;Jupyter Notebook, Rmarkdown) which enables combining code with descriptive text and visualizations.<br>
-- Integrated development environments (<a href="https://yihui.org/knitr/">knitr</a> or <a href="https://mlflow.org/">MLflow</a>) - <strong>Pipeline frameworks or workflow management systems</strong>: are deisgned to streamline and automate various steps involved in data analysis (data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages.</p>
+<p>In this section, we explore essential elements of reproducibility and efficiency in computational research, highlighting techniques and tools for creating robust and transparent coding and workflows. By prioritizing reproducibility and replicability, researchers can enhance the credibility and impact of their findings while fostering collaboration and knowledge dissemination within the scientific community.</p>
+<section id="reproducibility-and-replicability" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility-and-replicability">Reproducibility and Replicability</h3>
+<p>Through techniques such as scripting, containerization (e.g., Docker), and virtual environments, researchers can create reproducible analyses that enable others to validate and build upon their work. Emphasizing the documentation of data processing steps, parameters, and results ensures transparency and accountability in research outputs.</p>
+<p>Tools for reproducibility:</p>
 <ul>
-<li><strong>Nextflow</strong>: Nextflow is a popular workflow management system that enables scalable and portable NGS data analysis pipelines, allowing researchers to process data across various computing environments and platforms.</li>
-<li><strong>Snakemake</strong>: Snakemake is a workflow management system that uses Python-based scripting to create flexible and automated NGS data analysis pipelines, facilitating parallel processing and easy integration with existing tools.</li>
+<li><strong>Code notebooks</strong>: Utilize tools like Jupyter Notebook and R Markdown to combine code with descriptive text and visualizations, enhancing data documentation.<br>
+</li>
+<li>Integrated development environments: Consider using platforms such as (<a href="https://yihui.org/knitr/">knitr</a> or <a href="https://mlflow.org/">MLflow</a>) to streamline code development and documentation processes.</li>
+<li><strong>Pipeline frameworks or workflow management systems</strong>: Implement systems like Nextflow and Snakemake to automate data analysis steps (including data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages.</li>
 </ul>
-<p>Connect this to 03_DOD.qmd: Using annotated notebooks is ideal for reproducibility and readability purposes. Notebooks should be labeled numerically in order they were created, or the order of the data analysis steps, if they are related to each other e.g.&nbsp;<code>00_preprocessing.rmd</code> - <code>01_Differential_Expression_Analysis.rmd</code> - <code>02_Functional_Analysis.rmd</code></p>
-<pre><code>We strongly recommend that you use reproducible and community curated pipelines, such as the ones developed by the [nf-core community](https://nf-co.re/), which have a through documentation on the results they produce. 
-
-- **environment**: files for reproducing the environment used to generate the results, such as a Dockerfile, conda yaml file, or a text file ([See 6th lesson](./06_pipelines.qmd) for more tips on making your pipelines reproducible). </code></pre>
-<p>Comment your code</p>
+<section id="computational-notebooks-for-interactive-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="computational-notebooks-for-interactive-analysis">Computational notebooks for interactive analysis</h4>
+<p>Computational notebooks (e.g., Jupyter, R Markdown) provide researchers with a versatile platform for exploratory and interactive data analysis. These notebooks facilitate sharing insights with collaborators and documentation of analysis procedures.</p>
+</section>
+<section id="pipeline-frameworks-and-workflow-management-systems" class="level4">
+<h4 class="anchored" data-anchor-id="pipeline-frameworks-and-workflow-management-systems">Pipeline Frameworks and Workflow Management Systems</h4>
+<p>Tools such as Nextflow and Snakemake streamline and automate various data analysis steps, enabling parallel processing and seamless integration with existing tools.</p>
+<ul>
+<li><strong>Nextflow</strong>: offers scalable and portable NGS data analysis pipelines, facilitating data processing across diverse computing environments.</li>
+<li><strong>Snakemake</strong>: Utilizing Python-based scripting, Snakemake allows for flexible and automated NGS data analysis pipelines, supporting parallel processing and integration with other tools.</li>
+</ul>
+</section>
+</section>
+<section id="connecting-data-organization-and-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="connecting-data-organization-and-documentation">Connecting data organization and documentation</h3>
+<p>To maintain clarity and organization in the data analysis process, adopt best practices such as:</p>
+<ul>
+<li>Create a README.md file</li>
+<li><strong>Annotate</strong> your pipelines and comment your code</li>
+<li><strong>Label numerically</strong> to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines etc.).
+<ul>
+<li>00.preprocessing.<em>, 01.data_analysis_step1.</em>, etc.</li>
+</ul></li>
+<li>Provide <strong>environment files</strong> for reproducing the computational environment, including:
+<ul>
+<li><strong>Containerization platforms</strong> (e.g., Docker, Singularity): allow researcher to package their software and dependencies into a standardized container image.</li>
+<li><strong>Virtual Environments</strong> (e.g., Conda, virtualenv): provide isolated environment with specific packages and dependencies can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system.</li>
+<li><strong>Environment Configuration Scripts</strong>: Researchers can also provide custom scripts or configuration files that automate the setup of the computational environment. These scripts may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables.</li>
+</ul></li>
+<li>Upload your code to <strong>version control systems</strong> (e.g., Git) and c<strong>ode repository</strong> <a href="../develop/05_VC.html">Lesson 5</a>.</li>
+<li>Integrated development environments (e.g., RStudio, PyCharm): Provides tools and features for writing, testing, and debugging code</li>
+<li>Leverage curated pipelines such as the ones developed by the <a href="https://nf-co.re/">nf-core community</a>, further ensures adherence to community standards and guidelines.</li>
+</ul>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability.</p>
 <section id="sources" class="level3">
 <h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <ul>
-<li><p>Code documentation by Johns Hopkins sharidan libraries: https://guides.library.jhu.edu/c.php?g=1096705&amp;p=8066729. Bst practices, style guides, r markdown, jupyter notebook and version control and code repository</p></li>
-<li><p>[Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf</p></li>
-<li><p><a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best practices for Scientific computing</a></p></li>
+<li>Code documentation by Johns Hopkins sharidan libraries: https://guides.library.jhu.edu/c.php?g=1096705&amp;p=8066729. This link inlcudes, best practices for code documentation, style guides, R markdown, jupyter notebook and version control and code repository.</li>
+<li>[Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf</li>
+<li><a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best practices for Scientific computing</a></li>
 </ul>
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>CC-BY-SA 4.0 license</div></div></section></div></main> <!-- /main -->

@@ -124,8 +124,11 @@ For simplicity, we recommend using [Quarto](https://quarto.org/) or [MkDocs](htt
 
 ### Step-by-Step Setup Guide
 
-We provide an example setting up Git, MkDocs, and a GitHub account, enabling you to replicate the process independently! (see *Exercise 5* in the [practical workshop](./practical_workshop.qmd))
+We provide an example setting up Git, MkDocs, and a GitHub account, enabling you to replicate the process independently! (see *Exercise 5* in the [practical material](./practical_workshop.qmd))
 
 ## Wrap up
 
 n this lesson, we explored version control and utilized Git and GitHub to establish data analysis repositories from our Project folders. Additionally, we delved into creating a GitHub organization and leveraging GitHub Pages to showcase data analysis scripts and notebooks publicly. Remember to complete the corresponding exercise from the practical workshop to reinforce your knowledge.
+
+### Sources
+-  [Version Control and Code Repository Link](https://guides.library.jhu.edu/c.php?g=1096705&p=8066729).

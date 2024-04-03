@@ -42,18 +42,18 @@ To maintain clarity and organization in the data analysis process, adopt best pr
 - **Label numerically** to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines etc.).
   - 00.preprocessing.*, 01.data_analysis_step1.*, etc. 
 - Provide **environment files** for reproducing the computational environment, including:
-  - **Containerization platforms** (e.g., Docker, Singularity): allow researcher to package their software and dependencies into a standardized container image.
-  - **Virtual Environments** (e.g., Conda, virtualenv): provide isolated environment with specific packages and dependencies can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system. 
+  - **Containerization platforms** (e.g., Docker, Singularity): allow the researcher to package their software and dependencies into a standardized container image.
+  - **Virtual Environments** (e.g., Conda, virtualenv): provide an isolated environment with specific packages and dependencies that can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system. 
   - **Environment Configuration Scripts**: Researchers can also provide custom scripts or configuration files that automate the setup of the computational environment. These scripts may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables.
 - Upload your code to **version control systems** (e.g., Git) and c**ode repository** [Lesson 5](./05_VC.qmd). 
 - Integrated development environments (e.g., RStudio, PyCharm): Provides tools and features for writing, testing, and debugging code
-- Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensures adherence to community standards and guidelines.
+- Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensuring adherence to community standards and guidelines.
 
 
 ## Wrap up
-This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability. 
+This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks, and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability. 
 
 ### Sources
-- Code documentation by Johns Hopkins sharidan libraries: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729. This link inlcudes, best practices for code documentation, style guides, R markdown, jupyter notebook and version control and code repository. 
+- Code documentation by Johns Hopkins Sheridan libraries: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729. This link includes best practices for code documentation, style guides, R markdown, Jupyter Notebook, version control, and code repository. 
 - [Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf
 - [Best practices for Scientific computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)

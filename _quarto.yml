@@ -1,0 +1,68 @@
+project:
+  type: website
+
+website:
+  title: "RDM for NGS" 
+  navbar:
+    logo: /img/logo.png
+    background: primary
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Course material"
+        file: develop/01_RDM_intro.qmd
+      - text: "Use cases"
+        file: use_cases.qmd
+      - text: "Practical material"
+        file: "develop/practical_workshop.qmd"
+    right: 
+      - icon: github
+        href: https://github.com/hds-sandbox
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/company/ucph-heads/
+        aria-label: LinkedIn
+  
+  sidebar:
+    - title: "Course material"
+      style: "docked"
+      search: true
+      contents:
+        - section: "Basics"
+          contents:
+            - develop/01_RDM_intro.qmd
+            - develop/02_DMP.qmd
+        - section: "Key practices"
+          contents:
+            - develop/03_DOD.qmd
+            - develop/04_metadata.qmd
+            - develop/05_VC.qmd
+            - develop/06_pipelines.qmd
+            - develop/07_repos.qmd
+    - title: "Use cases"
+      contents:
+        - use_cases.qmd
+        - section: "NGS data"
+          contents:
+            - develop/examples/NGS_OS_FAIR.qmd
+            - develop/examples/NGS_management.qmd
+            - develop/examples/NGS_metadata.qmd
+        - section: "Proteomics"
+          contents:
+
+bibliography: resources/references.bib
+copyright: CC-BY-SA 4.0 license
+# docs_dir: develop, instead of writing the path in content
+
+format:
+  html:
+    theme: 
+      light: [materia, css/materialight.scss]
+      dark: darkly
+    toc: true
+    code-fold: true
+filters:
+  - css/custom-callout.lua
+
+#    include-in-header:
+#      - file: "resources/bioschema.html"

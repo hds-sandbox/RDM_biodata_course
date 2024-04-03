@@ -1,0 +1,159 @@
+﻿---
+title: NGS data strategies
+format: html
+date-modified: last-modified
+date-format: long
+date: 2023-11-30
+bibliography: ../../resources/references.bib
+summary: In this lesson we talk about what is NGS from a computational view
+---
+# Effective RDM Practices in NGS Analysis
+
+:::{.callout-note title="Section Overview"}
+
+⏰ **Time Estimation:** X minutes  
+
+💬 **Learning Objectives:**         
+
+1. Next Generation Sequencing data types and metadata
+2. Best practices for software and code management
+3. Pipelines and workflows
+
+:::
+
+In the data life cycle for Next Generation Sequencing (NGS) technology data, processing and analyzing are critical phases that involves transforming raw sequencing data into meaningful biological insights. Researchers apply computational methods and bioinformatics tools to extract valuable information from the vast amount of sequencing data generated in NGS experiments. We'll first explore the primary data types generated pre- and post-processing and the importance of detailed documentation.We will then focus on good practices used when performing data analysis and software development.
+
+:::{.callout-definition}
+# Next Generation Sequencing
+Next Generation Sequencing (NGS), or high-throughput sequencing, has revolutionized genomics research. It encompasses advanced techniques for rapid and cost-effective analysis of DNA or RNA molecules. Unlike traditional methods, NGS can analyze millions of DNA fragments simultaneously, enhancing the speed, efficiency, and scale of sequencing and becoming integral to modern genomics and biomedical studies.As NGS technologies continue to advance and become more accessible, they will remain at the front of cutting-edge genomics research, driving innovations that contribute to our understanding of complex genetic interactions and their implications for human health and biology.
+
+**Applications**
+
+It is widely utilized in various applications, including genomic sequencing, transcriptome analysis (RNA-Seq), epigenetic profiling (ChIP-Seq), metagenomics, and targeted sequencing. In addition, it plays a crucial role in fields such as oncology, infectious disease research, and personalized medicine. 
+
+**Data production**
+
+NGS workflows involve key steps, from sample preparation to data analysis. Samples undergo extraction and fragmentation, followed by the addition of unique identifiers, known as library preparation, for multiplexed sequencing. Then,fragments are amplified and sequences in parallel sequencing using state-of-the-art NGS platforms. Subsequent data analysis processes reconstruct the original sequence and identify genetic variations, structural changes, or functional elements. 
+The unique identifiers are specific adapter sequences that allow future identification of individual samples within a multiplexed sequencing run.
+:::
+
+:::{.callout-exercise}
+1. Do you ensure that all the data you collect or generate is accompanied by metadata? Have you ever encountered missing information when reading a provided file?
+2. Do you utilize specific databases or repositories for storing and accessing your research data?
+3. What are the typical data formats you encounter during data processing? As outputs of your analysis, what are the common data formats you encounter for visualization or further analysis?
+4. Do you document and track the workflows you use for data processing and analysis, including the software employed? How do you ensure reproducibility?
+:::
+
+## Practical tips for computational research 
+
+### 1. **Experiments / raw data**
+Thoroughly document your datasets and the experimental setup to ensure reproducibility. Adhering to standards will ensure interoperability. Data types' examples: 
+
+- Electronic Laboratory Notebook (ELN): digital description of the experimental design, and measurement devices. ELNs offer features like data entry, text editing, file attachments, collaboration tools, and search capabilities. 
+- Laboratory protocols: methodologies to prepare and manage samples.
+- Samples: refers to the biological material (extraction of DNA, RNA, or proteins). Specification of sample identifier, sample type, source organism etc. 
+- Sequencing: details on the platform (e.g., Illumina, Oxford Nanopore), library preparation method, coverage, quality control metrics (e.g., Phred score)...
+- Raw sequencing data: sequences and quality scores (e.g., FASTQ files) 
+
+:::{.callout-note}
+A metadata file is crucial during data analysis as it contains information about the experimental conditions (such as sequencing details, treatment, sample type, time points, tissue...).
+:::
+### 2. **Input / Pre- and post-processing data**
+Examples of data types generated during processing: 
+
+- Quality control metrics: to filter out potential artifacts and ensure the reliability of downstream analyses (e.g., bioinformatics tool like FastQC or MultiQC for results' aggregation)
+- Data alignments: in genomics to determine the location of the read in the genome and in transcriptomics to identify gene expression levels.
+- DNA analyses results: such as variant calling, genome annotation, functional genomics, phylogenetics, metagenomics etc. Results are usually presented in tabular format.
+- RNA Expression Analyses results: from differential gene expression, gene ontology (GO) enrichment, alternative splicing, pathway analysis etc. Results are usually presented in tabular format.
+- Epigenetic profiling outputs: to assess gene regulation and chromatin structure (e.g., ChIP-Seq). Usually presented in BED format.
+
+The interpretation of NGS data relies heavily on the results of data analysis, which are pivotal for understanding the biological significance of the findings and formulating hypotheses for further exploration. Clear and effective visualization methods are crucial for communicating and interpreting the vast amount of information generated by NGS experiments.
+
+:::{.callout-definition}
+# Other types of data: databases and visualizations
+1. Knowledge databases
+
+    A knowledge database is a structured repository of biological information that categorizes and annotates genes, proteins, and their functions, facilitating comprehensive understanding and analysis of biological systems. Here are five examples of knowledge databases:
+
+- **Gene Ontology (GO)**: A comprehensive resource that classifies gene functions into defined terms, allowing for standardized annotation and comparison of genes across different organisms.
+- **Disease Ontology**: A database that provides structured, standardized terminology for various diseases and their relationships, aiding in the systematic analysis of disease-related data.
+- **KEGG Pathways**: A collection of manually curated pathway maps representing molecular interactions and reaction networks within cells, enabling the interpretation of high-throughput data in the context of biological systems.
+- **Reactome**: An open-access database that offers curated descriptions of biological processes, including pathways, reactions, and molecular events, facilitating the interpretation of large-scale biological data.
+- **UniProt**: An extensive protein knowledgebase that provides detailed information about proteins, including their sequences, functions, and related annotations, supporting a wide range of biological research endeavors.
+
+2. Visualizations 
+- **Heatmaps**: frequently used to visualize gene expression patterns, epigenetic modifications, or microbial abundances across samples/conditions.
+- **Volcano Plots**: commonly used in differential gene expression analysis
+- **Genome Browser Snapshots**: display alignments and genomic features in genomic regions (e.g., gene annotations, ChIP-Seq peaks)
+- **Network Visualizations**:utilized to explore gene regulatory networks or protein-protein interaction
+- **Genomic Annotations**: to annotate genetic variations (functional impact on genes, genomic regions, or regulatory element) 
+:::
+
+###  3. **Software and code**:
+Best practices for software and code management (don't forget to read about [FAIR software](https://fair-software.eu/recommendations/repository)): 
+
+- **Commenting your code**: to enhance readability and comprehension 
+- Make your **source code accessible** using repository (GitHub, GitLab, Bitbucket, SourceForge, etc.) that provides version control (VC) solutions. This step is one of the most important ones as version control systems (Git or SVN) track changes in your code over time and enable collaboration and easy version management. Most danish institutions provide courses on Git/GitHub, check yours! We also highly recommend reading this paper [@perez2016ten]. 
+- **README file**: with the comprehensive information about the project and include installation instructions, usage examples or tutorials, licensing details, citation information, etc.
+- Register your code in a research software registry and include a clear and accessible software usage license: enabling other researcher to discover and reuse software packages (alongside a metadata). More recommendations [here](https://fair-software.eu/recommendations/registry/). 
+- Use domain-relevant community standards to ensure consistency and interoperability (e.g., [CodeMeta](https://codemeta.github.io/)). 
+
+:::{.callout-definition}
+# Git and Github courses and other resources
+- [University of Copenhagen](https://heads.ku.dk/course/git_github/)
+- [Aarhus University](https://math.medarbejdere.au.dk/en/ithelp/version-control)
+- [Aalborg University](https://www.aau.dk/workshop-on-git-and-version-control-e70599)
+- [DTU Git guidelines](https://www.gbar.dtu.dk/index.php/faq/41-git)
+Find more resources in [Berkeley Library website](https://guides.lib.berkeley.edu/how-to-write-good-documentation)
+:::
+
+###  4. **Pipelines and workflows**
+You might use standard workflows or generate new ones during data processing and data analyses steps.
+
+- **Code notebooks**: tools for data documentation (e.g. Jupyter Notebook, Rmarkdown) enabling the combination of code with descriptive text and visualizations.   
+- Integrated development environments ([knitr](https://yihui.org/knitr/) or [MLflow](https://mlflow.org/)). 
+- **Pipeline frameworks or workflow management systems**: designed to streamline and automate various steps involved in data analysis (data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages. There are two very popular systems, **Nextflow** and 
+**Snakemake**.
+
+A great example of community curated workflows is the [nf-core](https://nf-co.re/) community. Nf-core is a collaborative and open-source initiative comprising bioinformaticians and researchers dedicated to developing and maintaining a collection of curated and reproducible Nextflow-based pipelines for NGS data analysis, ensuring standardized and efficient data processing workflows.
+
+:::{.callout-warning title="Course on pipelines and workflows"}
+Take our course on Reproducible Research Practices [LINK]()
+:::
+
+Click below to  access a list of the most common file formats used when working with NGS data. 
+
+<details>
+  <summary><span style="color:#4b4646;font-weight:bold;font-size:x-large">Data types summary</summary>
+  <p>
+
+Select appropriate file formats that balance data accessibility, storage efficiency, and compatibility with downstream analysis tools. Standardized file formats facilitates data sharing and collaboration among researchers in the scientific community.
+
+- **BAM/SAM**: stores the alignment information (binary and text-based respectively)
+- **FASTA**: store nucleotide or amino acid sequence, commonly used for reference sequences or assembled contigs.
+- **Gene Transfer Format (GTF) and General Feature Format (GFF)**: annotates genomic features such as genes, exons, and transcripts.
+- **Alignment indexes**: data structures for efficient and rapid mapping of sequencing reads to a reference. 
+- **Variant Call Format (VCF)**: stores genetic variation such as single nucleotide variants (SNVs), insertions, deletions, and structural variants (and their position, quality score etc.)
+- **Count matrix**: quantifies the abundance of RNA transcripts or genomic features across samples
+- **BED/BEDGraph**: represent genomic intervals or coverage information (e.g., peak calling identifies regions of enriched signal intensity)
+- **WIG/BigWig**: store genome-wide data
+
+General formats
+
+- **Tabular formats**: File formats like CSV, TSV, and XLSX used to store data in rows and columns for easy data analysis and sharing
+- **Image formats**: File formats such as PNG and SVG used to store graphical visualizations, making them easily viewable and shareable
+- **Binary formats**: File formats like NPZ and H5 used to store large datasets, ensuring efficient data access and storage
+- **JSON**: A lightweight data-interchange format for storing hierarchical data structures, commonly used in bioinformatics tools
+- **HTML**: A format used to create interactive reports that include both visualizations and textual descriptions of analysis results
+- **Code notebooks**: Interactive documents combining code, visualizations, and explanatory text, aiding in data analysis reproducibility and documentation
+- **Scripts**: Text files containing sets of commands or code instructions for automating data processing and analysis tasks
+
+Explore more data types at the [UCSC webpage](http://genome.ucsc.edu/FAQ/FAQformat). Check out [this tutorial](https://bioinformatics.uconn.edu/resources-and-events/tutorials-2/file-formats-tutorial/) for more detailed explanations.  
+
+  </p>
+</details>
+
+
+## Wrap up
+
+In this lesson we have taken a look a the vast and diverse landscape of bioinformatics data.

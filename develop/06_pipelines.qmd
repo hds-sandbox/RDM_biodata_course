@@ -1,0 +1,59 @@
+
+---
+title: "6. Code and Pipelines for Data Analysis"
+format: 
+  html:
+    toc: false
+date-modified: last-modified
+date-format: long
+date: 2024-04-02
+bibliography: ../resources/references.bib
+summary: Index page, intro to course
+#https://emojidb.org/quarto-emojis for emojis copypaste
+---
+
+In this section, we explore essential elements of reproducibility and efficiency in computational research, highlighting techniques and tools for creating robust and transparent coding and workflows. By prioritizing reproducibility and replicability, researchers can enhance the credibility and impact of their findings while fostering collaboration and knowledge dissemination within the scientific community.
+
+### Reproducibility and Replicability
+
+Through techniques such as scripting, containerization (e.g., Docker), and virtual environments, researchers can create reproducible analyses that enable others to validate and build upon their work. Emphasizing the documentation of data processing steps, parameters, and results ensures transparency and accountability in research outputs.
+
+Tools for reproducibility:
+
+- **Code notebooks**: Utilize tools like Jupyter Notebook and R Markdown to combine code with descriptive text and visualizations, enhancing data documentation.  
+- Integrated development environments: Consider using platforms such as ([knitr](https://yihui.org/knitr/) or [MLflow](https://mlflow.org/)) to streamline code development and documentation processes.
+- **Pipeline frameworks or workflow management systems**: Implement systems like Nextflow and Snakemake to automate data analysis steps (including data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages.  
+
+#### Computational notebooks for interactive analysis
+Computational notebooks (e.g., Jupyter, R Markdown) provide researchers with a versatile platform for exploratory and interactive data analysis. These notebooks facilitate sharing insights with collaborators and documentation of analysis procedures.
+
+#### Pipeline Frameworks and Workflow Management Systems
+Tools such as Nextflow and Snakemake streamline and automate various data analysis steps, enabling parallel processing and seamless integration with existing tools.
+
+- **Nextflow**: offers scalable and portable NGS data analysis pipelines, facilitating data processing across diverse computing environments.
+- **Snakemake**: Utilizing Python-based scripting, Snakemake allows for flexible and automated NGS data analysis pipelines, supporting parallel processing and integration with other tools.
+
+### Connecting data organization and documentation
+
+To maintain clarity and organization in the data analysis process, adopt best practices such as:
+
+- Create a README.md file 
+- **Annotate** your pipelines and comment your code
+- **Label numerically** to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines etc.).
+  - 00.preprocessing.*, 01.data_analysis_step1.*, etc. 
+- Provide **environment files** for reproducing the computational environment, including:
+  - **Containerization platforms** (e.g., Docker, Singularity): allow researcher to package their software and dependencies into a standardized container image.
+  - **Virtual Environments** (e.g., Conda, virtualenv): provide isolated environment with specific packages and dependencies can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system. 
+  - **Environment Configuration Scripts**: Researchers can also provide custom scripts or configuration files that automate the setup of the computational environment. These scripts may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables.
+- Upload your code to **version control systems** (e.g., Git) and c**ode repository** [Lesson 5](./05_VC.qmd). 
+- Integrated development environments (e.g., RStudio, PyCharm): Provides tools and features for writing, testing, and debugging code
+- Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensures adherence to community standards and guidelines.
+
+
+## Wrap up
+This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability. 
+
+### Sources
+- Code documentation by Johns Hopkins sharidan libraries: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729. This link inlcudes, best practices for code documentation, style guides, R markdown, jupyter notebook and version control and code repository. 
+- [Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf
+- [Best practices for Scientific computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)

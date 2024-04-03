@@ -1,0 +1,13 @@
+---
+title: "José Alejandro Romero Herrera "
+description: "Principal Bioinformatician, Lundbeck"
+#https://emojidb.org/quarto-emojis for emojis copypaste
+---
+
+![](jarh.jpeg){width=300}
+
+
+[![](LinkedIN.png){width=50}](https://www.linkedin.com/in/jose-alejandro-romero-herrera)   [![](Github_black.png){width=50}](https://github.com/joseale2310)   [![](Outlook.png){width=50}](jsrm@lundbeck.com?subject=Test)   [![](mapPin.png){width=50}](https:heads.ku.dk)
+
+
+Alex is a former Sandbox data scientist at the University of Copenhagen. He is currently working at Lundbeck as a principal bioinformatician. 

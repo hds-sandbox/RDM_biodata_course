@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-11-30">
+
+<title>RDM for NGS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">RDM for NGS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../develop/01_RDM_intro.html"> 
+<span class="menu-text">Course material</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../use_cases.html"> 
+<span class="menu-text">Use cases</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/hds-sandbox"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/ucph-heads/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-management-plans" id="toc-data-management-plans" class="nav-link active" data-scroll-target="#data-management-plans">Data Management Plans</a>
+  <ul class="collapse">
+  <li><a href="#why-are-dmps-important" id="toc-why-are-dmps-important" class="nav-link" data-scroll-target="#why-are-dmps-important">Why are DMPs important</a></li>
+  <li><a href="#when-to-write-a-dmp" id="toc-when-to-write-a-dmp" class="nav-link" data-scroll-target="#when-to-write-a-dmp">When to write a DMP</a></li>
+  <li><a href="#the-main-parts-of-a-dmp" id="toc-the-main-parts-of-a-dmp" class="nav-link" data-scroll-target="#the-main-parts-of-a-dmp">The main parts of a DMP</a></li>
+  <li><a href="#dmp-templates" id="toc-dmp-templates" class="nav-link" data-scroll-target="#dmp-templates">DMP templates</a>
+  <ul class="collapse">
+  <li><a href="#ucph-template" id="toc-ucph-template" class="nav-link" data-scroll-target="#ucph-template">UCPH template</a></li>
+  <li><a href="#horizon-europe-and-erc-templates" id="toc-horizon-europe-and-erc-templates" class="nav-link" data-scroll-target="#horizon-europe-and-erc-templates">Horizon Europe and ERC templates</a></li>
+  </ul></li>
+  <li><a href="#writing-a-dmp" id="toc-writing-a-dmp" class="nav-link" data-scroll-target="#writing-a-dmp">Writing a DMP</a></li>
+  <li><a href="#example-of-a-dmp-for-ngs-data" id="toc-example-of-a-dmp-for-ngs-data" class="nav-link" data-scroll-target="#example-of-a-dmp-for-ngs-data">Example of a DMP for NGS data</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Management Plans</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">March 5, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- 
+tags:
+    - Data Management Plan
+    - DMP
+-->
+<section id="data-management-plans" class="level1">
+<h1>Data Management Plans</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="Course Overview">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Overview
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>⏰ <strong>Time Estimation:</strong> X minutes<br>
+💬 <strong>Learning Objectives:</strong><br>
+1. Learn what is a DMP 2. Learn about the different DMP templates 3. How to write a DMP focused on NGS data</p>
+</div>
+</div>
+<p>There are a lot of terms regarding data management and a lot of best practices to collect and implement, but how do we gather all the decisions made and how do we know that we have covered it all, that our data will be well managed throughout its life cycle? The answer is to write a data management plan (DMP).</p>
+<p>A DMP is a document addressing requirements and practices for managing the project’s data, code and documentation, throughout the data life cycle, i.e from the initial planning until the project ends and beyond. It outlines the data management strategies in a project. Making plans for how you will collect, document, organize, and preserve your data are all part of the data management strategy.</p>
+<section id="why-are-dmps-important" class="level2">
+<h2 class="anchored" data-anchor-id="why-are-dmps-important">Why are DMPs important</h2>
+<p>There are several reasons why writing a data management plan is a very good idea:</p>
+<ul>
+<li>Think of the DMP as a checklist. Going through the checklist allows you to <strong>identify gaps</strong> in current data management strategies. Identifying the gaps early on saves a lot of headache and time spent later. Going through the process of planning is more important than the actual plan itself.</li>
+<li>In a project with several members, it is important to decide on <strong>standards</strong> that all <strong>collaborators</strong> should adhere to, e.g.&nbsp;regarding how to organise the data, how to name it, which metadata standards to use, what vocabularies to use, etc.</li>
+<li>Writing a DMP also enables you to <strong>estimate costs</strong> regarding data production, storage, data management, etc.</li>
+<li>It is also a good way to clarify <strong>responsibilities</strong> regarding the data and the data management, e.g.&nbsp;who is responsible for the execution of the DMP.</li>
+<li>By planning how the data will be managed, there’s greater chance that the research data will be <strong>well-managed</strong> (no guarantee, since you still need to have good strategies and actually implement them for this to happen). Of course there are many benefits with well-managed data but the main ones are:
+<ul>
+<li><strong>reproducibility</strong>, so that the results can be verified</li>
+<li><strong>reusability</strong>, so that this data can be used for answering other scientific questions, thus reducing redundancy</li>
+<li>A DMP is the first step towards being <strong>FAIR</strong> in your project.</li>
+</ul></li>
+</ul>
+<p>If the reasons above don’t persuade you, the last argument is that it is becoming more and more a <strong>requirement</strong> by funders and other stakeholders:</p>
+<ul>
+<li>For <strong>transparency</strong> and <strong>openness</strong>: publicly funded research data must be discoverable, accessible, and reusable to the public</li>
+<li><strong>Return on investment</strong>: well planned data maximizes the research potential of the data and provides greater returns on public investments and research.</li>
+</ul>
+</section>
+<section id="when-to-write-a-dmp" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-write-a-dmp">When to write a DMP</h2>
+<p>A DMP is a <strong>living document</strong>, the initial version is written the same time as a new project idea is emerging, before e.g.&nbsp;applying for funds, and then successively updated as the project continues and new decisions are made. Ideally it should be updated continuously, but there are three major time points:</p>
+<ol type="1">
+<li><strong>Project planning:</strong> The DMP should outline the strategies for data management in sufficient detail to be able to estimate the resources needed to implement the DMP, so that this can be included in the proposal for funding (e.g.&nbsp;data production, data analysis, storage during and after project, costs related to publishing of data).</li>
+<li><strong>Project start:</strong> The DMP is completed with more details e.g.&nbsp;about documentation, data quality measures, file and folder strategies, etc.</li>
+<li><strong>Project end:</strong> The DMP is updated a final time with e.g.&nbsp;links to published data and details about archiving (what data and where), so that this document enables future re-use of the project (by yourself or others).</li>
+</ol>
+</section>
+<section id="the-main-parts-of-a-dmp" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-parts-of-a-dmp">The main parts of a DMP</h2>
+<ol type="1">
+<li><strong>Description of data</strong>
+<ul>
+<li>What types of data will be created and/or collected, in terms of data format and amount/volume of data?</li>
+</ul></li>
+<li><strong>Documentation</strong>
+<ul>
+<li>How will the material be documented and described, with associated metadata relating to structure, standards and format for descriptions of the content, collection method, etc.?</li>
+</ul></li>
+<li><strong>Storage and backup</strong>
+<ul>
+<li>How is data security, storage and backup of data and metadata safeguarded during the research process?</li>
+</ul></li>
+<li><strong>Legal and ethical aspects</strong>
+<ul>
+<li>How is data handling according to legal requirements safeguarded, e.g.&nbsp;in terms of handling of personal data, confidentiality and intellectual property rights?</li>
+</ul></li>
+<li><strong>Accessibility and long-term storage</strong>
+<ul>
+<li>How, when and where will research data or information about data (i.e.&nbsp;metadata) be made accessible? E.g. via deposition to international public repositories.</li>
+<li>In what way is long-term storage safeguarded, and by whom?</li>
+</ul></li>
+<li><strong>Responsibility and resources</strong>
+<ul>
+<li>Who are the responsible persons for data management?</li>
+<li>What resources (costs, labour input or other) will be required for data management?</li>
+</ul></li>
+</ol>
+</section>
+<section id="dmp-templates" class="level2">
+<h2 class="anchored" data-anchor-id="dmp-templates">DMP templates</h2>
+<p>Different agencies and funders may have different DMP templates that are mandatory for researchers to comply with data management requirements. Here you can find some examples.</p>
+<section id="ucph-template" class="level3">
+<h3 class="anchored" data-anchor-id="ucph-template">UCPH template</h3>
+<p>The University of Copenhagen has developed a DMP template in alignment with the UCPH Policy on Research Data Manage​ment. This is the recommended template for all researchers, guests and students involved in research activities at UCPH, unless other specific DMP requirements from a funding agency or a partner institution apply.</p>
+<p>The UCPH DMP template is available within the DMPonline tool (see information below) or can be downloaded as a <a href="https://kunet.ku.dk/work-areas/research/data/data-management-plans/Documents/UCPH%20Data%20Management%20Plan%20Template%20v2.1.docx">Word document</a>.</p>
+<p>Guidance for all questions in this template can be found <a href="https://kunet.ku.dk/work-areas/research/data/data-management-plans/Documents/Guidelines%20for%20UCPH's%20data%20management%20plan%20template%20v2.1.pdf">here</a>.</p>
+</section>
+<section id="horizon-europe-and-erc-templates" class="level3">
+<h3 class="anchored" data-anchor-id="horizon-europe-and-erc-templates">Horizon Europe and ERC templates</h3>
+<p>All projects funded in the Horizon Europe framework programme must prepare and submit a data management plan as deliverable according to the details described in the respective grant agreement.</p>
+</section>
+</section>
+<section id="writing-a-dmp" class="level2">
+<h2 class="anchored" data-anchor-id="writing-a-dmp">Writing a DMP</h2>
+<p>Standard DMP templates can typically be found at funder agencies, e.g.&nbsp;<a href="https://www.vr.se/english/applying-for-funding/requirements-terms-and-conditions/producing-a-data-management-plan/data-management-plan-template.html">Swedish Research Council</a> and <a href="https://www.scienceeurope.org/media/jezkhnoo/se_rdm_practical_guide_final.pdf">Science Europe</a>, and it is of course possible to write in your favorite text editor. In addition, there are several tools that can assist you in writing a DMP as well as guidance.</p>
+<p>!!! tip “Tools to write your DMP”</p>
+<pre><code>- **DMPonline**: DMPOnline is an online tool for writing, sharing and reviewing data management plans. A Danish installation is available under [dmponline.deic.dk](https://dmponline.deic.dk/). It is provided by the [Danish e-Infrastructure Cooperation](https://deic.dk/) (DeiC) and jointly administered by the Royal Danish Library and DTU Library. DMPonline contains a number of different DMP templates, guidance texts and examples from Danish research institutions and relevant funders.  
+    - The tool most universities have chosen to offer (check with your institute)
+    - Good guidance but typically generic and not Life Science specific
+    - Most often free text answers
+    - Contains guidance for several DMP templates
+- [Data Stewardship wizard](http://dsw.scilifelab.se/). DSW is a interactive tool to create data management plans based on questionnaires. 
+    - Provided by [SciLifeLab](https://www.scilifelab.se)
+    - Gives Life Science specific guidance
+    - Less free text answers, instead many questions with answer options</code></pre>
+</section>
+<section id="example-of-a-dmp-for-ngs-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-a-dmp-for-ngs-data">Example of a DMP for NGS data</h2>
+<p>We are have written a DMP template that it is prefilled with repetitive information using <a href="https://dmponline.deic.dk/">DMPonline</a> and the Horizon Europe guidelines. This template contains all the necessary information regarding common practices that we will use, the repositories we use for NGS, etc. The template is part of the <code>project</code> folder template, under <code>documents</code>. You can check the file <a href="./assets/Non-sensitive_NGS_research_project_template.docx">here</a>.</p>
+<p>The Horizon Europe template is mostly focused on digital data and so, it is maybe not the best option if you are also interested in recording in your DMP physical data, such as samples, reagents, media, cultures, model organisms, etc.</p>
+<p>!!! question “Exercise: write a draft for a DMP”</p>
+<pre><code>You can write a DMP draft from scratch, or you could use the template mentioned above and modify it to your own needs!</code></pre>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>In this lesson we have learned about DMPs and tools that could help you write one, as well as shown you a possible template for your own projects! DMPs are a great tool to help you think about your project, the data you will reuse/generate, and how to preserve it properly for future use, either by you, collaborators or the broad scientific community. In the next lesson we will explore how you could organize your NGS data using a simple but clear system, and provide you some tools that will make the job easier.</p>
+<hr>
+<p><em>Some parts of this lesson are taken from the <a href="https://uppsala.instructure.com/courses/48087/pages/introduction-to-data-management-practices">NBISweden workshop</a> on RDM practices.</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

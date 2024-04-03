@@ -341,7 +341,7 @@ Course Overview
 </ol>
 </div>
 </div>
-<p>So far, we have covered how to adhere to FAIR and Open Science standards, which primarily focus on data sharing post-project completion. However, effective data management is essential while actively working on the project. Organizing data folders, raw and processed data, analysis scripts and pipelines, and results ensures long-term project success. Without a clear structure, future access and understanding of data become challenging, even more for collaborators, leading to potential chaos down the line.</p>
+<p>So far, we have covered how to adhere to FAIR and Open Science standards, which primarily focus on data sharing post-project completion. However, effective data management is essential while actively working on the project. Organizing data folders, raw and processed data, analysis scripts and pipelines, and results ensure long-term project success. Without a clear structure, future access and understanding of data become challenging, even more so for collaborators, leading to potential chaos down the line.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -376,7 +376,7 @@ Exercise
 </ul></li>
 <li><strong>File naming conventions</strong>: implement a standardized file naming convention to maintain consistency and clarity. Use descriptive and informative names (e.g., specify data type: plots, results tables, etc.)</li>
 </ul>
-<p>In this lesson we will see a practical example on how you could organize your own files and folders.</p>
+<p>In this lesson, we will see a practical example of how you could organize your own files and folders.</p>
 <section id="folder-organization" class="level2">
 <h2 class="anchored" data-anchor-id="folder-organization">Folder organization</h2>
 <p>Here we suggest the use of three main folders:</p>
@@ -396,7 +396,7 @@ Exercise
 </ol>
 <ul>
 <li>This directory typically belongs to the researcher conducting bioinformatics analyses and encompasses all essential files for a specific research project (data, scripts, software, workflows, results, etc.).</li>
-<li>A project may utilize data from various assays or results obtained from other projects. It’s important to avoid duplicating datasets; instead, link it from the original source to maintain data integrity and avoid redundancy.</li>
+<li>A project may utilize data from various assays or results obtained from other projects. It’s important to avoid duplicating datasets; instead, link them from the original source to maintain data integrity and avoid redundancy.</li>
 </ul>
 <ol start="3" type="1">
 <li><strong>Resources and databases folders</strong>:</li>
@@ -455,7 +455,7 @@ Create shortcuts to public datasets and assays!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The use of symbolic links, also referred as softlinks, is a key practice in large labs where data might used for different purposes and by multiple people.</p>
+<p>The use of symbolic links, also referred to as softlinks, is a key practice in large labs where data might used for different purposes and by multiple people.</p>
 <ul>
 <li>They act as pointers, containing the path to the location of the target files/directories.</li>
 <li>They avoid duplication and they are flexible and lightweight (do not occupy much disk space).</li>
@@ -479,7 +479,7 @@ Exercise: create a softlink link
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>Open your terminal and create a softlink using the following command. The first path is the target (directory or file) and the second one where the symbolic link will be created.</p>
+<p>Open your terminal and create a softlink using the following command. The first path is the target (directory or file) and the second one is where the symbolic link will be created.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> path/to/dataset/<span class="op">&lt;</span>ASSAY_ID<span class="op">&gt;</span> /path/to/user/<span class="op">&lt;</span>PROJECT_ID<span class="op">&gt;</span>/data/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, access the target file/directory through the symbolic link:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /path/to/user/<span class="op">&lt;</span>PROJECT_ID<span class="op">&gt;</span>/data/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -531,7 +531,7 @@ Hint
 <p>Let’s focus on the shared folders containing experimental datasets generated in-house.</p>
 <section id="naming-shared-folders-effectively" class="level3">
 <h3 class="anchored" data-anchor-id="naming-shared-folders-effectively">Naming Shared Folders Effectively</h3>
-<p>Create a folder for all your NGS experiments, for instance named <code>Assay</code>. Each subfolder, denoted by a unique <code>Assay-ID</code>, should be named clearly and comprehensibly. Assay-ID comprises raw files, processed files, and the pipeline used to generate them. Raw files should remain unchanged, while modifications to processed files should be restricted post-preprocessing (e.g., after quality control) to prevent unintended alterations. Check the exercise for efficient naming of Assay-ID:</p>
+<p>Create a folder for all your NGS experiments, for instance, named <code>Assay</code>. Each subfolder, denoted by a unique <code>Assay-ID</code>, should be named clearly and comprehensibly. Assay-ID comprises raw files, processed files, and the pipeline used to generate them. Raw files should remain unchanged, while modifications to processed files should be restricted post-preprocessing (e.g., after quality control) to prevent unintended alterations. Check the exercise for efficient naming of Assay-ID:</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -563,7 +563,7 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
-<p>Use an acronym (1) that describes type of NGS assay (RNAseq, ChIPseq, ATACseq) a keyword (2) that represents a unique element to that assay, and the date (3).</p>
+<p>Use an acronym (1) that describes the type of NGS assay (RNAseq, ChIPseq, ATACseq) a keyword (2) that represents a unique element to that assay, and the date (3).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>Assay-ID<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -620,7 +620,7 @@ Other Assay ID code names
 <ul>
 <li><strong>README.md</strong>: This file contains general information about the project or experiment, usually in markdown or plain text format. It includes details such as such as the origin of the raw NGS data (including sample information, laboratory protocols used, and the assay’s objectives). Sometimes, it also outlines the basic directory structure and file naming conventions.</li>
 <li><strong>metadata.yml</strong>: This serves as the metadata file for the project (<a href="../develop/04_metadata.html">see this lesson</a>).</li>
-<li><strong>pipeline.md</strong>: This document describes the pipeline employed to process the raw data, along with the specific commands used to execute the pipeline. The specific format can very depending on the workflow system employed (e.g., bash, Snakemake, Nextflow, Jupyter Notebooks etc.) (<a href="../develop/06_pipelines.html">see this lesson</a>). Employing a standardized pipeline ensures a consistent file organization system (and the corresponding documentation)</li>
+<li><strong>pipeline.md</strong>: This document describes the pipeline employed to process the raw data, along with the specific commands used to execute the pipeline. The specific format can vary depending on the workflow system employed (e.g., bash, Snakemake, Nextflow, Jupyter Notebooks, etc.) (<a href="../develop/06_pipelines.html">see this lesson</a>). Employing a standardized pipeline ensures a consistent file organization system (and the corresponding documentation)</li>
 <li><strong>processed_data</strong>: folder with results of the preprocessing pipeline. The contents may vary depending on the pipeline utilized. For example,
 <ul>
 <li><strong>fastqc</strong>: quality Control results of the raw fastq files.</li>
@@ -640,7 +640,7 @@ Other Assay ID code names
 <p>In the <code>Projects</code> folder, usually private to the individual performing the data analysis, each project has its own subfolder containing project information, data analysis scripts and pipelines, and results. It’s advisable to maintain folders for individual projects, separate from shared data folders, as project-specific files typically aren’t reused across multiple projects, and more than one dataset might be needed to answer a specific scientific question.</p>
 <section id="naming-project-folders-effectively" class="level3">
 <h3 class="anchored" data-anchor-id="naming-project-folders-effectively">Naming Project Folders Effectively</h3>
-<p>The Project folder should have a unique, easily readable, distinguishable, and instantly understandable name.For instance, consider naming it using the main author’s initials, a descriptive keyword, and the date:</p>
+<p>The Project folder should have a unique, easily readable, distinguishable, and instantly understandable name. For instance, consider naming it using the main author’s initials, a descriptive keyword, and the date:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>author_initials<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="optimizing-folder-structures-1" class="level3">
@@ -669,13 +669,13 @@ Other Assay ID code names
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> metadata.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>data</strong>: contains symlinks or shortcuts to where the data is (raw, processed, external, etc.), avoiding duplication and modification of original files.</li>
-<li><strong>docs</strong>: folder containing word documents, slides or pdfs related to the project. It also contains your <a href="../develop/02_DMP.html">Data Management Plan</a>.</li>
-<li><strong>notebooks or pipelines</strong>: folder containing notebooks (Jupyter, R markdown, Quarto notebooks) or workflows (Snakemake or Nextflow) with the actual data analysis. Tip: labeled them numerically indicating the sequential order.</li>
+<li><strong>docs</strong>: a folder containing Word documents, slides, or PDFs related to the project. It also contains your <a href="../develop/02_DMP.html">Data Management Plan</a>.</li>
+<li><strong>notebooks or pipelines</strong>: a folder containing notebooks (Jupyter, R markdown, Quarto notebooks) or workflows (Snakemake or Nextflow) with the actual data analysis. Tip: Label them numerically indicating the sequential order.</li>
 <li><strong>README.md</strong>: detailed description of the project in markdown format.</li>
 <li>logs: log files.</li>
 <li>tmp: store temporary or intermediate files.</li>
-<li><strong>environment</strong>: files for reproducing the analysis environment to reproduce the results, such as a Dockerfile, conda yaml file, or a text file (<a href="../develop/06_pipelines.html">See 6th lesson</a> for more tips on making your pipelines reproducible). It includes software, libraries/packages and dependencies (and their versions!).</li>
-<li><strong>scripts</strong>: folder containing helper scripts to run data analysis or source code</li>
+<li><strong>environment</strong>: files for reproducing the analysis environment to reproduce the results, such as a Dockerfile, conda yaml file, or a text file (<a href="../develop/06_pipelines.html">See 6th lesson</a> for more tips on making your pipelines reproducible). It includes software, libraries/packages, and dependencies (and their versions!).</li>
+<li><strong>scripts</strong>: a folder containing helper scripts to run data analysis or source code</li>
 <li><strong>reports</strong>: Generated analysis as HTML, PDF, LaTeX, etc. Great for sharing with colleagues and creating formal reports of the data analysis procedure.
 <ul>
 <li><em>figures</em>: figures produced upon rendering notebooks. Tip: save the figures under a subfolder named after the notebook/pipeline that created them (you will appreciate this organization when you need to rerun analysis and know which script created each figure!).</li>
@@ -722,7 +722,7 @@ Cookiecutter templates
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Coockiecutter template for <a href="https://github.com/drivendata/cookiecutter-data-science">Data science projects</a></li>
+<li>Cookiecutter template for <a href="https://github.com/drivendata/cookiecutter-data-science">Data science projects</a></li>
 <li>Brickmanlab template for <a href="https://github.com/brickmanlab/ngs-template">NGS data</a>: similar to the folder structures in the examples above. You can download and modify it to suit your needs.</li>
 </ul>
 </div>
@@ -764,20 +764,20 @@ Example NGS: genomic resources
 <p>How can you keep track of your resources? Name the folder using the version, or use a reference genome manager such as <a href="http://refgenie.databio.org/en/latest/">refgenie</a>.</p>
 <section id="refgenie" class="level4">
 <h4 class="anchored" data-anchor-id="refgenie">Refgenie</h4>
-<p>It manages storage, access, and transfer of reference genome resources. It provides command-line and Python interfaces to download pre-built reference genome “assets”, like indexes used by bioinformatics tools. It can also build assets for custom genome assemblies. Refgenie provides programmatic access to a standard genome folder structure, so software can swap from one genome to another. Check this <a href="http://refgenie.databio.org/en/latest/tutorial/">tutorial</a> to get started.</p>
+<p>It manages the storage, access, and transfer of reference genome resources. It provides command-line and Python interfaces to download pre-built reference genome “assets”, like indexes used by bioinformatics tools. It can also build assets for custom genome assemblies. Refgenie provides programmatic access to a standard genome folder structure, so software can swap from one genome to another. Check this <a href="http://refgenie.databio.org/en/latest/tutorial/">tutorial</a> to get started.</p>
 </section>
 </div>
 </div>
 </div>
 <section id="manual-download" class="level4">
-<h4 class="anchored" data-anchor-id="manual-download">Manual download</h4>
-<p>Best practices for downloading data from the source while ensuring the preservation of information about the version and other metadata includes:</p>
+<h4 class="anchored" data-anchor-id="manual-download">Manual Download</h4>
+<p>Best practices for downloading data from the source while ensuring the preservation of information about the version and other metadata include:</p>
 <ul>
-<li>Organizing data structure: Create data structure that allows storing all versions in the same parent directory, and ensure that all lab members follow these practices.</li>
+<li>Organizing data structure: Create a data structure that allows storing all versions in the same parent directory, and ensure that all lab members follow these practices.</li>
 <li>Documentation and metadata preservation: Before downloading, carefully review the documentation provided by the database. Download files containing the data version and any associated metadata.</li>
 <li>README.md: Record the version of the data in the README.md file.</li>
 <li>Checksums: Check for and use checksums provided by the database to verify the integrity of the downloaded data, ensuring that it hasn’t been corrupted during transfer. Do the exercise below.</li>
-<li>Verify File size: Check the file size provided by the source. It is not as secure as checksum verification but discrepancy could indicate corruption.</li>
+<li>Verify File size: Check the file size provided by the source. It is not as secure as checksum verification but discrepancies could indicate corruption.</li>
 <li>Automated Processes: whenever possible, automate the download process to reduce the likelihood of errors and ensure consistency (e.g.&nbsp;use bash script or pipeline).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Optional: Exercise on CHECKSUMS">
@@ -792,7 +792,7 @@ Optional: Exercise on CHECKSUMS
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We recommend the use of md5sum to verify data integrity, specially if you are downloading large datasets. In this example, we use data from the <a href="ftp://ftp.ebi.ac.uk/pub/databases/ipd/imgt/hla/">HLA FTP Directory</a>.</p>
+<p>We recommend the use of md5sum to verify data integrity, especially if you are downloading large datasets. In this example, we use data from the <a href="ftp://ftp.ebi.ac.uk/pub/databases/ipd/imgt/hla/">HLA FTP Directory</a>.</p>
 <ol type="1">
 <li>Install md5sum (from coreutils package)</li>
 </ol>
@@ -807,9 +807,9 @@ Optional: Exercise on CHECKSUMS
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-overflow-wrap code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Important: go through the README before downloading! Check if a checksums file is included. </span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create or change directory to the resources dir. </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create or change the directory to the resources dir. </span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for checksums (e.g.: md5checksum.txt), download and modify it so that it only contains the checksums of the target files. The file will look like:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for checksums (e.g.: md5checksum.txt), download, and modify it so that it only contains the checksums of the target files. The file will look like this:</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">1a3d12e4e6cc089388d88e3509e41cb3</span>  hla_gen.fasta</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally, save it: </span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="va">md5file</span><span class="op">=</span><span class="st">"md5checksum.txt"</span></span>
@@ -835,7 +835,7 @@ Optional: Exercise on CHECKSUMS
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>     └── indexes/</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> dw_resources.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
-<li>Create an md5sum file and share it with collaborators before sharing the data. This allows others to check the integrity of the files.</li>
+<li>Create a md5sum file and share it with collaborators before sharing the data. This allows others to check the integrity of the files.</li>
 </ol>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md5sum</span> <span class="op">&lt;</span>data<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
@@ -865,7 +865,7 @@ Exercise
 </section>
 <section id="naming-conventions" class="level2">
 <h2 class="anchored" data-anchor-id="naming-conventions">Naming conventions</h2>
-<p>Consistent naming conventions play a crucial role in scientific research by enhancing organization and data retrieval. By adopting standardized naming conventions, researchers ensure that files, experiments, or datasets are labeled logically, facilitating easy location and comparison of similar data. For instance, in fields like genomics, uniform naming conventions for files associated with particular experiments or samples allows for swift identification and comparison of relevant data, streamlining the research process and contributing to the reproducibility of findings. Overall, promotes efficiency, collaboration, and the integrity of scientific work.</p>
+<p>Consistent naming conventions play a crucial role in scientific research by enhancing organization and data retrieval. By adopting standardized naming conventions, researchers ensure that files, experiments, or datasets are labeled logically, facilitating easy location and comparison of similar data. For instance, in fields like genomics, uniform naming conventions for files associated with particular experiments or samples allow for swift identification and comparison of relevant data, streamlining the research process and contributing to the reproducibility of findings. Overall, promotes efficiency, collaboration, and the integrity of scientific work.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="General tips for file and folder naming">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -889,10 +889,10 @@ General tips for file and folder naming
 <li>Use <strong>underscores and hyphens</strong> as delimiters and <strong>avoid spaces</strong>.
 <ul>
 <li>Not all search tools may work well with spaces (messy to indicate paths)</li>
-<li>If the length is a concern, use capital letter to delimit words <a href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a>.</li>
+<li>If the length is a concern, use capital letters to delimit words <a href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a>.</li>
 </ul></li>
 <li><strong>Sequential numbering</strong>: Use a two-‑digit format for single-digit numbers (0–9) to ensure correct numerical sequence order (for example, 01 and not 1)</li>
-<li><strong>Version control</strong>: Indicate the version (“V”) or revision (“R”) as the last element, using the two–digit format (e.g., v01, v02)</li>
+<li><strong>Version control</strong>: Indicate the version (“V”) or revision (“R”) as the last element, using the two-digit format (e.g., v01, v02)</li>
 <li>Write down your naming convention pattern and document it in the README file</li>
 </ul>
 </div>
@@ -913,7 +913,7 @@ Define your file name conventions
 <div class="callout-exercise">
 <p>Avoid long and complicated names and ensure your file names are both informative and easy to manage:</p>
 <ol type="1">
-<li>For saving a new plot, heatmap representing sample correlations</li>
+<li>For saving a new plot, a heatmap representing sample correlations</li>
 <li>When naming the file for the document containing the Research Data Management Course Objectives (Version 2, 2nd May 2024) from the University of Copenhagen</li>
 <li>Consider the most common file types you work with, such as visualizations, tables, etc., and create logical and clear file names</li>
 </ol>
@@ -953,23 +953,23 @@ Hint
 </p><div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="dokuvsxhni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dokuvsxhni table {
+<div id="psorharfzl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#psorharfzl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dokuvsxhni thead, #dokuvsxhni tbody, #dokuvsxhni tfoot, #dokuvsxhni tr, #dokuvsxhni td, #dokuvsxhni th {
+#psorharfzl thead, #psorharfzl tbody, #psorharfzl tfoot, #psorharfzl tr, #psorharfzl td, #psorharfzl th {
   border-style: none;
 }
 
-#dokuvsxhni p {
+#psorharfzl p {
   margin: 0;
   padding: 0;
 }
 
-#dokuvsxhni .gt_table {
+#psorharfzl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -995,12 +995,12 @@ Hint
   border-left-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_caption {
+#psorharfzl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dokuvsxhni .gt_title {
+#psorharfzl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1012,7 +1012,7 @@ Hint
   border-bottom-width: 0;
 }
 
-#dokuvsxhni .gt_subtitle {
+#psorharfzl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1024,7 +1024,7 @@ Hint
   border-top-width: 0;
 }
 
-#dokuvsxhni .gt_heading {
+#psorharfzl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1036,13 +1036,13 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_bottom_border {
+#psorharfzl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_col_headings {
+#psorharfzl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1057,7 +1057,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_col_heading {
+#psorharfzl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1077,7 +1077,7 @@ Hint
   overflow-x: hidden;
 }
 
-#dokuvsxhni .gt_column_spanner_outer {
+#psorharfzl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1089,15 +1089,15 @@ Hint
   padding-right: 4px;
 }
 
-#dokuvsxhni .gt_column_spanner_outer:first-child {
+#psorharfzl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dokuvsxhni .gt_column_spanner_outer:last-child {
+#psorharfzl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dokuvsxhni .gt_column_spanner {
+#psorharfzl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1109,11 +1109,11 @@ Hint
   width: 100%;
 }
 
-#dokuvsxhni .gt_spanner_row {
+#psorharfzl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dokuvsxhni .gt_group_heading {
+#psorharfzl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1139,7 +1139,7 @@ Hint
   text-align: left;
 }
 
-#dokuvsxhni .gt_empty_group_heading {
+#psorharfzl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1154,15 +1154,15 @@ Hint
   vertical-align: middle;
 }
 
-#dokuvsxhni .gt_from_md > :first-child {
+#psorharfzl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dokuvsxhni .gt_from_md > :last-child {
+#psorharfzl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dokuvsxhni .gt_row {
+#psorharfzl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1181,7 +1181,7 @@ Hint
   overflow-x: hidden;
 }
 
-#dokuvsxhni .gt_stub {
+#psorharfzl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1194,7 +1194,7 @@ Hint
   padding-right: 5px;
 }
 
-#dokuvsxhni .gt_stub_row_group {
+#psorharfzl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1208,15 +1208,15 @@ Hint
   vertical-align: top;
 }
 
-#dokuvsxhni .gt_row_group_first td {
+#psorharfzl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dokuvsxhni .gt_row_group_first th {
+#psorharfzl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dokuvsxhni .gt_summary_row {
+#psorharfzl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1226,16 +1226,16 @@ Hint
   padding-right: 5px;
 }
 
-#dokuvsxhni .gt_first_summary_row {
+#psorharfzl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_first_summary_row.thick {
+#psorharfzl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dokuvsxhni .gt_last_summary_row {
+#psorharfzl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1245,7 +1245,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_grand_summary_row {
+#psorharfzl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1255,7 +1255,7 @@ Hint
   padding-right: 5px;
 }
 
-#dokuvsxhni .gt_first_grand_summary_row {
+#psorharfzl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1265,7 +1265,7 @@ Hint
   border-top-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_last_grand_summary_row_top {
+#psorharfzl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1275,11 +1275,11 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_striped {
+#psorharfzl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dokuvsxhni .gt_table_body {
+#psorharfzl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1288,7 +1288,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_footnotes {
+#psorharfzl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1302,7 +1302,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_footnote {
+#psorharfzl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1311,7 +1311,7 @@ Hint
   padding-right: 5px;
 }
 
-#dokuvsxhni .gt_sourcenotes {
+#psorharfzl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1325,7 +1325,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#dokuvsxhni .gt_sourcenote {
+#psorharfzl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1333,63 +1333,63 @@ Hint
   padding-right: 5px;
 }
 
-#dokuvsxhni .gt_left {
+#psorharfzl .gt_left {
   text-align: left;
 }
 
-#dokuvsxhni .gt_center {
+#psorharfzl .gt_center {
   text-align: center;
 }
 
-#dokuvsxhni .gt_right {
+#psorharfzl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dokuvsxhni .gt_font_normal {
+#psorharfzl .gt_font_normal {
   font-weight: normal;
 }
 
-#dokuvsxhni .gt_font_bold {
+#psorharfzl .gt_font_bold {
   font-weight: bold;
 }
 
-#dokuvsxhni .gt_font_italic {
+#psorharfzl .gt_font_italic {
   font-style: italic;
 }
 
-#dokuvsxhni .gt_super {
+#psorharfzl .gt_super {
   font-size: 65%;
 }
 
-#dokuvsxhni .gt_footnote_marks {
+#psorharfzl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dokuvsxhni .gt_asterisk {
+#psorharfzl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dokuvsxhni .gt_indent_1 {
+#psorharfzl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dokuvsxhni .gt_indent_2 {
+#psorharfzl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dokuvsxhni .gt_indent_3 {
+#psorharfzl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dokuvsxhni .gt_indent_4 {
+#psorharfzl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dokuvsxhni .gt_indent_5 {
+#psorharfzl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

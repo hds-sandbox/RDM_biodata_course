@@ -11,9 +11,10 @@ summary: A brief description of my document.
 
 ⏰ **Time Estimation:** X minutes  
 💬 **Learning Objectives:**      
-    1. Learn what is a DMP
-    2. Learn about the different DMP templates
-    3. How to write a DMP focused on NGS data
+
+1. Learn what is a DMP
+2. Learn about the different DMP templates
+3. How to write a DMP focused on NGS data
 :::
 
 The process of data management involves implementing tailored best practices for your data but how do you ensure comprehensive coverage of the decisions and that data is well-managed throughout its life cycle. To achieve this, a Data Management Plan (DMP) is essential. 

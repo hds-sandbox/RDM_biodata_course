@@ -291,7 +291,7 @@ Section Overview
 </ol>
 </div>
 </div>
-<p>In the data life cycle for Next Generation Sequencing (NGS) technology data, processing and analyzing are critical phases that involves transforming raw sequencing data into meaningful biological insights. Researchers apply computational methods and bioinformatics tools to extract valuable information from the vast amount of sequencing data generated in NGS experiments. We’ll first explore the primary data types generated pre- and post-processing and the importance of detailed documentation.We will then focus on good practices used when performing data analysis and software development.</p>
+<p>In the data life cycle for Next Generation Sequencing (NGS) technology data, processing, and analyzing are critical phases that involve transforming raw sequencing data into meaningful biological insights. Researchers apply computational methods and bioinformatics tools to extract valuable information from the vast amount of sequencing data generated in NGS experiments. We’ll first explore the primary data types generated pre- and post-processing and the importance of detailed documentation. We will then focus on good practices used when performing data analysis and software development.</p>
 <div class="callout callout-style-default callout-definition no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -306,11 +306,11 @@ Next Generation Sequencing
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-definition">
-<p>Next Generation Sequencing (NGS), or high-throughput sequencing, has revolutionized genomics research. It encompasses advanced techniques for rapid and cost-effective analysis of DNA or RNA molecules. Unlike traditional methods, NGS can analyze millions of DNA fragments simultaneously, enhancing the speed, efficiency, and scale of sequencing and becoming integral to modern genomics and biomedical studies.As NGS technologies continue to advance and become more accessible, they will remain at the front of cutting-edge genomics research, driving innovations that contribute to our understanding of complex genetic interactions and their implications for human health and biology.</p>
+<p>Next Generation Sequencing (NGS), or high-throughput sequencing, has revolutionized genomics research. It encompasses advanced techniques for rapid and cost-effective analysis of DNA or RNA molecules. Unlike traditional methods, NGS can analyze millions of DNA fragments simultaneously, enhancing the speed, efficiency, and scale of sequencing and becoming integral to modern genomics and biomedical studies. As NGS technologies continue to advance and become more accessible, they will remain at the front of cutting-edge genomics research, driving innovations that contribute to our understanding of complex genetic interactions and their implications for human health and biology.</p>
 <p><strong>Applications</strong></p>
 <p>It is widely utilized in various applications, including genomic sequencing, transcriptome analysis (RNA-Seq), epigenetic profiling (ChIP-Seq), metagenomics, and targeted sequencing. In addition, it plays a crucial role in fields such as oncology, infectious disease research, and personalized medicine.</p>
 <p><strong>Data production</strong></p>
-<p>NGS workflows involve key steps, from sample preparation to data analysis. Samples undergo extraction and fragmentation, followed by the addition of unique identifiers, known as library preparation, for multiplexed sequencing. Then,fragments are amplified and sequences in parallel sequencing using state-of-the-art NGS platforms. Subsequent data analysis processes reconstruct the original sequence and identify genetic variations, structural changes, or functional elements. The unique identifiers are specific adapter sequences that allow future identification of individual samples within a multiplexed sequencing run.</p>
+<p>NGS workflows involve key steps, from sample preparation to data analysis. Samples undergo extraction and fragmentation, followed by the addition of unique identifiers, known as library preparation, for multiplexed sequencing. Then, fragments are amplified and sequences in parallel sequencing using state-of-the-art NGS platforms. Subsequent data analysis processes reconstruct the original sequence and identify genetic variations, structural changes, or functional elements. The unique identifiers are specific adapter sequences that allow future identification of individual samples within a multiplexed sequencing run.</p>
 </div>
 </div>
 </div>
@@ -349,7 +349,7 @@ Exercise
 <ul>
 <li>Electronic Laboratory Notebook (ELN): digital description of the experimental design, and measurement devices. ELNs offer features like data entry, text editing, file attachments, collaboration tools, and search capabilities.</li>
 <li>Laboratory protocols: methodologies to prepare and manage samples.</li>
-<li>Samples: refers to the biological material (extraction of DNA, RNA, or proteins). Specification of sample identifier, sample type, source organism etc.</li>
+<li>Samples: refers to the biological material (extraction of DNA, RNA, or proteins). Specification of sample identifier, sample type, source organism, etc.</li>
 <li>Sequencing: details on the platform (e.g., Illumina, Oxford Nanopore), library preparation method, coverage, quality control metrics (e.g., Phred score)…</li>
 <li>Raw sequencing data: sequences and quality scores (e.g., FASTQ files)</li>
 </ul>
@@ -373,8 +373,8 @@ Note
 <ul>
 <li>Quality control metrics: to filter out potential artifacts and ensure the reliability of downstream analyses (e.g., bioinformatics tool like FastQC or MultiQC for results’ aggregation)</li>
 <li>Data alignments: in genomics to determine the location of the read in the genome and in transcriptomics to identify gene expression levels.</li>
-<li>DNA analyses results: such as variant calling, genome annotation, functional genomics, phylogenetics, metagenomics etc. Results are usually presented in tabular format.</li>
-<li>RNA Expression Analyses results: from differential gene expression, gene ontology (GO) enrichment, alternative splicing, pathway analysis etc. Results are usually presented in tabular format.</li>
+<li>DNA analysis results: such as variant calling, genome annotation, functional genomics, phylogenetics, metagenomics, etc. Results are usually presented in tabular format.</li>
+<li>RNA Expression analysis results: from differential gene expression, gene ontology (GO) enrichment, alternative splicing, pathway analysis, etc. Results are usually presented in tabular format.</li>
 <li>Epigenetic profiling outputs: to assess gene regulation and chromatin structure (e.g., ChIP-Seq). Usually presented in BED format.</li>
 </ul>
 <p>The interpretation of NGS data relies heavily on the results of data analysis, which are pivotal for understanding the biological significance of the findings and formulating hypotheses for further exploration. Clear and effective visualization methods are crucial for communicating and interpreting the vast amount of information generated by NGS experiments.</p>
@@ -424,9 +424,9 @@ Other types of data: databases and visualizations
 <p>Best practices for software and code management (don’t forget to read about <a href="https://fair-software.eu/recommendations/repository">FAIR software</a>):</p>
 <ul>
 <li><strong>Commenting your code</strong>: to enhance readability and comprehension</li>
-<li>Make your <strong>source code accessible</strong> using repository (GitHub, GitLab, Bitbucket, SourceForge, etc.) that provides version control (VC) solutions. This step is one of the most important ones as version control systems (Git or SVN) track changes in your code over time and enable collaboration and easy version management. Most danish institutions provide courses on Git/GitHub, check yours! We also highly recommend reading this paper <span class="citation" data-cites="perez2016ten">(<a href="#ref-perez2016ten" role="doc-biblioref">Perez-Riverol et al. 2016</a>)</span>.</li>
-<li><strong>README file</strong>: with the comprehensive information about the project and include installation instructions, usage examples or tutorials, licensing details, citation information, etc.</li>
-<li>Register your code in a research software registry and include a clear and accessible software usage license: enabling other researcher to discover and reuse software packages (alongside a metadata). More recommendations <a href="https://fair-software.eu/recommendations/registry/">here</a>.</li>
+<li>Make your <strong>source code accessible</strong> using a repository (GitHub, GitLab, Bitbucket, SourceForge, etc.) that provides version control (VC) solutions. This step is one of the most important ones as version control systems (Git or SVN) track changes in your code over time and enable collaboration and easy version management. Most Danish institutions provide courses on Git/GitHub, check yours! We also highly recommend reading this paper <span class="citation" data-cites="perez2016ten">(<a href="#ref-perez2016ten" role="doc-biblioref">Perez-Riverol et al. 2016</a>)</span>.</li>
+<li><strong>README file</strong>: with comprehensive information about the project including installation instructions, usage examples or tutorials, licensing details, citation information, etc.</li>
+<li>Register your code in a research software registry and include a clear and accessible software usage license: enabling other researchers to discover and reuse software packages (alongside metadata). More recommendations <a href="https://fair-software.eu/recommendations/registry/">here</a>.</li>
 <li>Use domain-relevant community standards to ensure consistency and interoperability (e.g., <a href="https://codemeta.github.io/">CodeMeta</a>).</li>
 </ul>
 <div class="callout callout-style-default callout-definition no-icon callout-titled">
@@ -447,7 +447,7 @@ Git and Github courses and other resources
 <li><a href="https://heads.ku.dk/course/git_github/">University of Copenhagen</a></li>
 <li><a href="https://math.medarbejdere.au.dk/en/ithelp/version-control">Aarhus University</a></li>
 <li><a href="https://www.aau.dk/workshop-on-git-and-version-control-e70599">Aalborg University</a></li>
-<li><a href="https://www.gbar.dtu.dk/index.php/faq/41-git">DTU Git guidelines</a> Find more resources in <a href="https://guides.lib.berkeley.edu/how-to-write-good-documentation">Berkeley Library website</a></li>
+<li><a href="https://www.gbar.dtu.dk/index.php/faq/41-git">DTU Git guidelines</a> Find more resources on <a href="https://guides.lib.berkeley.edu/how-to-write-good-documentation">the Berkeley Library website</a></li>
 </ul>
 </div>
 </div>
@@ -457,14 +457,14 @@ Git and Github courses and other resources
 </section>
 <section id="pipelines-and-workflows" class="level3">
 <h3 class="anchored" data-anchor-id="pipelines-and-workflows">4. <strong>Pipelines and workflows</strong></h3>
-<p>You might use standard workflows or generate new ones during data processing and data analyses steps.</p>
+<p>You might use standard workflows or generate new ones during data processing and data analysis steps.</p>
 <ul>
 <li><strong>Code notebooks</strong>: tools for data documentation (e.g.&nbsp;Jupyter Notebook, Rmarkdown) enabling the combination of code with descriptive text and visualizations.<br>
 </li>
 <li>Integrated development environments (<a href="https://yihui.org/knitr/">knitr</a> or <a href="https://mlflow.org/">MLflow</a>).</li>
 <li><strong>Pipeline frameworks or workflow management systems</strong>: designed to streamline and automate various steps involved in data analysis (data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages. There are two very popular systems, <strong>Nextflow</strong> and <strong>Snakemake</strong>.</li>
 </ul>
-<p>A great example of community curated workflows is the <a href="https://nf-co.re/">nf-core</a> community. Nf-core is a collaborative and open-source initiative comprising bioinformaticians and researchers dedicated to developing and maintaining a collection of curated and reproducible Nextflow-based pipelines for NGS data analysis, ensuring standardized and efficient data processing workflows.</p>
+<p>A great example of community-curated workflows is the <a href="https://nf-co.re/">nf-core</a> community. Nf-core is a collaborative and open-source initiative comprising bioinformaticians and researchers dedicated to developing and maintaining a collection of curated and reproducible Nextflow-based pipelines for NGS data analysis, ensuring standardized and efficient data processing workflows.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Course on pipelines and workflows">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -484,22 +484,22 @@ Course on pipelines and workflows
 <span style="color:#4b4646;font-weight:bold;font-size:x-large">Data types summary
 </span></summary>
 <p>
-</p><p>Select appropriate file formats that balance data accessibility, storage efficiency, and compatibility with downstream analysis tools. Standardized file formats facilitates data sharing and collaboration among researchers in the scientific community.</p>
+</p><p>Select appropriate file formats that balance data accessibility, storage efficiency, and compatibility with downstream analysis tools. Standardized file formats facilitate data sharing and collaboration among researchers in the scientific community.</p>
 <ul>
 <li><strong>BAM/SAM</strong>: stores the alignment information (binary and text-based respectively)</li>
 <li><strong>FASTA</strong>: store nucleotide or amino acid sequence, commonly used for reference sequences or assembled contigs.</li>
 <li><strong>Gene Transfer Format (GTF) and General Feature Format (GFF)</strong>: annotates genomic features such as genes, exons, and transcripts.</li>
 <li><strong>Alignment indexes</strong>: data structures for efficient and rapid mapping of sequencing reads to a reference.</li>
-<li><strong>Variant Call Format (VCF)</strong>: stores genetic variation such as single nucleotide variants (SNVs), insertions, deletions, and structural variants (and their position, quality score etc.)</li>
+<li><strong>Variant Call Format (VCF)</strong>: stores genetic variation such as single nucleotide variants (SNVs), insertions, deletions, and structural variants (and their position, quality score, etc.)</li>
 <li><strong>Count matrix</strong>: quantifies the abundance of RNA transcripts or genomic features across samples</li>
 <li><strong>BED/BEDGraph</strong>: represent genomic intervals or coverage information (e.g., peak calling identifies regions of enriched signal intensity)</li>
 <li><strong>WIG/BigWig</strong>: store genome-wide data</li>
 </ul>
 <p>General formats</p>
 <ul>
-<li><strong>Tabular formats</strong>: File formats like CSV, TSV, and XLSX used to store data in rows and columns for easy data analysis and sharing</li>
-<li><strong>Image formats</strong>: File formats such as PNG and SVG used to store graphical visualizations, making them easily viewable and shareable</li>
-<li><strong>Binary formats</strong>: File formats like NPZ and H5 used to store large datasets, ensuring efficient data access and storage</li>
+<li><strong>Tabular formats</strong>: File formats like CSV, TSV, and XLSX are used to store data in rows and columns for easy data analysis and sharing</li>
+<li><strong>Image formats</strong>: File formats such as PNG and SVG are used to store graphical visualizations, making them easily viewable and shareable</li>
+<li><strong>Binary formats</strong>: File formats like NPZ and H5 are used to store large datasets, ensuring efficient data access and storage</li>
 <li><strong>JSON</strong>: A lightweight data-interchange format for storing hierarchical data structures, commonly used in bioinformatics tools</li>
 <li><strong>HTML</strong>: A format used to create interactive reports that include both visualizations and textual descriptions of analysis results</li>
 <li><strong>Code notebooks</strong>: Interactive documents combining code, visualizations, and explanatory text, aiding in data analysis reproducibility and documentation</li>
@@ -512,7 +512,7 @@ Course on pipelines and workflows
 </section>
 <section id="wrap-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
-<p>In this lesson we have taken a look a the vast and diverse landscape of bioinformatics data.</p>
+<p>In this lesson, we have taken a look a the vast and diverse landscape of bioinformatics data.</p>
 
 
 

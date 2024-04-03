@@ -231,7 +231,7 @@
     "href": "develop/02_DMP.html",
     "title": "2. Data Management Plan",
     "section": "",
-    "text": "Course Overview\n\n\n\n⏰ Time Estimation: X minutes\n💬 Learning Objectives:\n1. Learn what is a DMP 2. Learn about the different DMP templates 3. How to write a DMP focused on NGS data\nThe process of data management involves implementing tailored best practices for your data but how do you ensure comprehensive coverage of the decisions and that data is well-managed throughout its life cycle. To achieve this, a Data Management Plan (DMP) is essential.\nA DMP serves as a comprehensive document detailing strategies for handling project data, code, and documentation across its life cycle. It includes plans for data collection, documentation, organization, and preservation.",
+    "text": "Course Overview\n\n\n\n⏰ Time Estimation: X minutes\n💬 Learning Objectives:\n\nLearn what is a DMP\nLearn about the different DMP templates\nHow to write a DMP focused on NGS data\nThe process of data management involves implementing tailored best practices for your data but how do you ensure comprehensive coverage of the decisions and that data is well-managed throughout its life cycle. To achieve this, a Data Management Plan (DMP) is essential.\nA DMP serves as a comprehensive document detailing strategies for handling project data, code, and documentation across its life cycle. It includes plans for data collection, documentation, organization, and preservation.",
     "crumbs": [
       "Course material",
       "Basics",

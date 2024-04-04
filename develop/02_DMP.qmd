@@ -11,20 +11,21 @@ summary: A brief description of my document.
 
 ⏰ **Time Estimation:** X minutes  
 💬 **Learning Objectives:**      
-    1. Learn what is a DMP
-    2. Learn about the different DMP templates
-    3. How to write a DMP focused on NGS data
+
+1. Learn what is a DMP
+2. Learn about the different DMP templates
+3. How to write a DMP focused on NGS data
 :::
 
 The process of data management involves implementing tailored best practices for your data but how do you ensure comprehensive coverage of the decisions and that data is well-managed throughout its life cycle. To achieve this, a Data Management Plan (DMP) is essential. 
 
 A DMP serves as a comprehensive document detailing strategies for handling project data, code, and documentation across its life cycle. It includes plans for data collection, documentation, organization, and preservation. 
 
-### Benefits from writing a DMP
+### Benefits of writing a DMP
 
 A DMP serves as the initial step toward achieving FAIR principles in a project.
 
-- It helps **identifying gaps** in current data management strategies early on, thereby saving time and effort in the long run.
+- It helps **identify gaps** in current data management strategies early on, thereby saving time and effort in the long run.
 - It establishes **standards for all collaborators** to adhere to, ensuring consistency in data organization, naming conventions, metadata standards, and vocabularies.
 - Ensures the **estimation of costs** associated with data production, storage, and management.
 - It clarifies **responsibilities** regarding the data management process, specifying who is accountable for executing the DMP.
@@ -37,19 +38,19 @@ Moreover, writing a DMP is increasingly becoming a requirement by funders and ot
 
 ### Best time to draft a DMP
 
-A DMP is a **living document** and the initial version should be written in the early stages of a researcher project, however is never too late to develop one. Ideally, it is initially drafted during the project's conceptualization, before seeking funding, and is subsequently updated as the project evolves. There are key stages:
+A DMP is a **living document** and the initial version should be written in the early stages of a research project, however is never too late to develop one. Ideally, it is initially drafted during the project's conceptualization, before seeking funding, and is subsequently updated as the project evolves. There are key stages:
 
-1. **Project planning:** to estimate resource requirements to include in the proposal for funding (e.g. data production, data analysis and computational resources, storage, costs related to publishing of data).
+1. **Project planning:** to estimate resource requirements to include in the funding proposal (e.g. data production, data analysis and computational resources, storage, costs related to publishing of data).
 2. **Project initiation:** to include more detailed data management strategies (e.g. documentation, data quality measures, file and folder strategies, etc.)
 3. **Project completion:** to finalize details such as data archiving and publication links for future reuse.
 
 ### Key components of a DMP
 
 1. **Data Description**: types and formats of data that will be collected or generated, including volume. 
-2. **Documentation**: using metadata, including standards, formats and methodologies. 
+2. **Documentation**: using metadata, including standards, formats, and methodologies. 
 3. **Data Storage and Backup**: including data security and safeguarding metadata
 4. **Legal and Ethical Considerations**: ensuring compliance with legal requirements, especially regarding personal data and intellectual property.
-5. **Accessibility and long-term Preservation**: including deposition in public repositories and the longevity.
+5. **Accessibility and long-term Preservation**: including deposition in public repositories and longevity.
 6. **Responsibility and resources**: estimating the required resources and identifying  responsible individuals.
 
 ### DMP templates
@@ -57,7 +58,7 @@ A DMP is a **living document** and the initial version should be written in the 
 Various funding agencies and organizations may provide a Data Management Plan (DMP) template that researchers must follow to meet data management standards. It is advisable to utilize the template provided by your institution unless specific requirements are stipulated by a funding agency or collaborating institution.
 
 :::{.callout-definition}
-# Visit your institution DMP tools and other online services  
+# Visit your institution's DMP tools and other online services  
 
 1. [University of Copenhagen](https://kunet.ku.dk/work-areas/research/data/data-management-plans/Pages/default.aspx). Additional links: [Download UCPH Word document](https://kunet.ku.dk/work-areas/research/data/data-management-plans/Documents/UCPH%20Data%20Management%20Plan%20Template%20v2.1.docx); [UCPH Guidance](https://kunet.ku.dk/work-areas/research/data/data-management-plans/Documents/Guidelines%20for%20UCPH's%20data%20management%20plan%20template%20v2.1.pdf)
 2. [University Library of Southern Denmark](https://sdunet.dk/en/research/research-data-management-support/data-management-plan)
@@ -72,21 +73,21 @@ Other templates and funding agencies:
 7. [Swedish Research Council](https://www.vr.se/english/applying-for-funding/requirements-terms-and-conditions/producing-a-data-management-plan/data-management-plan-template.html)
 8. [Science Europe](https://www.scienceeurope.org/media/jezkhnoo/se_rdm_practical_guide_final.pdf)
 9. [DMP Tool](https://dmptool.org/)
-9. **Horizon Europe and ERC templates**: projects funded in the Horizon Europe framework programme must prepare and submit a data management plan as deliverable according to the details described in the respective grant agreement.
+9. **Horizon Europe and ERC templates**: projects funded in the Horizon Europe framework program must prepare and submit a data management plan as deliverable according to the details described in the respective grant agreement.
 :::
 
 #### DMPonline
 
-Researchers at danish research institutions are advised to use [DMPOnline]( https://dmp.deic.dk), a tool for creating, sharing and reviewing DMPs. It has been developed by the Digital Curation Centre and made by available by [Danish e-infrastructure Cooperation (DeiC)](https://www.deic.dk/) and jointly administered by the Royal Danish Library and DTU Library.
+Researchers at Danish research institutions are advised to use [DMPOnline]( https://dmp.deic.dk), a tool for creating, sharing, and reviewing DMPs. It has been developed by the Digital Curation Centre and made available by [Danish e-infrastructure Cooperation (DeiC)](https://www.deic.dk/) and jointly administered by the Royal Danish Library and DTU Library.
 
-Follow this [instructions](https://www.deic.dk/en/data-management-plans-with-deic-dmp) to get an account. It offers several DMP templates with guidelines are provided (generic and not specific to Life Sciences). 
+Follow this [instructions](https://www.deic.dk/en/data-management-plans-with-deic-dmp) to get an account. It offers several DMP templates with guidelines that are provided (generic and not specific to Life Sciences). 
 
 :::{.callout-exercise}
 # Exercise: write a DMP draft 
 
 Write a DMP draft from scratch, or use this [template](./assets/Non-sensitive_NGS_research_project_template.docx) for inspiration. 
 
-The DMP template we offer has been prefilled using [DMPonline](https://dmponline.deic.dk/) and the Horizon Europe guidelines by one of us. It contains the necessary information and common practices (for example, the repositories, metadata etc.). We used Horizon Europe template as focuses more on digital data. 
+The DMP template we offer has been prefilled using [DMPonline](https://dmponline.deic.dk/) and the Horizon Europe guidelines by one of us. It contains the necessary information and common practices (for example, the repositories, metadata, etc.). We used the Horizon Europe template as focuses more on digital data. 
 :::
 
 ## Wrap up

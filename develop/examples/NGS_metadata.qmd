@@ -14,14 +14,15 @@ summary: Examples of metadata files for experimental and computational purposes.
 ⏰ **Time Estimation:** X minutes  
 
 💬 **Learning Objectives:**   
-    1. Develop your own metadata 
+
+1. Develop your metadata 
 :::
 
 You should consider revisiting these examples after completing [lesson 4](../04_metadata.qmd) in the course material. Please review these three tables containing pre-filled data fields for metadata, each serving distinct purposes: sample metadata, project metadata, and experimental metadata.
 
 ### Sample metadata fields
 
-Some details might be specific to your samples. For example, which samples are treated, which are control, which tissue they come from, which cell type, the age, etc. Here is a list of possible metadata fields that you can use:
+Some details might be specific to your samples. For example, which samples are treated, which are controlled, which tissue they come from, which cell type, the age, etc. Here is a list of possible metadata fields that you can use:
 
 ```{r}
 #| echo: false
@@ -73,7 +74,7 @@ data <- read_tsv('../assets/assay_metadata.tsv', show_col_types = FALSE)
 data %>% gt()  |> tab_options(table.font.size = 12)
 ```
 
-It is important that the metadata includes key details such as the project's short description, author information, creation date, experimental protocol, assay ID, assay type, platform utilized, library details, keywords, sample count, paired-end status, processor information, organism studied, sample origin, and file path. 
+The metadata must include key details such as the project's short description, author information, creation date, experimental protocol, assay ID, assay type, platform utilized, library details, keywords, sample count, paired-end status, processor information, organism studied, sample origin, and file path. 
 
 If you would create a database from the metadata files, your table should look like this (each row corresponding to one project):
 

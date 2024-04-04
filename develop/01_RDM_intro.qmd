@@ -6,7 +6,7 @@ date-format: long
 date: 2023-11-30
 link-citations: true
 number-sections: true
-summary: An introduction to Research Data Management, its advantages and the Data Life Cycle in relation to NGS data.
+summary: An introduction to Research Data Management, its advantages, and the Data Life Cycle in relation to NGS data.
 ---
 
 :::{.callout-note title="Section Overview"}
@@ -16,14 +16,14 @@ summary: An introduction to Research Data Management, its advantages and the Dat
 💬 **Learning Objectives:**
 
 1. Fundamentals of Research Data Management 
-2. Effective Research Data Management guidelines
+2. Effective Research Data Management Guidelines
 3. Data Lifecycle Management and phases
 4. FAIR principles and Open Science
 :::
 
 # FAIR Research Data Management and the Data Lifecycle
 
-Research Data Management (RDM) can be defined as a "*collective term for the planning, collection, storage, sharing and preservation of research data*" [@UCPH_guidelines]. While the meaning of Research Data Management might be obvious, it is a good idea to break down its components to make a good sense of what it implies.
+Research Data Management (RDM) can be defined as a "*collective term for the planning, collection, storage, sharing, and preservation of research data*" [@UCPH_guidelines]. While the meaning of Research Data Management might be obvious, it is a good idea to break down its components to make a good sense of what it implies.
 
 :::{.callout-definition}
 # Semantics of RDM
@@ -41,9 +41,9 @@ RDM ensures ethical and legal compliance with research requirements. Effective R
 
 1. **Detailed data management planning** helps in identifying and addressing potential uses, alining expectations among 
 collaborators, and clarifying data rights and ownership
-2. **Transparent and Structured Data Management** enhances reliability and credibility of research findings 
+2. **Transparent and Structured Data Management** enhances the reliability and credibility of research findings 
 3. **Data documentation and data sharing** promotes discoverability and facilitates collaborations. Clear documentation of research also streamlines access to previous work, enhancing efficiency, building upon existing knowledge, maximizing research value, accelerating scientific discoveries, and improving visibility and impact
-4. **Risk assessments and strategies for data storage and security** can prevent data loss, breaches or misuse and safeguard sensitive data
+4. **Risk assessments and strategies for data storage and security** can prevent data loss, breaches, or misuse and safeguard sensitive data
 5. **Long-Term Preservation**. Data accessibility well after the project's completion contributes to data accessibility and continued research relevance
 
 :::{.callout-note title="Consequences of poor RDM" collapse="true"}
@@ -55,7 +55,7 @@ Can you consider why we dedicate such a significant amount of time? Perhaps thes
 ![](./images/image133.png)
 *Caption: Top-left: [Photo by Wonderlane on Unsplash](https://www.su.se/staff/researchers/research-data/manage-store-data); Top-right: [From Stanford Center for Reproducible Neuroscience](https://reproducibility.stanford.edu/how-not-to-get-lost-in-your-data/); Bottom: Messy  folder structure, by J.A.HR*
 
-Ineffective data management practices can have significant consequences that affect both your future self, colleagues or collaborators who may have to deal with your data. The implications of poor data management include:
+Ineffective data management practices can have significant consequences that affect your future self, colleagues, or collaborators who may have to deal with your data. The implications of poor data management include:
 
 - **Difficulty in Data Retrieval**: Without proper organization and documentation, finding specific data files or understanding their content becomes challenging and time-consuming, leading to inefficiency.
 - **Loss of Data**: Inadequate backup and storage strategies increase the risk of data loss (hardware failures, accidental deletions...), potentially erasing months or years of work.
@@ -85,7 +85,7 @@ How would you approach these issues differently or what steps would you take to 
 :::{.callout-hint}
 1. Implementation of a clear and consistent folder structure with descriptive file names. Additionally, using version control systems, such as Git, for code and analysis files can help track changes and facilitate easy retrieval of previous versions of analyses and results.
 2. Proper data documentation, including detailed metadata, could have been maintained throughout the data collection process, providing necessary context and reducing the risk of incomplete or ambiguous data.
-3.Following FAIR principles (Findable, Accessible, Interoperable, Reusable) by making their data, along with detailed methods and documentation, openly accessible in a reputable data repository.
+3. Following FAIR principles (Findable, Accessible, Interoperable, Reusable) by making their data, along with detailed methods and documentation, openly accessible in a reputable data repository.
 4. Implementation of management strategies from the outset of the research project saves time and resources later on, ensuring that data is well-organized and properly documented.
 :::
 
@@ -97,7 +97,7 @@ The Research Data Life Cycle is a structured framework depicting the stages of d
 
 The data life cycle is described in 6 phases:
 
-1. **Plan**: definition of the objectives, data requirements, and develop a data management plan outlining data collection, storage, sharing, and ethical/legal considerations.
+1. **Plan**: definition of the objectives, and data requirements, and develop a data management plan outlining data collection, storage, sharing, and ethical/legal considerations.
 2. **Collect and Document**: data is gathered according to the plan, and important details such as source, collection methods, and modifications are documented to ensure quality and facilitate future use.
 3. **Process and Analyse**:  data is processed and analyzed using various methods and tools to extract meaningful insights. This involves transforming, cleaning, and formatting data for analysis.
 4. **Store and Secure**: data is stored securely to prevent loss, unauthorized access, or corruption. Researchers select appropriate storage solutions and implement security measures to protect sensitive information.
@@ -122,7 +122,7 @@ To delve deeper into this topic, click below and explore each phase of the data 
   <p>
 
 ### 1. Plan
-The management of research data must be thoroughly considered before physical materials and digital data are collected, observed, generated, created or reused. This includes developing and documenting data management plans (DMP) in electronic format.DMPs should be updated when significant changes occur and stored alongside the corresponding research data. It's essential to discuss DMPs with project collaborators, research managers, and supervisors to establish responsibilities for data management activities during and after research projects.
+The management of research data must be thoroughly considered before physical materials and digital data are collected, observed, generated, created, or reused. This includes developing and documenting data management plans (DMP) in electronic format.DMPs should be updated when significant changes occur and stored alongside the corresponding research data. It's essential to discuss DMPs with project collaborators, research managers, and supervisors to establish responsibilities for data management activities during and after research projects.
 
 
 ::: {.callout-tip}
@@ -133,14 +133,14 @@ Check out [next lesson](./02_DMP.qmd) to learn more about creating effective DMP
 
 Research data collection and processing should be in line with the best practices within the respective research discipline. Research projects should be documented in a way that enables reproducibility by others. This entails providing clear and accurate descriptions of project methodology, software, and code utilized. Additionally, workflows for data preprocessing and file structuring should be outlined.
 
-Research data should be described in a metadata to enable effective searching, identification, and interpretation of the data, with metadata linked to the research data for as long as they exist.
+Research data should be described in metadata to enable effective searching, identification, and interpretation of the data, with metadata linked to the research data for as long as they exist.
 
 ::: {.callout-tip}
 - We will cover strategies for organizing your files and folder in [lesson 3](./03_DOD.qmd).
 - We will discuss different types of metadata in [lesson 4](./07_metadata.qmd)
 ::: 
 
-### 3. Process and analyse
+### 3. Process and analyze
 
 During this phase, researchers employ computational methods and bioinformatics tools to extract meaningful information from the data. Good coding practices ensure well-documented and reproducible analyses. For example, code notebooks and version control tools, such as Git, are essential for transparency and sharing results with the scientific community.
 
@@ -154,18 +154,18 @@ To streamline and standardize the data analysis process, researchers often imple
 
 ### 4. Store and Secure
 
-Research data must be classified based on sensitivity and the potential impact to the research institution from unauthorized disclosure, alteration, or destruction. Risks to data security and of data loss should be assessed accordingly. This includes evaluating:
+Research data must be classified based on sensitivity and the potential impact to the research institution from unauthorized disclosure, alteration, or destruction. Risks to data security and data loss should be assessed accordingly. This includes evaluating:
 
 - Physical and digital access to research data
 - Risks associated with data management procedures
 - Backup requirements and backup procedures
 - External and internal threats to data confidentiality, integrity and accessibility
-- Financial, regulatory and technical consequences of working with data, data storage and data preservation
+- Financial, regulatory, and technical consequences of working with data, data storage, and data preservation
 
 ::: {.callout-warning}
-This step is very specific to the setup used in your environment.so we cannot include in a comprehensive guideline on this matter.
+This step is very specific to the setup used in your environment so we cannot include it in a comprehensive guideline on this matter.
 
-- Enroll in the next [GDPR course](https://heads.ku.dk/course/gdpr_workshop/) offered by Center for Health Data Science to learn more about data protection and GDPR compliance.
+- Enroll in the next [GDPR course](https://heads.ku.dk/course/gdpr_workshop/) offered by the Center for Health Data Science to learn more about data protection and GDPR compliance.
 :::
 
 ### 5. Share and publish
@@ -177,7 +177,7 @@ Adherence to FAIR principles (findable, accessible, interoperable, and reusable)
 - Providing open access to data (Open Data) by depositing data in a data repository, or by providing access to information on whether, when, how, and to what extent data can be accessed if data sets cannot be made openly available.
 - Using persistent identifiers (PID) and metadata (such as descriptive keywords) that help locate the data set.
 - Communicating terms for data reuse, for example by attaching a data license.
-- Offering the necessary information to understand the process of data creation, purpose and structure.  
+- Offering the necessary information to understand the process of data creation, purpose, and structure.  
 
 ::: {.callout-tip}
 - More on FAIR and OS principles in the [next section](#fair-and-open-science)
@@ -198,7 +198,7 @@ Check with your institution their requirements for data preservation, such as ke
 
 :::{.callout-definition}
 ## Example - University of Copenhagen
-For example, the UCPH mandates that a copy of data sets and associated metadata must remain at UCPH after project end and/or when employment with the University ceases, in a way in which they are accessible to research managers and understandable for research managers and peers, unless legislation or agreements determine otherwise.
+For example, the UCPH mandates that a copy of data sets and associated metadata must remain at UCPH after the project ends and/or when employment with the University ceases, in a way in which they are accessible to research managers and understandable for research managers and peers, unless legislation or agreements determine otherwise.
 :::
 
 ::: {.callout-tip}
@@ -210,9 +210,9 @@ We will check about which repositories you can use to preserve your NGS data in 
 
 To guarantee effective RDM, researchers should follow the FAIR principles. 
 
-## FAIR and Open science
+## FAIR and Open Science
 
-Open Science and FAIR principles have become essential frameworks for promoting transparency, accessibility and reusability in scientific research. While Open Science advocates for unrestricted access to research outputs, data, and methodologies, FAIR principles emphasize making data Findable, Accessible, Interoperable, and Reusable. Together, they foster collaboration, transcend disciplinary boundaries, and support long-term data preservation. However, they were not directly relevant to software until recently. Governments and funding agencies worldwide increasingly recognize their value and are actively promoting their adoption in academia. In this section, you will learn how to apply these principles to your research. 
+Open Science and FAIR principles have become essential frameworks for promoting transparency, accessibility, and reusability in scientific research. While Open Science advocates for unrestricted access to research outputs, data, and methodologies, FAIR principles emphasize making data Findable, Accessible, Interoperable, and Reusable. Together, they foster collaboration, transcend disciplinary boundaries, and support long-term data preservation. However, they were not directly relevant to software until recently. Governments and funding agencies worldwide increasingly recognize their value and are actively promoting their adoption in academia. In this section, you will learn how to apply these principles to your research. 
 
 ### Open Science
 
@@ -222,7 +222,7 @@ Open Science and FAIR principles have become essential frameworks for promoting 
 
 :::{.callout-definition}
 # Examples of Open Science Initiatives
-- National Institutes of Health (NIH): in the USA encourages Open Science practices, including data sharing, through policies like the NIH Data Sharing Policy.
+- National Institutes of Health (NIH): the USA encourages Open Science practices, including data sharing, through policies like the NIH Data Sharing Policy.
 - Wellcome Trust: mandates open access globally to research outputs funded by the foundation.
 - European Molecular Biology Organization (EMBO): supports Open Access and provides guidelines for data sharing.
 - Bill & Melinda Gates Foundation: advocates for Open Access and data sharing to maximize the impact of its research.
@@ -231,7 +231,7 @@ Open Science and FAIR principles have become essential frameworks for promoting 
 
 ::: {.callout-tip title="Benefits of Open Science for Researchers"}
 
-- **Increased Visibility and Impact**: as more people can access and engage with your findings.
+- **Increased Visibility and Impact**: more people can access and engage with your findings.
 - **Facilitated Collaboration**: leading to the development of innovative ideas and impactful projects.
 - **Enhanced Credibility**: sharing data and methods openly allows for validation of research findings by others. 
 - **Accelerated Research Progress:**: by enabling researchers to build upon each other's work and leverage shared data.
@@ -242,7 +242,7 @@ Open Science and FAIR principles have become essential frameworks for promoting 
 :::
 
 ### FAIR principles
-The [FAIR principles](https://www.go-fair.org/fair-principles/) complementing Open Science, aim to improve research data management, sharing, and usability. FAIR stands for Findable, Accessible, Interoperable, and Reusable, enhancing the value, impact, and sustainability of research data. Adhering to FAIR principles benefits individual researchers and fosters collaboration, data-driven discoveries, knowledge advancement and long-term preservation. However, achieving FAIR compliance is nuanced, with some aspects being more complex, especially concerning metadata standards and controlled vocabularies.
+The [FAIR principles](https://www.go-fair.org/fair-principles/) complementing Open Science, aim to improve research data management, sharing, and usability. FAIR stands for Findable, Accessible, Interoperable, and Reusable, enhancing the value, impact, and sustainability of research data. Adhering to FAIR principles benefits individual researchers and fosters collaboration, data-driven discoveries, knowledge advancement, and long-term preservation. However, achieving FAIR compliance is nuanced, with some aspects being more complex, especially concerning metadata standards and controlled vocabularies.
 
 We strongly endorse these recommendations for those developing software or performing data analyses: https://fair-software.nl/endorse. 
 
@@ -267,7 +267,7 @@ Clear and comprehensive metadata facilitates data discovery by both researchers 
 
 Research data should be accessible with minimal restrictions on access and downloading, to facilitate collaboration, verification of findings, and ensuring transparency. Key elements to follow: 
 
-1. **Open Access**: Ensure data is freely accessible without unnecessary barriers. Choose suitable licenses for broad data reuse (such as MIT, Apache-2.0).
+1. **Open Access**: Ensure data is freely accessible without unnecessary barriers. Choose suitable licenses for broad data reuse (such as MIT, and Apache-2.0).
 2. **Authentication and Authorization**: Implement secure mechanisms for access control, especially for sensitive data
 3. **Metadata**:  Deposit metadata even when data access is restricted, providing valuable information about the dataset (version control systems).
 
@@ -298,7 +298,7 @@ Interoperability involves structuring and formatting data to seamlessly integrat
 Data should be thoroughly documented and prepared, with detailed descriptions of data collection, processing, and methodology provided for replication by other researchers. Clear statements on licensing and ethical considerations are essential for enabling data reuse. Key components to follow:
 
 1. **Documentation and Provenance**: Comprehensive documentation on data collection, processing, and analysis. Provenance information elucidates data origin and processing history.
-2. **Ethical and Legal Considerations**: related to data collection and use. Additionally, adherence to legal requirements ensuring responsible and ethical data reuse.
+2. **Ethical and Legal Considerations**: related to data collection and use. Additionally, adherence to legal requirements ensures responsible and ethical data reuse.
 3. **Data Licensing**: Clearly stated licensing terms facilitate data reuse, specifying usage, modification, and redistribution while respecting intellectual property rights and legal constraints.
 
   </p>
@@ -318,9 +318,9 @@ Data should be thoroughly documented and prepared, with detailed descriptions of
 
 ## Wrap up
 
-In this lesson, we've covered the definition of RDM, the advantages of effective RDM practices the phases of the research data life cycle and teh FAIR principles and Open Science. While much of the guidelines are the context of omics data, it's worth noting its applicability to other fields and institutions. Nonetheless, we recommend exploring these guidelines further at your institution (links provided above).
+In this lesson, we've covered the definition of RDM, the advantages of effective RDM practices the phases of the research data life cycle, and the FAIR principles and Open Science. While much of the guidelines are in the context of omics data, it's worth noting its applicability to other fields and institutions. Nonetheless, we recommend exploring these guidelines further at your institution (links provided above).
 
-In the next lessons, we will explore different resources, tools and guidelines that can be applied to all kinds of data and how to apply it specifically for NGS data.
+In the next lessons, we will explore different resources, tools, and guidelines that can be applied to all kinds of data and how to apply them specifically to biological (with a focus on NGS) data.
 
 ### Sources
 - [RDMkit](https://rdmkit.elixir-europe.org/index): ELIXIR (2021) Research Data Management Kit. A deliverable from the EU-funded ELIXIR-CONVERGE project (grant agreement 871075).

@@ -15,14 +15,14 @@ summary: best practices for metadata creation. Optionally, creation of databases
 1. The role of metadata in effective management
 2. Best practices to create metadata and README files
 3. Sources for controlled vocabularies
-4. (Optional) Create a database and a catalogue browser
+4. (Optional) Create a database and a catalog browser
 :::
 
 In bioinformatics data management, documentation plays a critical role in ensuring clarity and reproducibility. Documentation and metadata are essential components in ensuring your data adheres to FAIR principles. 
 
 ## Documentation and metadata 
 
-Essential documentation comes in different forms and flavors, serving various purposes in research. Examples include protocols outlining experimental procedures,  detailed lab journals recording experimental conditions and observations, codebooks explaining concepts, variables, and abbreviations used in the analysis, information about the structure and content of a dataset, software installation and usage manual, code explanation within files or methodological information outlining data processing steps.
+Essential documentation comes in different forms and flavors, serving various purposes in research. Examples include protocols outlining experimental procedures,  detailed lab journals recording experimental conditions and observations, codebooks explaining concepts, variables, and abbreviations used in the analysis, information about the structure and content of a dataset, software installation, and usage manual, code explanation within files or methodological information outlining data processing steps.
 
 ![metadata](images/metadata.png)
 *From [ontotext.com](https://www.ontotext.com/knowledgehub/fundamentals/metadata-fundamental/)*
@@ -34,27 +34,27 @@ Metadata provides essential context and structure to (primary) data, enabling re
 - Data processing steps applied to the raw data
 - Annotation and Ontology terms
 - File metadata (file type, file format, etc.)
-- Ethical and Legal compliance
+- Ethical and Legal Compliance
 
 Metadata serves as a crucial guide in navigating the complex landscape of data, akin to a cheat sheet for piecing together the puzzle of information. Much like identifying puzzle pieces, metadata provides essential details about data origin, structure, and context, such as sample collection details, experimental procedures, and equipment used. Metadata enables data exploration, interpretation, and future accessibility, promoting effective management and facilitating data usability and reuse. 
 
 :::{.callout-note title="Benefits of collecting proper metadata"}
-1. **Data Context and Interpretation**: Aiding in understanding experimental conditions, sample origins, and processing methods, crucial for accurate results interpretation.
+1. **Data Context and Interpretation**: Aiding in understanding experimental conditions, sample origins, and processing methods, is crucial for accurate results interpretation.
 2. **Data Discovery and Access**: Metadata enables easy locating and accessing of specific datasets by quickly identifying relevant data through sample identifiers, experimental parameters, and timestamps.
 3. **Reproducibility and Collaboration**: Metadata facilitates experiment replication and validation by enabling colleagues to reproduce analyses, compare results, and collaborate effectively, enhancing the integrity of scientific findings.
-4. **Quality Control and Validation**: Metadata supports data quality assessment by tracking the origin and handling of NGS data, allowing identification of errors or biases to validate analysis accuracy and reliability.
+4. **Quality Control and Validation**: Metadata supports data quality assessment by tracking the origin and handling of NGS data, allowing the identification of errors or biases to validate analysis accuracy and reliability.
 5. **Long-Term Data Preservation**: metadata ensures preservation over time, facilitating future understanding and utilization of archived datasets for continued scientific impact as research progresses.
 :::
 
 ### Streamlining Metadata Collection 
 
-Data and project directories should both include a metadata and a README file.
+Data and project directories should both include metadata and a README file.
 
 :::{.callout-note title="Practical tips"}
 - Implement a logical structure with clear and descriptive file names.
 - Use of controlled vocabularies and ontologies to ensure consistency and efficient data management and interpretation. 
 - Use a repository and a versioning system
-- Make it Machine-readable, -actionable and/or -interpretable.
+- Make it Machine-readable, -actionable, and/or -interpretable.
 - Develop standards further within your research environment [FAIRsharing standards](https://fairsharing.org/search?fairsharingRegistry=Standard).
 - Include all information for others to comprehend and effectively utilize the data.
 :::
@@ -86,7 +86,7 @@ Select one of the examples below and reflect on how effectively the README commu
 
 ### metadata.yml
 
-Metadata can be written in many file formats (commonly used: YAML, TXT, JSON and CSV). We recommend [YAML format](https://fileinfo.com/extension/yml), which is a text document that contains data formatted using a human-readable data format for data serialization. The content will be specific to the type of project. 
+Metadata can be written in many file formats (commonly used: YAML, TXT, JSON, and CSV). We recommend [YAML format](https://fileinfo.com/extension/yml), which is a text document that contains data formatted using a human-readable data format for data serialization. The content will be specific to the type of project. 
 
 ```{.YAML}
 metadata:
@@ -102,7 +102,7 @@ metadata:
 
 Some general metadata fields used across different disciplines:
 
-- **Project Title**:A concise and informative name for the dataset.
+- **Project Title**: A concise and informative name for the dataset.
 - **Author(s)**: The individual(s) or organization responsible for creating the dataset. Include [ORCID](https://orcid.org/) for identification.
 - **Date Created**: The date when the dataset was originally generated or compiled, in YYYY-MM-DD format.
 - **Date Modified**: The  date when the dataset was last updated or modified (YYYY-MM-DD).
@@ -150,7 +150,7 @@ You can find three examples of metadata tailored for different purposes [NGS dat
 
 
 ## Database and data catalogs
-Metadata can be used to create data catalogs, particularly beneficial for efficient organization of experimental or sequencing data generated by researchers. While databases can range from simple tabular formats like Excel to sophisticated DataBase Management Systems (DBMS) like SQLite, the choice depends on factors such as complexity and volume of data. Leveraging a DBMS offers advantages like efficient data storage, enhanced security, and rapid data querying capabilities.
+Metadata can be used to create data catalogs, particularly beneficial for the efficient organization of experimental or sequencing data generated by researchers. While databases can range from simple tabular formats like Excel to sophisticated DataBase Management Systems (DBMS) like SQLite, the choice depends on factors such as complexity and volume of data. Leveraging a DBMS offers advantages like efficient data storage, enhanced security, and rapid data querying capabilities.
 
 ### Tables as databases
 A browsable table can be created by recursively navigating through a project's folder hierarchy using a script and generating a TSV file (tab-separated values) named, for example, database_YYYYMMDD.tsv. This table acts as a centralized repository for all project data, simplifying access and organization. Consistency in metadata structure across projects is vital for efficient data management and integration, as it aids in tracking all conducted assays. Adhering to a uniform metadata format enables the seamless inclusion of essential information from YAML files into the browsable table.
@@ -158,7 +158,7 @@ A browsable table can be created by recursively navigating through a project's f
 
 :::{.callout-exercise}
 # Exercise 2: Generate database tables from metadata
-Write a script (R or python) that recursively fetch metadata.yml files in a given path. It is important that each subdirectory contains its corresponding metadata.yml. 
+Write a script (R or Python) that recursively fetches metadata.yml files in a given path. It is important that each subdirectory contains its corresponding metadata.yml. 
 
 Requirements:  
 
@@ -210,7 +210,7 @@ print("Database saved as", output_file, "\n")
 
 ### SQLite database
 
-An alternative to the tabular format is SQLite, a lightweight and self-contained relational database management system known for its simplicity and efficient. SQLite operates without the need for a separate server, making it ideal for scenarios requiring minimal resource usage. It excels in tasks involving structured data storage and retrieval, making it suitable for managing experiment metadata. Similar to the previous example, you can use a script that records all the information from the YAML file in a SQLite database. 
+An alternative to the tabular format is SQLite, a lightweight and self-contained relational database management system known for its simplicity and efficiency. SQLite operates without the need for a separate server, making it ideal for scenarios requiring minimal resource usage. It excels in tasks involving structured data storage and retrieval, making it suitable for managing experiment metadata. Similar to the previous example, you can use a script that records all the information from the YAML file in a SQLite database. 
 
 :::{.callout-note title="Advantages of using SQLite database" collpase="true"}
 1. **Efficient Querying**: SQLite databases optimize querying and data retrieval, enabling fast and efficient extraction of specific information.
@@ -219,7 +219,7 @@ An alternative to the tabular format is SQLite, a lightweight and self-contained
 4. **Concurrency and Multi-User Support**: SQLite supports concurrent read access from multiple users, ensuring accessibility without compromising data integrity.
 5. **Scalability**: It can handle growing volumes of data without significant performance degradation.
 6. **Modularity and Portability**: Databases are self-contained and modular, simplifying data distribution and portability.
-7. **Security and Access Control**: SQLite offer security features like password protection and encryption, with granular control over user access.
+7. **Security and Access Control**: SQLite offers security features like password protection and encryption, with granular control over user access.
 8. **Indexing**: Support for indexing accelerates data retrieval based on specific columns, particularly beneficial for large datasets.
 9. **Data Relationships**: Databases allow for the establishment of relationships between tables, facilitating storage of interconnected data, such as project, assay, and sample information.
 :::
@@ -256,9 +256,9 @@ dbDisconnect(con)
 
 ### Catalog browser
 
-You can design a user-friendly catalog browser for your database using tools like [Rshiny](https://www.rstudio.com/products/shiny/) or [Panel](https://panel.holoviz.org/). These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a tsv file and a SQLite database will be demonstrated below.
+You can design a user-friendly catalog browser for your database using tools like [Rshiny](https://www.rstudio.com/products/shiny/) or [Panel](https://panel.holoviz.org/). These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a TSV file and a SQLite database will be demonstrated below.
 
-Here's an example of a SQLite database catalog created by the [Brickman Lab](https://renew.ku.dk/research/reseach-groups/brickman-group/) at the Center for Stem Cell Medicine. It's simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.
+Here's an example of an SQLite database catalog created by the [Brickman Lab](https://renew.ku.dk/research/reseach-groups/brickman-group/) at the Center for Stem Cell Medicine. It's simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.
 
 ![type:video](./assets/database_example_480p.mp4)
 
@@ -309,7 +309,7 @@ shinyApp(ui, server)
 ```
 :::
 
-- Solution B. From a SQLite database
+- Solution B. From an SQLite database
 
 :::{.callout-hint .code-overflow-wrap}
 R script
@@ -379,7 +379,7 @@ shinyApp(ui, server)
 # Exercise 5: Add complex features to your catalog browser
 Once you've finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser. 
 
-- Add a tab to create a project directory interactively (and filling up the metadata fields)
+- Add a tab to create a project directory interactively (and fill up the metadata fields)
 - Modify existing entries
 - Visualize results using [Cirrocumulus](https://cirrocumulus.readthedocs.io/en/latest/) 
 
@@ -387,7 +387,7 @@ Once you've finished the previous exercise, consider implementing these addition
 
 ## Wrap up
 
-In this lesson, we've covered the importance of attaching metadata to your data for future reusability and comprehension. We briefly introduced various controlled vocabularies and provided several sources for inspirations. Implementing ontologies is optional, as their usage complexity varies. 
+In this lesson, we've covered the importance of attaching metadata to your data for future reusability and comprehension. We briefly introduced various controlled vocabularies and provided several sources for inspiration. Implementing ontologies is optional, as their usage complexity varies. 
 
 Optionally, if you've gone through the lesson, you've learned how to use the metadata YAML files to create a database and a catalog browser using Shiny apps. This makes it easy to manage all assays together.
 
@@ -400,7 +400,7 @@ Other sources:
 - KU Leuven Guidance: <https://www.kuleuven.be/rdm/en/guidance/documentation-metadata>
 - [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
 - [Bionty](https://lamin.ai/docs/bionty): Biological ontologies for data scientists.
-- [NIH standarizing data collection](https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html)
+- [NIH standardizing data collection](https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html)
 - [Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model](https://www.ohdsi.org/data-standardization/)
 
 

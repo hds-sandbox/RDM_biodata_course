@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 3, 2024</p>
+      <p class="date-modified">April 4, 2024</p>
     </div>
   </div>
     
@@ -291,24 +291,24 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
-<p>Experiments / input / raw data</p>
+<p>Experiments/input/raw data</p>
 <ul>
 <li>Standardized file formats and data structure</li>
 <li>Standardized metadata of raw files and results (describing origin, format, etc.)</li>
 <li>Depositing raw data in public repositories or data archives</li>
 </ul>
-<p>Pipelines / workflows</p>
+<p>Pipelines/workflows</p>
 <ul>
 <li>Use data repositories and document your workflows (software tools, parameters/settings, versions…)</li>
 <li>Documenting all preprocessing scripts and employed pipelines</li>
 <li>Development environments</li>
 <li>Using version control systems (git, GitHub, GitLab)</li>
 </ul>
-<p>Software / code</p>
+<p>Software/code</p>
 <ul>
 <li>Pipeline scripts and software code openly accessible (commented code)</li>
 <li>Use data repositories (and version control)</li>
-<li>Provide a README file (installation and usage instruction, license and citation information etc.)</li>
+<li>Provide a README file (installation and usage instructions, license and citation information, etc.)</li>
 <li>Open-source licensing</li>
 <li>Follow these recommendations: <a href="https://fair-software.nl/">FAIR software</a></li>
 </ul>
@@ -322,10 +322,10 @@ Hint
 </div>
 </div>
 </div>
-<p>Note that not all data needs to be archived and deposited. NGS data processing generates vast amounts of data that might not need to be share publicly, as long as you describe how you produced the data. For example, in an usual bulk RNAseq experiment, FASTQ reads are cleaned and subsequently aligned to a reference genome, creating a subset of cleaned FASTQ files and BAM files. After transcript/gene quantification, you can obtain a final count matrix that can be used for data analysis, such as Differential Expression Analysis. If you provide enough documentation on how these files were processed (which softwares, which versions and which options), you won’t need to deposit neither the cleaned nor aligned reads, only the original FASTQ files and the final result of your preprocessing. This will save quite the computational resources and metadata needed to preserve the intermediary data. Providing documentation on how the data was generated is much simpler if you are using community curated pipelines such as the ones created by the <a href="https://nf-co.re/">nf-core community</a>.</p>
+<p>Note that not all data needs to be archived and deposited. NGS data processing generates vast amounts of data that might not need to be shared publicly, as long as you describe how you produced the data. For example, in a usual bulk RNAseq experiment, FASTQ reads are cleaned and subsequently aligned to a reference genome, creating a subset of cleaned FASTQ files and BAM files. After transcript/gene quantification, you can obtain a final count matrix that can be used for data analysis, such as Differential Expression Analysis. If you provide enough documentation on how these files were processed (which software, which versions, and which options), you won’t need to deposit either the cleaned or aligned reads, only the original FASTQ files and the final result of your preprocessing. This will save quite the computational resources and metadata needed to preserve the intermediary data. Providing documentation on how the data was generated is much simpler if you are using community-curated pipelines such as the ones created by the <a href="https://nf-co.re/">nf-core community</a>.</p>
 <section id="open-science" class="level3">
 <h3 class="anchored" data-anchor-id="open-science">Open Science</h3>
-<p>Unless your data is of sensitive nature (human individual samples, patient data, or anything protected), you should <strong>always</strong> deposit your data with as little restrictions as possible. This includes publishing your manuscript in Open Access journals as well! For your generated NGS data, our suggestion is that you use a license such as <a href="https://creativecommons.org/">Creative Commons</a> licence like <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>, which only requires users to attribute the source of the data, but this also depends on the repository that you use for your data. We will see more about it in the <a href="../10_repos.qmd">lesson 10</a></p>
+<p>Unless your data is of sensitive nature (human individual samples, patient data, or anything protected), you should <strong>always</strong> deposit your data with as few restrictions as possible. This includes publishing your manuscript in Open Access journals as well! For your generated NGS data, our suggestion is that you use a license such as <a href="https://creativecommons.org/">Creative Commons</a> license like <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>, which only requires users to attribute the source of the data, but this also depends on the repository that you use for your data. We will see more about it in the <a href="../10_repos.qmd">lesson 10</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/creative-commons-licenses-table.png" class="img-fluid figure-img"></p>
@@ -335,13 +335,13 @@ Hint
 </section>
 <section id="fair-principles" class="level3">
 <h3 class="anchored" data-anchor-id="fair-principles">FAIR principles</h3>
-<p>Next we will see how we can apply each of the FAIR principles to your NGS data.</p>
+<p>Next, we will see how we can apply each of the FAIR principles to your NGS data.</p>
 <section id="findable" class="level4">
 <h4 class="anchored" data-anchor-id="findable">Findable</h4>
-<p>To make your NGS data easy to find, you should deposit it in a domain specific repository, such as the Gene Expression Omnibus or Annotare. We will see more about them in <a href="../10_repos.qmd">lesson 10</a>. Both of these repositories will help you give your data a unique identifier, and provide information (metadata) on how the data was generated. The metadata you include in your submission should contain, at least, the minimum necessary information to understand what kind of data it is submitted, and how it was generated. This includes:</p>
+<p>To make your NGS data easy to find, you should deposit it in a domain-specific repository, such as the Gene Expression Omnibus or Annotare. We will see more about them in <a href="../10_repos.qmd">lesson 10</a>. Both of these repositories will help you give your data a unique identifier, and provide information (metadata) on how the data was generated. The metadata you include in your submission should contain, at least, the minimum necessary information to understand what kind of data it is submitted, and how it was generated. This includes:</p>
 <ul>
 <li><strong>Sample metadata</strong> in tabular format, containing information about the samples used in the experiment as well as variables of interest for the analysis.</li>
-<li><strong>Experiment metadata</strong>, including data provenance, that is, how the samples were obtain, from which organism, following what protocols, kits, sequencing libraries, sequencing method and data preprocessing workflows/pipelines. This is usually submitted as part of a submission form and it depends on the repository.</li>
+<li><strong>Experiment metadata</strong>, including data provenance, that is, how the samples were obtained, from which organism, following what protocols, kits, sequencing libraries, sequencing method, and data preprocessing workflows/pipelines. This is usually submitted as part of a submission form and it depends on the repository.</li>
 <li><strong>Keywords</strong>, such as type of NGS data, conditions or diseases studied in the experiment, organisms used, genes studied, etc.</li>
 </ul>
 </section>
@@ -364,14 +364,14 @@ On sensitive data
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you would like to deposit sensitive data that needs controlled access, it is possible to do so through the <a href="https://ega-archive.org/submission/">European Genome-phenome Archive (EGA)</a>.</p>
+<p>If you would like to deposit sensitive data that need controlled access, it is possible to do so through the <a href="https://ega-archive.org/submission/">European Genome-phenome Archive (EGA)</a>.</p>
 </div>
 </div>
 <p>In addition, if you have deposited your data with rich metadata, as explained in the previous step, it will be easier for users to query your data by date, author, organism, type of NGS data, etc etc.</p>
 </section>
 <section id="interoperable" class="level4">
 <h4 class="anchored" data-anchor-id="interoperable">Interoperable</h4>
-<p>By using standard bioinformatics formats, such as fastq files for raw NGS data, count matrices in tabular format, BED files for peak calling results, etc., you are already complying to this section. In addition, GEO and Annotare repositories are complaint to NGS data standards, such as <a href="https://www.fged.org/projects/miame/">MIAME</a>/<a href="https://www.fged.org/projects/minseqe/">MINSEQE</a>/<a href="https://www.nature.com/articles/s41587-020-00744-z">MINSCE</a> guidelines.</p>
+<p>By using standard bioinformatics formats, such as fastq files for raw NGS data, count matrices in tabular format, BED files for peak calling results, etc., you are already complying to this section. In addition, GEO and Annotare repositories are compliant to NGS data standards, such as <a href="https://www.fged.org/projects/miame/">MIAME</a>/<a href="https://www.fged.org/projects/minseqe/">MINSEQE</a>/<a href="https://www.nature.com/articles/s41587-020-00744-z">MINSCE</a> guidelines.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/minseq.png" class="img-fluid figure-img"></p>
@@ -380,15 +380,15 @@ On sensitive data
 </div>
 <p>Nonetheless, this is the easy part! Adhering to controlled vocabularies seems to be the most difficult part of the FAIR principles. Here are some cases:</p>
 <ul>
-<li>Using organism names instead of their taxonomy. For example: mouse instead of <em>Mus musculus</em>, or human, instead of <em>Homo sapiens</em>. Even better, we should use a taxonomy ID, such as the NCBI taxonomy ID for human <a href="http://purl.obolibrary.org/obo/NCBITaxon_9606">NCBITaxon_9606</a>, which will unequivocally refer to human.</li>
-<li>Using gene names or symbols instead of gene IDs. For example: the gene POU5F1 has many synonyms, like OCT4, OCT, OTF4. In order to be explicit, it is better to reference the gene ID, like an ENSEMBL gene ID <a href="https://www.ncbi.nlm.nih.gov/gene/?term=ENSG00000204531">ENSG00000204531</a>.</li>
+<li>Using organism names instead of their taxonomy. For example: mouse instead of <em>Mus musculus</em>, or human, instead of <em>Homo sapiens</em>. Even better, we should use a taxonomy ID, such as the NCBI taxonomy ID for humans <a href="http://purl.obolibrary.org/obo/NCBITaxon_9606">NCBITaxon_9606</a>, which will unequivocally refer to humans.</li>
+<li>Using gene names or symbols instead of gene IDs. For example: the gene POU5F1 has many synonyms, like OCT4, OCT, and OTF4. To be explicit, it is better to reference the gene ID, like an ENSEMBL gene ID <a href="https://www.ncbi.nlm.nih.gov/gene/?term=ENSG00000204531">ENSG00000204531</a>.</li>
 <li>Using disease names instead of disease IDs. Again, this will reference specifically the disease you mention.</li>
 </ul>
 <p>There are many more stances where you can use controlled vocabularies for other variables of interest, like cell type, tissue, cell cycle, etc. We will see in the <a href="../07_metadata.qmd">metadata lesson</a> where you can find controlled vocabularies for different variables of interest in NGS data.</p>
 </section>
 <section id="reusable" class="level4">
 <h4 class="anchored" data-anchor-id="reusable">Reusable</h4>
-<p>In order for your NGS data to be reusable, you will have to provide a thorough documentation on how it was generated, as well as the terms (that is a license) on how the data can be used/retrieved. We have talked already about collecting metadata on how the samples were generated (laboratory protocols, sequencing library, kits, technology, etc) and processed (workflows or pipelines along with the software used, which versions adn options). We also talked on what type of standard file formats you should use, such as fastq files for raw data and tabular formats for sample metadata. Finally, we have discussed in the Open Science section that you should try to license your data as freely as possible, like a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a> or <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>. If your data is of sensitive nature and has restricted access or conditions, you should instead provide information on how other people can access the data, as well as any agreements or ethical approvals necessary for its reuse.</p>
+<p>In order for your NGS data to be reusable, you will have to provide thorough documentation on how it was generated, as well as the terms (that is a license) on how the data can be used/retrieved. We have talked already about collecting metadata on how the samples were generated (laboratory protocols, sequencing library, kits, technology, etc) and processed (workflows or pipelines along with the software used, which versions, and options). We also talked about what type of standard file formats you should use, such as fastq files for raw data and tabular formats for sample metadata. Finally, we have discussed in the Open Science section that you should try to license your data as freely as possible, like a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a> or <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>. If your data is of sensitive nature and has restricted access or conditions, you should instead provide information on how other people can access the data, as well as any agreements or ethical approvals necessary for its reuse.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/cc-by.png" class="img-fluid figure-img"></p>

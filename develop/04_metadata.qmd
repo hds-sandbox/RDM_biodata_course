@@ -1,5 +1,5 @@
 ﻿---
-title: 4. Metadata for NGS data
+title: 4. Metadata for biodata
 format: html
 date-modified: last-modified
 date-format: long
@@ -54,7 +54,7 @@ Data and project directories should both include metadata and a README file.
 - Implement a logical structure with clear and descriptive file names.
 - Use of controlled vocabularies and ontologies to ensure consistency and efficient data management and interpretation. 
 - Use a repository and a versioning system
-- Make it Machine-readable, -actionable, and/or -interpretable.
+- Make it Machine-readable, -actionable, and -interpretable.
 - Develop standards further within your research environment [FAIRsharing standards](https://fairsharing.org/search?fairsharingRegistry=Standard).
 - Include all information for others to comprehend and effectively utilize the data.
 :::

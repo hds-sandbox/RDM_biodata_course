@@ -57,3 +57,4 @@ This lesson emphasized the importance of reproducibility in computational resear
 - Code documentation by Johns Hopkins Sheridan libraries: https://guides.library.jhu.edu/c.php?g=1096705&p=8066729. This link includes best practices for code documentation, style guides, R markdown, Jupyter Notebook, version control, and code repository. 
 - [Guide to reproducible code in ecology and evolution]https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf
 - [Best practices for Scientific computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+- [Elixir Software Best Practices](https://elixir-europe.org/platforms/tools/software-best-practices)

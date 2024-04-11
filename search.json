@@ -189,61 +189,61 @@
   {
     "objectID": "develop/07_repos.html",
     "href": "develop/07_repos.html",
-    "title": "7. Repositories for biodata",
+    "title": "7. Storing and sharing biodata",
     "section": "",
     "text": "Course Overview\n\n\n\n⏰ Time Estimation: X minutes\n💬 Learning Objectives:\n\nRepositories for managing biological data\nArchive your GitHub data analysis repositories\nWhile platforms like GitHub excel in version control and collaborative coding, repositories like Zenodo, Gene Expression Omnibus, and Annotare specialize in archiving and sharing scientific data, ensuring long-term accessibility for the global research community.",
     "crumbs": [
       "Course material",
       "Key practices",
-      "7. Repositories for biodata"
+      "7. Storing and sharing biodata"
     ]
   },
   {
     "objectID": "develop/07_repos.html#data-repositories-and-archives",
     "href": "develop/07_repos.html#data-repositories-and-archives",
-    "title": "7. Repositories for biodata",
+    "title": "7. Storing and sharing biodata",
     "section": "Data Repositories and Archives",
     "text": "Data Repositories and Archives\nSpecialized repositories and archives securely store, curate, and disseminate scientific data, ensuring long-term preservation, transparency, and citability of research findings through standardized formats and rigorous curation processes.\nImportance of archiving scientific data\n\nLong-term accessibility and preservation: Ensures data remains accessible for future researchers.\nEnhanced visibility and attribution: Unique identifiers like DOIs enable citation of datasets, enhancing visibility and proper attribution.\nImproved dataset discoverability and interpretability: Comprehensive metadata, including methodology and experimental details, facilitates understanding and usability by other researchers.\nPromotion of Transparency, Reproducibility, and Research Integrity: Mandatory data deposition fosters transparency and upholds research integrity.\nAmplification of Research Impact and Contribution: Archiving data elevates research quality and extends its impact within the scientific community.\nFulfilling Scholarly Obligations: Compliance with requirements set by scientific journals and funding agencies ensures adherence to scholarly standards.\n\nThere are two types of repositories:\n\nGeneral repositories: relevant to a wide range of disciplines (e.g. Zenodo).\nDomain-specific: repositories are customized for specific fields, providing specialized curation and context-specific features (e.g. ENA, GEO, Annotare, etc.).\n\n\n\n\n\n\n\nList of repositories for biological data\n\n\n\n\nEuropean Nucleotide Archive (ENA)\nNCBI Gene Expression Omnibus (GEO)\nSequence Read Archive (SRA)\nProtein Data Bank (PDB)\nProteomics Identifications Database (PRIDE)\nUniversal Protein Resource (UniProt) SPIN\nArrayExpress\nEBI Metagenomics (MGnify)\nPhysioNet\nFunctional Annotation of Animal Genomes (FAANG) Data Repository\n\nFor more data repositories, please refer to the links provided below to find the appropriate repository for your data: - EMBL-EBI data resources here - NHI data resources here - ELIXIR Core Data Resources here\nYour institution might as well have its repositories such as ERDA (Electronic research data archive at the University of Copenhagen).",
     "crumbs": [
       "Course material",
       "Key practices",
-      "7. Repositories for biodata"
+      "7. Storing and sharing biodata"
     ]
   },
   {
     "objectID": "develop/07_repos.html#domain-specific-repositories",
     "href": "develop/07_repos.html#domain-specific-repositories",
-    "title": "7. Repositories for biodata",
+    "title": "7. Storing and sharing biodata",
     "section": "Domain-specific repositories",
     "text": "Domain-specific repositories\nThis tailored approach ensures alignment with standards and maximizes the utility and impact of research findings. By catering to particular research areas, these repositories offer researchers a more focused audience, deeper domain expertise, and increased visibility within their specific research community.\nExplore some examples of NGS data repositories below:\n\n\n\n\n\n\nENA (European Nucleotide Archive)\n\n\n\n\n\n\n\nENA: hosted by the European Bioinformatics Institute (EBI), provides researchers with a platform to deposit and access nucleotide sequences along with associated metadata, ensuring data preservation and contextualization. ENA adheres to community standards and guidelines for data submission, including those established by the International Nucleotide Sequence Database Collaboration (INSDC).\n\n\n\n\n\n\n\n\n\n\n\nGEO (Gene Expression Omnibus)\n\n\n\n\n\n\n\nGEO (Gene Expression Omnibus): curated by the National Center for Biotechnology Information (NCBI), serves as a specialized repository for high-throughput functional genomic data sets, particularly gene expression data across diverse biological conditions and experimental designs. Researchers can easily deposit and access a variety of genomic data, fostering data transparency and reproducibility within the scientific community. GEO assigns unique accession numbers to each dataset, ensuring traceability and proper citation in research publications.\n\n\n\n\n\n\n\n\n\n\n\nAnnotare\n\n\n\n\n\n\n\nArrayExpress/Annotare: hosted by the European Bioinformatics Institute (EBI), is a specialized repository tailored for storing and submitting functional genomics experiments for high-throughput sequencing data. It offers researchers a platform to upload experimental data along with comprehensive metadata ensuring preservation and contextualization. Annotare provides a curated environment aligned with the standards and practices of the field. This specialization enhances data discoverability, promotes collaboration, and facilitates deeper insights into the functional aspects of the genome.\n\n\n\n\n\nThe repositories mentioned earlier adhere to established community standards for data submission and sharing in genomics research such as:\n\nMIAME (Minimum Information About a Microarray Experiment): These guidelines ensure comprehensive and standardized reporting of microarray experiments.\nMIxS (Minimum Information about a high-throughput SeQuencing Experiment): MIxS standards, developed by the Genomic Standards Consortium, ensure consistent reporting of metadata for high-throughput sequencing experiments.\nSequence Read Archive (SRA) Submission Guidelines: They include requirements for data formatting, metadata inclusion, and quality control.\nCommunity-Specific Standards designed to ensure that submitted data meets the specific requirements and expectations of the field.\n\nBy adhering to standards, repositories ensure that submitted data is high quality, well-documented, and compliant with community best practices, promoting data discovery, reproducibility, and interoperability within the scientific community.\nFollowing all the recommendations in this course makes it straightforward to provide the necessary documentation and information for these repositories. For instance, repositories specific to NGS data will require the raw FASTQ files, sample metadata, and protocols as well as final pre-processing results (for instance, read count matrices in BED files).\n\n\n\n\n\n\nWarning\n\n\n\nKeep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo.",
     "crumbs": [
       "Course material",
       "Key practices",
-      "7. Repositories for biodata"
+      "7. Storing and sharing biodata"
     ]
   },
   {
     "objectID": "develop/07_repos.html#general-repositories",
     "href": "develop/07_repos.html#general-repositories",
-    "title": "7. Repositories for biodata",
+    "title": "7. Storing and sharing biodata",
     "section": "General repositories",
     "text": "General repositories\nZenodo is one of the widely used repositories for a variety of research outputs. It is an open-access digital platform supported by the European Organization for Nuclear Research (CERN) and the European Commission. It caters to various research outputs, including datasets, papers, software, and multimedia files, making it a valuable resource for researchers worldwide. With its user-friendly platform, researchers can easily upload, share, and preserve their research data. Each deposited item receives a unique Digital Object Identifier (DOI), ensuring citability and long-term accessibility. Additionally, Zenodo offers robust metadata capabilities for enriching submissions with contextual information. Moreover, researchers can link their GitHub accounts to Zenodo, simplifying the process of archiving the GitHub repository releases for long-term accessibility and citation.\nOnce your accounts are linked, creating a Zenodo archive becomes as straightforward as tagging a release in your GitHub repository. Zenodo automatically detects the release and generates a corresponding archive, complete with a unique Digital Object Identifier (DOI) for citable reference. Therefore, before submitting your work to a journal, link your data analysis repository to Zenodo, obtain a DOI, and cite it in your manuscript which enhances reproducibility in research.\n\nStep-by-Step Setup Guide\nCheck the practical material where we demonstrate how to link Zenodo and Github (see Exercise 6 in the practical material).",
     "crumbs": [
       "Course material",
       "Key practices",
-      "7. Repositories for biodata"
+      "7. Storing and sharing biodata"
     ]
   },
   {
     "objectID": "develop/07_repos.html#wrap-up",
     "href": "develop/07_repos.html#wrap-up",
-    "title": "7. Repositories for biodata",
+    "title": "7. Storing and sharing biodata",
     "section": "Wrap up",
     "text": "Wrap up\nIn this concluding lesson, we’ve covered the process of submitting your data to a domain-specific repository and archiving your data analysis GitHub repositories in Zenodo. By applying the lessons from this workshop, you’ll significantly enhance the FAIRness of your data and improve its organization for future use. These benefits extend beyond yourself to your teammates, group leader, and the wider scientific community.\nWe hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form!",
     "crumbs": [
       "Course material",
       "Key practices",
-      "7. Repositories for biodata"
+      "7. Storing and sharing biodata"
     ]
   },
   {

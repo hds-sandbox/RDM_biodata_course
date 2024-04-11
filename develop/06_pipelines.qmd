@@ -1,6 +1,6 @@
 
 ---
-title: "6. Code and Pipelines for Data Analysis"
+title: "6. Processing and analyzing biodata"
 format: 
   html:
     toc: false
@@ -11,6 +11,7 @@ bibliography: ../resources/references.bib
 summary: Index page, intro to course
 #https://emojidb.org/quarto-emojis for emojis copypaste
 ---
+## Code and Pipelines for Data Analysis
 
 In this section, we explore essential elements of reproducibility and efficiency in computational research, highlighting techniques and tools for creating robust and transparent coding and workflows. By prioritizing reproducibility and replicability, researchers can enhance the credibility and impact of their findings while fostering collaboration and knowledge dissemination within the scientific community.
 

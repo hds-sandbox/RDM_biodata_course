@@ -1,5 +1,5 @@
 ﻿---
-title: 4. Metadata for biodata
+title: 4. Documentation for biodata
 format: html
 date-modified: last-modified
 date-format: long

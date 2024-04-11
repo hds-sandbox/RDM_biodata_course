@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/03_DOD.html">3. Best Practices for Data Storage</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/03_DOD.html">3. Data organization and storage</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../develop/03_DOD.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">3. Best Practices for Data Storage</span></a>
+ <span class="menu-text">3. Data organization and storage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -291,9 +291,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/03_DOD.html">3. Best Practices for Data Storage</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../develop/03_DOD.html">Key practices</a></li><li class="breadcrumb-item"><a href="../develop/03_DOD.html">3. Data organization and storage</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">3. Best Practices for Data Storage</h1>
+<h1 class="title">3. Data organization and storage</h1>
 </div>
 
 
@@ -311,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 8, 2024</p>
+      <p class="date-modified">April 11, 2024</p>
     </div>
   </div>
     
@@ -335,7 +335,7 @@ Course Overview
 <p>⏰ <strong>Time Estimation:</strong> X minutes<br>
 💬 <strong>Learning Objectives:</strong></p>
 <ol type="1">
-<li>Organize NGS data and external resources efficiently</li>
+<li>Organize your data and external resources efficiently</li>
 <li>Apply naming conventions for files and folders</li>
 <li>Define rules for naming results and figures accurately</li>
 </ol>
@@ -368,7 +368,7 @@ Exercise
 </div>
 <section id="file-structure-and-naming-conventions" class="level1">
 <h1>File structure and naming conventions</h1>
-<p>On the other hand, applying a consistent file structure and naming conventions to your files will help you to efficiently manage your data. Consider the following practices:</p>
+<p>On the other hand, applying a consistent file structure and naming conventions to your files will help you to manage your data efficiently. Consider the following practices:</p>
 <ul>
 <li><strong>Folder structure</strong>: establish a logical and intuitive folder structure that mirrors the organization of research projects and experimental data. Employ descriptive folder names for easy identification and access to specific data files.
 <ul>
@@ -654,26 +654,28 @@ Other Assay ID code names
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> docs</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── project_template.docx</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> notebooks or pipelines/</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> logs</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> tmp</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> environment</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── requirements.txt or environment.yml</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> scripts/src</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── figures/</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── <span class="op">&lt;</span>file_name<span class="op">&gt;</span>.html</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> results</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── tables/</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── figures/</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> metadata.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── data_analysis1.ipynb or data_analysis1.smk</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> logs</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> tmp/scratch</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> environment</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── requirements.txt or environment.yml</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> scripts/src</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── step1.py </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── figures/</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── <span class="op">&lt;</span>file_name<span class="op">&gt;</span>.html</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> results</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── tables/</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── figures/</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> metadata.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>data</strong>: contains symlinks or shortcuts to where the data is (raw, processed, external, etc.), avoiding duplication and modification of original files.</li>
 <li><strong>docs</strong>: a folder containing Word documents, slides, or PDFs related to the project. It also contains your <a href="../develop/02_DMP.html">Data Management Plan</a>.</li>
 <li><strong>notebooks or pipelines</strong>: a folder containing notebooks (Jupyter, R markdown, Quarto notebooks) or workflows (Snakemake or Nextflow) with the actual data analysis. Tip: Label them numerically indicating the sequential order.</li>
 <li><strong>README.md</strong>: detailed description of the project in markdown format.</li>
 <li>logs: log files.</li>
-<li>tmp: store temporary or intermediate files.</li>
+<li>tmp/scratch: store temporary or intermediate files (eg. testing).</li>
 <li><strong>environment</strong>: files for reproducing the analysis environment to reproduce the results, such as a Dockerfile, conda yaml file, or a text file (<a href="../develop/06_pipelines.html">See 6th lesson</a> for more tips on making your pipelines reproducible). It includes software, libraries/packages, and dependencies (and their versions!).</li>
 <li><strong>scripts</strong>: a folder containing helper scripts to run data analysis or source code</li>
 <li><strong>reports</strong>: Generated analysis as HTML, PDF, LaTeX, etc. Great for sharing with colleagues and creating formal reports of the data analysis procedure.
@@ -953,23 +955,23 @@ Hint
 </p><div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="uvkryqezux" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uvkryqezux table {
+<div id="pptbrscrqc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pptbrscrqc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uvkryqezux thead, #uvkryqezux tbody, #uvkryqezux tfoot, #uvkryqezux tr, #uvkryqezux td, #uvkryqezux th {
+#pptbrscrqc thead, #pptbrscrqc tbody, #pptbrscrqc tfoot, #pptbrscrqc tr, #pptbrscrqc td, #pptbrscrqc th {
   border-style: none;
 }
 
-#uvkryqezux p {
+#pptbrscrqc p {
   margin: 0;
   padding: 0;
 }
 
-#uvkryqezux .gt_table {
+#pptbrscrqc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -995,12 +997,12 @@ Hint
   border-left-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_caption {
+#pptbrscrqc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uvkryqezux .gt_title {
+#pptbrscrqc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1012,7 +1014,7 @@ Hint
   border-bottom-width: 0;
 }
 
-#uvkryqezux .gt_subtitle {
+#pptbrscrqc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1024,7 +1026,7 @@ Hint
   border-top-width: 0;
 }
 
-#uvkryqezux .gt_heading {
+#pptbrscrqc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1036,13 +1038,13 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_bottom_border {
+#pptbrscrqc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_col_headings {
+#pptbrscrqc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1057,7 +1059,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_col_heading {
+#pptbrscrqc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1077,7 +1079,7 @@ Hint
   overflow-x: hidden;
 }
 
-#uvkryqezux .gt_column_spanner_outer {
+#pptbrscrqc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1089,15 +1091,15 @@ Hint
   padding-right: 4px;
 }
 
-#uvkryqezux .gt_column_spanner_outer:first-child {
+#pptbrscrqc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uvkryqezux .gt_column_spanner_outer:last-child {
+#pptbrscrqc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uvkryqezux .gt_column_spanner {
+#pptbrscrqc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1109,11 +1111,11 @@ Hint
   width: 100%;
 }
 
-#uvkryqezux .gt_spanner_row {
+#pptbrscrqc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uvkryqezux .gt_group_heading {
+#pptbrscrqc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1139,7 +1141,7 @@ Hint
   text-align: left;
 }
 
-#uvkryqezux .gt_empty_group_heading {
+#pptbrscrqc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1154,15 +1156,15 @@ Hint
   vertical-align: middle;
 }
 
-#uvkryqezux .gt_from_md > :first-child {
+#pptbrscrqc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uvkryqezux .gt_from_md > :last-child {
+#pptbrscrqc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uvkryqezux .gt_row {
+#pptbrscrqc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1181,7 +1183,7 @@ Hint
   overflow-x: hidden;
 }
 
-#uvkryqezux .gt_stub {
+#pptbrscrqc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1194,7 +1196,7 @@ Hint
   padding-right: 5px;
 }
 
-#uvkryqezux .gt_stub_row_group {
+#pptbrscrqc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1208,15 +1210,15 @@ Hint
   vertical-align: top;
 }
 
-#uvkryqezux .gt_row_group_first td {
+#pptbrscrqc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uvkryqezux .gt_row_group_first th {
+#pptbrscrqc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uvkryqezux .gt_summary_row {
+#pptbrscrqc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1226,16 +1228,16 @@ Hint
   padding-right: 5px;
 }
 
-#uvkryqezux .gt_first_summary_row {
+#pptbrscrqc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_first_summary_row.thick {
+#pptbrscrqc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uvkryqezux .gt_last_summary_row {
+#pptbrscrqc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1245,7 +1247,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_grand_summary_row {
+#pptbrscrqc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1255,7 +1257,7 @@ Hint
   padding-right: 5px;
 }
 
-#uvkryqezux .gt_first_grand_summary_row {
+#pptbrscrqc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1265,7 +1267,7 @@ Hint
   border-top-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_last_grand_summary_row_top {
+#pptbrscrqc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1275,11 +1277,11 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_striped {
+#pptbrscrqc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uvkryqezux .gt_table_body {
+#pptbrscrqc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1288,7 +1290,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_footnotes {
+#pptbrscrqc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1302,7 +1304,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_footnote {
+#pptbrscrqc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1311,7 +1313,7 @@ Hint
   padding-right: 5px;
 }
 
-#uvkryqezux .gt_sourcenotes {
+#pptbrscrqc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1325,7 +1327,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#uvkryqezux .gt_sourcenote {
+#pptbrscrqc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1333,63 +1335,63 @@ Hint
   padding-right: 5px;
 }
 
-#uvkryqezux .gt_left {
+#pptbrscrqc .gt_left {
   text-align: left;
 }
 
-#uvkryqezux .gt_center {
+#pptbrscrqc .gt_center {
   text-align: center;
 }
 
-#uvkryqezux .gt_right {
+#pptbrscrqc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uvkryqezux .gt_font_normal {
+#pptbrscrqc .gt_font_normal {
   font-weight: normal;
 }
 
-#uvkryqezux .gt_font_bold {
+#pptbrscrqc .gt_font_bold {
   font-weight: bold;
 }
 
-#uvkryqezux .gt_font_italic {
+#pptbrscrqc .gt_font_italic {
   font-style: italic;
 }
 
-#uvkryqezux .gt_super {
+#pptbrscrqc .gt_super {
   font-size: 65%;
 }
 
-#uvkryqezux .gt_footnote_marks {
+#pptbrscrqc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uvkryqezux .gt_asterisk {
+#pptbrscrqc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uvkryqezux .gt_indent_1 {
+#pptbrscrqc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uvkryqezux .gt_indent_2 {
+#pptbrscrqc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uvkryqezux .gt_indent_3 {
+#pptbrscrqc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uvkryqezux .gt_indent_4 {
+#pptbrscrqc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uvkryqezux .gt_indent_5 {
+#pptbrscrqc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

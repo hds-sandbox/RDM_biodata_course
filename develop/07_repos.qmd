@@ -1,5 +1,5 @@
 ﻿---
-title: 7. Repositories for biodata
+title: 7. Storing and sharing biodata
 format: html
 date-modified: last-modified
 date-format: long

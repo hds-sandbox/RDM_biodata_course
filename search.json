@@ -100,7 +100,7 @@
     "href": "develop/04_metadata.html",
     "title": "4. Documentation for biodata",
     "section": "",
-    "text": "Course Overview\n\n\n\n⏰ Time Estimation: X minutes\n💬 Learning Objectives:\n\nThe role of metadata in effective management\nBest practices to create metadata and README files\nSources for controlled vocabularies\n(Optional) Create a database and a catalog browser\nIn bioinformatics data management, documentation plays a critical role in ensuring clarity and reproducibility. Documentation and metadata are essential components in ensuring your data adheres to FAIR principles.",
+    "text": "Course Overview\n\n\n\n⏰ Time Estimation: X minutes\n💬 Learning Objectives:\n\nThe role of documentation in effective management\nBest practices to create metadata and README files\nSources for controlled vocabularies\n(Optional) Create a database and a catalog browser\nIn bioinformatics data management, documentation plays a critical role in ensuring clarity and reproducibility. Documentation and metadata are essential components in ensuring your data adheres to FAIR principles.",
     "crumbs": [
       "Course material",
       "Key practices",

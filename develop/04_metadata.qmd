@@ -12,7 +12,7 @@ summary: best practices for metadata creation. Optionally, creation of databases
 ⏰ **Time Estimation:** X minutes  
 💬 **Learning Objectives:**    
 
-1. The role of metadata in effective management
+1. The role of documentation in effective management
 2. Best practices to create metadata and README files
 3. Sources for controlled vocabularies
 4. (Optional) Create a database and a catalog browser

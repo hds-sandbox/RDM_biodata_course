@@ -1,5 +1,5 @@
 ﻿---
-title: 3. Best Practices for Data Storage 
+title: 3. Data organization and storage  
 format: html
 date-modified: last-modified
 date-format: long
@@ -12,7 +12,7 @@ summary: In this lesson, we discuss about how to organize your files and follow 
 ⏰ **Time Estimation:** X minutes  
 💬 **Learning Objectives:**    
     
-1. Organize NGS data and external resources efficiently
+1. Organize your data and external resources efficiently
 2. Apply naming conventions for files and folders
 3. Define rules for naming results and figures accurately
 :::
@@ -26,7 +26,7 @@ So far, we have covered how to adhere to FAIR and Open Science standards, which 
 :::
 
 # File structure and naming conventions
-On the other hand, applying a consistent file structure and naming conventions to your files will help you to efficiently manage your data. Consider the following practices:
+On the other hand, applying a consistent file structure and naming conventions to your files will help you to manage your data efficiently. Consider the following practices:
 
 - **Folder structure**: establish a logical and intuitive folder structure that mirrors the organization of research projects and experimental data. Employ descriptive folder names for easy identification and access to specific data files.
     - **Subfolders**: enhance the organization using subfolders to further categorize data based on their contents, such as workflows, scripts, results, reports, etc.
@@ -194,12 +194,14 @@ Next, let's take a look at a possible folder structure and what kind of files yo
 ├── docs
 │  └── project_template.docx
 ├── notebooks or pipelines/
+│  └── data_analysis1.ipynb or data_analysis1.smk
 ├── README.md
 ├── logs
-├── tmp
+├── tmp/scratch
 ├── environment
 │  └── requirements.txt or environment.yml
 ├── scripts/src
+│  └── step1.py 
 ├── reports
 │  └── figures/
 │  └── <file_name>.html
@@ -214,7 +216,7 @@ Next, let's take a look at a possible folder structure and what kind of files yo
 - **notebooks or pipelines**: a folder containing notebooks (Jupyter, R markdown, Quarto notebooks) or workflows (Snakemake or Nextflow) with the actual data analysis. Tip: Label them numerically indicating the sequential order.
 - **README.md**: detailed description of the project in markdown format.
 - logs: log files.
-- tmp: store temporary or intermediate files.
+- tmp/scratch: store temporary or intermediate files (eg. testing).
 - **environment**: files for reproducing the analysis environment to reproduce the results, such as a Dockerfile, conda yaml file, or a text file ([See 6th lesson](./06_pipelines.qmd) for more tips on making your pipelines reproducible). It includes software, libraries/packages, and dependencies (and their versions!). 
 - **scripts**: a folder containing helper scripts to run data analysis or source code
 - **reports**: Generated analysis as HTML, PDF, LaTeX, etc. Great for sharing with colleagues and creating formal reports of the data analysis procedure.

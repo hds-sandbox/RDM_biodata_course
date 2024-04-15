@@ -8,7 +8,7 @@ date-modified: last-modified
 date-format: long
 date: 2024-04-02
 bibliography: ../resources/references.bib
-summary: Index page, intro to course
+summary: Data analysis best practices
 #https://emojidb.org/quarto-emojis for emojis copypaste
 ---
 ## Code and Pipelines for Data Analysis
@@ -40,13 +40,13 @@ To maintain clarity and organization in the data analysis process, adopt best pr
 
 - Create a README.md file 
 - **Annotate** your pipelines and comment your code
-- **Label numerically** to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines etc.).
+- **Label numerically** to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines, etc.).
   - 00.preprocessing.*, 01.data_analysis_step1.*, etc. 
 - Provide **environment files** for reproducing the computational environment, including:
   - **Containerization platforms** (e.g., Docker, Singularity): allow the researcher to package their software and dependencies into a standardized container image.
   - **Virtual Environments** (e.g., Conda, virtualenv): provide an isolated environment with specific packages and dependencies that can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system. 
   - **Environment Configuration Scripts**: Researchers can also provide custom scripts or configuration files that automate the setup of the computational environment. These scripts may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables.
-- Upload your code to **version control systems** (e.g., Git) and c**ode repository** [Lesson 5](./05_VC.qmd). 
+- Upload your code to **version control systems** (e.g., Git) and **code repository** [Lesson 5](./05_VC.qmd). 
 - Integrated development environments (e.g., RStudio, PyCharm): Provides tools and features for writing, testing, and debugging code
 - Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensuring adherence to community standards and guidelines.
 

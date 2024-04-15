@@ -50,6 +50,7 @@ There are two types of repositories:
   - Functional Annotation of Animal Genomes (FAANG) Data Repository
 
 For more data repositories, please refer to the links provided below to find the appropriate repository for your data:
+
 - EMBL-EBI data resources [here](https://www.ebi.ac.uk/submission/)
 - NHI data resources [here](https://sharing.nih.gov/data-management-and-sharing-policy/sharing-scientific-data/repositories-for-sharing-scientific-data)
 - ELIXIR Core Data Resources [here](https://elixir-europe.org/platforms/data/core-data-resources)

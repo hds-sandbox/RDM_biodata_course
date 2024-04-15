@@ -67,6 +67,7 @@ In addition to exploring Git, we will also explore [GitHub](https://github.com/)
 :::{.callout-note title="Alternatives flows for collaborative projects"}
 - [GitLab](https://about.gitlab.com/)
 - [BitBucket](https://bitbucket.org/) 
+
 We will focus on GitHub for the remainder of this lesson due to its widespread usage and compatibility.
 :::
 

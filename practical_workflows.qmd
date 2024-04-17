@@ -1,5 +1,4 @@
 ---
-title: "Computational Research Data Management"
 format: 
   html:
     toc: false
@@ -10,8 +9,142 @@ bibliography: resources/references.bib
 summary: workflow
 ---
 
-# Workflow
+# Workflows
 
-If you develop your own software make sure you follow FAIR principles. We highly endorse these recommendations: https://fair-software.nl/endorse
+Data analyses usually entail the application of various tools, algorithms and scripts. Workflow management handles parallelization, resume, logging and data provenance. 
+If you develop your own software make sure you follow FAIR principles. We highly endorse following these [FAIR recommendations](https://fair-software.nl/endorse) and to register your computational workflow [here](https://workflowhub.eu/). 
 
-Register your computational workflow here: https://workflowhub.eu/
+Using workflow managers, you ensure:
+
+- automation
+- convenience
+- portability
+- reproducibility 
+- scalability
+- readable
+
+Some of the most popular workflow management systems are snakemake, nextflow and galaxy.
+
+## Snakemake
+
+Text-based using python plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files.  It infers dependencies and the execution order.
+
+### Basics
+1. Define rules 
+2. Generalise the rule: creating wildcards 
+You can refer by index or by name 
+
+3. Dependencies are determined top-down 
+
+For a given target, a rule that can be applied to create it, is determined (a job)
+For the input files of the rule, go on recursively, 
+If no target is specified, snakemake , tries to apply the first rule
+
+4. Rule all: target rule that collects results
+
+### Job execution
+A job is executed if and only if:
+- otuput file is target and does not exist
+- output file needed by another executed job and does not exist
+- input file newer than output file
+- input file will be updated by other job (eg. changes in rules)
+- execution is force ('--force-all')
+
+You can plot the DAG (directed acyclic graph) of the jobs 
+
+### Useful command line interface
+
+```{.bash}
+# dry-run (-n), print shell commands (-p)
+snakemake -n -p
+# Snakefile named different in another location 
+snakemake --snakefile path/to/file.smoker
+# dry-run (-n), print execution reason for each job
+snakemake -n -r
+# Visualise DAG of jobs using Graphviz dot command
+snakemake --dag | dot -Tsvg > dag.svg
+```
+
+### Defining resources
+```{.bash}
+rule myrule:
+  resources: mem_mb= 100 #(100MB memory allocation)
+  threads: X
+  shell:
+    "command {threads}"
+```
+
+Let's say you defined our rule myrule needs 4 works, if we execute the workflow with 8 cores as follows:
+```{.bash}
+snakemake --cores 8
+```
+This means that 2 'myrule' jobs, will be executed in parallel.
+
+The jobs are schedules to maximize parallelization, high priority jobs will be scheduled first, all while satisfying resource constrains. This means: 
+
+If we allocate 100MB for the execution of 'myrule' and we call snakemake as follows:
+
+```{.bash}
+snakemake --resources mem_mb=100 --cores 8
+```
+Only one 'myrule' job can be executed in parallel (you do not provide enough memory resources for 2). The memory resources is useful for jobs that are heavy memory demanding to avoid running out of memory. You will need to benchmark your pipeline to estimate how much memory and time your full workflow will take. We highly recommend doing so, get a subset of your dataset and give it a go! Log files will come very handy for the resource estimation. Of course, the execution of jobs is dependant on the free resources availability (eg. CPU cores). 
+
+```{.bash}
+rule myrule:
+  log: "logs/myrule.log"
+  threads: X
+  shell:
+    "command {threads}"
+```
+
+Log files need to define the same wildcards as the output files, otherwise, you will get an error. 
+
+### Config files
+You can also define values for wildcards or parameters in the config file. This is recommended when the pipeline might be used several times at different time points, to avoid unwanted modifications to the workflow. parameterization is key for such cases.   
+
+### Cluster execution
+When working from cluster systems you can execute the workflow using -qsub submission command
+
+```{.bash}
+snakemake --cluster qsub 
+```
+
+### Additional advanced features
+- modularization
+- handling temporary and protected files: very important for intermediate files that filled up our memory and are not used in the long run and can be deleted once the final output is generated. This is automatically done by snakemake if you defined them in your pipeline
+HTML5 reports
+- rule parameters
+- tracking tool versions and code changes: will force rerunning older jobs when code and software are modified/updated. 
+- data provenance information per file
+- python API for embedding snakemake in other tools
+
+### Create an isolated environment to install dependencies
+Basic file structure
+```{.bash}
+| - config.yml
+| - requirements.txt (commonly also named environment.txt)
+| - rules/
+|   | - myrules.smk
+| - scripts/
+|   | - script1.py
+| - Snakefile
+```
+Create conda environment, one per project!
+
+```{.bash}
+# create env
+conda create -n myworklow --file requierments.txt
+# activate environment
+source activate myworkflow
+# then execute snakemake
+```
+Use git repositories to save your projects and pipelines!
+
+## Nextflow
+
+## Sources
+- https://bitbucket.org/johanneskoester/snakemake
+- https://bioconda.github.io
+- Köster, Johannes and Rahmann, Sven. "Snakemake - A scalable bioinformatics workflow engine". Bioinformatics 2012.
+- Köster, Johannes. "Parallelization, Scalability, and Reproducibility in Next-Generation Sequencing Analysis", PhD thesis, TU Dortmund 2014.
+

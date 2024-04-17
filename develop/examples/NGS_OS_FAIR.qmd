@@ -56,7 +56,7 @@ Note that not all data needs to be archived and deposited. NGS data processing g
 
 ### Open Science
 
-Unless your data is of sensitive nature (human individual samples, patient data, or anything protected), you should **always** deposit your data with as few restrictions as possible. This includes publishing your manuscript in Open Access journals as well! For your generated NGS data, our suggestion is that you use a license such as [Creative Commons](https://creativecommons.org/) license like [CC-BY license](https://creativecommons.org/licenses/by/4.0/), which only requires users to attribute the source of the data, but this also depends on the repository that you use for your data. We will see more about it in the [lesson 10](../10_repos.qmd)
+Unless your data is of sensitive nature (human individual samples, patient data, or anything protected), you should **always** deposit your data with as few restrictions as possible. This includes publishing your manuscript in Open Access journals as well! For your generated NGS data, our suggestion is that you use a license such as [Creative Commons](https://creativecommons.org/) license like [CC-BY license](https://creativecommons.org/licenses/by/4.0/), which only requires users to attribute the source of the data, but this also depends on the repository that you use for your data. We will see more about it in the [lesson 7](../07_repos.qmd)
 
 ![CC licenses](../images/creative-commons-licenses-table.png)
 
@@ -66,7 +66,7 @@ Next, we will see how we can apply each of the FAIR principles to your NGS data.
 
 #### Findable
 
-To make your NGS data easy to find, you should deposit it in a domain-specific repository, such as the Gene Expression Omnibus or Annotare. We will see more about them in [lesson 10](../10_repos.qmd).
+To make your NGS data easy to find, you should deposit it in a domain-specific repository, such as the Gene Expression Omnibus or Annotare. We will see more about them in [lesson 7](../07_repos.qmd).
 Both of these repositories will help you give your data a unique identifier, and provide information (metadata) on how the data was generated. The metadata you include in your submission should contain, at least, the minimum necessary information to understand what kind of data it is submitted, and how it was generated. This includes:
 
 - **Sample metadata** in tabular format, containing information about the samples used in the experiment as well as variables of interest for the analysis.
@@ -96,7 +96,7 @@ Nonetheless, this is the easy part! Adhering to controlled vocabularies seems to
 - Using gene names or symbols instead of gene IDs. For example: the gene POU5F1 has many synonyms, like OCT4, OCT, and OTF4. To be explicit, it is better to reference the gene ID, like an ENSEMBL gene ID [ENSG00000204531](https://www.ncbi.nlm.nih.gov/gene/?term=ENSG00000204531).
 - Using disease names instead of disease IDs. Again, this will reference specifically the disease you mention.
 
-There are many more stances where you can use controlled vocabularies for other variables of interest, like cell type, tissue, cell cycle, etc. We will see in the [metadata lesson](../07_metadata.qmd) where you can find controlled vocabularies for different variables of interest in NGS data.
+There are many more stances where you can use controlled vocabularies for other variables of interest, like cell type, tissue, cell cycle, etc. We will see in the [metadata lesson](../0_metadata.qmd) where you can find controlled vocabularies for different variables of interest in NGS data.
 
 #### Reusable
 

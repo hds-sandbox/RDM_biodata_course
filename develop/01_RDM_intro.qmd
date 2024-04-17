@@ -137,7 +137,7 @@ Research data should be described in metadata to enable effective searching, ide
 
 ::: {.callout-tip}
 - We will cover strategies for organizing your files and folder in [lesson 3](./03_DOD.qmd).
-- We will discuss different types of metadata in [lesson 4](./07_metadata.qmd)
+- We will discuss different types of metadata in [lesson 4](./04_metadata.qmd)
 ::: 
 
 ### 3. Process and analyze
@@ -148,7 +148,7 @@ To streamline and standardize the data analysis process, researchers often imple
 
 ::: {.callout-tip}
 - Collaborative efforts by the [nf-core](https://nf-co.re/) community provide curated pipelines across different areas of bioinformatics and genomics.
-- Learn more about version control in [lesson 5](./09_version_control.qmd)
+- Learn more about version control in [lesson 5](./05_VC.qmd)
 - If you want to implement your own pipelines, we have the course for you [IN DEVELOPMENT].
 :::
 
@@ -202,7 +202,7 @@ For example, the UCPH mandates that a copy of data sets and associated metadata 
 :::
 
 ::: {.callout-tip}
-We will check about which repositories you can use to preserve your NGS data in the [10th lesson](./10_repos.qmd)
+We will check about which repositories you can use to preserve your NGS data in the [lesson 7](./07_repos.qmd)
 :::
 
   </p>

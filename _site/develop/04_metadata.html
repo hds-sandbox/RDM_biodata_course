@@ -239,8 +239,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../develop/06_pipelines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Code and Pipelines for Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../develop/07_repos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7. Repositories for bio data</span></a>
+ <span class="menu-text">7. Repositories for biodata</span></a>
   </div>
 </li>
       </ul>
@@ -299,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 21, 2024</p>
+      <p class="date-modified">April 17, 2024</p>
     </div>
   </div>
     
@@ -326,14 +332,14 @@ Course Overview
 <li>The role of metadata in effective management</li>
 <li>Best practices to create metadata and README files</li>
 <li>Sources for controlled vocabularies</li>
-<li>(Optional) Create a database and a catalogue browser</li>
+<li>(Optional) Create a database and a catalog browser</li>
 </ol>
 </div>
 </div>
 <p>In bioinformatics data management, documentation plays a critical role in ensuring clarity and reproducibility. Documentation and metadata are essential components in ensuring your data adheres to FAIR principles.</p>
 <section id="documentation-and-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="documentation-and-metadata">Documentation and metadata</h2>
-<p>Essential documentation comes in different forms and flavors, serving various purposes in research. Examples include protocols outlining experimental procedures, detailed lab journals recording experimental conditions and observations, codebooks explaining concepts, variables, and abbreviations used in the analysis, information about the structure and content of a dataset, software installation and usage manual, code explanation within files or methodological information outlining data processing steps.</p>
+<p>Essential documentation comes in different forms and flavors, serving various purposes in research. Examples include protocols outlining experimental procedures, detailed lab journals recording experimental conditions and observations, codebooks explaining concepts, variables, and abbreviations used in the analysis, information about the structure and content of a dataset, software installation, and usage manual, code explanation within files or methodological information outlining data processing steps.</p>
 <p><img src="images/metadata.png" class="img-fluid" alt="metadata"> <em>From <a href="https://www.ontotext.com/knowledgehub/fundamentals/metadata-fundamental/">ontotext.com</a></em></p>
 <p>Metadata provides essential context and structure to (primary) data, enabling researchers to understand its significance and facilitate efficient data management. Some common elements found in metadata for bioinformatics data include:</p>
 <ul>
@@ -342,7 +348,7 @@ Course Overview
 <li>Data processing steps applied to the raw data</li>
 <li>Annotation and Ontology terms</li>
 <li>File metadata (file type, file format, etc.)</li>
-<li>Ethical and Legal compliance</li>
+<li>Ethical and Legal Compliance</li>
 </ul>
 <p>Metadata serves as a crucial guide in navigating the complex landscape of data, akin to a cheat sheet for piecing together the puzzle of information. Much like identifying puzzle pieces, metadata provides essential details about data origin, structure, and context, such as sample collection details, experimental procedures, and equipment used. Metadata enables data exploration, interpretation, and future accessibility, promoting effective management and facilitating data usability and reuse.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Benefits of collecting proper metadata">
@@ -356,17 +362,17 @@ Benefits of collecting proper metadata
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>Data Context and Interpretation</strong>: Aiding in understanding experimental conditions, sample origins, and processing methods, crucial for accurate results interpretation.</li>
+<li><strong>Data Context and Interpretation</strong>: Aiding in understanding experimental conditions, sample origins, and processing methods, is crucial for accurate results interpretation.</li>
 <li><strong>Data Discovery and Access</strong>: Metadata enables easy locating and accessing of specific datasets by quickly identifying relevant data through sample identifiers, experimental parameters, and timestamps.</li>
 <li><strong>Reproducibility and Collaboration</strong>: Metadata facilitates experiment replication and validation by enabling colleagues to reproduce analyses, compare results, and collaborate effectively, enhancing the integrity of scientific findings.</li>
-<li><strong>Quality Control and Validation</strong>: Metadata supports data quality assessment by tracking the origin and handling of NGS data, allowing identification of errors or biases to validate analysis accuracy and reliability.</li>
+<li><strong>Quality Control and Validation</strong>: Metadata supports data quality assessment by tracking the origin and handling of NGS data, allowing the identification of errors or biases to validate analysis accuracy and reliability.</li>
 <li><strong>Long-Term Data Preservation</strong>: metadata ensures preservation over time, facilitating future understanding and utilization of archived datasets for continued scientific impact as research progresses.</li>
 </ol>
 </div>
 </div>
 <section id="streamlining-metadata-collection" class="level3">
 <h3 class="anchored" data-anchor-id="streamlining-metadata-collection">Streamlining Metadata Collection</h3>
-<p>Data and project directories should both include a metadata and a README file.</p>
+<p>Data and project directories should both include metadata and a README file.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Practical tips">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,7 +387,7 @@ Practical tips
 <li>Implement a logical structure with clear and descriptive file names.</li>
 <li>Use of controlled vocabularies and ontologies to ensure consistency and efficient data management and interpretation.</li>
 <li>Use a repository and a versioning system</li>
-<li>Make it Machine-readable, -actionable and/or -interpretable.</li>
+<li>Make it Machine-readable, -actionable, and/or -interpretable.</li>
 <li>Develop standards further within your research environment <a href="https://fairsharing.org/search?fairsharingRegistry=Standard">FAIRsharing standards</a>.</li>
 <li>Include all information for others to comprehend and effectively utilize the data.</li>
 </ul>
@@ -432,7 +438,7 @@ Exercise 1: Identify README.md key components.
 </section>
 <section id="metadata.yml" class="level3">
 <h3 class="anchored" data-anchor-id="metadata.yml">metadata.yml</h3>
-<p>Metadata can be written in many file formats (commonly used: YAML, TXT, JSON and CSV). We recommend <a href="https://fileinfo.com/extension/yml">YAML format</a>, which is a text document that contains data formatted using a human-readable data format for data serialization. The content will be specific to the type of project.</p>
+<p>Metadata can be written in many file formats (commonly used: YAML, TXT, JSON, and CSV). We recommend <a href="https://fileinfo.com/extension/yml">YAML format</a>, which is a text document that contains data formatted using a human-readable data format for data serialization. The content will be specific to the type of project.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode YAML code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">project</span><span class="kw">:</span><span class="at"> </span><span class="st">"Title"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Name"</span></span>
@@ -444,7 +450,7 @@ Exercise 1: Identify README.md key components.
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.1.1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Some general metadata fields used across different disciplines:</p>
 <ul>
-<li><strong>Project Title</strong>:A concise and informative name for the dataset.</li>
+<li><strong>Project Title</strong>: A concise and informative name for the dataset.</li>
 <li><strong>Author(s)</strong>: The individual(s) or organization responsible for creating the dataset. Include <a href="https://orcid.org/">ORCID</a> for identification.</li>
 <li><strong>Date Created</strong>: The date when the dataset was originally generated or compiled, in YYYY-MM-DD format.</li>
 <li><strong>Date Modified</strong>: The date when the dataset was last updated or modified (YYYY-MM-DD).</li>
@@ -541,7 +547,7 @@ Ontology definition
 </section>
 <section id="database-and-data-catalogs" class="level2">
 <h2 class="anchored" data-anchor-id="database-and-data-catalogs">Database and data catalogs</h2>
-<p>Metadata can be used to create data catalogs, particularly beneficial for efficient organization of experimental or sequencing data generated by researchers. While databases can range from simple tabular formats like Excel to sophisticated DataBase Management Systems (DBMS) like SQLite, the choice depends on factors such as complexity and volume of data. Leveraging a DBMS offers advantages like efficient data storage, enhanced security, and rapid data querying capabilities.</p>
+<p>Metadata can be used to create data catalogs, particularly beneficial for the efficient organization of experimental or sequencing data generated by researchers. While databases can range from simple tabular formats like Excel to sophisticated DataBase Management Systems (DBMS) like SQLite, the choice depends on factors such as complexity and volume of data. Leveraging a DBMS offers advantages like efficient data storage, enhanced security, and rapid data querying capabilities.</p>
 <section id="tables-as-databases" class="level3">
 <h3 class="anchored" data-anchor-id="tables-as-databases">Tables as databases</h3>
 <p>A browsable table can be created by recursively navigating through a project’s folder hierarchy using a script and generating a TSV file (tab-separated values) named, for example, database_YYYYMMDD.tsv. This table acts as a centralized repository for all project data, simplifying access and organization. Consistency in metadata structure across projects is vital for efficient data management and integration, as it aids in tracking all conducted assays. Adhering to a uniform metadata format enables the seamless inclusion of essential information from YAML files into the browsable table.</p>
@@ -559,7 +565,7 @@ Exercise 2: Generate database tables from metadata
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>Write a script (R or python) that recursively fetch metadata.yml files in a given path. It is important that each subdirectory contains its corresponding metadata.yml.</p>
+<p>Write a script (R or Python) that recursively fetches metadata.yml files in a given path. It is important that each subdirectory contains its corresponding metadata.yml.</p>
 <p>Requirements:</p>
 <ul>
 <li>Data folder structure: containing all project folders</li>
@@ -628,7 +634,7 @@ Hint
 </section>
 <section id="sqlite-database" class="level3">
 <h3 class="anchored" data-anchor-id="sqlite-database">SQLite database</h3>
-<p>An alternative to the tabular format is SQLite, a lightweight and self-contained relational database management system known for its simplicity and efficient. SQLite operates without the need for a separate server, making it ideal for scenarios requiring minimal resource usage. It excels in tasks involving structured data storage and retrieval, making it suitable for managing experiment metadata. Similar to the previous example, you can use a script that records all the information from the YAML file in a SQLite database.</p>
+<p>An alternative to the tabular format is SQLite, a lightweight and self-contained relational database management system known for its simplicity and efficiency. SQLite operates without the need for a separate server, making it ideal for scenarios requiring minimal resource usage. It excels in tasks involving structured data storage and retrieval, making it suitable for managing experiment metadata. Similar to the previous example, you can use a script that records all the information from the YAML file in a SQLite database.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Advantages of using SQLite database" data-collpase="true">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -646,7 +652,7 @@ Advantages of using SQLite database
 <li><strong>Concurrency and Multi-User Support</strong>: SQLite supports concurrent read access from multiple users, ensuring accessibility without compromising data integrity.</li>
 <li><strong>Scalability</strong>: It can handle growing volumes of data without significant performance degradation.</li>
 <li><strong>Modularity and Portability</strong>: Databases are self-contained and modular, simplifying data distribution and portability.</li>
-<li><strong>Security and Access Control</strong>: SQLite offer security features like password protection and encryption, with granular control over user access.</li>
+<li><strong>Security and Access Control</strong>: SQLite offers security features like password protection and encryption, with granular control over user access.</li>
 <li><strong>Indexing</strong>: Support for indexing accelerates data retrieval based on specific columns, particularly beneficial for large datasets.</li>
 <li><strong>Data Relationships</strong>: Databases allow for the establishment of relationships between tables, facilitating storage of interconnected data, such as project, assay, and sample information.</li>
 </ol>
@@ -713,8 +719,8 @@ Hint
 </section>
 <section id="catalog-browser" class="level3">
 <h3 class="anchored" data-anchor-id="catalog-browser">Catalog browser</h3>
-<p>You can design a user-friendly catalog browser for your database using tools like <a href="https://www.rstudio.com/products/shiny/">Rshiny</a> or <a href="https://panel.holoviz.org/">Panel</a>. These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a tsv file and a SQLite database will be demonstrated below.</p>
-<p>Here’s an example of a SQLite database catalog created by the <a href="https://renew.ku.dk/research/reseach-groups/brickman-group/">Brickman Lab</a> at the Center for Stem Cell Medicine. It’s simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.</p>
+<p>You can design a user-friendly catalog browser for your database using tools like <a href="https://www.rstudio.com/products/shiny/">Rshiny</a> or <a href="https://panel.holoviz.org/">Panel</a>. These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a TSV file and a SQLite database will be demonstrated below.</p>
+<p>Here’s an example of an SQLite database catalog created by the <a href="https://renew.ku.dk/research/reseach-groups/brickman-group/">Brickman Lab</a> at the Center for Stem Cell Medicine. It’s simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><video src="./assets/database_example_480p.mp4" class="img-fluid" controls=""><a href="./assets/database_example_480p.mp4">Video</a></video></p>
@@ -795,7 +801,7 @@ Hint
 </div>
 </div>
 <ul>
-<li>Solution B. From a SQLite database</li>
+<li>Solution B. From an SQLite database</li>
 </ul>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
@@ -893,7 +899,7 @@ Exercise 5: Add complex features to your catalog browser
 <div class="callout-exercise">
 <p>Once you’ve finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser.</p>
 <ul>
-<li>Add a tab to create a project directory interactively (and filling up the metadata fields)</li>
+<li>Add a tab to create a project directory interactively (and fill up the metadata fields)</li>
 <li>Modify existing entries</li>
 <li>Visualize results using <a href="https://cirrocumulus.readthedocs.io/en/latest/">Cirrocumulus</a></li>
 </ul>
@@ -906,7 +912,7 @@ Exercise 5: Add complex features to your catalog browser
 </section>
 <section id="wrap-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
-<p>In this lesson, we’ve covered the importance of attaching metadata to your data for future reusability and comprehension. We briefly introduced various controlled vocabularies and provided several sources for inspirations. Implementing ontologies is optional, as their usage complexity varies.</p>
+<p>In this lesson, we’ve covered the importance of attaching metadata to your data for future reusability and comprehension. We briefly introduced various controlled vocabularies and provided several sources for inspiration. Implementing ontologies is optional, as their usage complexity varies.</p>
 <p>Optionally, if you’ve gone through the lesson, you’ve learned how to use the metadata YAML files to create a database and a catalog browser using Shiny apps. This makes it easy to manage all assays together.</p>
 <section id="sources" class="level3">
 <h3 class="anchored" data-anchor-id="sources">Sources</h3>
@@ -915,7 +921,7 @@ Exercise 5: Add complex features to your catalog browser
 <li><a href="FAIRsharing.org">FAIRsharing.org</a>: provide a searchable database of metadata standards for a wide variety of disciplines</li>
 </ul>
 <p>Other sources: - <a href="https://guides.library.jhu.edu/documenting_data/medical_research#s-lg-box-wrapper-31197839">Johns Hopkins Sheridan libraries, RDM</a>. They provide a list of medical metadata standards resources.<br>
-- KU Leuven Guidance: <a href="https://www.kuleuven.be/rdm/en/guidance/documentation-metadata" class="uri">https://www.kuleuven.be/rdm/en/guidance/documentation-metadata</a> - <a href="https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata">Transcriptomics metadata standards and fields</a> - <a href="https://lamin.ai/docs/bionty">Bionty</a>: Biological ontologies for data scientists. - <a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html">NIH standarizing data collection</a> - <a href="https://www.ohdsi.org/data-standardization/">Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model</a></p>
+- KU Leuven Guidance: <a href="https://www.kuleuven.be/rdm/en/guidance/documentation-metadata" class="uri">https://www.kuleuven.be/rdm/en/guidance/documentation-metadata</a> - <a href="https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata">Transcriptomics metadata standards and fields</a> - <a href="https://lamin.ai/docs/bionty">Bionty</a>: Biological ontologies for data scientists. - <a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html">NIH standardizing data collection</a> - <a href="https://www.ohdsi.org/data-standardization/">Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model</a></p>
 </section>
 <section id="tools-and-software" class="level3">
 <h3 class="anchored" data-anchor-id="tools-and-software">Tools and software</h3>

@@ -1,5 +1,5 @@
 ﻿---
-title: 7. Repositories for biodata
+title: 7. Storing and sharing biodata
 format: html
 date-modified: last-modified
 date-format: long
@@ -42,15 +42,18 @@ There are two types of repositories:
   - NCBI Gene Expression Omnibus (GEO)
   - Sequence Read Archive (SRA)
   - Protein Data Bank (PDB)
-  - Kyoto Encyclopedia of Genes and Genomes (KEGG)
-  - Universal Protein Resource (UniProt)
-  - Human Protein Atlas
+  - Proteomics Identifications Database (PRIDE)
+  - Universal Protein Resource (UniProt) SPIN
   - ArrayExpress
-  - Model Organism Databases (MODs)
   - EBI Metagenomics (MGnify)
   - PhysioNet 
   - Functional Annotation of Animal Genomes (FAANG) Data Repository
-  - Check ELIXIR Core Data Resources [here](https://elixir-europe.org/platforms/data/core-data-resources)
+
+For more data repositories, please refer to the links provided below to find the appropriate repository for your data:
+
+- EMBL-EBI data resources [here](https://www.ebi.ac.uk/submission/)
+- NHI data resources [here](https://sharing.nih.gov/data-management-and-sharing-policy/sharing-scientific-data/repositories-for-sharing-scientific-data)
+- ELIXIR Core Data Resources [here](https://elixir-europe.org/platforms/data/core-data-resources)
 
 Your institution might as well have its repositories such as [ERDA](https://www.erda.dk/) (Electronic research data archive at the University of Copenhagen).
 :::

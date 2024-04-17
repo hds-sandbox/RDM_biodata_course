@@ -1,5 +1,5 @@
 ﻿---
-title: 4. Metadata for NGS data
+title: 4. Documentation for biodata
 format: html
 date-modified: last-modified
 date-format: long
@@ -12,7 +12,7 @@ summary: best practices for metadata creation. Optionally, creation of databases
 ⏰ **Time Estimation:** X minutes  
 💬 **Learning Objectives:**    
 
-1. The role of metadata in effective management
+1. The role of documentation in effective management
 2. Best practices to create metadata and README files
 3. Sources for controlled vocabularies
 4. (Optional) Create a database and a catalog browser
@@ -54,7 +54,7 @@ Data and project directories should both include metadata and a README file.
 - Implement a logical structure with clear and descriptive file names.
 - Use of controlled vocabularies and ontologies to ensure consistency and efficient data management and interpretation. 
 - Use a repository and a versioning system
-- Make it Machine-readable, -actionable, and/or -interpretable.
+- Make it Machine-readable, -actionable, and -interpretable.
 - Develop standards further within your research environment [FAIRsharing standards](https://fairsharing.org/search?fairsharingRegistry=Standard).
 - Include all information for others to comprehend and effectively utilize the data.
 :::
@@ -396,10 +396,11 @@ Optionally, if you've gone through the lesson, you've learned how to use the met
 - [FAIRsharing.org](FAIRsharing.org): provide a searchable database of metadata standards for a wide variety of disciplines
 
 Other sources: 
+
 - [Johns Hopkins Sheridan libraries, RDM](https://guides.library.jhu.edu/documenting_data/medical_research#s-lg-box-wrapper-31197839). They provide a list of medical metadata standards resources.  
 - KU Leuven Guidance: <https://www.kuleuven.be/rdm/en/guidance/documentation-metadata>
 - [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
-- [Bionty](https://lamin.ai/docs/bionty): Biological ontologies for data scientists.
+- Biological ontologies for data scientists,[Bionty](https://lamin.ai/docs/bionty)
 - [NIH standardizing data collection](https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html)
 - [Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model](https://www.ohdsi.org/data-standardization/)
 

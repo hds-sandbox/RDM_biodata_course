@@ -218,7 +218,9 @@ Open Science and FAIR principles have become essential frameworks for promoting 
 
 [Open Science](https://unesdoc.unesco.org/ark:/48223/pf0000383323) facilitates wider accessibility of research outputs, fosters collaboration, and promotes transparency and reproducibility, thus enhancing responsible research conduct. Economically, promoting Open Access and data sharing maximizes the return on research investments and fuels innovation and entrepreneurship. This approach enables businesses and startups to leverage research findings, while researchers can integrate large datasets for new discoveries.
 
-![Open Science, Australian Citizen Science Association](./images/Open-Science.png){fig-alt="Open Science"}
+![Pillars of the Open Science according to UNESCO's 2021 Open Science recommendation.](./images/Open-Science.png){fig-alt="Open Science"}
+
+
 
 :::{.callout-definition}
 # Examples of Open Science Initiatives
@@ -259,7 +261,7 @@ Research data should be easily identifiable, achieved through the following key 
 2. **Create Rich and Standard Metadata**: describing the content, context, and characteristics of the data (such as origin, format, version, licensing, and the conditions for reuse).
 3. **Use a Data Repository or Catalog**: following FAIR principles to deposit your data, enhancing data discoverability and access  from a centralized and reliable source.
 
-Clear and comprehensive metadata facilitates data discovery by both researchers and machines through various search engines and data repositories.
+Clear and comprehensive metadata facilitates data discovery by researchers and machines through various search engines and data repositories.
 
 
 #### Accessible

@@ -40,7 +40,7 @@ if you're interested in delving deeper, explore our course on [Git and GitHub](h
 
 Alternatively, here are some examples and online resources to expand your understanding:
 
-- [Git and GitHub online resources] https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources
+- [Git and GitHub online resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources)
 - [GitHub documentation](https://docs.github.com/get-started)
 - [Git documentation](https://git-scm.com/doc)
 :::
@@ -67,6 +67,7 @@ In addition to exploring Git, we will also explore [GitHub](https://github.com/)
 :::{.callout-note title="Alternatives flows for collaborative projects"}
 - [GitLab](https://about.gitlab.com/)
 - [BitBucket](https://bitbucket.org/) 
+
 We will focus on GitHub for the remainder of this lesson due to its widespread usage and compatibility.
 :::
 

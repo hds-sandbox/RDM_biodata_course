@@ -88,8 +88,6 @@ In addition, if you have deposited your data with rich metadata, as explained in
 
 By using standard bioinformatics formats, such as fastq files for raw NGS data, count matrices in tabular format, BED files for peak calling results, etc., you are already complying to this section. In addition, GEO and Annotare repositories are compliant to NGS data standards, such as [MIAME](https://www.fged.org/projects/miame/)/[MINSEQE](https://www.fged.org/projects/minseqe/)/[MINSCE](https://www.nature.com/articles/s41587-020-00744-z) guidelines.
 
-![MINSEQ](../images/minseq.png)
-
 Nonetheless, this is the easy part! Adhering to controlled vocabularies seems to be the most difficult part of the FAIR principles. Here are some cases:
 
 - Using organism names instead of their taxonomy. For example: mouse instead of *Mus musculus*, or human, instead of *Homo sapiens*. Even better, we should use a taxonomy ID, such as the NCBI taxonomy ID for humans [NCBITaxon_9606](http://purl.obolibrary.org/obo/NCBITaxon_9606), which will unequivocally refer to humans.
@@ -101,8 +99,6 @@ There are many more stances where you can use controlled vocabularies for other 
 #### Reusable
 
 In order for your NGS data to be reusable, you will have to provide thorough documentation on how it was generated, as well as the terms (that is a license) on how the data can be used/retrieved. We have talked already about collecting metadata on how the samples were generated (laboratory protocols, sequencing library, kits, technology, etc) and processed (workflows or pipelines along with the software used, which versions, and options). We also talked about what type of standard file formats you should use, such as fastq files for raw data and tabular formats for sample metadata. Finally, we have discussed in the Open Science section that you should try to license your data as freely as possible, like a [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/) or [CC-BY license](https://creativecommons.org/licenses/by/4.0/). If your data is of sensitive nature and has restricted access or conditions, you should instead provide information on how other people can access the data, as well as any agreements or ethical approvals necessary for its reuse.
-
-![cc-by license](../images/cc-by.png)
 
 ### Sources
 - Elixir Belgium: <https://rdm.elixir-belgium.org/omics_data>

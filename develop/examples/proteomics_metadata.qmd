@@ -1,0 +1,2 @@
+# Protemics metadata (*In development*)
+Check [this link](https://proteomics-sample-metadata.readthedocs.io/en/latest/sdrf.html) for more details on different metadata file formats and standarised practices. 

@@ -49,6 +49,7 @@ website:
             - develop/examples/NGS_metadata.qmd
         - section: "Proteomics"
           contents:
+            - develop/examples/proteomics_metadata.qmd
 
 bibliography: resources/references.bib
 copyright: CC-BY-SA 4.0 license

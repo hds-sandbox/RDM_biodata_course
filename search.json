@@ -39,7 +39,7 @@
     "href": "develop/06_pipelines.html#wrap-up",
     "title": "6. Processing and analyzing biodata",
     "section": "Wrap up",
-    "text": "Wrap up\nThis lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks, and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability.\n\nSources\n\nCode documentation by Johns Hopkins Sheridan libraries. This link includes best practices for code documentation, style guides, R markdown, Jupyter Notebook, version control, and code repository.\nGuide to reproducible code in ecology and evolution\nBest practices for Scientific computing\nElixir Software Best Practices",
+    "text": "Wrap up\nThis lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks, and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability.\n\nSources\n\nRDMkit, Elixir Data Management - Data Analysis\nCode documentation by Johns Hopkins Sheridan libraries. This link includes best practices for code documentation, style guides, R markdown, Jupyter Notebook, version control, and code repository.\nGuide to reproducible code in ecology and evolution\nBest practices for Scientific computing\nElixir Software Best Practices",
     "crumbs": [
       "Course material",
       "Key practices",

@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-11-30">
 
-<title>RDM for NGS</title>
+<title>RDM for biodata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <img src="../img/logo.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">RDM for NGS</span>
+    <span class="navbar-title">RDM for biodata</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -172,10 +172,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#organize-and-structure-your-ngs-data-and-data-analysis" id="toc-organize-and-structure-your-ngs-data-and-data-analysis" class="nav-link active" data-scroll-target="#organize-and-structure-your-ngs-data-and-data-analysis">1. Organize and structure your NGS data and data analysis</a>
+  <li><a href="#organize-and-structure-your-datasets-and-data-analysis" id="toc-organize-and-structure-your-datasets-and-data-analysis" class="nav-link active" data-scroll-target="#organize-and-structure-your-datasets-and-data-analysis">1. Organize and structure your datasets and data analysis</a>
   <ul class="collapse">
-  <li><a href="#assay-folder" id="toc-assay-folder" class="nav-link" data-scroll-target="#assay-folder">Assay folder</a></li>
-  <li><a href="#project-folder" id="toc-project-folder" class="nav-link" data-scroll-target="#project-folder">Project folder</a></li>
   <li><a href="#template-engine" id="toc-template-engine" class="nav-link" data-scroll-target="#template-engine">Template engine</a></li>
   </ul></li>
   <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">2. Metadata</a>
@@ -227,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 17, 2024</p>
+      <p class="date-modified">April 24, 2024</p>
     </div>
   </div>
     
@@ -252,15 +250,15 @@ Course Overview
 💬 <strong>Learning Objectives:</strong></p>
 <ol type="1">
 <li>Organize and structure your data and data analysis with Cookiecutter templates</li>
-<li>Establish metadata fields and collect metadata when creating a cookiecutter folder</li>
+<li>Define metadata fields and collect metadata when creating a Cookiecutter folder</li>
 <li>Establish naming conventions for your data</li>
-<li>Make a catalog of your data</li>
-<li>Create GitHub repositories of your data analysis and display them as GitHub Pages</li>
+<li>Create a catalog of your data</li>
+<li>Use GitHub repositories of your data analysis and display them as GitHub Pages</li>
 <li>Archive GitHub repositories on Zenodo</li>
 </ol>
 </div>
 </div>
-<p>This is a practical version of the full RDM on NGS data workshop. The main key points of the exercises shown here are to help you organize and structure your NGS datasets and your data analyses. We will see how to keep track of your experiments metadata and how to safely version control and archive your data analyses using GitHub repositories and Zenodo. We hope that through these practical exercises and step-by-step guidance, you’ll gain valuable skills in efficiently managing and sharing your research data, enhancing the reproducibility and impact of your work.</p>
+<p>This practical version covers practical aspects of RDM applied to biodata. The exercises provided here aim to help you organize and structure your datasets and data analyses. You’ll learn how to manage your experimental metadata effectively and safely version control and archive your data analyses using GitHub repositories and Zenodo. Through these guided exercises and step-by-step instructions, we hope you will acquire essential skills for managing and sharing your research data efficiently, thereby enhancing the reproducibility and impact of your work.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Requirements">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -271,17 +269,20 @@ Requirements
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ensure that all necessary tools and software are installed before proceeding with the practical exercises.</p>
+<p>Ensure all necessary tools and software are installed before beginning the practical exercises:</p>
 <ul>
-<li><p>A <a href="https://github.com/">GitHub account</a></p></li>
-<li><p><a href="https://git-scm.com/downloads">Git</a></p></li>
-<li><p>A <a href="https://zenodo.org/">Zenodo account</a></p></li>
-<li><p><a href="https://www.python.org/">Python</a></p></li>
-<li><p><a href="https://pip.pypa.io/en/stable/installation/">pip</a></p></li>
-<li><p><a href="https://cookiecutter.readthedocs.io/en/stable/">Cookicutter</a> to create folder structure templates (<code>pip install cookiecutter</code>)</p></li>
-<li><p><a href="https://cruft.github.io/cruft/">cruft</a> to version control your templates (<code>pip install cruft</code>)</p></li>
-<li><p>Option a. Install <a href="https://quarto.org/docs/get-started/">Quarto</a>. We recommend Quarto as is easy to use and provides native support for notebooks (R Markdown and Jupyter Notebooks). No extensions or dependencies are needed.</p></li>
-<li><p>Option b. Install MkDocs and MkDocs extensions using the command line.</p></li>
+<li>A <a href="https://github.com/">GitHub account</a> for hosting and collaborating on projects</li>
+<li><a href="https://git-scm.com/downloads">Git</a> for version control of your projects</li>
+<li>A <a href="https://zenodo.org/">Zenodo account</a> for archiving and sharing your research outputs</li>
+<li><a href="https://www.python.org/">Python</a></li>
+<li><a href="https://pip.pypa.io/en/stable/installation/">pip</a> for managing Python packages</li>
+<li><a href="https://cookiecutter.readthedocs.io/en/stable/">Cookicutter</a> for creating folder structure templates (<code>pip install cookiecutter</code>)</li>
+<li><a href="https://cruft.github.io/cruft/">cruft</a> to version control your templates (<code>pip install cruft</code>)</li>
+</ul>
+<p>Two more tools will be required, choose the one you are familiar with or the first option:</p>
+<ul>
+<li>Option a. Install <a href="https://quarto.org/docs/get-started/">Quarto</a>. We recommend Quarto as is easy to use and provides native support for notebooks (both R Markdown and Jupyter Notebooks). It requires no additional extensions or dependencies.</li>
+<li>Option b. Install MkDocs and MkDocs extensions using the command line. Additional extensions are optional but can be useful if you choose this approach.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs <span class="co"># create webpages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-material <span class="co"># customize webpages</span></span>
@@ -289,108 +290,208 @@ Requirements
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-minify-plugin <span class="co"># Minimize html code</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-git-revision-date-localized-plugin <span class="co"># display last updated date </span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-jupyter <span class="co"># include Jupyter notebooks</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-table-reader-plugin</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-bibtex <span class="co"># add references in your text (`.bib`)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install neoteroi-mkdocs <span class="co"># create author cards</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-table-reader-plugin <span class="co"># embed tabular format files (`.tsv`)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-bibtex <span class="co"># add references in your text (`.bib`)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install neoteroi-mkdocs <span class="co"># create author cards</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mkdocs-table-reader-plugin <span class="co"># embed tabular format files (`.tsv`)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<section id="organize-and-structure-your-ngs-data-and-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="organize-and-structure-your-ngs-data-and-data-analysis">1. Organize and structure your NGS data and data analysis</h2>
-<p>Applying a consistent file structure and naming conventions to your files will help you to efficiently manage your data. We will divide your NGS data and data analyses into two different types of folders:</p>
+<section id="organize-and-structure-your-datasets-and-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="organize-and-structure-your-datasets-and-data-analysis">1. Organize and structure your datasets and data analysis</h2>
+<p>Establishing a consistent file structure and naming conventions will help you efficiently manage your data. We will classify your data and data analyses into two distinct types of folders to ensure the data can be used and shared by many lab members while preventing modifications by any individual:</p>
 <ol type="1">
-<li><strong>Assay folders</strong>: These folders contain the <strong>raw and processed NGS datasets</strong>, as well as the <strong>pipeline/workflow</strong> used to generate the processed data, provenance of the raw data, and quality control reports of the data. This data should be <strong>locked and read-only</strong> to prevent unwanted modifications.</li>
-<li><strong>Project folders</strong>: These folders contain <strong>all the necessary files for a specific research project</strong>. A project may use several assays or results from other projects. The assay data should not be copied or duplicated, but linked from the source.</li>
+<li><strong>Data folders</strong> (assay or external databases and resources): They house the <strong>raw and processed datasets</strong>, alongside the pipeline/workflow used to generate the processed data, the provenance of the raw data, and quality control reports of the data. The data should be <strong>locked and set to read-only</strong> to prevent unintended modifications. This applies to experimental data generated in your lab as well as external resources. Provide an MD5 checksum file when you download them yourself to verify their integrity.</li>
+<li><strong>Project folders</strong>: They contain <strong>all the essential files for a specific research project</strong>. Projects may use data from various resources or experiments, or build upon previous results from other projects. The data should not be copied or duplicated, instead, it should be linked directly from the source.</li>
 </ol>
-<p>Projects and Assays are separated from each other because a project may use one or more assays to answer a scientific question, and assays may be reused several times in different projects. This could be, for example, all the data analysis related to a publication (an RNAseq and a ChIPseq experiment), or a comparison between a previous ATACseq experiment (which was used for a older project) with a new laboratory protocol.</p>
-<p>You could also create <strong>Genomic resources folders</strong> things such as genome references (fasta files) and annotations (gtf files) for different species, as well as indexes for different alignment algorithms. If you want to know more, feel free to check the relevant <a href="../develop/03_DOD.html#genomic-resources-folder">full lesson</a></p>
+<p>Data and data analysis are kept separate because a project may utilize one or more datasets to address a scientific question. Data can be reused in multiple projects over time, combined with other datasets for comparison, or used to build larger datasets. Additionally, data may be utilized by different researchers to answer various research questions.</p>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<p>When organizing your data folders, separate assays from external resources and maintain a consistent structure. For example, organize genome references by species and further categorize them by versions. Make sure to include all relevant information, and refer to <a href="../develop/03_DOD.html#folder-organization">this lesson</a> for additional tips on data organization.</p>
 <p>This will help you to keep your data tidied up, especially if you are working in a big lab where assays may be used for different purposes and by different people!</p>
-<section id="assay-folder" class="level3">
-<h3 class="anchored" data-anchor-id="assay-folder">Assay folder</h3>
-<p>For each NGS experiment, there should be an <code>Assay</code> folder that will contain all experimental datasets, that is, an <code>Assay</code> (raw files and pipeline processed files). Raw files should not be modified at all, but you should probably lock modifications to the final results once you are done with preprocessing the data. This will help you prevent unwanted modifications to the data. Each <code>Assay</code> subfolder should be named in a way that is unique, easily readable, distinguishable, and understood at a glance. For example, you could name an NGS assay using an acronym for the type of NGS assay (RNAseq, ChIPseq, ATACseq), a keyword that represents a unique descriptive element of that assay, and the date. Like this:</p>
-<pre><code>&lt;Assay-ID&gt;_&lt;keyword&gt;_YYYYMMDD</code></pre>
-<p>For example <code>CHIP_Oct4_20230101</code> is a ChIPseq assay made on 1st January 2023 with the keyword Oct4, so it is easily identifiable by the eye. Next, let’s take a look at a possible folder structure and what kind of files you can find there.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">CHIP_Oct4_20230101/</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> metadata.yml</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pipeline.md</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> processed</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> raw</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">├──</span> .fastq.gz</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">└──</span> samplesheet.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="data-folders" class="level4">
+<h4 class="anchored" data-anchor-id="data-folders">Data folders</h4>
+<p>Whether your lab generates its own experimental data, receives it from collaborators, or works with previously published datasets, the data folder should follow a similar structure to the one presented here. Create a separate folder for each dataset, including raw files and processed files alongside the corresponding documentation and pipeline that generated the processed data. Raw files should remain untouched, and you should consider locking modifications to the final results once data preprocessing is complete. This precaution helps prevent unwanted changes to the data. Each subfolder should be named in a way that is distinct, easily readable and clear at a glance. Check <a href="../develop/03_DOD.html#naming-conventions">this lesson</a> for tips on naming conventions.</p>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<p>Use an acronym (1) that describes the type of NGS assay (RNAseq, ChIPseq, ATACseq) a keyword (2) that represents a unique element to that assay, and the date (3).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>Assay-ID<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example <code>CHIP_Oct4_20230101</code> is a ChIPseq assay made on 1st January 2023 with the keyword Oct4, so it is easily identifiable by the eye.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Let’s explore a potential folder structure and the types of files you might encounter within it.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>data_type<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> CHECKSUMS</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pipeline</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> pipeline.md</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> scripts/</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> processed</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> fastqc/</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> multiqc/</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> final_fastq/</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> raw</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> .fastq.gz </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> samplesheet.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><strong>README.md</strong>: Long description of the assay in markdown format. It should contain provenance of the raw NGS data (samples, laboratory protocols used, the aim of the assay, etc)</li>
-<li><strong>metadata.yml</strong>: metadata file for the assay describing different keys and important information regarding that assay (<a href="../develop/04_metadata.html">see this lesson</a>).</li>
-<li><strong>pipeline.md</strong>: description of the pipeline used to process raw data, as well as the commands used to run the pipeline.</li>
-<li><strong>processed</strong>: folder with results of the preprocessing pipeline. Contents depend on the pipeline used.</li>
-<li><strong>raw</strong>: folder with the raw data.
+<li><strong>README.md</strong>: This file contains a detailed description of the dataset commonly in markdown format. It should include the provenance of the raw data (such as samples, laboratory protocols used, the aim of the project, folder structure, naming conventions, etc.).</li>
+<li><strong>metadata.yml</strong>: This metadata file outlines different keys and essential information, usually presented in YAML format. For more details, refer to <a href="../develop/04_metadata.html">this lesson</a>.</li>
+<li><strong>pipeline.md</strong>: This file provides an overview of the pipeline used to process raw data, as well as the commands to run the pipeline. The pipeline itself and all the required scripts should be collected in the same directory.</li>
+<li><strong>processed</strong>: This folder contains the results from the preprocessing pipeline. The content vary depending on the specific pipeline used (create additional subdirectories as needed).</li>
+<li><strong>raw</strong>: This folder holds the raw data.
 <ul>
-<li><em>.fastq.gz</em>:In the case of NGS assays, there should be fastq files.</li>
-<li><em>samplesheet.csv</em>: file that contains metadata information for the samples. This file is used to run the nf-core pipelines. You can also add extra columns with info regarding the experimental variables and batches so it can be used for downstream analysis as well.</li>
+<li><em>.fastq.gz</em>: For example, in NGS assays, there should be ‘fastq’ files.</li>
+<li><em>samplesheet.csv</em>: This file holds essential metadata for the samples, including sample identification, experimental variables, batch information, and other metrics crucial for downstream analysis. It is important that this file is complete and current, as it is key to interpreting results. If you are considering running nf-core pipelines, this file will be required.</li>
 </ul></li>
 </ul>
 </section>
-<section id="project-folder" class="level3">
-<h3 class="anchored" data-anchor-id="project-folder">Project folder</h3>
-<p>On the other hand, we have the other type of folder called <code>Projects</code>. In this folder, you will save a <strong>subfolder for each project</strong> that you (or your lab) work on. Each <code>Project</code> subfolder will contain project information and all the data analysis notebooks and scripts used in that project.</p>
-<p>As like for an Assay folder, the Project folder should be named in a way that is unique, easily readable, distinguishable, and understood at a glance. For example, you could name it after the main author’s initials, a keyword that represents a unique descriptive element of that assay, and the date:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>author_initials<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example, <code>JARH_Oct4_20230101</code>, is a project about the gene Oct4 owned by Jose Alejandro Romero Herrera, created on the 1st of January of 2023.</p>
-<p>Next, let’s take a look at a possible folder structure and what kind of files you can find there.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>author_initials<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span>
+<section id="project-folders" class="level4">
+<h4 class="anchored" data-anchor-id="project-folders">Project folders</h4>
+<p>On the other hand, we have another type of folder called Projects which refers to data analyses that are specific to particular tasks, such as those involved in preparing a potential article. In this folder, you will create a subfolder for each project that you or your lab is working on. Each Project subfolder should include project-specific information, data analysis pipelines, notebooks, and scripts used for that particular project. Additionally, you should include an environment file with all the required software and dependencies needed for the project, including their versions. This helps ensure that the analyses can be easily replicated and shared with others.</p>
+<p>The Project folder should be named in a way that is unique, easy to read, distinguishable, and clear at a glance. For example, you might name it based on the main author’s initials, the dataset being analyzed, the project name, a unique descriptive element related to the project, or the part of the project you are responsible for, along with the date:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>project<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Naming examples
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<ul>
+<li><code>RNASeq_Mouse_Brain_20230512</code>: a project RNA sequencing data from a mouse brain experiment, created on May 12, 2023</li>
+<li><code>EHR_COVID19_Study_20230115</code>: a project around electronic health records data for a COVID-19 study, created on January 15, 2023.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Now, let’s explore an example of a folder structure and the types of files you might encounter within it.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>project<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── <span class="op">&lt;</span>Assay-ID<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD/</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── <span class="op">&lt;</span>ID<span class="op">&gt;</span>_<span class="op">&lt;</span>keyword<span class="op">&gt;</span>_YYYYMMDD <span class="op">&lt;</span>- symbolic link</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> documents</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── Non-sensitive_NGS_research_project_template.docx</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> notebooks</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 01_data_analysis.rmd</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  ├── figures</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── 01_data_analysis/</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │   └── heatmap_sampleCor_20230102.png</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 01_data_analysis.html</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> requirements.txt</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> results</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 01_data_analysis/</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>      └── DEA_treat-control_LFC1_p01.tsv</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> scripts</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> metadata.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── research_project_template.docx</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> metadata.yml</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> notebooks</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 01_data_processing.rmd</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 02_data_analysis.rmd</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 03_data_visualization.rmd</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> reports</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 01_data_processing.html</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── 02_data_analysis.html</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  ├── 03_data_visualization.html</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── figures</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── tables</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> requirements.txt // env.yaml</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> results</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  ├── figures</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── 02_data_analysis/</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │    └── heatmap_sampleCor_20230102.png</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  ├── tables</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── 02_data_analysis/</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │    └── DEA_treat-control_LFC1_p01.tsv</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │    └── SumStats_sampleCor_20230102.tsv</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> pipeline</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  ├── rules // processes </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  │  └── step1_data_processing.smk</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>  └── pipeline.md</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> scratch</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> scripts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><strong>data</strong>: a folder that contains symlinks or shortcuts to where the data is, avoiding copying and modification of original files.</li>
-<li><strong>documents</strong>: a folder containing Word documents, slides, or PDFs related to the project, such as explanations of the data or project, papers, etc. It also contains your <a href="../develop/02_DMP.html">Data Management Plan</a>.
+<li><strong>data</strong>: This folder contains symlinks or shortcuts to the actual data files, ensuring that the original files remain unaltered.</li>
+<li><strong>documents</strong>: This folder houses Word documents, slides, or PDFs associated with the project, including data and project explanations, research papers, and more. It also includes the <a href="../develop/02_DMP.html">Data Management Plan</a>.
 <ul>
-<li><em>Non-sensitive_NGS_research_project_template.docx</em>. This is a pre-filled Data Management Plan based on the Horizon Europe guidelines.</li>
+<li><em>research_project_template.docx</em>. If you download our template you will find a is a pre-filled Data Management Plan based on the Horizon Europe guidelines named ‘Non-sensitive_NGS_research_project_template.docx’.</li>
 </ul></li>
-<li><strong>notebooks</strong>: a folder containing Jupyter, R markdown, or Quarto notebooks with the actual data analysis.</li>
-<li><strong>README.md</strong>: detailed description of the project in markdown format.</li>
-<li><strong>reports</strong>: notebooks rendered as HTML/docx/pdf versions, ideal for sharing with colleagues and also as a formal report of the data analysis procedure.
+<li><strong>metadata.yml</strong>: metadata file describing various keys of the project or experiment (<a href="../develop/04_metadata.html">see this lesson</a>).</li>
+<li><strong>notebooks</strong>: This folder stores Jupyter, R Markdown, or Quarto notebooks containing the data analysis. Figures and tables used for the reports are organized under subfolders named after the notebook that created them for provenance purposes.</li>
+<li><strong>README.md</strong>: A detailed project description in markdown or plain-text format.</li>
+<li><strong>reports</strong>: Notebooks rendered as HTML, docx, or PDF files for sharing with colleagues or as formal data analysis reports.
 <ul>
 <li><em>figures</em>: figures produced upon rendering notebooks. The figures will be saved under a subfolder named after the notebook that created them. This is for provenance purposes so we know which notebook created which figures.</li>
 </ul></li>
-<li><strong>requirements.txt</strong>: file explaining what software and libraries/packages and their versions are necessary to reproduce the code.</li>
-<li><strong>results</strong>: results from the data analysis, such as tables with differentially expressed genes, enrichment results, etc.</li>
-<li><strong>scripts</strong>: folder containing helper scripts needed to run data analysis or reproduce the work of the folder</li>
-<li><strong>description.yml</strong>: a short description of the project.</li>
-<li><strong>metadata.yml</strong>: metadata file for the assay describing different keys (<a href="../develop/04_metadata.html">see this lesson</a>).</li>
+<li><strong>requirements.txt</strong>: This file lists the necessary software, libraries, and their versions required to reproduce the code. If you’re using conda environments, you will also find the env.yaml file here, which outlines the specific environment configuration.</li>
+<li><strong>results</strong>: This folder contains analysis results, such as figures and tables. Organizing results by the pipeline, script, or notebook that generated them will make it easier to locate and interpret the data.</li>
+<li><strong>pipeline</strong>: A folder containing pipeline scripts or workflows for processing and analyzing data.</li>
+<li><strong>scratch</strong>: A folder designated for temporary files or workspace for experiments and development.</li>
+<li><strong>scripts</strong>: Folder for helper scripts needed to run data analysis or reproduce the work.</li>
 </ul>
 </section>
 <section id="template-engine" class="level3">
 <h3 class="anchored" data-anchor-id="template-engine">Template engine</h3>
-<p>It is very easy to create a folder template using <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a>. Cookiecutter is a command-line utility that creates projects from cookiecutters (that is, a template), e.g.&nbsp;creating a Python package project from a Python package project template. Here you can find an example of a cookiecutter folder template-directed to <a href="https://github.com/brickmanlab/ngs-template">NGS data</a>, where we have applied the structures explained in the previous sections. You are very welcome to adapt it or modify it to your needs!</p>
+<p>Creating a folder template is straightforward with <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> a command-line tool that generates projects from templates (called cookiecutters). For example, it can help you set up a Python package project based on a Python package project template.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Cookiecutter templates">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cookiecutter templates
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are some template that you can use to get started, adapt and modify them to your own needs:</p>
+<ul>
+<li><a href="https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial1.html#step-1-generate-a-python-package-project">Python package project</a></li>
+<li><a href="https://github.com/hds-sandbox/project-template/">Sandbox test</a></li>
+<li><a href="https://github.com/drivendata/cookiecutter-data-science/">Data science</a></li>
+<li><a href="https://github.com/brickmanlab/ngs-template">NGS data</a></li>
+</ul>
+<p>Create your own template from <a href="https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial2.html">scratch</a>.</p>
+</div>
+</div>
 <section id="quick-tutorial-on-cookiecutter" class="level4">
 <h4 class="anchored" data-anchor-id="quick-tutorial-on-cookiecutter">Quick tutorial on cookiecutter</h4>
-<p>Creating a Cookiecutter template from scratch involves defining a folder structure, creating a <code>cookiecutter.json</code> file, and specifying the placeholders (keywords) that will be replaced during project generation. Let’s walk through the process step by step:</p>
+<p>Building a Cookiecutter template from scratch requires defining a folder structure, crafting a cookiecutter.json file, and outlining placeholders (keywords) that will be substituted when generating a new project. Here’s a step-by-step guide on how to proceed:</p>
 <section id="step-1-create-a-folder-template" class="level5">
 <h5 class="anchored" data-anchor-id="step-1-create-a-folder-template">Step 1: Create a Folder Template</h5>
-<p>Start by creating a folder with the structure you want for your template. For example, let’s create a simple Python project template:</p>
+<p>First, begin by creating a folder structure that aligns with your desired template design. For instance, let’s set up a simple Python project template:</p>
 <pre class="plaintext"><code>my_template/
 |-- {{cookiecutter.project_name}}
 |   |-- main.py
 |-- tests
 |   |-- test_{{cookiecutter.project_name}}.py
 |-- README.md</code></pre>
-<p>In this example, <code>{cookiecutter.project_name}</code> is a placeholder that will be replaced with the actual project name when the template is used.</p>
+<p>In this example, <code>{cookiecutter.project_name}</code> is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script (‘main.py’), a subdirectory (‘tests’) with a second python script named after the project (‘test_{{cookiecutter.project_name}}.py’) and a ‘README.md’ file.</p>
 </section>
 <section id="step-2-create-cookiecutter.json" class="level5">
 <h5 class="anchored" data-anchor-id="step-2-create-cookiecutter.json">Step 2: Create <code>cookiecutter.json</code></h5>
@@ -400,14 +501,15 @@ Requirements
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"author_name"</span><span class="fu">:</span> <span class="st">"Your Name"</span><span class="fu">,</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"A short description of your project"</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These are the questions users will be asked when generating a project based on your template. The values provided here will be used to replace the corresponding placeholders in the template files.</p>
-<p>In addition to replacing placeholders in files and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let’s extend our previous example to include a placeholder inside a text file:</p>
+<p>When users generate a project based on your template, they will be prompted with these questions. The provided values (“responses”) will be used to substitute the placeholders in your template files.</p>
+<p>Beyond substituting placeholders in file and directory names, Cookiecutter can automatically populate text file contents with information. This feature is useful for offering default configurations or code file templates. Let’s enhance our earlier example by incorporating a placeholder within a text file:</p>
 <p>First, modify the <code>my_template/main.py</code> file to include a placeholder inside its contents:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, </span><span class="sc">{{</span><span class="st">cookiecutter.project_name</span><span class="sc">}}</span><span class="st">!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now, the <code>{cookiecutter.project_name}</code> placeholder is inside the <code>main.py</code> file. When you run Cookiecutter, it will automatically replace the placeholders not only in file and directory names but also within the contents of text files. After running Cookiecutter, your generated <code>main.py</code> file might look like this:</p>
+<p>The ‘{{cookiecutter.project_name}}’ placeholder is now included within the main.py file. When you execute Cookiecutter, it will automatically replace the placeholders in both file and directory names and within text file contents.</p>
+<p>After running Cookiecutter, your generated ‘main.py’ file could appear as follows:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
@@ -415,15 +517,15 @@ Requirements
 </section>
 <section id="step-3-use-cookiecutter" class="level5">
 <h5 class="anchored" data-anchor-id="step-3-use-cookiecutter">Step 3: Use Cookiecutter</h5>
-<p>Now that your template is set up, you can use Cookiecutter to generate a project based on it. Open a terminal and run:</p>
+<p>Once your template is prepared, you can utilize Cookiecutter to create a project from it. Open a terminal and execute:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-overflow-wrap code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cookiecutter</span> path/to/your/template</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cookiecutter will prompt you to fill in the values for <code>project_name</code>, <code>author_name</code>, and <code>description</code>. After you provide these values, Cookiecutter will replace the placeholders in your template files with the entered values.</p>
+<p>Cookiecutter will prompt you to provide values for <code>project_name</code>, <code>author_name</code>, and <code>description</code>. Once you input these values, Cookiecutter will replace the placeholders in your template files with the entered values.</p>
 </section>
-<section id="step-4-explore-the-generated-project" class="level5">
-<h5 class="anchored" data-anchor-id="step-4-explore-the-generated-project">Step 4: Explore the Generated Project</h5>
-<p>Once the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will see a project structure with the placeholders replaced by the values you provided.</p>
+<section id="step-4-review-the-generated-project" class="level5">
+<h5 class="anchored" data-anchor-id="step-4-review-the-generated-project">Step 4: Review the Generated Project</h5>
+<p>After the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will find a project structure with the placeholders replaced by the values you provided.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -432,32 +534,84 @@ Exercise 1: Create your own template
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>Using Cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs!</p>
-<p>Requirements:</p>
-<p>Using Cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs! In order to create your cookiecutter template, you will need to install Python, <a href="https://cookiecutter.readthedocs.io/en/stable/installation.html">cookiecutter</a>, Git, and a GitHub account. If you do not have Git and a GitHub account, we suggest you do one as soon as possible. We will take a deeper look at Git and GitHub in the <a href="../develop/05_VC.html">version control lesson</a>.</p>
-<p>We have prepared already two simple Cookiecutter templates in GitHub repositories.</p>
-<p><strong>Assay</strong></p>
-<ol type="1">
-<li>First, fork our <a href="https://github.com/hds-sandbox/assay-template">Assay folder template</a> from the GitHub page into your own account/organization. <img src="./images/fork_repo.png" class="img-fluid" alt="fork_repo_example"></li>
-<li>Then, use <code>git clone &lt;your URL to the template&gt;</code> to put it on your computer.</li>
-<li>Modify the contents of the repository so that it matches the <strong>Assay</strong> example above. You are welcome to make changes as you please!</li>
-<li>Modify the <code>cookiecutter.json</code> file so that it will include the <strong>Assay</strong> name template</li>
-<li>Git add, commit, and push your changes</li>
-<li>Test your folder by using <code>cookiecutter &lt;URL to your GitHub repository for "assay-template&gt;</code></li>
-</ol>
+<p>Use Cookiecutter to create custom templates for your folders. You can do it from scratch (see Exercise 1, part B) or opt for one of our pre-made templates available as a Github repository (recommended for this workshop). Feel free to tailor the template to your specific requirements—you don’t have to follow our examples exactly.</p>
+<p><strong>Requirements</strong> We assume you have already gone through the requirements at the beginning of the practical lesson. This includes installing the necessary tools and setting up accounts as needed.</p>
 <p><strong>Project</strong></p>
 <ol type="1">
-<li>First, fork our <a href="https://github.com/hds-sandbox/project-template">Project folder template</a> from the GitHub page into your own account/organization. <img src="./images/fork_repo_project.png" class="img-fluid" alt="fork_repo_example"></li>
-<li>Then, use <code>git clone &lt;your URL to the template&gt;</code> to put it on your computer.</li>
-<li>Modify the contents of the repository so that it matches the <strong>Project</strong> example above. You are welcome to make changes as you please!</li>
-<li>Modify the <code>cookiecutter.json</code> file so that it will include the <strong>Project</strong> name template</li>
-<li>Git add, commit, and push your changes</li>
-<li>Test your folder by using <code>cookiecutter &lt;URL to your GitHub repository for "project-template&gt;</code></li>
+<li>Go to our <a href="https://github.com/hds-sandbox/cookiecutter-template">Cookicutter template</a> and click on the **Fork*</li>
 </ol>
+<ul>
+<li>button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization. <img src="./images/fork_repo_project.png" class="img-fluid" alt="fork_repo_example"></li>
+</ul>
+<ol start="2" type="1">
+<li>Open a terminal on your computer, copy the URL of your fork and <strong>clone</strong> the repository to your local machine (the URL should look something like https://github.com/your_username/cookiecutter-template):</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>your URL to the template<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you have a GitHub Desktop, click <strong>Add</strong> and select “Clone repository” from the options 3. Open the repository and navigate through the different directories 4. Modify the contents of the repository as needed to fit your project’s requirements. You can change files, add new ones. remove existing one or adjust the folder structure. For inspiration, review the data structure above under ‘Project folder’. For instance, this template is missing the ‘reports’ directory. Consider creating it, along with a subdirectory named ‘figures’. Here’s an example of how to do it:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="dt">\{\{\ </span>cookiecutter.project_name\ \}\}/  </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> reports </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>Modify the <code>cookiecutter.json</code> file. You could add new variables or change the default values:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># open a text editor</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"author"</span><span class="ex">:</span> <span class="st">"Alba Refoyo"</span>,</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>Commit and push changes when you are done with your modifications</li>
+</ol>
+<ul>
+<li>Stage the changes with ‘git add’</li>
+<li>Commit the changes with a meaningful commit message ‘git commit -m “update cookicutter template”’</li>
+<li>Push the changes to your forked repository on Github ‘git push origin main’ (or the appropriate branch name)</li>
+</ul>
+<ol start="6" type="1">
+<li>Test your template by using <code>cookiecutter &lt;URL to your GitHub repository "cookicutter-template"&gt;</code> Fill up the variables and verify that the modified template looks like you would expect.<br>
+</li>
+<li>Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="st">"__prompts__"</span><span class="ex">:</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"project_name"</span><span class="ex">:</span> <span class="st">"Project directory name [Example: project_short_description_202X]"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"author"</span><span class="ex">:</span> <span class="st">"Author of the project"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"date"</span><span class="ex">:</span> <span class="st">"Date of project creation, default is today's date"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"short_description"</span><span class="ex">:</span> <span class="st">"Provide a detailed description of the project (context/content)"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">}</span><span class="ex">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional Exercise 1, part B
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-exercise">
+<p>Create a template from scratch using this tutorial <a href="https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial2.html">scratch</a>, it can be as basic as this one below or ‘Data folder’:</p>
+<pre class="plaintext"><code>my_template/
+|-- {{cookiecutter.project_name}}
+|   |-- main.py
+|-- tests
+|   |-- test_{{cookiecutter.project_name}}.py
+|-- README.md</code></pre>
+<ul>
+<li>Step 1: Create a directory for the template.</li>
+<li>Step 2: Write a cookiecutter.json file with variables such as project_name and author.</li>
+<li>Step 3: Set up the folder structure by creating subdirectories and files as needed.</li>
+<li>Step 4: Incorporate cookiecutter variables in the names of files.</li>
+<li>Step 5: Use cookiecutter variables within scripts, such as printing a message that includes the project name.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -469,7 +623,7 @@ Exercise 1: Create your own template
 </section>
 <section id="metadata" class="level2">
 <h2 class="anchored" data-anchor-id="metadata">2. Metadata</h2>
-<p>Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For NGS data, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let’s check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.</p>
+<p>Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For biodata, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let’s check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Metadata and controlled vocabularies">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -487,31 +641,31 @@ Metadata and controlled vocabularies
 <h3 class="anchored" data-anchor-id="readme.md-file">README.md file</h3>
 <p>The README.md file is a <a href="https://www.markdownguide.org/">markdown file</a> that allows you to write a long description of the data placed in a folder. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, and how and when. If it is an <code>Assay</code> folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment, and any sort of comments that would help to understand the context of the experiment. On the other hand, a ‘Project’ README file may contain a description of the project, what are its aims, why is it important, what ‘Assays’ is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.</p>
 <p>Here is an example of a README file for a <code>Project</code> folder:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-overflow-wrap code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NGS Analysis Project: Exploring Gene Expression in Human Tissues</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Aims</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> project aims to investigate gene expression patterns across various human tissues using Next Generation Sequencing <span class="er">(</span><span class="ex">NGS</span><span class="kw">)</span> <span class="ex">data.</span> By analyzing the transcriptomes of different tissues, we seek to uncover tissue-specific gene expression profiles and identify potential markers associated with specific biological functions or diseases.</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Why It's Important</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Understanding</span> tissue-specific gene expression is crucial for deciphering the molecular basis of health and disease. Identifying genes that are uniquely expressed in certain tissues can provide insights into tissue function, development, and potential therapeutic targets. This project contributes to our broader understanding of human biology and has implications for personalized medicine and disease research.</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Datasets</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ex">We</span> have used internal datasets with IDs: RNA_humanSkin_20201030, RNA_humanBrain_20210102, RNA_humanLung_20220304.</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ex">In</span> addition, we utilized publicly available NGS datasets from the GTEx <span class="er">(</span><span class="ex">Genotype-Tissue</span> Expression<span class="kw">)</span> <span class="ex">project,</span> which provides comprehensive RNA-seq data across multiple human tissues. These datasets offer a wealth of information on gene expression levels and isoform variations across diverse tissues, making them ideal for our analysis.</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Summary of Results</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Our</span> analysis revealed distinct gene expression patterns among different human tissues. We identified tissue-specific genes enriched in brain tissues, highlighting their potential roles in neurodevelopment and function. Additionally, we found a set of genes that exhibit consistent expression across a range of tissues, suggesting their fundamental importance in basic cellular processes.</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Furthermore,</span> our differential expression analysis unveiled significant changes in gene expression between healthy and diseased tissues, shedding light on potential molecular factors underlying various diseases. Overall, this project underscores the power of NGS data in unraveling intricate gene expression networks and their implications for human health.</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> more details, refer to our [Jupyter Notebook]<span class="er">(</span><span class="ex">link-to-jupyter-notebook.ipynb</span><span class="kw">)</span> <span class="cf">for</span> the <span class="bu">complete</span> analysis pipeline and code.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-overflow-wrap code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NGS Analysis Project: Exploring Gene Expression in Human Tissues</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Aims</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> project aims to investigate gene expression patterns across various human tissues using Next Generation Sequencing <span class="er">(</span><span class="ex">NGS</span><span class="kw">)</span> <span class="ex">data.</span> By analyzing the transcriptomes of different tissues, we seek to uncover tissue-specific gene expression profiles and identify potential markers associated with specific biological functions or diseases.</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Why It's Important</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Understanding</span> tissue-specific gene expression is crucial for deciphering the molecular basis of health and disease. Identifying genes that are uniquely expressed in certain tissues can provide insights into tissue function, development, and potential therapeutic targets. This project contributes to our broader understanding of human biology and has implications for personalized medicine and disease research.</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Datasets</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="ex">We</span> have used internal datasets with IDs: RNA_humanSkin_20201030, RNA_humanBrain_20210102, RNA_humanLung_20220304.</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="ex">In</span> addition, we utilized publicly available NGS datasets from the GTEx <span class="er">(</span><span class="ex">Genotype-Tissue</span> Expression<span class="kw">)</span> <span class="ex">project,</span> which provides comprehensive RNA-seq data across multiple human tissues. These datasets offer a wealth of information on gene expression levels and isoform variations across diverse tissues, making them ideal for our analysis.</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Summary of Results</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Our</span> analysis revealed distinct gene expression patterns among different human tissues. We identified tissue-specific genes enriched in brain tissues, highlighting their potential roles in neurodevelopment and function. Additionally, we found a set of genes that exhibit consistent expression across a range of tissues, suggesting their fundamental importance in basic cellular processes.</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Furthermore,</span> our differential expression analysis unveiled significant changes in gene expression between healthy and diseased tissues, shedding light on potential molecular factors underlying various diseases. Overall, this project underscores the power of NGS data in unraveling intricate gene expression networks and their implications for human health.</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> more details, refer to our [Jupyter Notebook]<span class="er">(</span><span class="ex">link-to-jupyter-notebook.ipynb</span><span class="kw">)</span> <span class="cf">for</span> the <span class="bu">complete</span> analysis pipeline and code.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="metadata.yml" class="level3">
 <h3 class="anchored" data-anchor-id="metadata.yml">metadata.yml</h3>
@@ -545,23 +699,23 @@ Metadata and controlled vocabularies
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="ifvlacecvb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ifvlacecvb table {
+<div id="xhhqjkyojf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xhhqjkyojf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ifvlacecvb thead, #ifvlacecvb tbody, #ifvlacecvb tfoot, #ifvlacecvb tr, #ifvlacecvb td, #ifvlacecvb th {
+#xhhqjkyojf thead, #xhhqjkyojf tbody, #xhhqjkyojf tfoot, #xhhqjkyojf tr, #xhhqjkyojf td, #xhhqjkyojf th {
   border-style: none;
 }
 
-#ifvlacecvb p {
+#xhhqjkyojf p {
   margin: 0;
   padding: 0;
 }
 
-#ifvlacecvb .gt_table {
+#xhhqjkyojf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -587,12 +741,12 @@ Metadata and controlled vocabularies
   border-left-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_caption {
+#xhhqjkyojf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ifvlacecvb .gt_title {
+#xhhqjkyojf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -604,7 +758,7 @@ Metadata and controlled vocabularies
   border-bottom-width: 0;
 }
 
-#ifvlacecvb .gt_subtitle {
+#xhhqjkyojf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -616,7 +770,7 @@ Metadata and controlled vocabularies
   border-top-width: 0;
 }
 
-#ifvlacecvb .gt_heading {
+#xhhqjkyojf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -628,13 +782,13 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_bottom_border {
+#xhhqjkyojf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_col_headings {
+#xhhqjkyojf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -649,7 +803,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_col_heading {
+#xhhqjkyojf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -669,7 +823,7 @@ Metadata and controlled vocabularies
   overflow-x: hidden;
 }
 
-#ifvlacecvb .gt_column_spanner_outer {
+#xhhqjkyojf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -681,15 +835,15 @@ Metadata and controlled vocabularies
   padding-right: 4px;
 }
 
-#ifvlacecvb .gt_column_spanner_outer:first-child {
+#xhhqjkyojf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ifvlacecvb .gt_column_spanner_outer:last-child {
+#xhhqjkyojf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ifvlacecvb .gt_column_spanner {
+#xhhqjkyojf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -701,11 +855,11 @@ Metadata and controlled vocabularies
   width: 100%;
 }
 
-#ifvlacecvb .gt_spanner_row {
+#xhhqjkyojf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ifvlacecvb .gt_group_heading {
+#xhhqjkyojf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -731,7 +885,7 @@ Metadata and controlled vocabularies
   text-align: left;
 }
 
-#ifvlacecvb .gt_empty_group_heading {
+#xhhqjkyojf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -746,15 +900,15 @@ Metadata and controlled vocabularies
   vertical-align: middle;
 }
 
-#ifvlacecvb .gt_from_md > :first-child {
+#xhhqjkyojf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ifvlacecvb .gt_from_md > :last-child {
+#xhhqjkyojf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ifvlacecvb .gt_row {
+#xhhqjkyojf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -773,7 +927,7 @@ Metadata and controlled vocabularies
   overflow-x: hidden;
 }
 
-#ifvlacecvb .gt_stub {
+#xhhqjkyojf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -786,7 +940,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#ifvlacecvb .gt_stub_row_group {
+#xhhqjkyojf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -800,15 +954,15 @@ Metadata and controlled vocabularies
   vertical-align: top;
 }
 
-#ifvlacecvb .gt_row_group_first td {
+#xhhqjkyojf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ifvlacecvb .gt_row_group_first th {
+#xhhqjkyojf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ifvlacecvb .gt_summary_row {
+#xhhqjkyojf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -818,16 +972,16 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#ifvlacecvb .gt_first_summary_row {
+#xhhqjkyojf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_first_summary_row.thick {
+#xhhqjkyojf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ifvlacecvb .gt_last_summary_row {
+#xhhqjkyojf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -837,7 +991,7 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_grand_summary_row {
+#xhhqjkyojf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -847,7 +1001,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#ifvlacecvb .gt_first_grand_summary_row {
+#xhhqjkyojf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -857,7 +1011,7 @@ Metadata and controlled vocabularies
   border-top-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_last_grand_summary_row_top {
+#xhhqjkyojf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -867,11 +1021,11 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_striped {
+#xhhqjkyojf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ifvlacecvb .gt_table_body {
+#xhhqjkyojf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -880,7 +1034,7 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_footnotes {
+#xhhqjkyojf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -894,7 +1048,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_footnote {
+#xhhqjkyojf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -903,7 +1057,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#ifvlacecvb .gt_sourcenotes {
+#xhhqjkyojf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -917,7 +1071,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#ifvlacecvb .gt_sourcenote {
+#xhhqjkyojf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -925,63 +1079,63 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#ifvlacecvb .gt_left {
+#xhhqjkyojf .gt_left {
   text-align: left;
 }
 
-#ifvlacecvb .gt_center {
+#xhhqjkyojf .gt_center {
   text-align: center;
 }
 
-#ifvlacecvb .gt_right {
+#xhhqjkyojf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ifvlacecvb .gt_font_normal {
+#xhhqjkyojf .gt_font_normal {
   font-weight: normal;
 }
 
-#ifvlacecvb .gt_font_bold {
+#xhhqjkyojf .gt_font_bold {
   font-weight: bold;
 }
 
-#ifvlacecvb .gt_font_italic {
+#xhhqjkyojf .gt_font_italic {
   font-style: italic;
 }
 
-#ifvlacecvb .gt_super {
+#xhhqjkyojf .gt_super {
   font-size: 65%;
 }
 
-#ifvlacecvb .gt_footnote_marks {
+#xhhqjkyojf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ifvlacecvb .gt_asterisk {
+#xhhqjkyojf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ifvlacecvb .gt_indent_1 {
+#xhhqjkyojf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ifvlacecvb .gt_indent_2 {
+#xhhqjkyojf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ifvlacecvb .gt_indent_3 {
+#xhhqjkyojf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ifvlacecvb .gt_indent_4 {
+#xhhqjkyojf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ifvlacecvb .gt_indent_5 {
+#xhhqjkyojf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1151,23 +1305,23 @@ Metadata and controlled vocabularies
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="xscmhhfzmk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xscmhhfzmk table {
+<div id="nqyogfnddt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nqyogfnddt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xscmhhfzmk thead, #xscmhhfzmk tbody, #xscmhhfzmk tfoot, #xscmhhfzmk tr, #xscmhhfzmk td, #xscmhhfzmk th {
+#nqyogfnddt thead, #nqyogfnddt tbody, #nqyogfnddt tfoot, #nqyogfnddt tr, #nqyogfnddt td, #nqyogfnddt th {
   border-style: none;
 }
 
-#xscmhhfzmk p {
+#nqyogfnddt p {
   margin: 0;
   padding: 0;
 }
 
-#xscmhhfzmk .gt_table {
+#nqyogfnddt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1193,12 +1347,12 @@ Metadata and controlled vocabularies
   border-left-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_caption {
+#nqyogfnddt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xscmhhfzmk .gt_title {
+#nqyogfnddt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1210,7 +1364,7 @@ Metadata and controlled vocabularies
   border-bottom-width: 0;
 }
 
-#xscmhhfzmk .gt_subtitle {
+#nqyogfnddt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1222,7 +1376,7 @@ Metadata and controlled vocabularies
   border-top-width: 0;
 }
 
-#xscmhhfzmk .gt_heading {
+#nqyogfnddt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1234,13 +1388,13 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_bottom_border {
+#nqyogfnddt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_col_headings {
+#nqyogfnddt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1255,7 +1409,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_col_heading {
+#nqyogfnddt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1275,7 +1429,7 @@ Metadata and controlled vocabularies
   overflow-x: hidden;
 }
 
-#xscmhhfzmk .gt_column_spanner_outer {
+#nqyogfnddt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1287,15 +1441,15 @@ Metadata and controlled vocabularies
   padding-right: 4px;
 }
 
-#xscmhhfzmk .gt_column_spanner_outer:first-child {
+#nqyogfnddt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xscmhhfzmk .gt_column_spanner_outer:last-child {
+#nqyogfnddt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xscmhhfzmk .gt_column_spanner {
+#nqyogfnddt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1307,11 +1461,11 @@ Metadata and controlled vocabularies
   width: 100%;
 }
 
-#xscmhhfzmk .gt_spanner_row {
+#nqyogfnddt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xscmhhfzmk .gt_group_heading {
+#nqyogfnddt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1337,7 +1491,7 @@ Metadata and controlled vocabularies
   text-align: left;
 }
 
-#xscmhhfzmk .gt_empty_group_heading {
+#nqyogfnddt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1352,15 +1506,15 @@ Metadata and controlled vocabularies
   vertical-align: middle;
 }
 
-#xscmhhfzmk .gt_from_md > :first-child {
+#nqyogfnddt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xscmhhfzmk .gt_from_md > :last-child {
+#nqyogfnddt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xscmhhfzmk .gt_row {
+#nqyogfnddt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1379,7 +1533,7 @@ Metadata and controlled vocabularies
   overflow-x: hidden;
 }
 
-#xscmhhfzmk .gt_stub {
+#nqyogfnddt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1392,7 +1546,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#xscmhhfzmk .gt_stub_row_group {
+#nqyogfnddt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1406,15 +1560,15 @@ Metadata and controlled vocabularies
   vertical-align: top;
 }
 
-#xscmhhfzmk .gt_row_group_first td {
+#nqyogfnddt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xscmhhfzmk .gt_row_group_first th {
+#nqyogfnddt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xscmhhfzmk .gt_summary_row {
+#nqyogfnddt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1424,16 +1578,16 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#xscmhhfzmk .gt_first_summary_row {
+#nqyogfnddt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_first_summary_row.thick {
+#nqyogfnddt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xscmhhfzmk .gt_last_summary_row {
+#nqyogfnddt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1443,7 +1597,7 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_grand_summary_row {
+#nqyogfnddt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1453,7 +1607,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#xscmhhfzmk .gt_first_grand_summary_row {
+#nqyogfnddt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1463,7 +1617,7 @@ Metadata and controlled vocabularies
   border-top-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_last_grand_summary_row_top {
+#nqyogfnddt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1473,11 +1627,11 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_striped {
+#nqyogfnddt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xscmhhfzmk .gt_table_body {
+#nqyogfnddt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1486,7 +1640,7 @@ Metadata and controlled vocabularies
   border-bottom-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_footnotes {
+#nqyogfnddt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1500,7 +1654,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_footnote {
+#nqyogfnddt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1509,7 +1663,7 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#xscmhhfzmk .gt_sourcenotes {
+#nqyogfnddt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1523,7 +1677,7 @@ Metadata and controlled vocabularies
   border-right-color: #D3D3D3;
 }
 
-#xscmhhfzmk .gt_sourcenote {
+#nqyogfnddt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1531,63 +1685,63 @@ Metadata and controlled vocabularies
   padding-right: 5px;
 }
 
-#xscmhhfzmk .gt_left {
+#nqyogfnddt .gt_left {
   text-align: left;
 }
 
-#xscmhhfzmk .gt_center {
+#nqyogfnddt .gt_center {
   text-align: center;
 }
 
-#xscmhhfzmk .gt_right {
+#nqyogfnddt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xscmhhfzmk .gt_font_normal {
+#nqyogfnddt .gt_font_normal {
   font-weight: normal;
 }
 
-#xscmhhfzmk .gt_font_bold {
+#nqyogfnddt .gt_font_bold {
   font-weight: bold;
 }
 
-#xscmhhfzmk .gt_font_italic {
+#nqyogfnddt .gt_font_italic {
   font-style: italic;
 }
 
-#xscmhhfzmk .gt_super {
+#nqyogfnddt .gt_super {
   font-size: 65%;
 }
 
-#xscmhhfzmk .gt_footnote_marks {
+#nqyogfnddt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xscmhhfzmk .gt_asterisk {
+#nqyogfnddt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xscmhhfzmk .gt_indent_1 {
+#nqyogfnddt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xscmhhfzmk .gt_indent_2 {
+#nqyogfnddt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xscmhhfzmk .gt_indent_3 {
+#nqyogfnddt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xscmhhfzmk .gt_indent_4 {
+#nqyogfnddt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xscmhhfzmk .gt_indent_5 {
+#nqyogfnddt .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1648,7 +1802,7 @@ Metadata and controlled vocabularies
 <li><a href="https://lamin.ai/docs/bionty">Bionty</a>: Biological ontologies for data scientists.</li>
 </ul>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1657,7 +1811,7 @@ Exercise 2: modify the metadata.yml files in your Cookiecutter templates
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -1667,7 +1821,7 @@ Exercise 2: modify the metadata.yml files in your Cookiecutter templates
 <li>Modify the <code>cookiecutter.json</code> file so that when you create a new folder template, all the metadata is filled accordingly.</li>
 </ol>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1676,7 +1830,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
@@ -1695,7 +1849,7 @@ Hint
 <li>Modify the <code>metadata.yml</code> file so that it includes the metadata recorded by the <code>cookiecutter.json</code> file.</li>
 </ol>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1704,7 +1858,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
@@ -1761,23 +1915,23 @@ Hint
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="nyjolvoooe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nyjolvoooe table {
+<div id="lkejilmkjl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lkejilmkjl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nyjolvoooe thead, #nyjolvoooe tbody, #nyjolvoooe tfoot, #nyjolvoooe tr, #nyjolvoooe td, #nyjolvoooe th {
+#lkejilmkjl thead, #lkejilmkjl tbody, #lkejilmkjl tfoot, #lkejilmkjl tr, #lkejilmkjl td, #lkejilmkjl th {
   border-style: none;
 }
 
-#nyjolvoooe p {
+#lkejilmkjl p {
   margin: 0;
   padding: 0;
 }
 
-#nyjolvoooe .gt_table {
+#lkejilmkjl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1803,12 +1957,12 @@ Hint
   border-left-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_caption {
+#lkejilmkjl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nyjolvoooe .gt_title {
+#lkejilmkjl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1820,7 +1974,7 @@ Hint
   border-bottom-width: 0;
 }
 
-#nyjolvoooe .gt_subtitle {
+#lkejilmkjl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1832,7 +1986,7 @@ Hint
   border-top-width: 0;
 }
 
-#nyjolvoooe .gt_heading {
+#lkejilmkjl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1844,13 +1998,13 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_bottom_border {
+#lkejilmkjl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_col_headings {
+#lkejilmkjl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1865,7 +2019,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_col_heading {
+#lkejilmkjl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1885,7 +2039,7 @@ Hint
   overflow-x: hidden;
 }
 
-#nyjolvoooe .gt_column_spanner_outer {
+#lkejilmkjl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1897,15 +2051,15 @@ Hint
   padding-right: 4px;
 }
 
-#nyjolvoooe .gt_column_spanner_outer:first-child {
+#lkejilmkjl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nyjolvoooe .gt_column_spanner_outer:last-child {
+#lkejilmkjl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nyjolvoooe .gt_column_spanner {
+#lkejilmkjl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1917,11 +2071,11 @@ Hint
   width: 100%;
 }
 
-#nyjolvoooe .gt_spanner_row {
+#lkejilmkjl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nyjolvoooe .gt_group_heading {
+#lkejilmkjl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1947,7 +2101,7 @@ Hint
   text-align: left;
 }
 
-#nyjolvoooe .gt_empty_group_heading {
+#lkejilmkjl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1962,15 +2116,15 @@ Hint
   vertical-align: middle;
 }
 
-#nyjolvoooe .gt_from_md > :first-child {
+#lkejilmkjl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nyjolvoooe .gt_from_md > :last-child {
+#lkejilmkjl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nyjolvoooe .gt_row {
+#lkejilmkjl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1989,7 +2143,7 @@ Hint
   overflow-x: hidden;
 }
 
-#nyjolvoooe .gt_stub {
+#lkejilmkjl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2002,7 +2156,7 @@ Hint
   padding-right: 5px;
 }
 
-#nyjolvoooe .gt_stub_row_group {
+#lkejilmkjl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2016,15 +2170,15 @@ Hint
   vertical-align: top;
 }
 
-#nyjolvoooe .gt_row_group_first td {
+#lkejilmkjl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nyjolvoooe .gt_row_group_first th {
+#lkejilmkjl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nyjolvoooe .gt_summary_row {
+#lkejilmkjl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2034,16 +2188,16 @@ Hint
   padding-right: 5px;
 }
 
-#nyjolvoooe .gt_first_summary_row {
+#lkejilmkjl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_first_summary_row.thick {
+#lkejilmkjl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nyjolvoooe .gt_last_summary_row {
+#lkejilmkjl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2053,7 +2207,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_grand_summary_row {
+#lkejilmkjl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2063,7 +2217,7 @@ Hint
   padding-right: 5px;
 }
 
-#nyjolvoooe .gt_first_grand_summary_row {
+#lkejilmkjl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2073,7 +2227,7 @@ Hint
   border-top-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_last_grand_summary_row_top {
+#lkejilmkjl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2083,11 +2237,11 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_striped {
+#lkejilmkjl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nyjolvoooe .gt_table_body {
+#lkejilmkjl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2096,7 +2250,7 @@ Hint
   border-bottom-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_footnotes {
+#lkejilmkjl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2110,7 +2264,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_footnote {
+#lkejilmkjl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2119,7 +2273,7 @@ Hint
   padding-right: 5px;
 }
 
-#nyjolvoooe .gt_sourcenotes {
+#lkejilmkjl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2133,7 +2287,7 @@ Hint
   border-right-color: #D3D3D3;
 }
 
-#nyjolvoooe .gt_sourcenote {
+#lkejilmkjl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2141,63 +2295,63 @@ Hint
   padding-right: 5px;
 }
 
-#nyjolvoooe .gt_left {
+#lkejilmkjl .gt_left {
   text-align: left;
 }
 
-#nyjolvoooe .gt_center {
+#lkejilmkjl .gt_center {
   text-align: center;
 }
 
-#nyjolvoooe .gt_right {
+#lkejilmkjl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nyjolvoooe .gt_font_normal {
+#lkejilmkjl .gt_font_normal {
   font-weight: normal;
 }
 
-#nyjolvoooe .gt_font_bold {
+#lkejilmkjl .gt_font_bold {
   font-weight: bold;
 }
 
-#nyjolvoooe .gt_font_italic {
+#lkejilmkjl .gt_font_italic {
   font-style: italic;
 }
 
-#nyjolvoooe .gt_super {
+#lkejilmkjl .gt_super {
   font-size: 65%;
 }
 
-#nyjolvoooe .gt_footnote_marks {
+#lkejilmkjl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nyjolvoooe .gt_asterisk {
+#lkejilmkjl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nyjolvoooe .gt_indent_1 {
+#lkejilmkjl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nyjolvoooe .gt_indent_2 {
+#lkejilmkjl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nyjolvoooe .gt_indent_3 {
+#lkejilmkjl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nyjolvoooe .gt_indent_4 {
+#lkejilmkjl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nyjolvoooe .gt_indent_5 {
+#lkejilmkjl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2340,7 +2494,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2349,7 +2503,7 @@ Exercise 3: Create your own naming conventions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -2365,7 +2519,7 @@ Exercise 3: Create your own naming conventions
 <h2 class="anchored" data-anchor-id="create-a-catalog-of-your-assay-folder">4. Create a catalog of your assay folder</h2>
 <p>The next step is to collect all the NGS datasets that you have created in the manner explained above. Since your folders all should contain the <code>metadata.yml</code> file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. This table can be then browsed easily with Microsoft Excel, for example. If you are interested in making a Shiny app or Python Panel tool to interactively browse the catalog, check out this <a href="../develop/04_metadata.html">lesson</a>.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2374,7 +2528,7 @@ Exercise 4: create a metadata.tsv catalog
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -2385,34 +2539,34 @@ Exercise 4: create a metadata.tsv catalog
 <li>Run the script below with R (or create your own with Python). Modify the <code>folder_path</code> variable so it matches the path to the folder <code>Assays</code>. The table will be written under the same <code>folder_path</code>.</li>
 <li>Visualize your <code>Assays</code> table with Excel</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yaml)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch metadata.yml files</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>get_metadata <span class="ot">&lt;-</span> <span class="cf">function</span>(folder_path) {</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> folder_path, <span class="at">pattern =</span> <span class="st">"metadata</span><span class="sc">\\</span><span class="st">.yml$"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    metadata_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, yaml<span class="sc">::</span>yaml.load_file)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(metadata_list)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the folder path</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    folder_path <span class="ot">&lt;-</span> <span class="st">"/path/to/your/folder"</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fetch metadata from the specified folder</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    metadata <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(folder_path)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert metadata to a data frame</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    metadata_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">unlist</span>(metadata), <span class="at">ncol =</span> <span class="fu">length</span>(metadata), <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(metadata_df) <span class="ot">&lt;-</span> <span class="fu">names</span>(metadata[[<span class="dv">1</span>]])</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save the data frame as a TSV file</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    output_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".tsv"</span>)</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(metadata_df, <span class="at">file =</span> output_file, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print confirmation message</span></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Database saved as"</span>, output_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yaml)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch metadata.yml files</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>get_metadata <span class="ot">&lt;-</span> <span class="cf">function</span>(folder_path) {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> folder_path, <span class="at">pattern =</span> <span class="st">"metadata</span><span class="sc">\\</span><span class="st">.yml$"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    metadata_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, yaml<span class="sc">::</span>yaml.load_file)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(metadata_list)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the folder path</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    folder_path <span class="ot">&lt;-</span> <span class="st">"/path/to/your/folder"</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fetch metadata from the specified folder</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    metadata <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(folder_path)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert metadata to a data frame</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    metadata_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">unlist</span>(metadata), <span class="at">ncol =</span> <span class="fu">length</span>(metadata), <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(metadata_df) <span class="ot">&lt;-</span> <span class="fu">names</span>(metadata[[<span class="dv">1</span>]])</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save the data frame as a TSV file</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    output_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".tsv"</span>)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(metadata_df, <span class="at">file =</span> output_file, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print confirmation message</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Database saved as"</span>, output_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2461,7 +2615,7 @@ Tips to write good commit messages
 <p>Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns, or HTML reports, in a <a href="https://pages.github.com/">GitHub Page website</a>. Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub has put for you. Nonetheless, we will see the main steps in the exercise below.</p>
 <p>There are many different ways to create your web pages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage simply. The folder templates that we used as an example in the previous exercise already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of <a href="https://www.mkdocs.org/">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs materials</a> to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their web pages to get started!</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2470,7 +2624,7 @@ Exercise 5: make a project folder and publish a data analysis webpage
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -2529,7 +2683,7 @@ Archiving your NGS data
 <p>Zenodo[https://zenodo.org/] is an open-access digital repository designed to facilitate the archiving of scientific research outputs. It operates under the umbrella of the European Organization for Nuclear Research (CERN) and is supported by the European Commission. Zenodo accommodates a broad spectrum of research outputs, including datasets, papers, software, and multimedia files. This versatility makes it an invaluable resource for researchers across a wide array of domains, promoting transparency, collaboration, and the advancement of knowledge on a global scale.</p>
 <p>Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">link your GitHub account</a>, providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project’s progress for long-term accessibility and citation.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2538,7 +2692,7 @@ Exercise 6: Archive a Project GitHub repo in Zenodo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">

@@ -4,7 +4,7 @@ format: html
 date-modified: last-modified
 date-format: long
 date: 2023-11-30
-summary: This is a summarized workshop focused on practical lessons of RDM for NGS data
+summary: This is a workshop on RDM for biodata focused on practical aspects
 hide: 
     - navigation
 ---
@@ -15,30 +15,30 @@ hide:
 💬 **Learning Objectives:**    
 
 1. Organize and structure your data and data analysis with Cookiecutter templates
-2. Establish metadata fields and collect metadata when creating a cookiecutter folder
+2. Define metadata fields and collect metadata when creating a Cookiecutter folder
 3. Establish naming conventions for your data
-4. Make a catalog of your data
-5. Create GitHub repositories of your data analysis and display them as GitHub Pages
+4. Create a catalog of your data
+5. Use GitHub repositories of your data analysis and display them as GitHub Pages
 6. Archive GitHub repositories on Zenodo
 :::
 
-This is a practical version of the full RDM on NGS data workshop. The main key points of the exercises shown here are to help you organize and structure your NGS datasets and your data analyses. We will see how to keep track of your experiments metadata and how to safely version control and archive your data analyses using GitHub repositories and Zenodo. We hope that through these practical exercises and step-by-step guidance, you'll gain valuable skills in efficiently managing and sharing your research data, enhancing the reproducibility and impact of your work.
-
+This practical version covers practical aspects of RDM applied to biodata. The exercises provided here aim to help you organize and structure your datasets and data analyses. You'll learn how to manage your experimental metadata effectively and safely version control and archive your data analyses using GitHub repositories and Zenodo. Through these guided exercises and step-by-step instructions, we hope you will acquire essential skills for managing and sharing your research data efficiently, thereby enhancing the reproducibility and impact of your work.
 
 :::{.callout-warning title="Requirements"}
-Ensure that all necessary tools and software are installed before proceeding with the practical exercises.
+Ensure all necessary tools and software are installed before beginning the practical exercises:
 
-- A [GitHub account](https://github.com/) 
-- [Git](https://git-scm.com/downloads) 
-- A [Zenodo account](https://zenodo.org/)
+- A [GitHub account](https://github.com/) for hosting and collaborating on projects
+- [Git](https://git-scm.com/downloads) for version control of your projects
+- A [Zenodo account](https://zenodo.org/) for archiving and sharing your research outputs
 - [Python](https://www.python.org/)
-- [pip](https://pip.pypa.io/en/stable/installation/) 
-- [Cookicutter](https://cookiecutter.readthedocs.io/en/stable/) to create folder structure templates (`pip install cookiecutter`)
+- [pip](https://pip.pypa.io/en/stable/installation/) for managing Python packages
+- [Cookicutter](https://cookiecutter.readthedocs.io/en/stable/) for creating folder structure templates (`pip install cookiecutter`)
 - [cruft](https://cruft.github.io/cruft/) to version control your templates (`pip install cruft`)
 
-- Option a. Install [Quarto](https://quarto.org/docs/get-started/). We recommend Quarto as is easy to use and provides native support for notebooks (R Markdown and Jupyter Notebooks). No extensions or dependencies are needed. 
+Two more tools will be required, choose the one you are familiar with or the first option:
 
-- Option b. Install MkDocs and MkDocs extensions using the command line. 
+- Option a. Install [Quarto](https://quarto.org/docs/get-started/). We recommend Quarto as is easy to use and provides native support for notebooks (both R Markdown and Jupyter Notebooks). It requires no additional extensions or dependencies. 
+- Option b. Install MkDocs and MkDocs extensions using the command line. Additional extensions are optional but can be useful if you choose this approach. 
 
 ```{.bash}
 pip install mkdocs # create webpages
@@ -47,7 +47,6 @@ pip install mkdocs-video # add videos or embed videos from other sources
 pip install mkdocs-minify-plugin # Minimize html code
 pip install mkdocs-git-revision-date-localized-plugin # display last updated date 
 pip install mkdocs-jupyter # include Jupyter notebooks
-pip install mkdocs-table-reader-plugin
 pip install mkdocs-bibtex # add references in your text (`.bib`)
 pip install neoteroi-mkdocs # create author cards
 pip install mkdocs-table-reader-plugin # embed tabular format files (`.tsv`)
@@ -55,107 +54,148 @@ pip install mkdocs-table-reader-plugin # embed tabular format files (`.tsv`)
 :::
 
 
-## 1. Organize and structure your NGS data and data analysis
+## 1. Organize and structure your datasets and data analysis
 
-Applying a consistent file structure and naming conventions to your files will help you to efficiently manage your data. We will divide your NGS data and data analyses into two different types of folders:
+Establishing a consistent file structure and naming conventions will help you efficiently manage your data. We will classify your data and data analyses into two distinct types of folders to ensure the data can be used and shared by many lab members while preventing modifications by any individual:
 
-1. **Assay folders**: These folders contain the **raw and processed NGS datasets**, as well as the **pipeline/workflow** used to generate the processed data, provenance of the raw data, and quality control reports of the data. This data should be **locked and read-only** to prevent unwanted modifications.
-2. **Project folders**: These folders contain **all the necessary files for a specific research project**. A project may use several assays or results from other projects. The assay data should not be copied or duplicated, but linked from the source.
+1. **Data folders** (assay or external databases and resources): They house the **raw and processed datasets**, alongside the pipeline/workflow used to generate the processed data, the provenance of the raw data, and quality control reports of the data. The data should be **locked and set to read-only** to prevent unintended modifications. This applies to experimental data generated in your lab as well as external resources. Provide an MD5 checksum file when you download them yourself to verify their integrity.
+2. **Project folders**: They contain **all the essential files for a specific research project**. Projects may use data from various resources or experiments, or build upon previous results from other projects. The data should not be copied or duplicated, instead, it should be linked directly from the source.
 
-Projects and Assays are separated from each other because a project may use one or more assays to answer a scientific question, and assays may be reused several times in different projects. This could be, for example, all the data analysis related to a publication (an RNAseq and a ChIPseq experiment), or a comparison between a previous ATACseq experiment (which was used for a older project) with a new laboratory protocol.
+Data and data analysis are kept separate because a project may utilize one or more datasets to address a scientific question. Data can be reused in multiple projects over time, combined with other datasets for comparison, or used to build larger datasets. Additionally, data may be utilized by different researchers to answer various research questions.
 
-You could also create **Genomic resources folders** things such as genome references (fasta files) and annotations (gtf files) for different species, as well as indexes for different alignment algorithms. If you want to know more, feel free to check the relevant [full lesson](./03_DOD.qmd#genomic-resources-folder)
+:::{.callout-hint}
+When organizing your data folders, separate assays from external resources and maintain a consistent structure. For example, organize genome references by species and further categorize them by versions. Make sure to include all relevant information, and refer to [this lesson](./03_DOD.qmd#folder-organization) for additional tips on data organization.
 
 This will help you to keep your data tidied up, especially if you are working in a big lab where assays may be used for different purposes and by different people!
+:::
 
-### Assay folder
+#### Data folders
+Whether your lab generates its own experimental data, receives it from collaborators, or works with previously published datasets, the data folder should follow a similar structure to the one presented here. Create a separate folder for each dataset, including raw files and processed files alongside the corresponding documentation and pipeline that generated the processed data. Raw files should remain untouched, and you should consider locking modifications to the final results once data preprocessing is complete. This precaution helps prevent unwanted changes to the data. Each subfolder should be named in a way that is distinct, easily readable and clear at a glance. Check [this lesson](./03_DOD.qmd#naming-conventions) for tips on naming conventions. 
 
-For each NGS experiment, there should be an `Assay` folder that will contain all experimental datasets, that is, an `Assay` (raw files and pipeline processed files). Raw files should not be modified at all, but you should probably lock modifications to the final results once you are done with preprocessing the data. This will help you prevent unwanted modifications to the data. Each `Assay` subfolder should be named in a way that is unique, easily readable, distinguishable, and understood at a glance. For example, you could name an NGS assay using an acronym for the type of NGS assay (RNAseq, ChIPseq, ATACseq), a keyword that represents a unique descriptive element of that assay, and the date. Like this:
-
-```
+:::{.callout-hint}
+Use an acronym (1) that describes the type of NGS assay (RNAseq, ChIPseq, ATACseq) a keyword (2) that represents a unique element to that assay, and the date (3). 
+```{.bash}
 <Assay-ID>_<keyword>_YYYYMMDD
 ```
+For example `CHIP_Oct4_20230101` is a ChIPseq assay made on 1st January 2023 with the keyword Oct4, so it is easily identifiable by the eye.
+:::
 
-For example `CHIP_Oct4_20230101` is a ChIPseq assay made on 1st January 2023 with the keyword Oct4, so it is easily identifiable by the eye. Next, let's take a look at a possible folder structure and what kind of files you can find there.
+Let's explore a potential folder structure and the types of files you might encounter within it.
 
 ```{.bash}
-CHIP_Oct4_20230101/
-├── README.md
-├── metadata.yml
-├── pipeline.md
+<data_type>_<keyword>_YYYYMMDD/
+├── README.md 
+├── CHECKSUMS
+├── pipeline
+    ├── pipeline.md
+    ├── scripts/
 ├── processed
+    ├── fastqc/
+    ├── multiqc/
+    ├── final_fastq/
 └── raw
-   ├── .fastq.gz
-   └── samplesheet.csv
+    ├── .fastq.gz 
+    └── samplesheet.csv
 ```
 
-- **README.md**: Long description of the assay in markdown format. It should contain provenance of the raw NGS data (samples, laboratory protocols used, the aim of the assay, etc)
-- **metadata.yml**: metadata file for the assay describing different keys and important information regarding that assay ([see this lesson](./04_metadata.qmd)).
-- **pipeline.md**: description of the pipeline used to process raw data, as well as the commands used to run the pipeline.
-- **processed**: folder with results of the preprocessing pipeline. Contents depend on the pipeline used.
-- **raw**: folder with the raw data.
-    - *.fastq.gz*:In the case of NGS assays, there should be fastq files.
-    - *samplesheet.csv*: file that contains metadata information for the samples. This file is used to run the nf-core pipelines. You can also add extra columns with info regarding the experimental variables and batches so it can be used for downstream analysis as well.
+- **README.md**: This file contains a detailed description of the dataset commonly in markdown format. It should include the provenance of the raw data (such as samples, laboratory protocols used, the aim of the project, folder structure, naming conventions, etc.).
+- **metadata.yml**: This metadata file outlines different keys and essential information, usually presented in YAML format. For more details, refer to [this lesson](./04_metadata.qmd).
+- **pipeline.md**: This file provides an overview of the pipeline used to process raw data, as well as the commands to run the pipeline. The pipeline itself and all the required scripts should be collected in the same directory. 
+- **processed**: This folder contains the results from the preprocessing pipeline. The content vary depending on the specific pipeline used (create additional subdirectories as needed).
+- **raw**: This folder holds the raw data.
+    - *.fastq.gz*: For example, in NGS assays, there should be 'fastq' files.
+    - *samplesheet.csv*: This file holds essential metadata for the samples, including sample identification, experimental variables, batch information, and other metrics crucial for downstream analysis. It is important that this file is complete and current, as it is key to interpreting results. If you are considering running nf-core pipelines, this file will be required.
 
-### Project folder
+#### Project folders
 
-On the other hand, we have the other type of folder called `Projects`. In this folder, you will save a **subfolder for each project** that you (or your lab) work on. Each `Project` subfolder will contain project information and all the data analysis notebooks and scripts used in that project.
+On the other hand, we have another type of folder called Projects which refers to data analyses that are specific to particular tasks, such as those involved in preparing a potential article. In this folder, you will create a subfolder for each project that you or your lab is working on. Each Project subfolder should include project-specific information, data analysis pipelines, notebooks, and scripts used for that particular project. Additionally, you should include an environment file with all the required software and dependencies needed for the project, including their versions. This helps ensure that the analyses can be easily replicated and shared with others.
 
-As like for an Assay folder, the Project folder should be named in a way that is unique, easily readable, distinguishable, and understood at a glance. For example, you could name it after the main author's initials, a keyword that represents a unique descriptive element of that assay, and the date:
+The Project folder should be named in a way that is unique, easy to read, distinguishable, and clear at a glance. For example, you might name it based on the main author's initials, the dataset being analyzed, the project name, a unique descriptive element related to the project, or the part of the project you are responsible for, along with the date:
 
 ```{.bash}
-<author_initials>_<keyword>_YYYYMMDD
+<project>_<keyword>_YYYYMMDD
 ```
-For example, `JARH_Oct4_20230101`, is a project about the gene Oct4 owned by Jose Alejandro Romero Herrera, created on the 1st of January of 2023.
 
-Next, let's take a look at a possible folder structure and what kind of files you can find there.
+:::{.callout-definition}
+# Naming examples 
+
+- `RNASeq_Mouse_Brain_20230512`: a project RNA sequencing data from a mouse brain experiment, created on May 12, 2023
+- `EHR_COVID19_Study_20230115`: a project around electronic health records data for a COVID-19 study, created on January 15, 2023.
+:::
+
+Now, let's explore an example of a folder structure and the types of files you might encounter within it.
 
 ```{.bash}
-<author_initials>_<keyword>_YYYYMMDD
+<project>_<keyword>_YYYYMMDD
 ├── data
-│  └── <Assay-ID>_<keyword>_YYYYMMDD/
+│  └── <ID>_<keyword>_YYYYMMDD <- symbolic link
 ├── documents
-│  └── Non-sensitive_NGS_research_project_template.docx
+│  └── research_project_template.docx
+├── metadata.yml
 ├── notebooks
-│  └── 01_data_analysis.rmd
+│  └── 01_data_processing.rmd
+│  └── 02_data_analysis.rmd
+│  └── 03_data_visualization.rmd
 ├── README.md
 ├── reports
-│  ├── figures
-│  │  └── 01_data_analysis/
-│  │   └── heatmap_sampleCor_20230102.png
-│  └── 01_data_analysis.html
-├── requirements.txt
+│  └── 01_data_processing.html
+│  └── 02_data_analysis.html
+│  ├── 03_data_visualization.html
+│  │  └── figures
+│  │  └── tables
+├── requirements.txt // env.yaml
 ├── results
-│  └── 01_data_analysis/
-│      └── DEA_treat-control_LFC1_p01.tsv
-├── scripts
-└── metadata.yml
+│  ├── figures
+│  │  └── 02_data_analysis/
+│  │    └── heatmap_sampleCor_20230102.png
+│  ├── tables
+│  │  └── 02_data_analysis/
+│  │    └── DEA_treat-control_LFC1_p01.tsv
+│  │    └── SumStats_sampleCor_20230102.tsv
+├── pipeline
+│  ├── rules // processes 
+│  │  └── step1_data_processing.smk
+│  └── pipeline.md
+├── scratch
+└── scripts
 ```
 
-- **data**: a folder that contains symlinks or shortcuts to where the data is, avoiding copying and modification of original files.
-- **documents**: a folder containing Word documents, slides, or PDFs related to the project, such as explanations of the data or project, papers, etc. It also contains your [Data Management Plan](./02_DMP.qmd).
-    - *Non-sensitive_NGS_research_project_template.docx*. This is a pre-filled Data Management Plan based on the Horizon Europe guidelines.
-- **notebooks**: a folder containing Jupyter, R markdown, or Quarto notebooks with the actual data analysis.
-- **README.md**: detailed description of the project in markdown format.
-- **reports**: notebooks rendered as HTML/docx/pdf versions, ideal for sharing with colleagues and also as a formal report of the data analysis procedure.
+- **data**: This folder contains symlinks or shortcuts to the actual data files, ensuring that the original files remain unaltered.
+- **documents**: This folder houses Word documents, slides, or PDFs associated with the project, including data and project explanations, research papers, and more. It also includes the [Data Management Plan](./02_DMP.qmd).
+    - *research_project_template.docx*. If you download our template you will find a is a pre-filled Data Management Plan based on the Horizon Europe guidelines named 'Non-sensitive_NGS_research_project_template.docx'.
+- **metadata.yml**: metadata file describing various keys of the project or experiment ([see this lesson](./04_metadata.qmd)).
+- **notebooks**: This folder stores Jupyter, R Markdown, or Quarto notebooks containing the data analysis. Figures and tables used for the reports are organized under subfolders named after the notebook that created them for provenance purposes.
+- **README.md**: A detailed project description in markdown or plain-text format.
+- **reports**:  Notebooks rendered as HTML, docx, or PDF files for sharing with colleagues or as formal data analysis reports.
     - *figures*: figures produced upon rendering notebooks. The figures will be saved under a subfolder named after the notebook that created them. This is for provenance purposes so we know which notebook created which figures.
-- **requirements.txt**: file explaining what software and libraries/packages and their versions are necessary to reproduce the code.
-- **results**: results from the data analysis, such as tables with differentially expressed genes, enrichment results, etc.
-- **scripts**: folder containing helper scripts needed to run data analysis or reproduce the work of the folder
-- **description.yml**: a short description of the project.
-- **metadata.yml**: metadata file for the assay describing different keys ([see this lesson](./04_metadata.qmd)).
+- **requirements.txt**: This file lists the necessary software, libraries, and their versions required to reproduce the code. If you're using conda environments, you will also find the env.yaml file here, which outlines the specific environment configuration.
+- **results**: This folder contains analysis results, such as figures and tables. Organizing results by the pipeline, script, or notebook that generated them will make it easier to locate and interpret the data.
+- **pipeline**: A folder containing pipeline scripts or workflows for processing and analyzing data.
+- **scratch**: A folder designated for temporary files or workspace for experiments and development.
+- **scripts**: Folder for helper scripts needed to run data analysis or reproduce the work.
 
 ### Template engine
 
-It is very easy to create a folder template using [cookiecutter](https://github.com/cookiecutter/cookiecutter). Cookiecutter is a command-line utility that creates projects from cookiecutters (that is, a template), e.g. creating a Python package project from a Python package project template. Here you can find an example of a cookiecutter folder template-directed to [NGS data](https://github.com/brickmanlab/ngs-template), where we have applied the structures explained in the previous sections. You are very welcome to adapt it or modify it to your needs!
+Creating a folder template is straightforward with [cookiecutter](https://github.com/cookiecutter/cookiecutter) a command-line tool that generates projects from templates (called cookiecutters). For example, it can help you set up a Python package project based on a Python package project template. 
+
+:::{.callout-note title="Cookiecutter templates"}
+Here are some template that you can use to get started, adapt and modify them to your own needs:
+
+- [Python package project](https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial1.html#step-1-generate-a-python-package-project)
+- [Sandbox test](https://github.com/hds-sandbox/project-template/)
+- [Data science](https://github.com/drivendata/cookiecutter-data-science/)
+- [NGS data](https://github.com/brickmanlab/ngs-template)
+
+Create your own template from [scratch](https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial2.html). 
+:::
 
 #### Quick tutorial on cookiecutter
 
-Creating a Cookiecutter template from scratch involves defining a folder structure, creating a `cookiecutter.json` file, and specifying the placeholders (keywords) that will be replaced during project generation. Let's walk through the process step by step:
+Building a Cookiecutter template from scratch requires defining a folder structure, crafting a cookiecutter.json file, and outlining placeholders (keywords) that will be substituted when generating a new project. Here's a step-by-step guide on how to proceed:
 
 ##### Step 1: Create a Folder Template
 
-Start by creating a folder with the structure you want for your template. For example, let's create a simple Python project template:
+First, begin by creating a folder structure that aligns with your desired template design. For instance, let's set up a simple Python project template:
 
 ```plaintext
 my_template/
@@ -166,7 +206,7 @@ my_template/
 |-- README.md
 ```
 
-In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used.
+In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script ('main.py'), a subdirectory ('tests') with a second python script named after the project ('test_{{cookiecutter.project_name}}.py') and a 'README.md' file. 
 
 ##### Step 2: Create `cookiecutter.json`
 
@@ -180,9 +220,9 @@ In the root of your template folder, create a file named `cookiecutter.json`. Th
 }
 ```
 
-These are the questions users will be asked when generating a project based on your template. The values provided here will be used to replace the corresponding placeholders in the template files.
+When users generate a project based on your template, they will be prompted with these questions. The provided values ("responses") will be used to substitute the placeholders in your template files.
 
-In addition to replacing placeholders in files and directory names, Cookiecutter can also automatically fill in information within the contents of text files. This can be useful for providing default configurations or templates for code files. Let's extend our previous example to include a placeholder inside a text file:
+Beyond substituting placeholders in file and directory names, Cookiecutter can automatically populate text file contents with information. This feature is useful for offering default configurations or code file templates. Let's enhance our earlier example by incorporating a placeholder within a text file:
 
 First, modify the `my_template/main.py` file to include a placeholder inside its contents:
 
@@ -193,7 +233,9 @@ def hello():
     print("Hello, {{cookiecutter.project_name}}!")
 ```
 
-Now, the `{{cookiecutter.project_name}}` placeholder is inside the `main.py` file. When you run Cookiecutter, it will automatically replace the placeholders not only in file and directory names but also within the contents of text files. After running Cookiecutter, your generated `main.py` file might look like this:
+The '{{cookiecutter.project_name}}' placeholder is now included within the main.py file. When you execute Cookiecutter, it will automatically replace the placeholders in both file and directory names and within text file contents. 
+
+After running Cookiecutter, your generated 'main.py' file could appear as follows:
 
 ```{.python .code-overflow-wrap}
 # main.py
@@ -204,53 +246,90 @@ def hello():
 
 ##### Step 3: Use Cookiecutter
 
-Now that your template is set up, you can use Cookiecutter to generate a project based on it. Open a terminal and run:
+Once your template is prepared, you can utilize Cookiecutter to create a project from it. Open a terminal and execute:
 
 ```{.bash .code-overflow-wrap}
 cookiecutter path/to/your/template
 ```
 
-Cookiecutter will prompt you to fill in the values for `project_name`, `author_name`, and `description`. After you provide these values, Cookiecutter will replace the placeholders in your template files with the entered values.
+Cookiecutter will prompt you to provide values for `project_name`, `author_name`, and `description`. Once you input these values, Cookiecutter will replace the placeholders in your template files with the entered values.
 
-##### Step 4: Explore the Generated Project
+##### Step 4: Review the Generated Project
 
-Once the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will see a project structure with the placeholders replaced by the values you provided.
+After the generation process is complete, navigate to the directory where Cookiecutter created the new project. You will find a project structure with the placeholders replaced by the values you provided. 
 
 :::{.callout-exercise}
 
 # Exercise 1: Create your own template
-Using Cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs!
 
-Requirements:
+Use Cookiecutter to create custom templates for your folders. You can do it from scratch (see Exercise 1, part B) or opt for one of our pre-made templates available as a Github repository (recommended for this workshop). Feel free to tailor the template to your specific requirements—you don't have to follow our examples exactly.
 
-Using Cookiecutter, create your own templates for your folders. You do not need to copy exactly our suggestions, adjust your template to your own needs! In order to create your cookiecutter template, you will need to install Python, [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html), Git, and a GitHub account. If you do not have Git and a GitHub account, we suggest you do one as soon as possible. We will take a deeper look at Git and GitHub in the [version control lesson](./05_VC.qmd).
-
-We have prepared already two simple Cookiecutter templates in GitHub repositories.
-
-**Assay**
-
-1. First, fork our [Assay folder template](https://github.com/hds-sandbox/assay-template) from the GitHub page into your own account/organization.
-    ![fork_repo_example](./images/fork_repo.png)
-2. Then, use `git clone <your URL to the template>` to put it on your computer.
-3. Modify the contents of the repository so that it matches the **Assay** example above. You are welcome to make changes as you please!
-4. Modify the `cookiecutter.json` file so that it will include the **Assay** name template
-5. Git add, commit, and push your changes
-6. Test your folder by using `cookiecutter <URL to your GitHub repository for "assay-template>`
+**Requirements**
+We assume you have already gone through the requirements at the beginning of the practical lesson. This includes installing the necessary tools and setting up accounts as needed.
     
 **Project**
     
-1. First, fork our [Project folder template](https://github.com/hds-sandbox/project-template) from the GitHub page into your own account/organization.
+1. Go to our [Cookicutter template](https://github.com/hds-sandbox/cookiecutter-template) and click on the **Fork*
+* button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization.
     ![fork_repo_example](./images/fork_repo_project.png)
-2. Then, use `git clone <your URL to the template>` to put it on your computer.
-3.  Modify the contents of the repository so that it matches the **Project** example above. You are welcome to make changes as you please!
-4. Modify the `cookiecutter.json` file so that it will include the **Project** name template
-5. Git add, commit, and push your changes
-6. Test your folder by using `cookiecutter <URL to your GitHub repository for "project-template>`
+2. Open a terminal on your computer, copy the URL of your fork and **clone** the repository to your local machine (the URL should look something like https://github.com/your_username/cookiecutter-template):
+```{.bash}
+git clone <your URL to the template>
+```
+If you have a GitHub Desktop, click **Add** and select "Clone repository" from the options
+3. Open the repository and navigate through the different directories
+4. Modify the contents of the repository as needed to fit your project's requirements. You can change files, add new ones. remove existing one or adjust the folder structure. For inspiration, review the data structure above under 'Project folder'. For instance, this template is missing the 'reports' directory. Consider creating it, along with a subdirectory named 'figures'. Here’s an example of how to do it: 
+
+```{.bash}
+cd \{\{\ cookiecutter.project_name\ \}\}/  
+mkdir reports 
+touch requirements.txt
+```
+5. Modify the `cookiecutter.json` file. You could add new variables or change the default values: 
+```{.bash}
+# open a text editor
+ "author": "Alba Refoyo",
+```
+5. Commit and push changes when you are done with your modifications
+- Stage the changes with 'git add'
+- Commit the changes with a meaningful commit message 'git commit -m "update cookicutter template" '
+- Push the changes to your forked repository on Github 'git push origin main' (or the appropriate branch name)
+6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`
+Fill up the variables and verify that the modified template looks like you would expect.  
+7. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
+```{.bash}
+"__prompts__": {
+    "project_name": "Project directory name [Example: project_short_description_202X]",
+    "author": "Author of the project",
+    "date": "Date of project creation, default is today's date",
+    "short_description": "Provide a detailed description of the project (context/content)"
+  },
+```
+:::
+
+:::{.callout-exercise}
+# Optional Exercise 1, part B
+
+Create a template from scratch using this tutorial [scratch](https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial2.html), it can be as basic as this one below or 'Data folder': 
+
+```plaintext
+my_template/
+|-- {{cookiecutter.project_name}}
+|   |-- main.py
+|-- tests
+|   |-- test_{{cookiecutter.project_name}}.py
+|-- README.md
+```
+- Step 1: Create a directory for the template.
+- Step 2: Write a cookiecutter.json file with variables such as project_name and author.
+- Step 3: Set up the folder structure by creating subdirectories and files as needed.
+- Step 4: Incorporate cookiecutter variables in the names of files.
+- Step 5: Use cookiecutter variables within scripts, such as printing a message that includes the project name.
 :::
 
 ## 2. Metadata 
 
-Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For NGS data, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let's check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.
+Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For biodata, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let's check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.
 
 :::{.callout-warning title="Metadata and controlled vocabularies"}
 In order for metadata to be most useful, you should try to use controlled vocabularies for all your fields. For example, tissue could be described with the [UBERON ontologies](https://www.ebi.ac.uk/ols/ontologies/uberon), species using the [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy), diseases using the [Mondo database](https://mondo.monarchinitiative.org/), etc. Unfortunately, implementing a systematic way of using these vocabularies is rather complex and outside the scope of this workshop, but you are very welcome to try to implement them on your own!

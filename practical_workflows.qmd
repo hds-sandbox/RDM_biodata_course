@@ -9,9 +9,26 @@ bibliography: resources/references.bib
 summary: workflow
 ---
 
+:::{.callout-note title="Course Overview"}
+- ⏰ **Total Time Estimation:** X hours  
+- 📁 **Supporting Materials:**  
+- 👨‍💻 **Target Audience:** Ph.D., MSc, anyone interested in workflow management systems for High-Throughput data or other related fields within bioinformatics.
+- 👩‍🎓 **Level:** Advanced.
+- 🔒 **License:** [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license.](https://creativecommons.org/licenses/by-sa/4.0/legalcode)  
+- 💰 **Funding:** This project was funded by the Novo Nordisk Fonden (NNF20OC0063268).
+:::
+
+::: {.callout-tip title="Course Goals"}
+- Create analysis pipelines
+- Specify software and computational resource needs 
+- Customise your pipeline to accept user-defined configurations (params)
+- Create reproducible analyses that can be adapted to new data with little effort
+:::
+
 # Workflows
 
-Data analyses usually entail the application of various tools, algorithms and scripts. Workflow management handles parallelization, resume, logging and data provenance. 
+Data analysis typically involves the use of different tools, algorithms, and scripts. It often requires multiple steps to transform, filter, aggregate, and visualize data. The process can be time-consuming because each tool may demand specific inputs and parameter settings. As analyses become more complex, the importance of reproducible and scalable automated workflow management increases. Workflow management encompasses tasks such as parallelization, resumption, logging, and data provenance.
+
 If you develop your own software make sure you follow FAIR principles. We highly endorse following these [FAIR recommendations](https://fair-software.nl/endorse) and to register your computational workflow [here](https://workflowhub.eu/). 
 
 Using workflow managers, you ensure:
@@ -23,11 +40,19 @@ Using workflow managers, you ensure:
 - scalability
 - readable
 
-Some of the most popular workflow management systems are snakemake, nextflow and galaxy.
+Popular workflow management systems such as Snakemake, Nextflow, and Galaxy can be scaled effortlessly across server, cluster, and cloud environments without altering the workflow definition. They also allow for specifying the necessary software, ensuring the workflows can be deployed in any setting.
 
-## Snakemake
+During this lesson, you will learn about:
+- **Syntax**: understand the syntax of two workflow languages.
+- **Defining steps**: how to define a step in each of the language (rule in Snakemake, process in Nextflow), including specifying input, outputs and execution statements.
+- **Generalizing steps**: explore how to generalise steps and create a chain of dependency across multiple steps using wildcards (Snakemake) or parameters and channel operators (Nextflow).
+- **Advanced Customisation**: gain knowledge of advanced pipeline customisation using configuration files and custom-made functions
+- **Scaling workflows**: understand how to scale workflows to compute servers and clusters while adapting to hardware-specific constraints
 
-Text-based using python plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files.  It infers dependencies and the execution order.
+
+## [Snakemake](https://snakemake.readthedocs.io/en/stable/#)
+
+It is a text-based tool using python-based language plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files.  It infers dependencies and the execution order.
 
 ### Basics
 1. Define rules 
@@ -133,7 +158,7 @@ Create conda environment, one per project!
 
 ```{.bash}
 # create env
-conda create -n myworklow --file requierments.txt
+conda create -n myworklow --file requirements.txt
 # activate environment
 source activate myworkflow
 # then execute snakemake
@@ -143,7 +168,8 @@ Use git repositories to save your projects and pipelines!
 ## Nextflow
 
 ## Sources
-- https://bitbucket.org/johanneskoester/snakemake
+- [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html#tutorial)
+- [Snakemake turorial slides by Johannes Koster](https://slides.com/johanneskoester/snakemake-tutorial)
 - https://bioconda.github.io
 - Köster, Johannes and Rahmann, Sven. "Snakemake - A scalable bioinformatics workflow engine". Bioinformatics 2012.
 - Köster, Johannes. "Parallelization, Scalability, and Reproducibility in Next-Generation Sequencing Analysis", PhD thesis, TU Dortmund 2014.

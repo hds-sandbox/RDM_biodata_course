@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 22, 2024</p>
+      <p class="date-modified">April 25, 2024</p>
     </div>
   </div>
     
@@ -201,9 +201,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled" title="Course Overview">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Overview
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>⏰ <strong>Total Time Estimation:</strong> X hours<br>
+</li>
+<li>📁 <strong>Supporting Materials:</strong><br>
+</li>
+<li>👨‍💻 <strong>Target Audience:</strong> Ph.D., MSc, anyone interested in workflow management systems for High-Throughput data or other related fields within bioinformatics.</li>
+<li>👩‍🎓 <strong>Level:</strong> Advanced.</li>
+<li>🔒 <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license.</a><br>
+</li>
+<li>💰 <strong>Funding:</strong> This project was funded by the Novo Nordisk Fonden (NNF20OC0063268).</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Course Goals">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Course Goals
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Create analysis pipelines</li>
+<li>Specify software and computational resource needs</li>
+<li>Customise your pipeline to accept user-defined configurations (params)</li>
+<li>Create reproducible analyses that can be adapted to new data with little effort</li>
+</ul>
+</div>
+</div>
 <section id="workflows" class="level1">
 <h1>Workflows</h1>
-<p>Data analyses usually entail the application of various tools, algorithms and scripts. Workflow management handles parallelization, resume, logging and data provenance. If you develop your own software make sure you follow FAIR principles. We highly endorse following these <a href="https://fair-software.nl/endorse">FAIR recommendations</a> and to register your computational workflow <a href="https://workflowhub.eu/">here</a>.</p>
+<p>Data analysis typically involves the use of different tools, algorithms, and scripts. It often requires multiple steps to transform, filter, aggregate, and visualize data. The process can be time-consuming because each tool may demand specific inputs and parameter settings. As analyses become more complex, the importance of reproducible and scalable automated workflow management increases. Workflow management encompasses tasks such as parallelization, resumption, logging, and data provenance.</p>
+<p>If you develop your own software make sure you follow FAIR principles. We highly endorse following these <a href="https://fair-software.nl/endorse">FAIR recommendations</a> and to register your computational workflow <a href="https://workflowhub.eu/">here</a>.</p>
 <p>Using workflow managers, you ensure:</p>
 <ul>
 <li>automation</li>
@@ -213,10 +255,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>scalability</li>
 <li>readable</li>
 </ul>
-<p>Some of the most popular workflow management systems are snakemake, nextflow and galaxy.</p>
+<p>Popular workflow management systems such as Snakemake, Nextflow, and Galaxy can be scaled effortlessly across server, cluster, and cloud environments without altering the workflow definition. They also allow for specifying the necessary software, ensuring the workflows can be deployed in any setting.</p>
+<p>During this lesson, you will learn about: - <strong>Syntax</strong>: understand the syntax of two workflow languages. - <strong>Defining steps</strong>: how to define a step in each of the language (rule in Snakemake, process in Nextflow), including specifying input, outputs and execution statements. - <strong>Generalizing steps</strong>: explore how to generalise steps and create a chain of dependency across multiple steps using wildcards (Snakemake) or parameters and channel operators (Nextflow). - <strong>Advanced Customisation</strong>: gain knowledge of advanced pipeline customisation using configuration files and custom-made functions - <strong>Scaling workflows</strong>: understand how to scale workflows to compute servers and clusters while adapting to hardware-specific constraints</p>
 <section id="snakemake" class="level2">
-<h2 class="anchored" data-anchor-id="snakemake">Snakemake</h2>
-<p>Text-based using python plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files. It infers dependencies and the execution order.</p>
+<h2 class="anchored" data-anchor-id="snakemake"><a href="https://snakemake.readthedocs.io/en/stable/#">Snakemake</a></h2>
+<p>It is a text-based tool using python-based language plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files. It infers dependencies and the execution order.</p>
 <section id="basics" class="level3">
 <h3 class="anchored" data-anchor-id="basics">Basics</h3>
 <ol type="1">
@@ -298,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">-</span> Snakefile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create conda environment, one per project!</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create env</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> myworklow <span class="at">--file</span> requierments.txt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> myworklow <span class="at">--file</span> requirements.txt</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># activate environment</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate myworkflow</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># then execute snakemake</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -311,7 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <ul>
-<li>https://bitbucket.org/johanneskoester/snakemake</li>
+<li><a href="https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html#tutorial">Snakemake tutorial</a></li>
+<li><a href="https://slides.com/johanneskoester/snakemake-tutorial">Snakemake turorial slides by Johannes Koster</a></li>
 <li>https://bioconda.github.io</li>
 <li>Köster, Johannes and Rahmann, Sven. “Snakemake - A scalable bioinformatics workflow engine”. Bioinformatics 2012.</li>
 <li>Köster, Johannes. “Parallelization, Scalability, and Reproducibility in Next-Generation Sequencing Analysis”, PhD thesis, TU Dortmund 2014.</li>

@@ -242,7 +242,7 @@ Setting up folder structures manually for each new project can be time-consuming
 :::{.callout-caution title="Sandbox Tutorial"} 
 **Learn how to create your own template [here](./practical_workshop.qmd).**
 
-We offer workshops on practical RDM for NGS data. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news/news.html).
+We offer workshops on practical RDM for biodata. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news/news.html).
 :::
 
 
@@ -329,7 +329,7 @@ Download a file using md5sums. Choose a file from your favorite dataset or selec
 
 ## Naming conventions
 
-Consistent naming conventions play a crucial role in scientific research by enhancing organization and data retrieval. By adopting standardized naming conventions, researchers ensure that files, experiments, or datasets are labeled logically, facilitating easy location and comparison of similar data. For instance, in fields like genomics, uniform naming conventions for files associated with particular experiments or samples allow for swift identification and comparison of relevant data, streamlining the research process and contributing to the reproducibility of findings. Overall, promotes efficiency, collaboration, and the integrity of scientific work.
+Consistent naming conventions play a crucial role in scientific research by enhancing organization and data retrieval. By adopting standardized naming conventions, researchers ensure that files, experiments, or datasets are labeled logically, facilitating easy location and comparison of similar data. The importance of uniform naming conventions extends to various fields, in fields like genomics or health data science, uniform naming conventions for files associated with particular experiments or samples allow for swift identification and comparison of relevant data, streamlining the research process and contributing to the reproducibility of findings. Overall, promotes efficiency, collaboration, and the integrity of scientific work.
 
 :::{.callout-tip title="General tips for file and folder naming"}
 
@@ -344,47 +344,19 @@ Remember to keep the folder structure simple.
 - Use **underscores and hyphens** as delimiters and **avoid spaces**.
     - Not all search tools may work well with spaces (messy to indicate paths)
     - If the length is a concern, use capital letters to delimit words [camelCase](https://en.wikipedia.org/wiki/Camel_case).
-- **Sequential numbering**: Use a two-‑digit format for single-digit numbers (0–9) to ensure correct numerical sequence order (for example, 01 and not 1)
+- **Sequential numbering**: Use a two-‑digit format for single-digit numbers (0–9) to ensure correct numerical sequence order (for example, 01 and not, 1 if your sequence only goes up to 99)
 - **Version control**: Indicate the version ("V") or revision ("R") as the last element, using the two-digit format (e.g., v01, v02)
 - Write down your naming convention pattern and document it in the README file
 :::
 
 :::{.callout-exercise}
-# Define your file name conventions
-Avoid long and complicated names and ensure your file names are both informative and easy to manage: 
+# Create your own naming conventions
 
-1. For saving a new plot, a heatmap representing sample correlations 
-2. When naming the file for the document containing the Research Data Management Course Objectives (Version 2, 2nd May 2024) from the University of Copenhagen
-3. Consider the most common file types you work with, such as visualizations, tables, etc., and create logical and clear file names
-
-:::{.callout-hint}
-1. `heatmap_sampleCor_20240101.png`
-2. `KU_RDM-objectives_20240502_v02.doc` or `KU_RDMObj_20240502_v02.doc`
+Consider the most common types of files and folders you will be working with, such as visualizations, results tables, and processed files. Develop a logical and clear naming system for these files based on the tips provided above. Aim for concise and straightforward names to avoid complexity.
 :::
 
 
-:::
-
-<details>
-  <summary><span style="color:#4b4646;font-weight:bold;font-size:x-large">Additional file naming conventions</summary>
-  <p>
-
-```{r}
-#| echo: false
-# Libraries
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(gt))
-quiet(library(tidyverse))
-
-# Load the data from CSV
-data <- read_tsv("./assets/file_naming_convention.tsv",show_col_types = FALSE)
-
-# Print the data as a table
-data %>% gt() |> tab_options(table.font.size = 11)
-```
-
-  </p>
-</details>
+To learn more about naming conventions for NGS analysis and see additional examples, click [here](examples/NGS_management.qmd).
 
 ## Wrap up
 

@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#documentation-and-metadata" id="toc-documentation-and-metadata" class="nav-link active" data-scroll-target="#documentation-and-metadata">Documentation and metadata</a>
+  <li><a href="#data-documentation" id="toc-data-documentation" class="nav-link active" data-scroll-target="#data-documentation">Data documentation</a>
   <ul class="collapse">
   <li><a href="#streamlining-metadata-collection" id="toc-streamlining-metadata-collection" class="nav-link" data-scroll-target="#streamlining-metadata-collection">Streamlining Metadata Collection</a></li>
   <li><a href="#readme.md" id="toc-readme.md" class="nav-link" data-scroll-target="#readme.md">README.md</a></li>
@@ -305,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 17, 2024</p>
+      <p class="date-modified">April 26, 2024</p>
     </div>
   </div>
     
@@ -337,42 +337,42 @@ Course Overview
 </div>
 </div>
 <p>In bioinformatics data management, documentation plays a critical role in ensuring clarity and reproducibility. Documentation and metadata are essential components in ensuring your data adheres to FAIR principles.</p>
-<section id="documentation-and-metadata" class="level2">
-<h2 class="anchored" data-anchor-id="documentation-and-metadata">Documentation and metadata</h2>
+<section id="data-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="data-documentation">Data documentation</h2>
 <p>Essential documentation comes in different forms and flavors, serving various purposes in research. Examples include protocols outlining experimental procedures, detailed lab journals recording experimental conditions and observations, codebooks explaining concepts, variables, and abbreviations used in the analysis, information about the structure and content of a dataset, software installation, and usage manual, code explanation within files or methodological information outlining data processing steps.</p>
 <p><img src="images/metadata.png" class="img-fluid" alt="metadata"> <em>From <a href="https://www.ontotext.com/knowledgehub/fundamentals/metadata-fundamental/">ontotext.com</a></em></p>
-<p>Metadata provides essential context and structure to (primary) data, enabling researchers to understand its significance and facilitate efficient data management. Some common elements found in metadata for bioinformatics data include:</p>
+<p>Data documentation provides essential context and structure to (primary) data, enabling researchers to understand its significance and facilitate efficient data management. Some common elements found in metadata for bioinformatics data include:</p>
 <ul>
-<li>Sample information and collection details</li>
-<li>Experimental conditions</li>
-<li>Data processing steps applied to the raw data</li>
-<li>Annotation and Ontology terms</li>
-<li>File metadata (file type, file format, etc.)</li>
-<li>Ethical and Legal Compliance</li>
+<li><strong>Data collection information</strong>: source (e.g., organism, tissue or location), date (YYYY-MM-DD format) and time, collection methods employed or experimental conditions.</li>
+<li><strong>Data processing information</strong>: data content, data format, data cleaning and transformation such as filtering and normalizations techniques, and software and tools used.</li>
+<li><strong>Data description</strong>: variables and attributes, and data types (e.g., categorical, numerical, or textual).</li>
+<li><strong>Biological context</strong>: experimental design, biological purpose and relevance and implications in the broader context.</li>
+<li><strong>Data ownership and access</strong>: authorship, licensing of the data and details on accessing and sharing.</li>
+<li><strong>Provenance and tracking</strong>: version control information over time and citations, such as links to publications or studies that reference the data.</li>
 </ul>
-<p>Metadata serves as a crucial guide in navigating the complex landscape of data, akin to a cheat sheet for piecing together the puzzle of information. Much like identifying puzzle pieces, metadata provides essential details about data origin, structure, and context, such as sample collection details, experimental procedures, and equipment used. Metadata enables data exploration, interpretation, and future accessibility, promoting effective management and facilitating data usability and reuse.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Benefits of collecting proper metadata">
+<p>Data documentation also serves as a crucial guide in navigating the complex landscape of data, akin to a cheat sheet for piecing together the puzzle of information. Much like identifying puzzle pieces, metadata provides essential details about data origin, structure, and context, such as sample collection details, experimental procedures, and equipment used. Metadata enables data exploration, interpretation, and future accessibility, promoting effective management and facilitating data usability and reuse.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Benefits of collecting proper documentation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Benefits of collecting proper metadata
+Benefits of collecting proper documentation
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><strong>Data Context and Interpretation</strong>: Aiding in understanding experimental conditions, sample origins, and processing methods, is crucial for accurate results interpretation.</li>
-<li><strong>Data Discovery and Access</strong>: Metadata enables easy locating and accessing of specific datasets by quickly identifying relevant data through sample identifiers, experimental parameters, and timestamps.</li>
-<li><strong>Reproducibility and Collaboration</strong>: Metadata facilitates experiment replication and validation by enabling colleagues to reproduce analyses, compare results, and collaborate effectively, enhancing the integrity of scientific findings.</li>
-<li><strong>Quality Control and Validation</strong>: Metadata supports data quality assessment by tracking the origin and handling of NGS data, allowing the identification of errors or biases to validate analysis accuracy and reliability.</li>
-<li><strong>Long-Term Data Preservation</strong>: metadata ensures preservation over time, facilitating future understanding and utilization of archived datasets for continued scientific impact as research progresses.</li>
+<li><strong>Data Discovery and Access</strong>: Documentation enables easy locating and accessing of specific datasets by quickly identifying relevant data through sample identifiers, experimental parameters, and timestamps.</li>
+<li><strong>Reproducibility and Collaboration</strong>: Documentation facilitates experiment replication and validation by enabling colleagues to reproduce analyses, compare results, and collaborate effectively, enhancing the integrity of scientific findings.</li>
+<li><strong>Quality Control and Validation</strong>: Documentation supports data quality assessment by tracking the origin and handling of NGS data, allowing the identification of errors or biases to validate analysis accuracy and reliability.</li>
+<li><strong>Long-Term Data Preservation</strong>: Documentation ensures preservation over time, facilitating future understanding and utilization of archived datasets for continued scientific impact as research progresses.</li>
 </ol>
 </div>
 </div>
 <section id="streamlining-metadata-collection" class="level3">
 <h3 class="anchored" data-anchor-id="streamlining-metadata-collection">Streamlining Metadata Collection</h3>
-<p>Data and project directories should both include metadata and a README file.</p>
+<p>Data and project directories should both include metadata and a README file. Metadata delivers descriptive information about a dataset or project, offering insights for interpreting, using, and sharing the data effectively. README files offer an overview and purpose of the project or dataset, providing instructions and guidance for setting up, running, and using the data or tools. While metadata concentrates on the data itself, README files provide a broader perspective on the overall project or resource.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Practical tips">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -396,9 +396,28 @@ Practical tips
 </section>
 <section id="readme.md" class="level3">
 <h3 class="anchored" data-anchor-id="readme.md">README.md</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+File formats
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Link to the <a href="https://fileinfo.com/">file format database</a></p>
+<ul>
+<li>Markdown (<code>.md</code>): commonly used because is easy to read and write and is compatible across platforms (e.g., GitHub, GitLab). Supports formatting like headings, lists, links, images, and code blocks.</li>
+<li>Plain Text (<code>.txt</code>): Simple and straightforward format without any rich formatting and great for basic instructions. Lack the ability of structure content effectively.</li>
+<li>ReStructuredText (<code>.rst</code>): commonly used for python projects. Supports advanced formatting (takes, links, images and code blocks) .</li>
+</ul>
+<p>Others such as HTML, YAML and Notebooks.</p>
+</div>
+</div>
 <p>The README.md file, written in <a href="https://www.markdownguide.org/">markdown format</a>, provides a detailed description of the folder’s content. It includes information such as the purpose of the data, collection methods, and relevant details. The content might differ based on the purpose of the data.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -407,7 +426,7 @@ Exercise 1: Identify README.md key components.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -427,7 +446,7 @@ Exercise 1: Identify README.md key components.
 </div>
 <p><strong>Structure for bioinformatics projects.</strong></p>
 <ul>
-<li>Description of the project</li>
+<li>Description and relevance the project</li>
 <li>Objectives and aims</li>
 <li>Datasets and software requirements</li>
 <li>Instruction for data interpretation</li>
@@ -438,7 +457,27 @@ Exercise 1: Identify README.md key components.
 </section>
 <section id="metadata.yml" class="level3">
 <h3 class="anchored" data-anchor-id="metadata.yml">metadata.yml</h3>
-<p>Metadata can be written in many file formats (commonly used: YAML, TXT, JSON, and CSV). We recommend <a href="https://fileinfo.com/extension/yml">YAML format</a>, which is a text document that contains data formatted using a human-readable data format for data serialization. The content will be specific to the type of project.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+File formats
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>XML (eXtensible Markup Language): uses custom tags to describe data and allows for a hierarchical structure.</li>
+<li>JSON (JavaScript Object Notation): lightweight and human-readable format that is easy to parse and generate.</li>
+<li>CSV (Comma-Separated Values) or TSV (tabulate-separate values): simple and widely supported for representing tabular formats. Easy to manipulate using software or programming languages. It is often use for sample metadata.</li>
+<li>YAML (YAML Ain’t Markup Language): human-readable data serialization format, commonly used as project configuration files.</li>
+</ul>
+<p>Others such as RDF or HDF5.</p>
+</div>
+</div>
+<p>Link to the <a href="https://fileinfo.com/">file format database</a>.</p>
+<p>Metadata can be written in many file formats (commonly used: YAML, TXT, JSON, and CSV). We recommend <a href="https://fileinfo.com/extension/yml">YAML format</a>, which is a text document that contains data formatted using a human-readable data format for data serialization. However, choose the format that best suits the project’s needs. The content will be specific to the type of project.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode YAML code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">project</span><span class="kw">:</span><span class="at"> </span><span class="st">"Title"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Name"</span></span>
@@ -476,7 +515,7 @@ Tip
 <div class="callout-body-container callout-body">
 <p>There is an exercise in the <a href="../develop/practical_workshop.html">practical material</a> to streamline the creation of metadata files using Cookiecutter, a template-based scaffolding tool.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -485,7 +524,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
@@ -515,15 +554,17 @@ Examples of ontology services
 <ul>
 <li><a href="https://www.ebi.ac.uk/ols4/ontologies/uberon">Uberon anatomy ontology</a></li>
 <li><a href="https://geneontology.org/docs/tools-overview/">Gene ontology</a></li>
-<li><a href="https://www.ebi.ac.uk/training/online/courses/ensembl-browsing-genomes/navigating-ensembl/investigating-a-gene/#:~:text=Ensembl%20gene%20IDs%20begin%20with,of%20species%20other%20than%20human">Ensembl gene IDs</a>.</li>
+<li><a href="https://www.ebi.ac.uk/training/online/courses/ensembl-browsing-genomes/navigating-ensembl/investigating-a-gene/#:~:text=Ensembl%20gene%20IDs%20begin%20with,of%20species%20other%20than%20human">Ensembl gene IDs</a></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/mesh">Medical Subject Headings (MeSH)</a></li>
 <li><a href="https://www.ebi.ac.uk/chebi/">Chemical Entities of Biological Interest</a></li>
 <li><a href="https://mged.sourceforge.net/ontologies/index.php">Microarray Gene Expression Society Ontology (MGED)</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI taxonomy</a></li>
+<li><a href="https://mondo.monarchinitiative.org/">Mondo disease database</a></li>
 </ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-definition no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -532,7 +573,7 @@ Ontology definition
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-definition">
@@ -552,7 +593,7 @@ Ontology definition
 <h3 class="anchored" data-anchor-id="tables-as-databases">Tables as databases</h3>
 <p>A browsable table can be created by recursively navigating through a project’s folder hierarchy using a script and generating a TSV file (tab-separated values) named, for example, database_YYYYMMDD.tsv. This table acts as a centralized repository for all project data, simplifying access and organization. Consistency in metadata structure across projects is vital for efficient data management and integration, as it aids in tracking all conducted assays. Adhering to a uniform metadata format enables the seamless inclusion of essential information from YAML files into the browsable table.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -561,7 +602,7 @@ Exercise 2: Generate database tables from metadata
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -573,7 +614,7 @@ Exercise 2: Generate database tables from metadata
 </ul>
 <p>Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -582,7 +623,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
@@ -659,7 +700,7 @@ Advantages of using SQLite database
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -668,13 +709,13 @@ Exercise 3: Generate a SQLite database from metadata
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
 <p>Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -683,7 +724,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
@@ -728,7 +769,7 @@ Hint
 </figure>
 </div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -737,7 +778,7 @@ Exercise 4: Create your first catalog browser using Rshiny
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
@@ -746,7 +787,7 @@ Exercise 4: Create your first catalog browser using Rshiny
 <li>Solution A. From a TSV</li>
 </ul>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -755,7 +796,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint code-overflow-wrap">
@@ -804,7 +845,7 @@ Hint
 <li>Solution B. From an SQLite database</li>
 </ul>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -813,7 +854,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint code-overflow-wrap">
@@ -884,7 +925,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -893,7 +934,7 @@ Exercise 5: Add complex features to your catalog browser
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">

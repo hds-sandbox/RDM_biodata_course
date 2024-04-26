@@ -20,24 +20,6 @@ summary: Examples of metadata files for experimental and computational purposes.
 
 You should consider revisiting these examples after completing [lesson 4](../04_metadata.qmd) in the course material. Please review these three tables containing pre-filled data fields for metadata, each serving distinct purposes: sample metadata, project metadata, and experimental metadata.
 
-### Sample metadata fields
-
-Some details might be specific to your samples. For example, which samples are treated, which are controlled, which tissue they come from, which cell type, the age, etc. Here is a list of possible metadata fields that you can use:
-
-```{r}
-#| echo: false
-# Libraries
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(gt))
-quiet(library(tidyverse))
-
-# Load the data from CSV
-data <- read_tsv('../assets/sample_metadata.tsv', show_col_types = FALSE)
-
-# Print the data as a table
-data %>% gt() |> tab_options(table.font.size = 12)
-```
-
 ### Project metadata fields
 
 Here you will find a table with possible metadata fields that you can use to annotate and track your `Project` folders:
@@ -51,6 +33,24 @@ quiet(library(tidyverse))
 
 # Load the data from CSV
 data <- read_tsv('../assets/project_metadata.tsv', show_col_types = FALSE)
+
+# Print the data as a table
+data %>% gt() |> tab_options(table.font.size = 12)
+```
+
+### Sample metadata fields
+
+Some details might be specific to your samples. For example, which samples are treated, which are controlled, which tissue they come from, which cell type, the age, etc. Here is a list of possible metadata fields that you can use:
+
+```{r}
+#| echo: false
+# Libraries
+quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
+quiet(library(gt))
+quiet(library(tidyverse))
+
+# Load the data from CSV
+data <- read_tsv('../assets/sample_metadata.tsv', show_col_types = FALSE)
 
 # Print the data as a table
 data %>% gt() |> tab_options(table.font.size = 12)
@@ -92,3 +92,8 @@ data <- read_tsv('../assets/database_example_20230810.tsv', show_col_types = FAL
 # Print the data as a table
 data %>% gt()  |> tab_options(table.font.size = 12)
 ```
+
+### Sources
+
+- [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
+- Biological ontologies for data scientists,[Bionty](https://lamin.ai/docs/bionty)

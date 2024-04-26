@@ -1,5 +1,4 @@
 ﻿---
-title: NGS data strategies
 format: html
 date-modified: last-modified
 date-format: long
@@ -7,19 +6,18 @@ date: 2023-11-30
 bibliography: ../../resources/references.bib
 summary: In this lesson, we talk about what is NGS from a computational view
 ---
-# Effective RDM Practices in NGS Analysis
-
 :::{.callout-note title="Section Overview"}
 
 ⏰ **Time Estimation:** X minutes  
 
 💬 **Learning Objectives:**         
 
-1. Next Generation Sequencing data types and metadata
-2. Best practices for software and code management
-3. Pipelines and workflows
+1. NGS data strategies 
+2. File naming conventions examples
 
 :::
+
+# Effective RDM Practices in NGS Analysis
 
 In the data life cycle for Next Generation Sequencing (NGS) technology data, processing, and analyzing are critical phases that involve transforming raw sequencing data into meaningful biological insights. Researchers apply computational methods and bioinformatics tools to extract valuable information from the vast amount of sequencing data generated in NGS experiments. We'll first explore the primary data types generated pre- and post-processing and the importance of detailed documentation. We will then focus on good practices used when performing data analysis and software development.
 
@@ -120,6 +118,22 @@ A great example of community-curated workflows is the [nf-core](https://nf-co.re
 :::{.callout-warning title="Course on pipelines and workflows"}
 Take our course on Reproducible Research Practices [LINK]()
 :::
+
+# File naming convention examples 
+
+```{r}
+#| echo: false
+# Libraries
+quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
+quiet(library(gt))
+quiet(library(tidyverse))
+
+# Load the data from CSV
+data <- read_tsv("../assets/file_naming_convention.tsv",show_col_types = FALSE)
+
+# Print the data as a table
+data %>% gt() |> tab_options(table.font.size = 11)
+```
 
 Click below to  access a list of the most common file formats used when working with NGS data. 
 

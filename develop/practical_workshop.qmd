@@ -265,46 +265,44 @@ After the generation process is complete, navigate to the directory where Cookie
 Use Cookiecutter to create custom templates for your folders. You can do it from scratch (see Exercise 1, part B) or opt for one of our pre-made templates available as a Github repository (recommended for this workshop). Feel free to tailor the template to your specific requirements—you don't have to follow our examples exactly.
 
 **Requirements**
+
 We assume you have already gone through the requirements at the beginning of the practical lesson. This includes installing the necessary tools and setting up accounts as needed.
     
 **Project**
     
-1. Go to our [Cookicutter template](https://github.com/hds-sandbox/cookiecutter-template) and click on the **Fork*
-* button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization.
+1. Go to our [Cookicutter template](https://github.com/hds-sandbox/cookiecutter-template) and click on the **Fork** button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization.
     ![fork_repo_example](./images/fork_repo_project.png)
 2. Open a terminal on your computer, copy the URL of your fork and **clone** the repository to your local machine (the URL should look something like https://github.com/your_username/cookiecutter-template):
-```{.bash}
-git clone <your URL to the template>
-```
-If you have a GitHub Desktop, click **Add** and select "Clone repository" from the options
-3. Open the repository and navigate through the different directories
-4. Modify the contents of the repository as needed to fit your project's requirements. You can change files, add new ones. remove existing one or adjust the folder structure. For inspiration, review the data structure above under 'Project folder'. For instance, this template is missing the 'reports' directory. Consider creating it, along with a subdirectory named 'figures'. Here’s an example of how to do it: 
 
-```{.bash}
-cd \{\{\ cookiecutter.project_name\ \}\}/  
-mkdir reports 
-touch requirements.txt
-```
-5. Modify the `cookiecutter.json` file. You could add new variables or change the default values: 
-```{.bash}
-# open a text editor
- "author": "Alba Refoyo",
-```
+    ```{.bash}
+    git clone <your URL to the template>
+    ```
+If you have a GitHub Desktop, click **Add** and select "Clone repository" from the options
+
+3. Open the repository and navigate through the different directories
+
+4. Modify the contents of the repository as needed to fit your project's requirements. You can change files, add new ones. remove existing one or adjust the folder structure. For inspiration, review the data structure above under 'Project folder'. For instance, this template is missing the 'reports' directory and add the 'requirements.txt' file. Consider creating it, along with a subdirectory named 'reports/figures'. 
+
+    ```plaintext
+    ├── results/
+    │   ├── figures/
+    ├── requirements.txt
+    ```
+    Here’s an example of how to do it: 
+
+    ```{.bash}
+    # Open your terminal and navigate to your template directory. Then: 
+    cd \{\{\ cookiecutter.project_name\ \}\}/  
+    mkdir reports 
+    touch requirements.txt
+    ```
 5. Commit and push changes when you are done with your modifications
-- Stage the changes with 'git add'
-- Commit the changes with a meaningful commit message 'git commit -m "update cookicutter template" '
-- Push the changes to your forked repository on Github 'git push origin main' (or the appropriate branch name)
+- Stage the changes with `git add`
+- Commit the changes with a meaningful commit message `git commit -m "update cookicutter template" `
+- Push the changes to your forked repository on Github `git push origin main` (or the appropriate branch name)
 6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`
-Fill up the variables and verify that the modified template looks like you would expect.  
-7. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
-```{.bash}
-"__prompts__": {
-    "project_name": "Project directory name [Example: project_short_description_202X]",
-    "author": "Author of the project",
-    "date": "Date of project creation, default is today's date",
-    "short_description": "Provide a detailed description of the project (context/content)"
-  },
-```
+
+    Fill up the variables and verify that the new structure (and folders) looks like you would expect. Have any new folders been added, or have some been removed?
 :::
 
 :::{.callout-exercise}
@@ -327,182 +325,204 @@ my_template/
 - Step 5: Use cookiecutter variables within scripts, such as printing a message that includes the project name.
 :::
 
-## 2. Metadata 
+## 2. Data documentation  
 
-Metadata is the behind-the-scenes information that makes sense of data and gives context and structure. For biodata, metadata includes information such as when and where the data was collected, what it represents, and how it was processed. Let's check what kind of relevant metadata is available for NGS data and how to capture it in your Assay or Project folders. Both of these folders contain a metadata.yml file and a README.md file. In this section, we will check what kind of information you should collect in each of these files.
+Data documentation involves organizing, describing, and providing context for datasets and projects. While metadata concentrates on the data itself, README files provide a broader perspective on the overall project or resource.
+
+### Metadata
+:::{.callout-warning title="metadata.yml"}
+Choose the format that best suits the project's needs. In this workshop, we will focus on YAMl as it is highly used for configuration files (e.g., in conda or pipelines).
+
+:::{.callout-definition}
+# File formats 
+- XML (eXtensible Markup Language): uses custom tags to describe data and allows for a hierarchical structure.
+- JSON (JavaScript Object Notation): lightweight and human-readable format that is easy to parse and generate.
+- CSV (Comma-Separated Values) or TSV (tabulate-separate values): simple and widely supported for representing tabular formats. Easy to manipulate using software or programming languages. It is often use for sample metadata. 
+- YAML (YAML Ain't Markup Language): human-readable data serialization format, commonly used as project configuration files. 
+
+Others such as RDF or HDF5. 
+:::
+ Link to the [file format database](https://fileinfo.com/). 
+   
+:::
+
+Metadata in biological datasets refers to the information that describes the data and provides context for how the data was collected, processed, and analyzed. Metadata is crucial for understanding, interpreting, and using biological datasets effectively. It also ensures that datasets are reusable, reproducible and understandable by other researchers. Some of the components may differ depending on the type of project, but there are general concepts that will always be shared across different projects:
+
+- Sample information and collection details
+- Biological context (such experimental conditions if applicable)
+- Data description 
+- Data processing steps applied to the raw data
+- Annotation and Ontology terms
+- File metadata (file type, file format, etc.)
+- Ethical and Legal Compliance (ownership, access, provenance)
 
 :::{.callout-warning title="Metadata and controlled vocabularies"}
-In order for metadata to be most useful, you should try to use controlled vocabularies for all your fields. For example, tissue could be described with the [UBERON ontologies](https://www.ebi.ac.uk/ols/ontologies/uberon), species using the [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy), diseases using the [Mondo database](https://mondo.monarchinitiative.org/), etc. Unfortunately, implementing a systematic way of using these vocabularies is rather complex and outside the scope of this workshop, but you are very welcome to try to implement them on your own!
+To maximize the usefulness of metadata, aim to use controlled vocabularies across all fields. Read more about data documentation and find ontology services examples in [lesson 4](https://hds-sandbox.github.io/RDM_NGS_course/develop/04_metadata.html#controlled-vocabularies-and-ontologies). We encourage you to begin implementing them systematically on your own (under the "sources" section, you will find some helpful links to guide you putting them in practice). 
+
+If you work with NGS data, check out [this](https://hds-sandbox.github.io/RDM_NGS_course/develop/examples/NGS_metadata.html) recommendations and examples of metadata for samples, projects and datasets. 
 :::
-### README.md file
 
-The README.md file is a [markdown file](https://www.markdownguide.org/) that allows you to write a long description of the data placed in a folder. Since it is a markdown file, you are able to write in rich text format (bold, italic, include links, etc) what is inside the folder, why it was created/collected, and how and when. If it is an `Assay` folder, you could include the laboratory protocol used to generate the samples, images explaining the experiment design, a summary of the results of the experiment, and any sort of comments that would help to understand the context of the experiment. On the other hand, a 'Project' README file may contain a description of the project, what are its aims, why is it important, what 'Assays' is it using, how to interpret the code notebooks, a summary of the results and, again, any sort of comments that would help to understand the project.
 
-Here is an example of a README file for a `Project` folder:
+### README file
 
-```{.bash .code-overflow-wrap}
-# NGS Analysis Project: Exploring Gene Expression in Human Tissues
+:::{.callout-warning title="README.md"}
+Choose the format that best suits the project's needs. In this workshop, we will focused on Markdown as it is the most used format due to its balance of simplicity and expressive formatting options. 
 
-## Aims
+:::{.callout-definition}
+# File formats 
+- Markdown (`.md`): commonly used because is easy to read and write and is compatible across platforms (e.g.,  GitHub, GitLab). Supports formatting like headings, lists, links, images, and code blocks.
+- Plain Text (`.txt`): Simple and straightforward format without any rich formatting and great for basic instructions. Lack the ability of structure content effectively. 
+- ReStructuredText (`.rst`): commonly used for python projects. Supports advanced formatting (takes, links, images and code blocks) .
 
+Others such as HTML, YAML and Notebooks. 
+:::
+Link to the [file format database](https://fileinfo.com/)
+
+:::
+
+The README.md file is a [markdown file](https://www.markdownguide.org/) that provides a comprehensive description of the data within a folder. Its rich text format (including bold, italic, links, etc.) allows you to explain the contents of the folder, as well as the reasons and methods behind its creation or collection. The content will vary depending on what it described (data or assays, project, software...). 
+
+Here is an example of a README file for a bioinformatics project:
+
+:::{.callout-readme}
+
+\#  TITLE
+
+Clear and descriptive.
+
+\#  OVERVIEW
+
+Introduction to the project including its aims, and its significance. Describe the main purpose and the biological questions being addressed.
+
+:::{.callout-definition}
+# Example text 
 This project aims to investigate gene expression patterns across various human tissues using Next Generation Sequencing (NGS) data. By analyzing the transcriptomes of different tissues, we seek to uncover tissue-specific gene expression profiles and identify potential markers associated with specific biological functions or diseases.
 
-## Why It's Important
-
 Understanding tissue-specific gene expression is crucial for deciphering the molecular basis of health and disease. Identifying genes that are uniquely expressed in certain tissues can provide insights into tissue function, development, and potential therapeutic targets. This project contributes to our broader understanding of human biology and has implications for personalized medicine and disease research.
+:::
 
-## Datasets
+\# TABLE OF CONTENTS (optional but helpful for others to navigate to different sections)
 
+\# INSTALLATION AND SETUP
+
+List all prerequisites, software, dependencies, and system requirements needed for others to reproduce the project. If available, you may link to a Docker image, Conda YAML file, or requirements.txt file.
+
+\# USAGE
+
+Include command-line examples for various functionalities or steps and path for running a pipeline, if applicable. 
+
+\# DATASETS
+
+Describe the data,, including its sources, format, and how to access it. If the data has undergone preprocessing, provide a description of the processes applied or the pipeline used.
+
+:::{.callout-definition}
+# Example text 
 We have used internal datasets with IDs: RNA_humanSkin_20201030, RNA_humanBrain_20210102, RNA_humanLung_20220304.
 
 In addition, we utilized publicly available NGS datasets from the GTEx (Genotype-Tissue Expression) project, which provides comprehensive RNA-seq data across multiple human tissues. These datasets offer a wealth of information on gene expression levels and isoform variations across diverse tissues, making them ideal for our analysis.
+:::
 
-## Summary of Results
+\# RESULTS
 
+Summarize the results and key findings or outputs. 
+
+:::{.callout-definition}
+# Example text 
 Our analysis revealed distinct gene expression patterns among different human tissues. We identified tissue-specific genes enriched in brain tissues, highlighting their potential roles in neurodevelopment and function. Additionally, we found a set of genes that exhibit consistent expression across a range of tissues, suggesting their fundamental importance in basic cellular processes.
 
 Furthermore, our differential expression analysis unveiled significant changes in gene expression between healthy and diseased tissues, shedding light on potential molecular factors underlying various diseases. Overall, this project underscores the power of NGS data in unraveling intricate gene expression networks and their implications for human health.
+:::
 
----
+\# CONTRIBUTIONS AND CONTACT INFO
 
-For more details, refer to our [Jupyter Notebook](link-to-jupyter-notebook.ipynb) for the complete analysis pipeline and code.
-```
+\# LICENSE
+:::
 
-
-### metadata.yml
-
-The metadata file is a [yml file](https://fileinfo.com/extension/yml), which is a text document that contains data formatted using a human-readable data format for data serialization.
-
-![yaml file example](./images/yml_example.png)
-
-### Metadata fields
-
-There is a ton of information you can collect regarding an NGS assay or a project. Some information fields are very general, such as author or date, while others are specific to the Assay or Project folder. Below, we will take a look at the minimal information you should collect in each of the folders.
-
-#### General metadata fields
-
-Here you can find a list of suggestions for general metadata fields that can be used for both assays and project folders:
-
-- **Title**: A brief yet informative name for the dataset.
-- **Author(s)**: The individual(s) or organization responsible for creating the dataset. You can use your [ORCID](https://orcid.org/)
-- **Date Created**: The date when the dataset was originally generated or compiled. Use YYYY-MM-DD format!
-- **Description**: A short narrative explaining the content, purpose, and context.
-- **Keywords**: A set of descriptive terms or phrases that capture the folder's main topics and attributes.
-- **Version**: The version number or identifier for the folder, useful for tracking changes.
-- **License**: The type of license or terms of use associated with the dataset/project.
-
-#### Assay metadata fields
-
-Here you will find a table with possible metadata fields that you can use to annotate and track your `Assay` folders:
-
-```{r}
-#| echo: false
-# Libraries
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(gt))
-quiet(library(tidyverse))
-
-# Load the data from CSV
-data <- read_tsv("./assets/assay_metadata.tsv",show_col_types = FALSE)
-
-# Print the data as a table
-data %>% gt() |> tab_options(table.font.size = 11)
-```
-
-#### Project metadata fields
-
-Here you will find a table with possible metadata fields that you can use to annotate and track your `Project` folders:
-
-```{r}
-#| echo: false
-# Libraries
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(gt))
-quiet(library(tidyverse))
-
-# Load the data from CSV
-data <- read_tsv("./assets/project_metadata.tsv",show_col_types = FALSE)
-
-# Print the data as a table
-data %>% gt() |> tab_options(table.font.size = 11)
-```
-
-### More info
-
-The information provided in this lesson is not at all exhaustive. There might be many more fields and controlled vocabularies that could be useful for your NGS data. We recommend that you take a look at the following sources for more information!
-
-- [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
-- [Bionty](https://lamin.ai/docs/bionty): Biological ontologies for data scientists.
 
 :::{.callout-exercise} 
-# Exercise 2: modify the metadata.yml files in your Cookiecutter templates
+# Exercise 2: modify the metadata.yml file in your Cookiecutter template
+It is time now to customize your Cookiecutter templates and modify the metadata.yml files so that they fit your needs! 
 
-We have seen some examples of metadata for NGS data. It is time now to customize your Cookiecutter templates and modify the metadata.yml files so that they fit your needs! 
-    
-1. Think about what kind of metadata you would like to include.
-2. Modify the `cookiecutter.json` file so that when you create a new folder template, all the metadata is filled accordingly.
+0. Consider changing variables (add/remove) in the metadata.yml file from the cookicutter template. 
+1. Modify the `cookiecutter.json` file. You could add new variables or change the default key and/or values: 
 
-:::{.callout-hint}
-![cookiecutter_json_example](./images/cookiecutter_json.png)
-:::
-3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file.
+    ```{.json .code-overflow-wrap}
+    {
+    "project_name": "myProject",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "authors": "myName",
+    "start_date": "{% now 'utc', '%Y%m%d' %}",
+    "short_desc": "",
+    "version": "0.1.0"
+    }
+    ```
+The metadata file will be filled accordingly.
 
-:::{.callout-hint}
-![assay_metadata_example](./images/assay_metadata.png)
-:::
-4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file.
-5. Git add, commit, and push the changes to your template.
-6. Test your folders by using the command `cookiecutter <URL to your cookiecutter repository in GitHub>`
+2. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
+
+    ```{.json .code-overflow-wrap}
+    "__prompts__": {
+        "project_name": "Project directory name [Example: project_short_description_202X]",
+        "author": "Author of the project",
+        "date": "Date of project creation, default is today's date",
+        "short_description": "Provide a detailed description of the project (context/content)"
+    },
+    ```
+
+3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below: 
+
+    ```{.json .code-overflow-wrap}
+    project: {{ cookiecutter.project_name }}
+    author: {{ cookiecutter.author }}
+    date: {{ cookiecutter.date }}
+    description: {{ cookiecutter.short_description }}
+    ```
+4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file and the metadata at the top of the markdown file (top between lines of dashed).
+
+    ```{.md .code-overflow-wrap}
+    ---
+    title: {{ cookiecutter.project_name }}
+    date: "{{ cookiecutter.date }}"
+    author: {{ cookiecutter.author }}
+    version: {{ cookiecutter.version }}
+    ---
+
+    Project description
+    ----
+
+    {{ cookiecutter.short_description }}
+    ```
+
+5. Commit and push changes when you are done with your modifications
+- Stage the changes with `git add`
+- Commit the changes with a meaningful commit message `git commit -m "update cookicutter template" `
+- Push the changes to your forked repository on Github `git push origin main` (or the appropriate branch name)
+6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`
+
+    Fill up the variables and verify that the modified information looks like you would expect.  
+
 :::
 
 ## 3. Naming conventions
 
-Using consistent naming conventions is important in scientific research as it helps with the organization and retrieval of data or results. By adopting standardized naming conventions, researchers ensure that files, experiments, or data sets are labeled in a clear, logical manner. This makes it easier to locate and compare similar types of data or results, even when dealing with large datasets or multiple experiments. For instance, in genomics, employing uniform naming conventions for files related to specific experiments or samples allows for swift identification and comparison of relevant data, streamlining the research process and contributing to the reproducibility of findings. This practice promotes efficiency, collaboration, and the integrity of scientific work.
+As discussed in [lesson 3](https://hds-sandbox.github.io/RDM_NGS_course/develop/03_DOD.html#naming-conventions), consistent naming conventions are key for interpreting, comparing, and reproducing findings in scientific research. Standardized naming helps organize and retrieve data or results, allowing researchers to locate and compare similar types of data within or across large datasets. 
 
-### General tips
-
-Below you will find a small list of general tips to follow when you name a folder or a file:
-
-- Use only alphanumeric characters to write a word: a to z and 0 to 9
-- Avoid special characters: ~!@#$%^&*()`[]{}"|
-- Date format: use `YYYYMMDD` format. For example: 20230101.
-- Authors: use initials. For example: JARH
-- **Don't use spaces**! Computers get very confused when you need to point a path to a file and it contains spaces! Instead:
-    - Separate field sections are separated by underscores `_`.
-    - Words in each section are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case).
-  It would look then like this: `field1_word1Word2.txt`. For example: `heatmap_sampleCor_20230101.png`. The first field indicates what this file is, i.e., a heatmap. The second field is what is being plotted, i.e., sample correlations; since the field contains two words, they are written in camelCase. The third field is the date when the image was created.
-- Use as short fields as possible. You can try to use understandable abbreviations, like LFC for LogFoldChange, Cor for correlations, Dist for distances, etc.
-- Avoid long names as much as you can, be concise!
-- Avoid creating many sublevels of folders.
-- Write down your naming convention pattern and document it in the README file
-- When using a sequential numbering system, use leading zeros to make sure files are sorted in sequential order. Use `01` instead of just `1` if your sequence only goes up to `99`.
-- Versions should be used as the last element, and use at least two digits with a leading 0 (e.g. v01, v02)
-
-### Suggestions for NGS data
-
-More info on naming conventions for different types of files and analysis is in development.
-
-```{r}
-#| echo: false
-# Libraries
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(gt))
-quiet(library(tidyverse))
-
-# Load the data from CSV
-data <- read_tsv("./assets/file_naming_convention.tsv",show_col_types = FALSE)
-
-# Print the data as a table
-data %>% gt() |> tab_options(table.font.size = 11)
-```
 
 :::{.callout-exercise}
-# Exercise 3: Create your own naming conventions
+#  Exercise 3: Define your file name conventions
+Avoid long and complicated names and ensure your file names are both informative and easy to manage: 
 
-Think about the most common types of files and folders you will be working on, such as visualizations, results tables, processed files, etc. Then come up with a logical and clear way of naming those files using the tips suggested above. Remember to avoid making long and complicated names!
+1. For saving a new plot, a heatmap representing sample correlations 
+2. When naming the file for the document containing the Research Data Management Course Objectives (Version 2, 2nd May 2024) from the University of Copenhagen
+3. Consider the most common file types you work with, such as visualizations, figures, tables, etc., and create logical and clear file names
+
+:::{.callout-hint}
+1. `heatmap_sampleCor_20240101.png`
+2. `KU_RDM-objectives_20240502_v02.doc` or `KU_RDMObj_20240502_v02.doc`
+:::
 :::
 
-## 4. Create a catalog of your assay folder
+## 4. Create a catalog of your data folder
 
 The next step is to collect all the NGS datasets that you have created in the manner explained above. Since your folders all should contain the `metadata.yml` file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. This table can be then browsed easily with Microsoft Excel, for example. If you are interested in making a Shiny app or Python Panel tool to interactively browse the catalog, check out this [lesson](./04_metadata.qmd).
 
@@ -511,10 +531,12 @@ The next step is to collect all the NGS datasets that you have created in the ma
 
 We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your `Assays` folder), fetches all the `metadata.yml` files, and merges them. Finally, it will write a TSV file as an output. 
 
-1. Create a folder called `Assays`
-2. Under that folder, make three new `Assay` folders from your cookiecutter template
-3. Run the script below with R (or create your own with Python). Modify the `folder_path` variable so it matches the path to the folder `Assays`. The table will be written under the same `folder_path`.
-4. Visualize your `Assays` table with Excel
+1. Create a folder called `dataset` and change directory `cd dataset`
+2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.
+While you are welcome to create your own template from scratch, we recommend using this one to save time.
+3. Run the `cookiecutter cc-data-template` command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). 
+Execute the script below using R (or create your own script in Python). Adjust the `folder_path` variable so that it matches the path to the Assays folder. The resulting table will be saved in the same `folder_path`.
+4. Open your `database_YYYYMMDD.tsv` table in a text editor from the command-line, or view it in Excel for better visualization.
 
 ```{.r  .code-overflow-wrap}
 
@@ -522,29 +544,39 @@ library(yaml)
 library(dplyr)
 library(lubridate)
 
+# Function to read a YAML file and transform it into a dataframe format.
+read_yaml <- function(file_path) {
+  # Read the YAML file and convert it to a data frame
+  df <- yaml::yaml.load_file(file_path) %>% as.data.frame(stringsAsFactors = FALSE)
+  
+  # Return the data frame
+  return(df)
+}
+
 # Function to recursively fetch metadata.yml files
 get_metadata <- function(folder_path) {
-    file_list <- list.files(path = folder_path, pattern = "metadata\\.yml$", recursive = TRUE, full.names = TRUE)
-    metadata_list <- lapply(file_list, yaml::yaml.load_file)
-    return(metadata_list)
-    }
+  file_list <- list.files(path = folder_path, pattern = "metadata\\.yml$", recursive = TRUE, full.names = TRUE)
+
+  metadata_list <- lapply(file_list, read_yaml)
+  
+  # Combine the list of data frames into a single data frame using dplyr::bind_rows()
+  combined_metadata <- bind_rows(metadata_list)
+
+  return(combined_metadata)
+}
 
 # Specify the folder path
-    folder_path <- "/path/to/your/folder"
+folder_path <- "/path/to/your/folder"
 
-    # Fetch metadata from the specified folder
-    metadata <- get_metadata(folder_path)
+# Fetch metadata from the specified folder
+metadata <- get_metadata(folder_path)
 
-    # Convert metadata to a data frame
-    metadata_df <- data.frame(matrix(unlist(metadata), ncol = length(metadata), byrow = TRUE))
-    colnames(metadata_df) <- names(metadata[[1]])
+# Save the data frame as a TSV file
+output_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".tsv")
+write.table(metadata, file = output_file, sep = "\t", quote = FALSE, row.names = FALSE)
 
-    # Save the data frame as a TSV file
-    output_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".tsv")
-    write.table(metadata_df, file = output_file, sep = "\t", quote = FALSE, row.names = FALSE)
-
-    # Print confirmation message
-    cat("Database saved as", output_file, "\n")
+# Print confirmation message
+cat("Database saved as", output_file, "\n")
 ```
 :::
 

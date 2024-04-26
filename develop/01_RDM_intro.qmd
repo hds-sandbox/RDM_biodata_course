@@ -28,7 +28,7 @@ Research Data Management (RDM) can be defined as a "*collective term for the pla
 :::{.callout-definition}
 # Semantics of RDM
 
-The definition of [**Management**](https://www.merriam-webster.com/dictionary/management) is "the practice of managing; handling, supervision, or control.".
+The definition of [**Management**](https://www.merriam-webster.com/dictionary/management) is "the practice of managing; handling, supervision, or control".
 
 In accordance with the UCPH Policy for Research Data Management, **research data** encompasses both physical material and digital information gathered, observed, produced, or formulated during research activities carried out during research. This broad definition includes various types of data serving as the foundation for the research, such as specimens, notebooks, interviews, texts, literature, digital raw data, recordings, computer code, and meticulous documentation of these materials and data, forming the core of the analysis that underlies the research outcomes.
 

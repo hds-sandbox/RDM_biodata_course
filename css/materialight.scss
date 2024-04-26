@@ -69,8 +69,34 @@ div.callout-hint.callout-style-default > .callout-header {
   
 div.callout-definition.callout-style-default > .callout-header {
     background-color: #ffffff !important; 
-    height: 30px;
+    height: 26px;
 }
+
+div.callout-definition {
+  font-size: 15px;
+}
+
+// README callout styling
+.callout-readme > .callout-header::before {
+  font-family: "Courier New", Courier, monospace;
+  margin-right: 10px;
+  color:#606060;
+}
+
+div.callout-readme.callout-style-default > .callout-header {
+  background-color: #e3e3e3 !important; 
+  font-family: "Courier New", Courier, monospace;
+  font-size: 22px;
+  height: 30px;
+}
+
+div.callout-readme p{
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  margin-bottom: 0.5em !important;
+
+}
+
 
 // div.callout-hint.callout-style-default {
 //     background-color: #ff0000; /* Change to the desired background color */

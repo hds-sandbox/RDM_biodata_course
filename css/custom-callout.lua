@@ -48,4 +48,18 @@ function Div(div)
     })
   end
 
+
+-- process definition
+if div.classes:includes("callout-readme") then
+  -- default title
+  local title = "README"
+  -- return a callout instead of the Div
+  return quarto.Callout({
+    type = "readme",
+    content = { pandoc.Div(div) },
+    title = title,
+  })
+end
+
+
 end

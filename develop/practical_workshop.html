@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -182,10 +182,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#readme-file" id="toc-readme-file" class="nav-link" data-scroll-target="#readme-file">README file</a></li>
   </ul></li>
   <li><a href="#naming-conventions" id="toc-naming-conventions" class="nav-link" data-scroll-target="#naming-conventions">3. Naming conventions</a></li>
-  <li><a href="#create-a-catalog-of-your-data-folder" id="toc-create-a-catalog-of-your-data-folder" class="nav-link" data-scroll-target="#create-a-catalog-of-your-data-folder">4. Create a catalog of your data folder</a></li>
-  <li><a href="#version-control-of-your-data-analysis-using-git-and-github" id="toc-version-control-of-your-data-analysis-using-git-and-github" class="nav-link" data-scroll-target="#version-control-of-your-data-analysis-using-git-and-github">5. Version control of your data analysis using Git and GitHub</a>
+  <li><a href="#create-a-catalog-of-your-data-folder" id="toc-create-a-catalog-of-your-data-folder" class="nav-link" data-scroll-target="#create-a-catalog-of-your-data-folder">4. Create a catalog of your data folder</a>
   <ul class="collapse">
-  <li><a href="#creating-a-git-repo-online-and-copying-your-project-folder" id="toc-creating-a-git-repo-online-and-copying-your-project-folder" class="nav-link" data-scroll-target="#creating-a-git-repo-online-and-copying-your-project-folder">Creating a git repo online and copying your project folder</a></li>
+  <li><a href="#shiny-apps" id="toc-shiny-apps" class="nav-link" data-scroll-target="#shiny-apps">Shiny apps</a></li>
+  </ul></li>
+  <li><a href="#version-control-using-git-and-github" id="toc-version-control-using-git-and-github" class="nav-link" data-scroll-target="#version-control-using-git-and-github">5. Version control using Git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-a-github-repository-for-your-project-folder" id="toc-setting-up-a-github-repository-for-your-project-folder" class="nav-link" data-scroll-target="#setting-up-a-github-repository-for-your-project-folder">Setting up a GitHub repository for your project folder</a></li>
   <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a></li>
   </ul></li>
   <li><a href="#archive-github-repositories-on-zenodo" id="toc-archive-github-repositories-on-zenodo" class="nav-link" data-scroll-target="#archive-github-repositories-on-zenodo">6. Archive GitHub repositories on Zenodo</a>
@@ -219,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 26, 2024</p>
+      <p class="date-modified">May 3, 2024</p>
     </div>
   </div>
     
@@ -498,16 +501,19 @@ Cookiecutter templates
 <p>When users generate a project based on your template, they will be prompted with these questions. The provided values (“responses”) will be used to substitute the placeholders in your template files.</p>
 <p>Beyond substituting placeholders in file and directory names, Cookiecutter can automatically populate text file contents with information. This feature is useful for offering default configurations or code file templates. Let’s enhance our earlier example by incorporating a placeholder within a text file:</p>
 <p>First, modify the <code>my_template/main.py</code> file to include a placeholder inside its contents:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, </span><span class="sc">{{</span><span class="st">cookiecutter.project_name</span><span class="sc">}}</span><span class="st">!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>main.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="main.py"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, </span><span class="sc">{{</span><span class="st">cookiecutter.project_name</span><span class="sc">}}</span><span class="st">!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The ‘{{cookiecutter.project_name}}’ placeholder is now included within the main.py file. When you execute Cookiecutter, it will automatically replace the placeholders in both file and directory names and within text file contents.</p>
 <p>After running Cookiecutter, your generated ‘main.py’ file could appear as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, MyProject!"</span>)  <span class="co"># Assuming "MyProject" was entered as the project_name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py, assuming "MyProject" was entered as the project_name</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, MyProject!"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="step-3-use-cookiecutter" class="level5">
 <h5 class="anchored" data-anchor-id="step-3-use-cookiecutter">Step 3: Use Cookiecutter</h5>
@@ -829,7 +835,11 @@ Exercise 2: modify the metadata.yml file in your Cookiecutter template
 <ol start="0" type="1">
 <li><p>Consider changing variables (add/remove) in the metadata.yml file from the cookicutter template.</p></li>
 <li><p>Modify the <code>cookiecutter.json</code> file. You could add new variables or change the default key and/or values:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>cookiecutter.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb15" data-filename="cookiecutter.json"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"project_name"</span><span class="fu">:</span> <span class="st">"myProject"</span><span class="fu">,</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"project_slug"</span><span class="fu">:</span> <span class="st">"{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"</span><span class="fu">,</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"authors"</span><span class="fu">:</span> <span class="st">"myName"</span><span class="fu">,</span></span>
@@ -837,21 +847,36 @@ Exercise 2: modify the metadata.yml file in your Cookiecutter template
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="dt">"short_desc"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.1.0"</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The metadata file will be filled accordingly.</p></li>
 <li><p>Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">"__prompts__":</span> <span class="fu">{</span></span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>cookiecutter.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb16" data-filename="cookiecutter.json"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="er">"__prompts__":</span> <span class="fu">{</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"project_name"</span><span class="fu">:</span> <span class="st">"Project directory name [Example: project_short_description_202X]"</span><span class="fu">,</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"author"</span><span class="fu">:</span> <span class="st">"Author of the project"</span><span class="fu">,</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"Date of project creation, default is today's date"</span><span class="fu">,</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"short_description"</span><span class="fu">:</span> <span class="st">"Provide a detailed description of the project (context/content)"</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p>Modify the <code>metadata.yml</code> file so that it includes the metadata recorded by the <code>cookiecutter.json</code> file. Hint below:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="er">project:</span> <span class="fu">{</span><span class="er">{</span> <span class="er">cookiecutter.project_name</span> <span class="fu">}</span><span class="er">}</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">author:</span> <span class="fu">{</span><span class="er">{</span> <span class="er">cookiecutter.author</span> <span class="fu">}</span><span class="er">}</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">date:</span> <span class="fu">{</span><span class="er">{</span> <span class="er">cookiecutter.date</span> <span class="fu">}</span><span class="er">}</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="er">description:</span> <span class="fu">{</span><span class="er">{</span> <span class="er">cookiecutter.short_description</span> <span class="fu">}</span><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>metadata.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb17" data-filename="metadata.yml"><pre class="sourceCode yml code-overflow-wrap code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.project_name </span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.author </span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.date </span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.short_description </span><span class="kw">}</span><span class="at">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p>Modify the <code>README.md</code> file so that it includes the short description recorded by the <code>cookiecutter.json</code> file and the metadata at the top of the markdown file (top between lines of dashed).</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode md code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>README.md</strong></pre>
+</div>
+<div class="sourceCode" id="cb18" data-filename="README.md"><pre class="sourceCode md code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> {{ cookiecutter.project_name }}</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "{{ cookiecutter.date }}"</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> {{ cookiecutter.author }}</span></span>
@@ -861,7 +886,8 @@ Exercise 2: modify the metadata.yml file in your Cookiecutter template
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>Project description</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>----</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>{{ cookiecutter.short_description }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>{{ cookiecutter.short_description }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p>Commit and push changes when you are done with your modifications</p></li>
 </ol>
 <ul>
@@ -934,9 +960,9 @@ Hint
 </section>
 <section id="create-a-catalog-of-your-data-folder" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-catalog-of-your-data-folder">4. Create a catalog of your data folder</h2>
-<p>The next step is to collect all the NGS datasets that you have created in the manner explained above. Since your folders all should contain the <code>metadata.yml</code> file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. This table can be then browsed easily with Microsoft Excel, for example. If you are interested in making a Shiny app or Python Panel tool to interactively browse the catalog, check out this <a href="../develop/04_metadata.html">lesson</a>.</p>
+<p>The next step is to collect all the datasets that you have created in the manner explained above. Since your folders all should contain the <code>metadata.yml</code> file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. he table can be easily viewed in your terminal or even with Microsoft Excel.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -945,65 +971,357 @@ Exercise 4: create a metadata.tsv catalog
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your <code>Assays</code> folder), fetches all the <code>metadata.yml</code> files, and merges them. Finally, it will write a TSV file as an output.</p>
+<p>We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your <code>Assays</code> folder), fetches all the <code>metadata.yml</code> files, merges them and writes a TSV file as an output.</p>
 <ol type="1">
 <li>Create a folder called <code>dataset</code> and change directory <code>cd dataset</code></li>
-<li>Fork <a href="https://github.com/hds-sandbox/cc-data-template">this repository</a>: a Cookiecutter template designed for NGS datasets. While you are welcome to create your own template from scratch, we recommend using this one to save time.</li>
-<li>Run the <code>cookiecutter cc-data-template</code> command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). Execute the script below using R (or create your own script in Python). Adjust the <code>folder_path</code> variable so that it matches the path to the Assays folder. The resulting table will be saved in the same <code>folder_path</code>.</li>
+<li>Fork <a href="https://github.com/hds-sandbox/cc-data-template">this repository</a>: a Cookiecutter template designed for NGS datasets.<em>While you are welcome to create your own template from scratch, we recommend using this one to save time.</em></li>
+<li>Run the <code>cookiecutter cc-data-template</code> command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created).</li>
+<li>Execute the script below using R (or create your own script in Python). <strong>Adjust the <code>folder_path</code></strong> variable so that it matches the path to the Assays folder. The resulting table will be saved in the same <code>folder_path</code>.</li>
 <li>Open your <code>database_YYYYMMDD.tsv</code> table in a text editor from the command-line, or view it in Excel for better visualization.</li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yaml)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to read a YAML file and transform it into a dataframe format.</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>read_yaml <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read the YAML file and convert it to a data frame</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> yaml<span class="sc">::</span><span class="fu">yaml.load_file</span>(file_path) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the data frame</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<ul>
+<li>Solution A. From a TSV</li>
+</ul>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R version 4.3.2</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># RScript to read all yaml files in directory and save the metadata into a dataframe</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>quiet <span class="ot">&lt;-</span> <span class="cf">function</span>(package_name) {</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Suppress warnings and messages while checking and installing the package</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>({</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the package is available and load it</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(package_name, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">install.packages</span>(package_name)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load the package</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(package_name, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  }))</span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch metadata.yml files</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>get_metadata <span class="ot">&lt;-</span> <span class="cf">function</span>(folder_path) {</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> folder_path, <span class="at">pattern =</span> <span class="st">"metadata</span><span class="sc">\\</span><span class="st">.yml$"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  metadata_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, read_yaml)</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Combine the list of data frames into a single data frame using dplyr::bind_rows()</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  combined_metadata <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(metadata_list)</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(combined_metadata)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the folder path</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"/path/to/your/folder"</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch metadata from the specified folder</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(folder_path)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Check and install necessary libraries</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"yaml"</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"lubridate"</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>read_yaml <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read the YAML file and convert it to a data frame</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> yaml<span class="sc">::</span><span class="fu">yaml.load_file</span>(file_path) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>(<span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the data frame</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch metadata.yml files</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>get_metadata <span class="ot">&lt;-</span> <span class="cf">function</span>(folder_path) {</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> folder_path, <span class="at">pattern =</span> <span class="st">"metadata</span><span class="sc">\\</span><span class="st">.yml$"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data frame as a TSV file</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>output_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".tsv"</span>)</span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(metadata, <span class="at">file =</span> output_file, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confirmation message</span></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Database saved as"</span>, output_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>  metadata_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, read_yaml)</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Combine the list of data frames into a single data frame using dplyr::bind_rows()</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>  combined_metadata <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(metadata_list)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(combined_metadata)</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the folder path</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"./"</span> <span class="co">#/path/to/your/folder</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch metadata from the specified folder</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(folder_path)</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data frame as a TSV file</span></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>output_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".tsv"</span>)</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(df, <span class="at">file =</span> output_file, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confirmation message</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Database saved as"</span>, output_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4, option B: create a SQLite database </strong></p>
+<p>Alternatively, create a SQLite database from a metadata. If you opt for this option in the exercise, you must still complete the first three steps outlined above. Read more from the <a href="https://www.rdocumentation.org/packages/RSQLite/versions/2.3.6">RSQLite documentation</a>.</p>
+<ul>
+<li>Solution B. SQLite database</li>
+</ul>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Assuming the libraries from Exercise 4 are already loaded and a dataframe has been generated from the YAML files..."</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check_and_install() form Exercise 4, and load the other packages. </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"DBI"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"RSQLite"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a temporary in memory database and copy the data.frame into it</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>db_file_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".sqlite"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), db_file_path)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">"metadata"</span>, df,  <span class="at">overwrite=</span><span class="cn">TRUE</span>) <span class="co">#row.names = FALSE,append =</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confirmation message</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Database saved as"</span>, db_file_path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the database connection</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="shiny-apps" class="level3">
+<h3 class="anchored" data-anchor-id="shiny-apps">Shiny apps</h3>
+<p>To get the most out of your metadata file and the ones from other colleagues, you can combine them and explore them by creating an interactive catalog browser. You can create interactive web apps straight from R or Python. Whether you have generated a tabulated-file or a sqlite database, browse through the metadata using <a href="https://shiny.posit.co/">Shiny</a>. Shiny apps are perfect for researchers because they enable you to create interactive visualizations and dashboards with dynamic data inputs and outputs without needing extensive web development knowledge. Shiny provides a variety of user interface components such as forms, tables, graphs, and maps to help you organize and present your data effectively. It also allows you to filter, sort, and segment data for deeper insights.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>For R Enthusiasts</li>
+</ul>
+<p>Explore <a href="https://shiny.posit.co/r/gallery/#feature-demos">demos</a> from the R Shiny community to kickstart your projects or for inspiration.</p>
+<ul>
+<li>For python Enthusiasts</li>
+</ul>
+<p>Shiny for Python provides live, interactive code throughout its entire tutorial. Additionally, it offers a great tool called <a href="https://shinylive.io/py/examples/#basic-app">Playground</a>, where you can code and test your own app to explore how different features render.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 5: Skill Booster, build an interactive catalog browser
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-exercise">
+<p>Build an interactive web app straight from R or Python. Below, you will find an example of an R shiny app. In either case, you will need to define a user interface (UI) and a server function. The UI specifies the layout and appearance of the app, including input controls and output displays. The server function contains the app’s logic, handling data manipulation, and responding to user interactions. Once you set up the UI and server, you can launch the app!</p>
+<p>Here’s the UI and server function structure for an R Shiny app:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Don't forget to load shiny and DT libraries!</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the layout</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(...)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the appearance of the app</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(...)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(...)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define a reactive expression for data based on user inputs</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">req</span>(input<span class="sc">$</span>dataInput)  <span class="co"># Ensure data input is available</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Load or manipulate data here</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define an output table based on data</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>dataTable <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data</span>()  <span class="co"># Render the data as a table</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observe a button click event and perform an action</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">observeEvent</span>(input<span class="sc">$</span>actionButton, {</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Perform an action when the button is clicked</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define cleanup tasks when the app stops</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">onStop</span>(<span class="cf">function</span>() {</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Close connections or save state if necessary</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the app</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you need more assistance, take a look at the code below (Hint).</p>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R version 4.3.2</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Assuming the libraries from Exercise 4 are already loaded and a dataframe has been generated from the YAML files..."</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check_and_install() form Exercise 4. </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"shiny"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="st">"DT"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># UI</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"TSV File Viewer"</span>),</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fileInput</span>(<span class="st">"file"</span>, <span class="st">"Choose a TSV file"</span>, <span class="at">accept =</span> <span class="fu">c</span>(<span class="st">".tsv"</span>)),</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"filter_column"</span>, <span class="st">"Filter by Column:"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"n_samples"</span>, <span class="st">"technology"</span>), <span class="at">selected =</span> <span class="st">"technology"</span>),</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textInput</span>(<span class="st">"filter_value"</span>, <span class="st">"Filter Value:"</span>, <span class="at">value =</span> <span class="st">""</span>),</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># if only numbers, numericInput()</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(<span class="st">"sort_order"</span>, <span class="st">"Sort Order:"</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Ascending"</span>, <span class="st">"Descending"</span>), <span class="at">selected =</span> <span class="st">"Ascending"</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">DTOutput</span>(<span class="st">"table"</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Server</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>file)</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(input<span class="sc">$</span>file<span class="sc">$</span>datapath, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">str</span>(df))</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter the DataFrame based on user input</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (input<span class="sc">$</span>filter_column <span class="sc">!=</span> <span class="st">""</span> <span class="sc">&amp;&amp;</span> input<span class="sc">$</span>filter_value <span class="sc">!=</span> <span class="st">""</span>) {</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Check if the column is numeric, and filter for value</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">is.numeric</span>(df[[input<span class="sc">$</span>filter_column]])) {</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[df[[input<span class="sc">$</span>filter_column]] <span class="sc">&gt;=</span> <span class="fu">as.numeric</span>(input<span class="sc">$</span>filter_value), ]</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Check if the column is a string</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.character</span>(df[[input<span class="sc">$</span>filter_column]])) {</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df[df[[input<span class="sc">$</span>filter_column]] <span class="sc">==</span> input<span class="sc">$</span>filter_value, ]</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort the DataFrame based on user input</span></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>    sort_order <span class="ot">&lt;-</span> <span class="cf">if</span> (input<span class="sc">$</span>sort_order <span class="sc">==</span> <span class="st">"Ascending"</span>) <span class="cn">TRUE</span> <span class="cf">else</span> <span class="cn">FALSE</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> df[<span class="fu">order</span>(df[[input<span class="sc">$</span>filter_column]], <span class="at">decreasing =</span> <span class="sc">!</span>sort_order), ]</span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderDT</span>({</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datatable</span>(<span class="fu">data</span>())</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the app</span></span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In the optional exercise below, you’ll find a code example for using an SQLite database as input instead of a tabulated file.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise (optional)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-exercise">
+<p>Once you’ve finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser.</p>
+<ul>
+<li>Use SQLite databases as input</li>
+<li>Add a functionality to only select certain columns <code>uiOutput("column_select")</code></li>
+<li>Filter columns by value using <code>column_filter_select()</code></li>
+<li>Add multiple tabs using <code>tabsetPanel()</code></li>
+<li>Add buttons to order numeric columns ascending or descending using <code>radioButtons()</code></li>
+<li>Use SQL aggregation functions (e.g., SUM, COUNT, AVG) to perform custom data summaries and calculations.</li>
+<li>Add a tab <code>tabPanel()</code> to create a project directory interactively (and fill up the metadata fields), tips: <code>dir.create()</code>, <code>data.frame()</code>, <code>write.table()</code></li>
+<li>Modify existing entries</li>
+<li>Visualize results using <a href="https://cirrocumulus.readthedocs.io/en/latest/">Cirrocumulus</a>, an interactive visualization tool for large-scale single-cell genomics data.</li>
+</ul>
+<p>If you need some assistance, take a look at the code below (Hint).</p>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<p>Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard <a href="./scripts/shiny_sqlite_advanced.r" target="_blank">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="version-control-of-your-data-analysis-using-git-and-github" class="level2">
-<h2 class="anchored" data-anchor-id="version-control-of-your-data-analysis-using-git-and-github">5. Version control of your data analysis using Git and GitHub</h2>
-<p>Version control is a systematic approach to tracking changes made to a project over time. It provides a structured means of documenting alterations, allowing you to revisit and understand the evolution of your work. In research data management and data analytics, version control is very important and gives you a lot of advantages.</p>
-<p><a href="https://git-scm.com/about">Git</a> is a distributed version control system that enables developers and researchers to efficiently manage their project’s history, collaborate seamlessly, and ensure data integrity. At its core, Git operates through the following principles and mechanisms: On the other hand, <a href="https://github.com/">GitHub</a> is a web-based platform that enhances Git’s capabilities by providing a collaborative and centralized hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allow you to create websites to showcase your projects.</p>
+</section>
+<section id="version-control-using-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-using-git-and-github">5. Version control using Git and GitHub</h2>
+<p>Version control involves systematically tracking changes to a project over time, offering a structured way to document revisions and understand the progression of your work. In research data management and data analytics, it plays a critical role and provides numerous benefits.</p>
+<p><a href="https://git-scm.com/about">Git</a> is a distributed version control system that helps developers and researchers efficiently manage project history, collaborate seamlessly, and maintain data integrity. On the other hand, <a href="https://github.com/">GitHub</a> is a web-based platform that builds on Git’s functionality by providing a centralized, collaborative hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allow you to create websites to showcase your projects.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Create a GitHub organization for your lab or department">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1014,15 +1332,40 @@ Create a GitHub organization for your lab or department
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>GitHub allows users to create organizations and teams that will collaborate or create repositories under the same umbrella organization. If you would like to create an educational organization in GitHub, you can do so for free! For example, you could create a GitHub account for your lab.</p>
-<p>To create a GitHub organization, follow these <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch">instructions</a></p>
-<p>After you have created the GitHub organization, make sure that you create your repositories under the organization space and not your user!</p>
+<p>GitHub users can create organizations, allowing groups to collaborate or create repositories under the same organization umbrella. You can create an educational organization on Github for free, by setting up a Github account for your lab.</p>
+<p>Follow these <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch">instructions</a> to create a GitHub organization.</p>
+<p>Once you’ve established your GitHub organization, be sure to create your repositories within the organization’s space rather than under your personal user account. This keeps your projects centralized and accessible to the entire group. Best practices for managing an organization on GitHub include setting clear access permissions, regularly reviewing roles and memberships, and organizing repositories effectively to keep your projects structured and easy to navigate.</p>
 </div>
 </div>
-<section id="creating-a-git-repo-online-and-copying-your-project-folder" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-git-repo-online-and-copying-your-project-folder">Creating a git repo online and copying your project folder</h3>
-<p>Version controlling your data analysis folders, a.k.a. <code>Project</code> folder, is very easy once you have set up your Cookiecutter templates. The simplest way of doing this is to first create a remote GitHub repository from the webpage (or from the Desktop app, if you are using it) with a proper project name. Then <code>git clone</code> that repository you just made into your <code>Projects</code> main folder. Then, use cookiecutter to create a project folder template and copy-paste the contents of the folder template to your cloned repo. Remember to fill up your metadata and description files! If you wish, you could already git add, commit, and push the first changes to the folders and continue from there on.</p>
-<p>Go back to the course material <a href="../develop/05_VC.html">lesson 5</a> and read the differences between converting folders to git repositories and cloning a folder to an existing git repository.</p>
+<section id="setting-up-a-github-repository-for-your-project-folder" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-a-github-repository-for-your-project-folder">Setting up a GitHub repository for your project folder</h3>
+<p>Version controlling your data analysis folders becomes straightforward once you’ve established your Cookiecutter templates. After you’ve created several folder structures and metadata using your Cookiecutter template, you can manage version control by either converting those folders into Git repositories or copying a folder into an existing Git repository. Both approaches are explained in <a href="https://hds-sandbox.github.io/RDM_NGS_course/develop/05_VC.html#from-project-folders-to-git-repositories">Lesson 5</a>.</p>
+<div class="callout callout-style-default callout-exercise no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise 6: initialize a repository from an existing folder:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-exercise">
+<ol type="1">
+<li>Initialize the repository: Begin by running the command <code>git init</code> in your project directory. This command sets up a new Git repository in the current directory and is executed only once, even for collaborative projects. See (<a href="https://git-scm.com/docs/git-init"><code>git init</code></a>) for more details.</li>
+<li>Create a remote repository: Once the local repository is initialized, create an empty new repository on GitHub (website or Github Desktop).</li>
+<li>Connect the remote repository: Add the GitHub repository URL to your local repository using the command <code>git remote add origin &lt;URL&gt;</code>. This associates the remote repository with the name “origin.”</li>
+<li>Commit changes: If you have files you want to add to your repository, stage them using <code>git add .</code>, then create a commit to save a snapshot of your changes with <code>git commit -m "add local folder"</code>.</li>
+<li>Push to GitHub: To synchronize your local repository with the remote repository and establish a tracking relationship, push your commits to the GitHub repository using <code>git push -u origin main</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Tips to write good commit messages">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1039,48 +1382,80 @@ Tips to write good commit messages
 </section>
 <section id="github-pages" class="level3">
 <h3 class="anchored" data-anchor-id="github-pages">GitHub Pages</h3>
-<p>Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns, or HTML reports, in a <a href="https://pages.github.com/">GitHub Page website</a>. Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub has put for you. Nonetheless, we will see the main steps in the exercise below.</p>
-<p>There are many different ways to create your web pages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage simply. The folder templates that we used as an example in the previous exercise already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of <a href="https://www.mkdocs.org/">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs materials</a> to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their web pages to get started!</p>
+<p>After creating your repository and hosting it on GitHub, you can now add your data analysis reports—such as Jupyter Notebooks, R Markdown files, or HTML reports—to a <a href="https://pages.github.com/">GitHub Page website</a>. Setting up a GitHub Page is straightforward, and we recommend following GitHub’s helpful tutorial. However, we will go through the key steps in the exercise below. There are several ways to create your web pages, but we suggest using Quarto as a framework to build a sleek, professional-looking website with ease. The folder templates from the previous exercise already contain the necessary elements to launch a webpage. Familiarizing yourself with the basics of Quarto will help you design a webpage that suits your preferences. Other common options include <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs</a>. If you want to use MkDocs instead, click <a href="../develop/examples/mkdocs_pages.html">here</a> and follow the instructions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here are some useful links to get started with Github Pages:</p>
+<ul>
+<li><a href="https://pages.github.com/">Github Pages</a></li>
+<li><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto Github Pages</a></li>
+</ul>
+</div>
+</div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise 5: make a project folder and publish a data analysis webpage
+Exercise 7: Create a Github Page using Quarto
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
 <ol type="1">
-<li><p>Configure your main GitHub Page and its repo</p>
-<p>The first step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow <a href="https://pages.github.com/">these steps</a>. In a Markdown document, outline the primary objectives of the organization and provide an overview of ongoing research projects. After you have created the <em>organization/username</em>github.io, it is time to configure your <code>Project</code> repository webpage using MkDocs!</p></li>
-<li><p>Start a new project from Cookiecutter or use one from the previous exercise.</p>
-<p>If you use a <code>Project</code> repo from the first exercise, go to the next paragraph. Using Cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the <a href="#creating-a-git-repo-online-and-copying-your-project-folder">previous section</a>.</p>
-<p>Next, link your data of interest (or create a small fake dataset) and make an example of a data analysis notebook/report (this could be just a scatter plot of a random matrix of values). Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using <code>pip</code> allow you to directly add a Jupyter Notebook file to the <code>mkdocs.yml</code> navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an HTML page or a GitHub document.</p>
-<p>For the purposes of this exercise, we have already included a basic <code>index.md</code> markdown file that can serve as the intro page of your repo, and a <code>jupyter_example.ipynb</code> with some code in it. You are welcome to modify them further to test them out!</p></li>
-<li><p>Use MkDocs to create your webpage</p>
-<p>When you are happy with your files and are ready to publish them, make sure to add, commit, and push the changes to the remote. Then, build up your webpage using MkDocs and the <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/"><code>mkdocs gh-deploy</code></a> command from the same directory where the <code>mkdocs.yml</code> file is. For example, if your <code>mkdocs.yml</code> for your <code>Project</code> folder is in <code>/Users/JARH/Projects/project1_JARH_20231010/mkdocs.yml</code>, do <code>cd /Users/JARH/Projects/project1_JARH_20231010/</code> and then <code>mkdocs gh-deploy</code>. This requires a couple of changes in your GitHub organization settings.</p>
-<p>Remember to make sure that your markdowns, images, reports, etc., are included in the <code>docs</code> folder and properly set up in the navigation section of your <code>mkdocs.yml</code> file.</p>
-<p>Finally, we only need to set up the GitHub <code>Project</code> repo settings.</p></li>
-<li><p>Publishing your GitHub Page</p>
-<p>Go to your GitHub repo settings and configure the Page section. Since you are using the <code>mkdocs gh-deploy</code> command to publish your site in the <code>gh-pages</code> branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website. You will need to configure the settings of this repository in GitHub so that the Page is taken from the <code>gh-pages</code> branch and the <code>root</code> folder.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/git_pages.png" class="img-fluid figure-img"></p>
-<figcaption>GitHub Pages setup</figcaption>
-</figure>
+<li><p>Head over to GitHub and create a new public repository named username.github.io, where username is your username (or organization name) on GitHub. <em>If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right.</em></p></li>
+<li><p>Go to the folder where you want to store your project, and clone the new repository: <code>git clone https://github.com/username/username.github.io</code> (or use Github Desktop)</p></li>
+<li><p>Create a new file named <code>_quarto.yml</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
 </div>
-<ul>
-<li>Branch should be <code>gh-pages</code></li>
-<li>Folder should be <code>root</code></li>
-</ul>
-<p>After a couple of minutes, your webpage should be ready! You should be able to see your webpage through the link provided in the Page section!</p></li>
+<div class="sourceCode" id="cb23" data-filename="_quarto.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Open the terminal ```{.bash filename=“Terminal”} # Add a .nojekyll file to the root of the repository not to do additional processing of your published site touch .nojekyll #copy NUL .nojekyll for windows</p>
+<p># Render and push it to Github quarto render git commit -m “Publish site to docs/” git push ```</p></li>
+<li><p>If you do not have a <code>gh-pages</code>, you can create one as follows</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb24" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="co"># make sure all changes are committed before running this!</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"Initialising gh-pages branch"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Before attempting to publish you should ensure that the Source branch for your repository is <code>gh-pages</code> and that the site directory is set to the repository root (/)</p>
+<p><img src="./images/github_pages_quarto.png" class="img-fluid"></p></li>
+<li><p>It is important to not check your <code>_site</code> directory into version control, add the output directory of your project to <code>.gitignore</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.gitignore</strong></pre>
+</div>
+<div class="sourceCode" id="cb25" data-filename=".gitignore"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/.quarto/</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/_site/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Now is time to publish your website</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb26" data-filename=".Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Once you’ve completed a local publish, add a publish.yml GitHub Action to your project by creating this YAML file and saving it to <code>.github/workflows/publish.yml</code>. Read how to do it <a href="https://quarto.org/docs/publishing/github-pages.html#github-action">here</a></p></li>
 </ol>
-<p>Now it is also possible to include this repository webpage in your main webpage <em>organization</em>github.io by including the link of the repo website (https://<em>organization</em>github.io/<em>repo-name</em>) in the navigation section of the <code>mkdocs.yml</code> file in the main <em>organization</em>github.io repo.</p>
 </div>
 </div>
 </div>
@@ -1110,7 +1485,7 @@ Archiving your NGS data
 <p>Zenodo[https://zenodo.org/] is an open-access digital repository designed to facilitate the archiving of scientific research outputs. It operates under the umbrella of the European Organization for Nuclear Research (CERN) and is supported by the European Commission. Zenodo accommodates a broad spectrum of research outputs, including datasets, papers, software, and multimedia files. This versatility makes it an invaluable resource for researchers across a wide array of domains, promoting transparency, collaboration, and the advancement of knowledge on a global scale.</p>
 <p>Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">link your GitHub account</a>, providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project’s progress for long-term accessibility and citation.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1119,7 +1494,7 @@ Exercise 6: Archive a Project GitHub repo in Zenodo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">

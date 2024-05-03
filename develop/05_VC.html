@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -267,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 26, 2024</p>
+      <p class="date-modified">May 3, 2024</p>
     </div>
   </div>
     
@@ -406,7 +406,7 @@ Create a GitHub account
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>If you don’t have a GitHub account yet, click <a href="https://github.com/signup">here</a>.</li>
+<li>If you don’t have a GitHub account yet, click <a href="https://github.com/signup">here</a></li>
 <li>Install Git from <a href="https://git-scm.com/downloads">Git webpage</a></li>
 </ul>
 </div>
@@ -445,11 +445,11 @@ Exercise 1: initialize a repository from an existing folder:
 <div>
 <div class="callout-exercise">
 <ol type="1">
-<li>First, initialize the repository using the command <code>git init</code>. This command is run only once, even in collaborative projects (<a href="https://git-scm.com/docs/git-init"><code>git init</code></a>).</li>
-<li>Once the repository is initialized, create a remote repository on GitHub.</li>
-<li>Add the remote URL to your local git repository using git remote add origin &lt;URL&gt;`. This associates the remote URL with the name “origin”.</li>
-<li>Ensure you have at least one commit in your history by staging existing files with <code>git add</code> and then creating a snapshot, known as committing, with <code>git commit</code>.</li>
-<li>Finally, push your local commits to the remote repository and establish a tracking relationship using <code>git push -u origin master</code>.</li>
+<li>Initialize the repository: Begin by running the command <code>git init</code> in your project directory. This command sets up a new Git repository in the current directory and is executed only once, even for collaborative projects. See (<a href="https://git-scm.com/docs/git-init"><code>git init</code></a>) for more details.</li>
+<li>Create a remote repository: Once the local repository is initialized, create am empty new repository on GitHub.</li>
+<li>Connect the remote repository: Add the GitHub repository URL to your local repository using the command <code>git remote add origin &lt;URL&gt;</code>. This associates the remote repository with the name “origin.”</li>
+<li>Commit changes: If you have files you want to add to your repository, stage them using <code>git add .</code>, then create a commit to save a snapshot of your changes with <code>git commit -m "add local folder"</code>.</li>
+<li>Push to GitHub: To synchronize your local repository with the remote repository and establish a tracking relationship, push your commits to the GitHub repository using <code>git push -u origin main</code>.</li>
 </ol>
 </div>
 </div>
@@ -457,8 +457,8 @@ Exercise 1: initialize a repository from an existing folder:
 </div>
 </div>
 </section>
-<section id="set-up-a-git-repository-and-copy-your-project-folder" class="level5">
-<h5 class="anchored" data-anchor-id="set-up-a-git-repository-and-copy-your-project-folder">Set Up a Git Repository and copy your project folder</h5>
+<section id="setting-up-a-git-repository-and-copying-an-existing-folder" class="level5">
+<h5 class="anchored" data-anchor-id="setting-up-a-git-repository-and-copying-an-existing-folder">Setting Up a Git Repository and copying an existing folder</h5>
 <p>Alternatively to converting folders to repositories, you can create a new repository remotely, and then clone (<code>git clone</code>) it locally. Here, <code>git init</code> is not needed. You can move the files into the repository locally (<code>git add</code>, <code>git commit</code>, and <code>git push</code>). If you are creating a collaborative repository, you can now share it with your colleagues.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Tips to write good commit messages">
 <div class="callout-header d-flex align-content-center">
@@ -478,8 +478,8 @@ Tips to write good commit messages
 </section>
 <section id="github-pages" class="level3">
 <h3 class="anchored" data-anchor-id="github-pages">Github pages</h3>
-<p>After setting up your repository on GitHub, take advantage of the opportunity to enhance it by adding your data analysis reports. Whether they are in Jupyter Notebooks, Rmarkdowns, or HTML reports, you can showcase them on a <a href="https://pages.github.com/">GitHub Page</a>.</p>
-<p>Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns, or HTML reports, in a <a href="https://pages.github.com/">GitHub Page website</a>. Creating a GitHub page is very simple, and we recommend that you follow the nice tutorial that GitHub has put for you.</p>
+<p>After setting up your repository on GitHub, take advantage of the opportunity to enhance it by adding your data analysis reports. Whether they are in Jupyter Notebooks, R Markdown files, or HTML reports, you can showcase them on a <a href="https://pages.github.com/">GitHub Page</a>.</p>
+<p>Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, R Markdown files, or HTML reports, in a <a href="https://pages.github.com/">GitHub Page website</a>. Creating a GitHub page is very simple, and we recommend that you follow the nice tutorial that GitHub has put for you.</p>
 <p>For simplicity, we recommend using <a href="https://quarto.org/">Quarto</a> or <a href="https://www.mkdocs.org/">MkDocs</a>. Visit their websites and follow the instructions to get started.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Tutorial links">
 <div class="callout-header d-flex align-content-center">
@@ -510,6 +510,7 @@ Tutorial links
 <h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <ul>
 <li><a href="https://guides.library.jhu.edu/c.php?g=1096705&amp;p=8066729">Version Control and Code Repository Link</a>.</li>
+<li><a href="https://education.github.com/git-cheat-sheet-education.pdf">Git cheat sheet</a>.</li>
 </ul>
 
 

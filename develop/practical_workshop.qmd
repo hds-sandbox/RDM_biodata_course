@@ -1,6 +1,8 @@
 ﻿---
 title: Practical material
-format: html
+format: 
+    html:
+        code-copy: true
 date-modified: last-modified
 date-format: long
 date: 2023-11-30
@@ -226,9 +228,8 @@ Beyond substituting placeholders in file and directory names, Cookiecutter can a
 
 First, modify the `my_template/main.py` file to include a placeholder inside its contents:
 
-```{.python .code-overflow-wrap}
+```{.python .code-overflow-wrap filename="main.py"}
 # main.py
-
 def hello():
     print("Hello, {{cookiecutter.project_name}}!")
 ```
@@ -238,10 +239,9 @@ The '{{cookiecutter.project_name}}' placeholder is now included within the main.
 After running Cookiecutter, your generated 'main.py' file could appear as follows:
 
 ```{.python .code-overflow-wrap}
-# main.py
-
+# main.py, assuming "MyProject" was entered as the project_name
 def hello():
-    print("Hello, MyProject!")  # Assuming "MyProject" was entered as the project_name
+    print("Hello, MyProject!") 
 ```
 
 ##### Step 3: Use Cookiecutter
@@ -446,7 +446,7 @@ It is time now to customize your Cookiecutter templates and modify the metadata.
 0. Consider changing variables (add/remove) in the metadata.yml file from the cookicutter template. 
 1. Modify the `cookiecutter.json` file. You could add new variables or change the default key and/or values: 
 
-    ```{.json .code-overflow-wrap}
+    ```{.json .code-overflow-wrap filename="cookiecutter.json"}
     {
     "project_name": "myProject",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
@@ -460,7 +460,7 @@ The metadata file will be filled accordingly.
 
 2. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
 
-    ```{.json .code-overflow-wrap}
+    ```{.json .code-overflow-wrap filename="cookiecutter.json"}
     "__prompts__": {
         "project_name": "Project directory name [Example: project_short_description_202X]",
         "author": "Author of the project",
@@ -471,7 +471,7 @@ The metadata file will be filled accordingly.
 
 3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below: 
 
-    ```{.json .code-overflow-wrap}
+    ```{.yml .code-overflow-wrap filename="metadata.yml"}
     project: {{ cookiecutter.project_name }}
     author: {{ cookiecutter.author }}
     date: {{ cookiecutter.date }}
@@ -479,7 +479,7 @@ The metadata file will be filled accordingly.
     ```
 4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file and the metadata at the top of the markdown file (top between lines of dashed).
 
-    ```{.md .code-overflow-wrap}
+    ```{.md .code-overflow-wrap filename="README.md"}
     ---
     title: {{ cookiecutter.project_name }}
     date: "{{ cookiecutter.date }}"
@@ -524,27 +524,43 @@ Avoid long and complicated names and ensure your file names are both informative
 
 ## 4. Create a catalog of your data folder
 
-The next step is to collect all the NGS datasets that you have created in the manner explained above. Since your folders all should contain the `metadata.yml` file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. This table can be then browsed easily with Microsoft Excel, for example. If you are interested in making a Shiny app or Python Panel tool to interactively browse the catalog, check out this [lesson](./04_metadata.qmd).
+The next step is to collect all the datasets that you have created in the manner explained above. Since your folders all should contain the `metadata.yml` file in the same place with the same metadata, it should be very easy to iteratively go through all the folders and merge all the metadata.yml files into a one single table. he table can be easily viewed in your terminal or even with Microsoft Excel.
 
 :::{.callout-exercise}
 # Exercise 4: create a metadata.tsv catalog
 
-We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your `Assays` folder), fetches all the `metadata.yml` files, and merges them. Finally, it will write a TSV file as an output. 
+We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your `Assays` folder), fetches all the `metadata.yml` files, merges them and writes a TSV file as an output. 
 
 1. Create a folder called `dataset` and change directory `cd dataset`
-2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.
-While you are welcome to create your own template from scratch, we recommend using this one to save time.
+2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.*While you are welcome to create your own template from scratch, we recommend using this one to save time.*
 3. Run the `cookiecutter cc-data-template` command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). 
-Execute the script below using R (or create your own script in Python). Adjust the `folder_path` variable so that it matches the path to the Assays folder. The resulting table will be saved in the same `folder_path`.
-4. Open your `database_YYYYMMDD.tsv` table in a text editor from the command-line, or view it in Excel for better visualization.
+4. Execute the script below using R (or create your own script in Python). **Adjust the `folder_path`** variable so that it matches the path to the Assays folder. The resulting table will be saved in the same `folder_path`.
+5. Open your `database_YYYYMMDD.tsv` table in a text editor from the command-line, or view it in Excel for better visualization.
 
+- Solution A. From a TSV
+
+:::{.callout-hint}
 ```{.r  .code-overflow-wrap}
+# R version 4.3.2
+# RScript to read all yaml files in directory and save the metadata into a dataframe
+quiet <- function(package_name) {
+  # Suppress warnings and messages while checking and installing the package
+  suppressMessages(suppressWarnings({
+    # Check if the package is available and load it
+    if (!requireNamespace(package_name, quietly = TRUE)) {
+      install.packages(package_name)
+    }
+    # Load the package
+    library(package_name, character.only = TRUE)
+  }))
+}
 
-library(yaml)
-library(dplyr)
-library(lubridate)
+# Check and install necessary libraries
+quiet("yaml")
+quiet("dplyr")
+quiet("lubridate")
 
-# Function to read a YAML file and transform it into a dataframe format.
+
 read_yaml <- function(file_path) {
   # Read the YAML file and convert it to a data frame
   df <- yaml::yaml.load_file(file_path) %>% as.data.frame(stringsAsFactors = FALSE)
@@ -566,40 +582,230 @@ get_metadata <- function(folder_path) {
 }
 
 # Specify the folder path
-folder_path <- "/path/to/your/folder"
+folder_path <- "./" #/path/to/your/folder
 
 # Fetch metadata from the specified folder
-metadata <- get_metadata(folder_path)
+df <- get_metadata(folder_path)
 
 # Save the data frame as a TSV file
 output_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".tsv")
-write.table(metadata, file = output_file, sep = "\t", quote = FALSE, row.names = FALSE)
+write.table(df, file = output_file, sep = "\t", quote = FALSE, row.names = FALSE)
 
 # Print confirmation message
 cat("Database saved as", output_file, "\n")
 ```
 :::
 
-## 5. Version control of your data analysis using Git and GitHub
 
-Version control is a systematic approach to tracking changes made to a project over time. It provides a structured means of documenting alterations, allowing you to revisit and understand the evolution of your work. In research data management and data analytics, version control is very important and gives you a lot of advantages.
+**Exercise 4, option B: create a SQLite database **
 
-[Git](https://git-scm.com/about) is a distributed version control system that enables developers and researchers to efficiently manage their project's history, collaborate seamlessly, and ensure data integrity. At its core, Git operates through the following principles and mechanisms:
-On the other hand, [GitHub](https://github.com/) is a web-based platform that enhances Git's capabilities by providing a collaborative and centralized hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allow you to create websites to showcase your projects.
+Alternatively, create a SQLite database from a metadata. If you opt for this option in the exercise, you must still complete the first three steps outlined above. Read more from the [RSQLite documentation](https://www.rdocumentation.org/packages/RSQLite/versions/2.3.6).
 
-:::{.callout-tip title="Create a GitHub organization for your lab or department"}
-GitHub allows users to create organizations and teams that will collaborate or create repositories under the same umbrella organization. If you would like to create an educational organization in GitHub, you can do so for free! For example, you could create a GitHub account for your lab.
+- Solution B. SQLite database
 
-To create a GitHub organization, follow these [instructions](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+:::{.callout-hint}
+```{.r .code-overflow-wrap}
+print("Assuming the libraries from Exercise 4 are already loaded and a dataframe has been generated from the YAML files...")
 
-After you have created the GitHub organization, make sure that you create your repositories under the organization space and not your user!
+# check_and_install() form Exercise 4, and load the other packages. 
+quiet("DBI")
+quiet("RSQLite")
+
+# Initialize a temporary in memory database and copy the data.frame into it
+
+db_file_path <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".sqlite")
+con <- dbConnect(RSQLite::SQLite(), db_file_path)
+
+dbWriteTable(con, "metadata", df,  overwrite=TRUE) #row.names = FALSE,append =
+
+# Print confirmation message
+cat("Database saved as", db_file_path, "\n")
+
+# Close the database connection
+dbDisconnect(con)
+
+```
+:::
 :::
 
-### Creating a git repo online and copying your project folder
+### Shiny apps
 
-Version controlling your data analysis folders, a.k.a. `Project` folder, is very easy once you have set up your Cookiecutter templates. The simplest way of doing this is to first create a remote GitHub repository from the webpage (or from the Desktop app, if you are using it) with a proper project name. Then `git clone` that repository you just made into your `Projects` main folder. Then, use cookiecutter to create a project folder template and copy-paste the contents of the folder template to your cloned repo. Remember to fill up your metadata and description files! If you wish, you could already git add, commit, and push the first changes to the folders and continue from there on.
+To get the most out of your metadata file and the ones from other colleagues, you can combine them and explore them by creating an interactive catalog browser. You can create interactive web apps straight from R or Python. Whether you have generated a tabulated-file or a sqlite database, browse through the metadata using [Shiny](https://shiny.posit.co/). Shiny apps are perfect for researchers because they enable you to create interactive visualizations and dashboards with dynamic data inputs and outputs without needing extensive web development knowledge. Shiny provides a variety of user interface components such as forms, tables, graphs, and maps to help you organize and present your data effectively. It also allows you to filter, sort, and segment data for deeper insights.
 
-Go back to the course material [lesson 5](./05_VC.qmd) and read the differences between converting folders to git repositories and cloning a folder to an existing git repository.
+
+:::{.callout-tip}
+- For R Enthusiasts
+
+Explore [demos](https://shiny.posit.co/r/gallery/#feature-demos) from the R Shiny community to kickstart your projects or for inspiration. 
+
+- For python Enthusiasts
+
+Shiny for Python provides live, interactive code throughout its entire tutorial. Additionally, it offers a great tool called [Playground](https://shinylive.io/py/examples/#basic-app), where you can code and test your own app to explore how different features render.
+:::
+
+
+:::{.callout-exercise}
+# Exercise 5: Skill Booster, build an interactive catalog browser
+
+Build an interactive web app straight from R or Python. Below, you will find an example of an R shiny app. In either case, you will need to define a user interface (UI) and a server function. The UI specifies the layout and appearance of the app, including input controls and output displays. The server function contains the app's logic, handling data manipulation, and responding to user interactions. Once you set up the UI and server, you can launch the app!
+
+Here's the UI and server function structure for an R Shiny app:
+
+```{.r .code-overflow-wrap}
+# Don't forget to load shiny and DT libraries!
+
+# Specify the layout
+ui <- fluidPage(
+    titlePanel(...)
+    # Define the appearance of the app
+    sidebarLayout(
+        sidebarPanel(...)
+        mainPanel(...)
+    )
+)
+
+server <- function(input, output, session) {
+    # Define a reactive expression for data based on user inputs
+    data <- reactive({
+        req(input$dataInput)  # Ensure data input is available
+        # Load or manipulate data here
+    })
+
+    # Define an output table based on data
+    output$dataTable <- renderTable({
+        data()  # Render the data as a table
+    })
+
+    # Observe a button click event and perform an action
+    observeEvent(input$actionButton, {
+        # Perform an action when the button is clicked
+    })
+
+    # Define cleanup tasks when the app stops
+    onStop(function() {
+        # Close connections or save state if necessary
+    })
+}
+# Run the app
+shinyApp(ui, server)
+```
+If you need more assistance, take a look at the code below (Hint). 
+
+:::{.callout-hint}
+```{.r .code-overflow-wrap}
+# R version 4.3.2
+print("Assuming the libraries from Exercise 4 are already loaded and a dataframe has been generated from the YAML files...")
+
+# check_and_install() form Exercise 4. 
+quiet("shiny")
+quiet("DT")
+
+# UI
+ui <- fluidPage(
+  titlePanel("TSV File Viewer"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("file", "Choose a TSV file", accept = c(".tsv")),
+      selectInput("filter_column", "Filter by Column:", choices = c("n_samples", "technology"), selected = "technology"),
+      textInput("filter_value", "Filter Value:", value = ""),
+      # if only numbers, numericInput()
+      radioButtons("sort_order", "Sort Order:", choices = c("Ascending", "Descending"), selected = "Ascending")
+    ),
+    
+    mainPanel(
+      DTOutput("table")
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  data <- reactive({
+    req(input$file)
+    df <- read.delim(input$file$datapath, sep = "\t")
+    print(str(df))
+
+    # Filter the DataFrame based on user input
+    if (input$filter_column != "" && input$filter_value != "") {
+      # Check if the column is numeric, and filter for value
+      if (is.numeric(df[[input$filter_column]])) {
+        df <- df[df[[input$filter_column]] >= as.numeric(input$filter_value), ]
+      }
+      # Check if the column is a string
+      else if (is.character(df[[input$filter_column]])) {
+        df <- df[df[[input$filter_column]] == input$filter_value, ]
+      }
+    }
+    
+    # Sort the DataFrame based on user input
+    sort_order <- if (input$sort_order == "Ascending") TRUE else FALSE
+    df <- df[order(df[[input$filter_column]], decreasing = !sort_order), ]
+    df
+  })
+  
+  output$table <- renderDT({
+    datatable(data())
+  })
+}
+
+# Run the app
+shinyApp(ui, server)
+```
+:::
+In the optional exercise below, you'll find a code example for using an SQLite database as input instead of a tabulated file.
+:::
+
+
+:::{.callout-exercise}
+# Exercise (optional)
+Once you've finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser. 
+
+- Use SQLite databases as input
+- Add a functionality to only select certain columns `uiOutput("column_select")`
+- Filter columns by value using `column_filter_select()`
+- Add multiple tabs using `tabsetPanel()`
+- Add buttons to order numeric columns ascending or descending using `radioButtons()`
+- Use SQL aggregation functions (e.g., SUM, COUNT, AVG) to perform custom data summaries and calculations.
+- Add a tab `tabPanel()` to create a project directory interactively (and fill up the metadata fields), tips: `dir.create()`, `data.frame()`, `write.table()`
+- Modify existing entries
+- Visualize results using [Cirrocumulus](https://cirrocumulus.readthedocs.io/en/latest/), an interactive visualization tool for large-scale single-cell genomics data.  
+
+If you need some assistance, take a look at the code below (Hint). 
+
+:::{.callout-hint}
+Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard [here](./scripts/shiny_sqlite_advanced.r){ target="_blank"}. 
+:::
+:::
+
+## 5. Version control using Git and GitHub
+
+Version control involves systematically tracking changes to a project over time, offering a structured way to document revisions and understand the progression of your work. In research data management and data analytics, it plays a critical role and provides numerous benefits.
+
+[Git](https://git-scm.com/about) is a distributed version control system that helps developers and researchers efficiently manage project history, collaborate seamlessly, and maintain data integrity. On the other hand, [GitHub](https://github.com/) is a web-based platform that builds on Git's functionality by providing a centralized, collaborative hub for hosting Git repositories. It offers several key functionalities, such as tracking issues, security features to safeguard your repos, and GitHub Pages that allow you to create websites to showcase your projects.
+
+:::{.callout-tip title="Create a GitHub organization for your lab or department"}
+GitHub users can create organizations, allowing groups to collaborate or create repositories under the same organization umbrella. You can create an educational organization on Github for free, by setting up a Github account for your lab. 
+
+Follow these [instructions](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) to create a GitHub organization. 
+
+Once you've established your GitHub organization, be sure to create your repositories within the organization's space rather than under your personal user account. This keeps your projects centralized and accessible to the entire group. Best practices for managing an organization on GitHub include setting clear access permissions, regularly reviewing roles and memberships, and organizing repositories effectively to keep your projects structured and easy to navigate. 
+
+:::
+
+### Setting up a GitHub repository for your project folder
+
+Version controlling your data analysis folders becomes straightforward once you've established your Cookiecutter templates. After you've created several folder structures and metadata using your Cookiecutter template, you can manage version control by either converting those folders into Git repositories or copying a folder into an existing Git repository. Both approaches are explained in [Lesson 5](https://hds-sandbox.github.io/RDM_NGS_course/develop/05_VC.html#from-project-folders-to-git-repositories).
+
+:::{.callout-exercise}
+# Exercise 6: initialize a repository from an existing folder:
+1. Initialize the repository: Begin by running the command `git init` in your project directory. This command sets up a new Git repository in the current directory and is executed only once, even for collaborative projects. See ([`git init`](https://git-scm.com/docs/git-init)) for more details.
+2. Create a remote repository: Once the local repository is initialized, create an empty new repository on GitHub (website or Github Desktop).
+3. Connect the remote repository: Add the GitHub repository URL to your local repository using the command `git remote add origin <URL>`. This associates the remote repository with the name "origin."
+4. Commit changes: If you have files you want to add to your repository, stage them using `git add .`, then create a commit to save a snapshot of your changes with `git commit -m "add local folder"`.
+5. Push to GitHub: To synchronize your local repository with the remote repository and establish a tracking relationship, push your commits to the GitHub repository using `git push -u origin main`.
+:::
 
 :::{.callout-tip title="Tips to write good commit messages"}
 If you would like to know more about Git commits and the best way to make clear Git messages, check out [this post](https://www.conventionalcommits.org/en/v1.0.0/)!
@@ -607,47 +813,61 @@ If you would like to know more about Git commits and the best way to make clear 
 
 ### GitHub Pages
 
-Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns, or HTML reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we really recommend that you follow the nice tutorial that GitHub has put for you. Nonetheless, we will see the main steps in the exercise below.
+After creating your repository and hosting it on GitHub, you can now add your data analysis reports—such as Jupyter Notebooks, R Markdown files, or HTML reports—to a [GitHub Page website](https://pages.github.com/). Setting up a GitHub Page is straightforward, and we recommend following GitHub's helpful tutorial. However, we will go through the key steps in the exercise below. There are several ways to create your web pages, but we suggest using Quarto as a framework to build a sleek, professional-looking website with ease. The folder templates from the previous exercise already contain the necessary elements to launch a webpage. Familiarizing yourself with the basics of Quarto will help you design a webpage that suits your preferences. Other common options include [MkDocs](https://squidfunk.github.io/mkdocs-material/). If you want to use MkDocs instead, click [here](./examples/mkdocs_pages.qmd) and follow the instructions.
 
-There are many different ways to create your web pages. We recommend using Mkdocs and Mkdocs materials as a framework to create a nice webpage simply. The folder templates that we used as an example in the previous exercise already contain everything you need to start a webpage. Nonetheless, you will need to understand the basics of [MkDocs](https://www.mkdocs.org/) and [MkDocs materials](https://squidfunk.github.io/mkdocs-material/) to design a webpage to your liking. MkDocs is a static webpage generator that is very easy to use, while MkDocs materials is an extension of the tool that gives you many more options to customize your website. Check out their web pages to get started!
+:::{.callout-tip}
+Here are some useful links to get started with Github Pages:
+
+- [Github Pages](https://pages.github.com/)
+- [Quarto Github Pages](https://quarto.org/docs/publishing/github-pages.html)
+:::
 
 :::{.callout-exercise}
-# Exercise 5: make a project folder and publish a data analysis webpage
+# Exercise 7: Create a Github Page using Quarto 
+1. Head over to GitHub and create a new public repository named username.github.io, where username is your username (or organization name) on GitHub. *If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right.*
+2. Go to the folder where you want to store your project, and clone the new repository: `git clone https://github.com/username/username.github.io` (or use Github Desktop)
+3. Create a new file named `_quarto.yml`
 
-1. Configure your main GitHub Page and its repo
+    ```{.yml filename="_quarto.yml"}
+    project:
+        type: website
+    ```
 
-    The first step is to set up the main GitHub Page site and the repository that will host it. This is very simple, as you will only need to follow [these steps](https://pages.github.com/). In a Markdown document, outline the primary objectives of the organization and provide an overview of ongoing research projects.
-    After you have created the *organization/username*github.io, it is time to configure your `Project` repository webpage using MkDocs!
+4. Open the terminal 
+    ```{.bash filename="Terminal"}
+    # Add a .nojekyll file to the root of the repository not to do additional processing of your published site
+    touch .nojekyll #copy NUL .nojekyll for windows
 
-2. Start a new project from Cookiecutter or use one from the previous exercise.
+    # Render and push it to Github
+    quarto render
+    git commit -m "Publish site to docs/"
+    git push
+    ```
+5. If you do not have a `gh-pages`, you can create one as follows 
 
-    If you use a `Project` repo from the first exercise, go to the next paragraph. Using Cookiecutter, create a new data analysis project. Remember to fill up your metadata and description files! After you have created the folder, it would be best to initialize a Git repo following the instructions from the [previous section](#creating-a-git-repo-online-and-copying-your-project-folder).
+    ```{.bash filename="Terminal"}
+    git checkout --orphan gh-pages
+    git reset --hard # make sure all changes are committed before running this!
+    git commit --allow-empty -m "Initialising gh-pages branch"
+    git push origin gh-pages
+    ```
+6. Before attempting to publish you should ensure that the Source branch for your repository is `gh-pages` and that the site directory is set to the repository root (/)
 
-    Next, link your data of interest (or create a small fake dataset) and make an example of a data analysis notebook/report (this could be just a scatter plot of a random matrix of values). Depending on your setup, you might be using Jupyter Notebooks or Rmarkdowns. The extensions that we have installed using `pip` allow you to directly add a Jupyter Notebook file to the `mkdocs.yml` navigation section. On the other hand, if you are using Rmarkdown, you will have to knit your document into either an HTML page or a GitHub document.
-    
-    For the purposes of this exercise, we have already included a basic `index.md` markdown file that can serve as the intro page of your repo, and a `jupyter_example.ipynb` with some code in it. You are welcome to modify them further to test them out!
+    ![](./images/github_pages_quarto.png)
 
-3. Use MkDocs to create your webpage
+7. It is important to not check your `_site` directory into version control, add the output directory of your project to `.gitignore`
 
-    When you are happy with your files and are ready to publish them, make sure to add, commit, and push the changes to the remote. Then, build up your webpage using MkDocs and the [`mkdocs gh-deploy`](https://www.mkdocs.org/user-guide/deploying-your-docs/) command from the same directory where the `mkdocs.yml` file is. For example, if your `mkdocs.yml` for your `Project` folder is in `/Users/JARH/Projects/project1_JARH_20231010/mkdocs.yml`, do `cd /Users/JARH/Projects/project1_JARH_20231010/` and then `mkdocs gh-deploy`.
-    This requires a couple of changes in your GitHub organization settings.
+    ```{.bash filename=".gitignore"}
+    /.quarto/
+    /_site/
+    ```
+8. Now is time to publish your website
 
-    Remember to make sure that your markdowns, images, reports, etc., are included in the `docs` folder and properly set up in the navigation section of your `mkdocs.yml` file.
+    ```{.bash filename=".Terminal"}
+    quarto publish gh-pages
+    ```
 
-    Finally, we only need to set up the GitHub `Project` repo settings.
-
-4. Publishing your GitHub Page
-    
-    Go to your GitHub repo settings and configure the Page section. Since you are using the `mkdocs gh-deploy` command to publish your site in the `gh-pages` branch (as explained the the mkdocs documentation), we need to change where GitHub is fetching the website. You will need to configure the settings of this repository in GitHub so that the Page is taken from the `gh-pages` branch and the `root` folder. 
-
-    ![GitHub Pages setup](./images/git_pages.png)
-
-    - Branch should be `gh-pages`
-    - Folder should be `root`
-
-    After a couple of minutes, your webpage should be ready! You should be able to see your webpage through the link provided in the Page section!
-
-Now it is also possible to include this repository webpage in your main webpage *organization*github.io by including the link of the repo website (https://*organization*github.io/*repo-name*) in the navigation section of the `mkdocs.yml` file in the main *organization*github.io repo.
+9. Once you’ve completed a local publish, add a publish.yml GitHub Action to your project by creating this YAML file and saving it to `.github/workflows/publish.yml`. Read how to do it [here](https://quarto.org/docs/publishing/github-pages.html#github-action)
 :::
 
 ## 6. Archive GitHub repositories on Zenodo

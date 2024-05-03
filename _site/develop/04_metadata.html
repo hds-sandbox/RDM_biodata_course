@@ -305,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 26, 2024</p>
+      <p class="date-modified">May 3, 2024</p>
     </div>
   </div>
     
@@ -552,14 +552,26 @@ Examples of ontology services
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><a href="https://www.ebi.ac.uk/ols4/ontologies/uberon">Uberon anatomy ontology</a></li>
-<li><a href="https://geneontology.org/docs/tools-overview/">Gene ontology</a></li>
-<li><a href="https://www.ebi.ac.uk/training/online/courses/ensembl-browsing-genomes/navigating-ensembl/investigating-a-gene/#:~:text=Ensembl%20gene%20IDs%20begin%20with,of%20species%20other%20than%20human">Ensembl gene IDs</a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/mesh">Medical Subject Headings (MeSH)</a></li>
-<li><a href="https://www.ebi.ac.uk/chebi/">Chemical Entities of Biological Interest</a></li>
-<li><a href="https://mged.sourceforge.net/ontologies/index.php">Microarray Gene Expression Society Ontology (MGED)</a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI taxonomy</a></li>
-<li><a href="https://mondo.monarchinitiative.org/">Mondo disease database</a></li>
+<li>Biological ontologies for data scientists - <a href="https://lamin.ai/docs/bionty">Bionty</a></li>
+<li>Anatomy - <a href="https://www.ebi.ac.uk/ols4/ontologies/uberon">Uberon</a></li>
+<li>Tissue - <a href="http://obophenotype.github.io/uberon">Uberon</a></li>
+<li>Chemical compounds<a href="https://www.ebi.ac.uk/chebi/">Chemical Entities of Biological Interest</a></li>
+<li>ExperimentalFactor - <a href="https://www.ebi.ac.uk/ols/ontologies/efo">Experimental Factor Ontology</a></li>
+<li>Species - <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI Taxonomy</a>, <a href="https://useast.ensembl.org/info/about/species.html">Ensembl Species</a></li>
+<li>Disease - <a href="https://mondo.monarchinitiative.org/">Mondo</a>, <a href="https://disease-ontology.org/">Human Disease</a></li>
+<li>Gene - <a href="https://ensembl.org/">Ensembl</a>, <a href="https://www.ncbi.nlm.nih.gov/gene">NCBI Gene</a>, <a href="https://geneontology.org/docs/tools-overview/">Gene ontology</a>,<a href="https://mged.sourceforge.net/ontologies/index.php">Microarray Gene Expression Society Ontology (MGED)</a></li>
+<li>Protein - <a href="https://www.uniprot.org/">Uniprot</a></li>
+<li>CellLine - <a href="https://github.com/CLO-ontology/CLO">Cell Line Ontology</a></li>
+<li>CellType - <a href="https://obophenotype.github.io/cell-ontology">Cell Ontology</a></li>
+<li>CellMarker - <a href="http://xteam.xbio.top/CellMarker">CellMarker</a></li>
+<li>Phenotype - <a href="https://hpo.jax.org/app">Human Phenotype</a>, <a href="https://phewascatalog.org/phecodes_icd10">Phecodes</a>, <a href="https://github.com/pato-ontology/pato">PATO</a>, <a href="http://obofoundry.org/ontology/mp.html">Mammalian Phenotype</a>, <a href="http://obofoundry.org/ontology/zp.html">Zebrafish Phenotype</a></li>
+<li>Pathway - <a href="https://bioportal.bioontology.org/ontologies/GO">Gene Ontology</a>, <a href="https://bioportal.bioontology.org/ontologies/PW">Pathway Ontology</a></li>
+<li>DevelopmentalStage - <a href="https://github.com/obophenotype/developmental-stage-ontologies/wiki/HsapDv">Human Developmental Stages</a>, <a href="https://github.com/obophenotype/developmental-stage-ontologies/wiki/MmusDv">Mouse Developmental Stages</a></li>
+<li>Drug - <a href="https://bioportal.bioontology.org/ontologies/DRON">Drug Ontology</a></li>
+<li>Ethnicity - <a href="https://github.com/EBISPOT/hancestro">Human Ancestry Ontology</a></li>
+<li>BFXPipeline - largely based on <a href="https://nf-co.re/">nf-core</a></li>
+<li>BioSample - <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes">NCBI BioSample attributes</a></li>
+<li>Articles Indexing <a href="https://www.ncbi.nlm.nih.gov/mesh">Medical Subject Headings (MeSH)</a></li>
 </ul>
 </div>
 </div>
@@ -613,6 +625,7 @@ Exercise 2: Generate database tables from metadata
 <li>YAML metadata files associated with each project</li>
 </ul>
 <p>Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.</p>
+<p>You can find a thorough guided exercise in the practical material - <a href="https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project">Exercise 4</a>.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -627,41 +640,14 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quiet <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(x)) }</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(yaml))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(dplyr))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(lubridate))</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"yaml"</span>, <span class="st">"ggplot2"</span>, <span class="st">"lubridate"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch YAML files files, read and convert them to a data frame</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch metadata.yml files</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>get_metadata <span class="ot">&lt;-</span> <span class="cf">function</span>(folder_path) {</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  file_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> folder_path, </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"metadata</span><span class="sc">\\</span><span class="st">.yml$"</span>, </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  metadata_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(file_list, yaml<span class="sc">::</span>yaml.load_file)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(metadata_list)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the folder path</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>folder_path <span class="ot">&lt;-</span> <span class="st">"/path/to/your/folder"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch metadata from the specified folder</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(folder_path)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert metadata to a data frame</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>metadata_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">matrix</span>(<span class="fu">unlist</span>(metadata), </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="at">ncol =</span> <span class="fu">length</span>(metadata), <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(metadata_df) <span class="ot">&lt;-</span> <span class="fu">names</span>(metadata[[<span class="dv">1</span>]])</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data frame as a TSV file</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>output_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".tsv"</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(metadata_df, </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> output_file, </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, </span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">quote =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confirmation message</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Database saved as"</span>, output_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">lapply</span>(file_list, yaml<span class="sc">::</span>yaml.load_file)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data frame as a TSV file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -713,7 +699,8 @@ Exercise 3: Generate a SQLite database from metadata
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.</p>
+<p>Click on the hint to reveal the necessary libraries and some functions, which may serve as inspiration.</p>
+<p>You can find a thorough guided exercise, complete with code example, in the practical material - <a href="https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project">Exercise 4, option B</a>.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -728,25 +715,16 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>quiet <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(x)) }</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(yaml))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(dplyr))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(lubridate))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(DBI))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the metadata_df using the script from the example above (recursively fetching metadata.yml files)</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an SQLite database and insert data</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>db_file <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"database_"</span>, <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y%m%d"</span>), <span class="st">".sqlite"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), db_file)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">"metadata"</span>, metadata_df, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confirmation message</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Database saved as"</span>, db_file, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the database connection</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"yaml"</span>, <span class="st">"ggplot2"</span>, <span class="st">"lubridate"</span>, <span class="st">"DBI"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to recursively fetch YAML files files, read and convert them to a data frame</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">lapply</span>(file_list, yaml<span class="sc">::</span>yaml.load_file)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an SQLite database from a dataframe and insert data</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), <span class="st">"filenameXXX.sqlite"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -760,7 +738,8 @@ Hint
 </section>
 <section id="catalog-browser" class="level3">
 <h3 class="anchored" data-anchor-id="catalog-browser">Catalog browser</h3>
-<p>You can design a user-friendly catalog browser for your database using tools like <a href="https://www.rstudio.com/products/shiny/">Rshiny</a> or <a href="https://panel.holoviz.org/">Panel</a>. These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a TSV file and a SQLite database will be demonstrated below.</p>
+<p>To further optimize the use of your metadata and improve the integration of all your lab metadata, you can design a user-friendly catalog browser for your database using tools like <a href="https://www.rstudio.com/products/shiny/">Rshiny</a> or <a href="https://panel.holoviz.org/">Panel</a>. These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents.</p>
+<p>Creating such a tool with RShiny is straightforward and does not require extensive development knowledge, whether using a TSV file or a SQLite database. In the <a href="https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder">practical materials</a>, we demonstrate both scenarios and showcase various functionalities for inspiration. SQLite files are particularly advantageous for data fetching and other operations due to their efficient querying and indexing capabilities.</p>
 <p>Here’s an example of an SQLite database catalog created by the <a href="https://renew.ku.dk/research/reseach-groups/brickman-group/">Brickman Lab</a> at the Center for Stem Cell Medicine. It’s simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -769,7 +748,7 @@ Hint
 </figure>
 </div>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -778,14 +757,11 @@ Exercise 4: Create your first catalog browser using Rshiny
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-exercise">
-<p>Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.</p>
-<ul>
-<li>Solution A. From a TSV</li>
-</ul>
+<p>Go to the <a href="https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder">practical material</a> for complete exercise instructions and solutions. The code provided can serve as inspiration for you to adapt as needed.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -800,120 +776,32 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint code-overflow-wrap">
-<p>R script</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>quiet <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(x)) }</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(shiny))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(DT))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># UI</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"TSV File Viewer"</span>),</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fileInput</span>(<span class="st">"file"</span>, <span class="st">"Choose a TSV file"</span>, <span class="at">accept =</span> <span class="fu">c</span>(<span class="st">".tsv"</span>))</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">DTOutput</span>(<span class="st">"table"</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Server</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>file)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read.delim</span>(input<span class="sc">$</span>file<span class="sc">$</span>datapath, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderDT</span>({</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datatable</span>(<span class="fu">data</span>())</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the app</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li>Solution B. From an SQLite database</li>
-</ul>
-<div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div>
-<div class="callout-hint code-overflow-wrap">
-<p>R script</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>quiet <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(x)) }</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(shiny))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(DT))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">quiet</span>(<span class="fu">library</span>(DBI))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># UI</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"SQLite Database Viewer"</span>),</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fileInput</span>(<span class="st">"db_file"</span>, <span class="st">"Choose an SQLite Database"</span>, <span class="at">accept =</span> <span class="fu">c</span>(<span class="st">".sqlite"</span>)),</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textInput</span>(<span class="st">"table_name"</span>, <span class="st">"Enter Table Name:"</span>, <span class="at">value =</span> <span class="st">""</span>),</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">actionButton</span>(<span class="st">"load_button"</span>, <span class="st">"Load Table"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">DTOutput</span>(<span class="st">"table"</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Server</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  con <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(input<span class="sc">$</span>db_file)) {</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dbConnect</span>(<span class="fu">SQLite</span>(), input<span class="sc">$</span>db_file<span class="sc">$</span>datapath)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">req</span>(input<span class="sc">$</span>load_button <span class="sc">&gt;</span> <span class="dv">0</span>, input<span class="sc">$</span>table_name, <span class="fu">con</span>())</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    query <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue_sql</span>(<span class="st">"SELECT * FROM {dbQuoteIdentifier(con(), input$table_name)}"</span>)</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dbGetQuery</span>(<span class="fu">con</span>(), query)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderDT</span>({</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datatable</span>(<span class="fu">data</span>())</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>load_button, {</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderDT</span>({</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">datatable</span>(<span class="fu">data</span>())</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Disconnect from the database when app closes</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observe</span>({</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">on.exit</span>(<span class="fu">dbDisconnect</span>(<span class="fu">con</span>()), <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the app</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These are some of the libraries required: <code>install.packages(c("shiny", "DT", "DBI"))</code></p>
+<p>You need to define both a user interface (UI) and a server function. The UI (<code>fluidPage()</code>) outlines the app’s layout using for example, the <code>sidebarLayout()</code> and <code>mainPanel()</code> functions for input controls and output displays.</p>
+<p>The server function manages data manipulation and user interactions. Use <code>shinyApp()</code> to launch the app once the UI and server are set up.</p>
+<p>Here is a simple example of a server function settup including the main parts (additional components provide advanced functionalities):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define a reactive expression for data based on user inputs</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">req</span>(input<span class="sc">$</span>dataInput)  <span class="co"># Ensure data input is available</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Load or manipulate data here</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define an output table based on data</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>dataTable <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">data</span>()  <span class="co"># Render the data as a table</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observe a button click event and perform an action</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">observeEvent</span>(input<span class="sc">$</span>actionButton, {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Perform an action when the button is clicked</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define cleanup tasks when the app stops</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">onStop</span>(<span class="cf">function</span>() {</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Close connections or save state if necessary</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -940,13 +828,52 @@ Exercise 5: Add complex features to your catalog browser
 <div class="callout-exercise">
 <p>Once you’ve finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser.</p>
 <ul>
-<li>Add a tab to create a project directory interactively (and fill up the metadata fields)</li>
+<li>Add a functionality to only select certain columns <code>uiOutput("column_select")</code></li>
+<li>Add buttons to order numeric columns ascending or descending using <code>radioButtons()</code></li>
+<li>Use SQL aggregation functions (e.g., SUM, COUNT, AVG) to perform custom data summaries and calculations.</li>
+<li>Add a tab <code>tabPanel()</code> to create a project directory interactively (and fill up the metadata fields), tips: <code>dir.create()</code>, <code>data.frame()</code>, <code>write.table()</code></li>
 <li>Modify existing entries</li>
-<li>Visualize results using <a href="https://cirrocumulus.readthedocs.io/en/latest/">Cirrocumulus</a></li>
+<li>Visualize results using <a href="https://cirrocumulus.readthedocs.io/en/latest/">Cirrocumulus</a>, an interactive visualization tool for large-scale single-cell genomics data.</li>
 </ul>
+<div class="callout callout-style-default callout-hint no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-hint">
+<p>Explore this example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard <a href="./scripts/shiny_sqlite_advanced.r" target="_blank">here</a>.</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>For R Enthusiasts Explore <a href="https://shiny.posit.co/r/gallery/#feature-demos">demos</a>from the R Shiny community to kickstart your projects or for inspiration.</li>
+<li>For python Enthusiasts If you want to dive deeper into Shiny apps and their various uses (such as dynamic plots or other interactive widgets), Shiny for Python provides live, interactive code throughout its entire tutorial. Additionally, it offers a great tool called <a href="https://shinylive.io/py/examples/#basic-app">Playground</a>, where you can code and test your own app to explore how different features render.</li>
+</ul>
 </div>
 </div>
 </section>
@@ -967,7 +894,6 @@ Exercise 5: Add complex features to your catalog browser
 </li>
 <li>KU Leuven Guidance: <a href="https://www.kuleuven.be/rdm/en/guidance/documentation-metadata" class="uri">https://www.kuleuven.be/rdm/en/guidance/documentation-metadata</a></li>
 <li><a href="https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata">Transcriptomics metadata standards and fields</a></li>
-<li>Biological ontologies for data scientists,<a href="https://lamin.ai/docs/bionty">Bionty</a></li>
 <li><a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html">NIH standardizing data collection</a></li>
 <li><a href="https://www.ohdsi.org/data-standardization/">Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model</a></li>
 </ul>
@@ -977,6 +903,7 @@ Exercise 5: Add complex features to your catalog browser
 <ul>
 <li><a href="https://rightfield.org.uk/">Rightfield</a>: open source tool facilitates the integration of ontology terms into Excel spreadsheet.</li>
 <li><a href="https://pypi.org/project/owlready2/">Owlready2</a>: Python package, enables the loading of ontologies as Python objects. This versatile tool allows users to manipulate and store ontology classes, instances, and properties as needed.</li>
+<li><a href="https://shiny.posit.co/">Shiny Apps</a>: easy interactive web apps for data science</li>
 </ul>
 
 

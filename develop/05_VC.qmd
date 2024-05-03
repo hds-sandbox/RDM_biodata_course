@@ -80,7 +80,7 @@ We will discuss repositories for archiving experimental or large datasets in [le
 Moving from Git to GitHub involves transitioning from a local version control setup to a remote hosting platform. You will need a GitHub account for the exercise in this section.
 
 :::{.callout-tip title="Create a GitHub account"}
-- If you don't have a GitHub account yet, click [here](https://github.com/signup).
+- If you don't have a GitHub account yet, click [here](https://github.com/signup)
 - Install Git from [Git webpage](https://git-scm.com/downloads)
 :::
 
@@ -95,14 +95,14 @@ If you completed all the exercises in [lesson 3](./03_DOD.qmd), you should have 
 
 :::{.callout-exercise}
 # Exercise 1: initialize a repository from an existing folder:
-1. First, initialize the repository using the command `git init`. This command is run only once, even in collaborative projects ([`git init`](https://git-scm.com/docs/git-init)).
-2. Once the repository is initialized, create a remote repository on GitHub.
-3. Add the remote URL to your local git repository using git remote add origin \<URL\>`. This associates the remote URL with the name "origin".
-4. Ensure you have at least one commit in your history by staging existing files with `git add` and then creating a snapshot, known as committing, with `git commit`.
-5. Finally, push your local commits to the remote repository and establish a tracking relationship using `git push -u origin master`.
+1. Initialize the repository: Begin by running the command `git init` in your project directory. This command sets up a new Git repository in the current directory and is executed only once, even for collaborative projects. See ([`git init`](https://git-scm.com/docs/git-init)) for more details.
+2. Create a remote repository: Once the local repository is initialized, create am empty new repository on GitHub.
+3. Connect the remote repository: Add the GitHub repository URL to your local repository using the command `git remote add origin <URL>`. This associates the remote repository with the name "origin."
+4. Commit changes: If you have files you want to add to your repository, stage them using `git add .`, then create a commit to save a snapshot of your changes with `git commit -m "add local folder"`.
+5. Push to GitHub: To synchronize your local repository with the remote repository and establish a tracking relationship, push your commits to the GitHub repository using `git push -u origin main`.
 :::
 
-##### Set Up a Git Repository and copy your project folder
+##### Setting Up a Git Repository and copying an existing folder
 
 Alternatively to converting folders to repositories, you can create a new repository remotely, and then clone (`git clone`) it locally. Here, `git init` is not needed. You can move the files into the repository locally (`git add`, `git commit`, and `git push`). If you are creating a collaborative repository, you can now share it with your colleagues. 
 
@@ -113,9 +113,9 @@ Write useful and clear Git commits. Check out [this post](https://www.convention
 
 ### Github pages
 
-After setting up your repository on GitHub, take advantage of the opportunity to enhance it by adding your data analysis reports. Whether they are in Jupyter Notebooks, Rmarkdowns, or HTML reports, you can showcase them on a [GitHub Page](https://pages.github.com/). 
+After setting up your repository on GitHub, take advantage of the opportunity to enhance it by adding your data analysis reports. Whether they are in Jupyter Notebooks, R Markdown files, or HTML reports, you can showcase them on a [GitHub Page](https://pages.github.com/). 
 
-Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, Rmarkdowns, or HTML reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we recommend that you follow the nice tutorial that GitHub has put for you.
+Once you have created your repository (and put it in GitHub), you have now the opportunity to add your data analysis reports that you created, in either Jupyter Notebooks, R Markdown files, or HTML reports, in a [GitHub Page website](https://pages.github.com/). Creating a GitHub page is very simple, and we recommend that you follow the nice tutorial that GitHub has put for you.
 
 For simplicity, we recommend using [Quarto](https://quarto.org/) or [MkDocs](https://www.mkdocs.org/). Visit their websites and follow the instructions to get started. 
 
@@ -134,3 +134,4 @@ In this lesson, we explored version control and utilized Git and GitHub to estab
 
 ### Sources
 -  [Version Control and Code Repository Link](https://guides.library.jhu.edu/c.php?g=1096705&p=8066729).
+- [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf).

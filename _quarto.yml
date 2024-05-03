@@ -42,6 +42,9 @@ website:
     - title: "Use cases"
       contents:
         - use_cases.qmd
+        - section: "General"
+          contents: 
+            - develop/examples/mkdocs_pages.qmd
         - section: "NGS data"
           contents:
             - develop/examples/NGS_OS_FAIR.qmd

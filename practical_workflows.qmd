@@ -25,7 +25,7 @@ summary: workflow
 - Create reproducible analyses that can be adapted to new data with little effort
 :::
 
-# Workflows
+# FAIR Workflows
 
 Data analysis typically involves the use of different tools, algorithms, and scripts. It often requires multiple steps to transform, filter, aggregate, and visualize data. The process can be time-consuming because each tool may demand specific inputs and parameter settings. As analyses become more complex, the importance of reproducible and scalable automated workflow management increases. Workflow management encompasses tasks such as parallelization, resumption, logging, and data provenance.
 
@@ -167,10 +167,12 @@ Use git repositories to save your projects and pipelines!
 
 ## Nextflow
 
+# FAIR environments 
+
 ## Sources
 - [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html#tutorial)
 - [Snakemake turorial slides by Johannes Koster](https://slides.com/johanneskoester/snakemake-tutorial)
 - https://bioconda.github.io
 - Köster, Johannes and Rahmann, Sven. "Snakemake - A scalable bioinformatics workflow engine". Bioinformatics 2012.
 - Köster, Johannes. "Parallelization, Scalability, and Reproducibility in Next-Generation Sequencing Analysis", PhD thesis, TU Dortmund 2014.
-
+- [faircookbook worflows](https://faircookbook.elixir-europe.org/content/recipes/applied-examples/fair-workflows.html)

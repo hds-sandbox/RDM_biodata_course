@@ -153,14 +153,26 @@ Researchers encountering inconsistent and non-standardized terms (e.g., gene nam
 
 :::{.callout-note}
 # Examples of ontology services
-- [Uberon anatomy ontology](https://www.ebi.ac.uk/ols4/ontologies/uberon)
-- [Gene ontology](https://geneontology.org/docs/tools-overview/)
-- [Ensembl gene IDs](https://www.ebi.ac.uk/training/online/courses/ensembl-browsing-genomes/navigating-ensembl/investigating-a-gene/#:~:text=Ensembl%20gene%20IDs%20begin%20with,of%20species%20other%20than%20human)
-- [Medical Subject Headings (MeSH)](https://www.ncbi.nlm.nih.gov/mesh)
-- [Chemical Entities of Biological Interest](https://www.ebi.ac.uk/chebi/)
-- [Microarray Gene Expression Society Ontology (MGED)](https://mged.sourceforge.net/ontologies/index.php)
-- [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)
-- [Mondo disease database](https://mondo.monarchinitiative.org/)
+- Biological ontologies for data scientists - [Bionty](https://lamin.ai/docs/bionty)
+- Anatomy - [Uberon](https://www.ebi.ac.uk/ols4/ontologies/uberon)
+- Tissue - [Uberon](http://obophenotype.github.io/uberon)
+- Chemical compounds[Chemical Entities of Biological Interest](https://www.ebi.ac.uk/chebi/)
+- ExperimentalFactor - [Experimental Factor Ontology](https://www.ebi.ac.uk/ols/ontologies/efo)
+- Species - [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy), [Ensembl Species](https://useast.ensembl.org/info/about/species.html)
+- Disease - [Mondo](https://mondo.monarchinitiative.org/), [Human Disease](https://disease-ontology.org/)
+- Gene - [Ensembl](https://ensembl.org/), [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene), [Gene ontology](https://geneontology.org/docs/tools-overview/),[Microarray Gene Expression Society Ontology (MGED)](https://mged.sourceforge.net/ontologies/index.php)
+- Protein - [Uniprot](https://www.uniprot.org/)
+- CellLine - [Cell Line Ontology](https://github.com/CLO-ontology/CLO)
+- CellType - [Cell Ontology](https://obophenotype.github.io/cell-ontology)
+- CellMarker - [CellMarker](http://xteam.xbio.top/CellMarker)
+- Phenotype - [Human Phenotype](https://hpo.jax.org/app), [Phecodes](https://phewascatalog.org/phecodes_icd10), [PATO](https://github.com/pato-ontology/pato), [Mammalian Phenotype](http://obofoundry.org/ontology/mp.html), [Zebrafish Phenotype](http://obofoundry.org/ontology/zp.html)
+- Pathway - [Gene Ontology](https://bioportal.bioontology.org/ontologies/GO), [Pathway Ontology](https://bioportal.bioontology.org/ontologies/PW)
+- DevelopmentalStage - [Human Developmental Stages](https://github.com/obophenotype/developmental-stage-ontologies/wiki/HsapDv), [Mouse Developmental Stages](https://github.com/obophenotype/developmental-stage-ontologies/wiki/MmusDv)
+- Drug - [Drug Ontology](https://bioportal.bioontology.org/ontologies/DRON)
+- Ethnicity - [Human Ancestry Ontology](https://github.com/EBISPOT/hancestro)
+- BFXPipeline - largely based on [nf-core](https://nf-co.re/)
+- BioSample - [NCBI BioSample attributes](https://www.ncbi.nlm.nih.gov/biosample/docs/attributes)
+- Articles Indexing [Medical Subject Headings (MeSH)](https://www.ncbi.nlm.nih.gov/mesh)
 :::
 
 :::{.callout-definition}
@@ -191,43 +203,19 @@ Requirements:
 
 Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.
 
+You can find a thorough guided exercise in the practical material - [Exercise 4](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project).
+
 :::{.callout-hint}
-```{.r}
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(yaml))
-quiet(library(dplyr))
-quiet(library(lubridate))
+```{.r .code-overflow-wrap}
+# Load required packages
+packages <- c("yaml", "ggplot2", "lubridate")
 
-# Function to recursively fetch metadata.yml files
-get_metadata <- function(folder_path) {
-  file_list <- list.files(path = folder_path, 
-    pattern = "metadata\\.yml$", 
-    recursive = TRUE, full.names = TRUE)
-  metadata_list <- lapply(file_list, yaml::yaml.load_file)
-  return(metadata_list)
-}
+# Function to recursively fetch YAML files files, read and convert them to a data frame
 
-# Specify the folder path
-folder_path <- "/path/to/your/folder"
-
-# Fetch metadata from the specified folder
-metadata <- get_metadata(folder_path)
-
-# Convert metadata to a data frame
-metadata_df <- data.frame(matrix(unlist(metadata), 
-ncol = length(metadata), byrow = TRUE))
-colnames(metadata_df) <- names(metadata[[1]])
+df = lapply(file_list, yaml::yaml.load_file)
 
 # Save the data frame as a TSV file
-output_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".tsv")
-write.table(metadata_df, 
-  file = output_file, 
-  sep = "\t", 
-  quote = FALSE, 
-  row.names = FALSE)
 
-# Print confirmation message
-print("Database saved as", output_file, "\n")
 ```
 :::
 :::
@@ -251,36 +239,31 @@ An alternative to the tabular format is SQLite, a lightweight and self-contained
 
 :::{.callout-exercise}
 # Exercise 3: Generate a SQLite database from metadata
-Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.
+Click on the hint to reveal the necessary libraries and some functions, which may serve as inspiration.
+
+You can find a thorough guided exercise, complete with code example, in the practical material - [Exercise 4, option B](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project).
 
 :::{.callout-hint}
 ```{.r .code-overflow-wrap}
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(yaml))
-quiet(library(dplyr))
-quiet(library(lubridate))
-quiet(library(DBI))
+# Load required packages
+packages <- c("yaml", "ggplot2", "lubridate", "DBI")
 
-# Generate the metadata_df using the script from the example above (recursively fetching metadata.yml files)
+# Function to recursively fetch YAML files files, read and convert them to a data frame
 
-# Create an SQLite database and insert data
-db_file <- paste0("database_", format(Sys.Date(), "%Y%m%d"), ".sqlite")
-con <- dbConnect(SQLite(), db_file)
+df = lapply(file_list, yaml::yaml.load_file)
 
-dbWriteTable(con, "metadata", metadata_df, row.names = FALSE)
-
-# Print confirmation message
-cat("Database saved as", db_file, "\n")
-
-# Close the database connection
-dbDisconnect(con)
+# Create an SQLite database from a dataframe and insert data
+dbConnect(SQLite(), "filenameXXX.sqlite")
+dbWriteTable()
 ```
 :::
 :::
 
 ### Catalog browser
 
-You can design a user-friendly catalog browser for your database using tools like [Rshiny](https://www.rstudio.com/products/shiny/) or [Panel](https://panel.holoviz.org/). These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents. Creating such a tool with Rshiny from both a TSV file and a SQLite database will be demonstrated below.
+To further optimize the use of your metadata and improve the integration of all your lab metadata, you can design a user-friendly catalog browser for your database using tools like [Rshiny](https://www.rstudio.com/products/shiny/) or [Panel](https://panel.holoviz.org/). These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents.
+
+Creating such a tool with RShiny is straightforward and does not require extensive development knowledge, whether using a TSV file or a SQLite database. In the [practical materials](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder), we demonstrate both scenarios and showcase various functionalities for inspiration. SQLite files are particularly advantageous for data fetching and other operations due to their efficient querying and indexing capabilities.
 
 Here's an example of an SQLite database catalog created by the [Brickman Lab](https://renew.ku.dk/research/reseach-groups/brickman-group/) at the Center for Stem Cell Medicine. It's simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.
 
@@ -288,114 +271,43 @@ Here's an example of an SQLite database catalog created by the [Brickman Lab](ht
 
 :::{.callout-exercise}
 # Exercise 4: Create your first catalog browser using Rshiny
-Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.
-
-- Solution A. From a TSV
+Go to the [practical material](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder) for complete exercise instructions and solutions. The code provided can serve as inspiration for you to adapt as needed.
 
 :::{.callout-hint .code-overflow-wrap}
-R script
-```{.r}
+These are some of the libraries required: 
+`install.packages(c("shiny", "DT", "DBI"))`
 
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(shiny))
-quiet(library(DT))
+You need to define both a user interface (UI) and a server function. The UI (`fluidPage()`) outlines the app's layout using for example, the `sidebarLayout()` and `mainPanel()` functions for input controls and output displays. 
 
-# UI
-ui <- fluidPage(
-  titlePanel("TSV File Viewer"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      fileInput("file", "Choose a TSV file", accept = c(".tsv"))
-    ),
-    
-    mainPanel(
-      DTOutput("table")
-    )
-  )
-)
+The server function manages data manipulation and user interactions. Use `shinyApp()` to launch the app once the UI and server are set up.
 
-# Server
-server <- function(input, output) {
-  
-  data <- reactive({
-    req(input$file)
-    read.delim(input$file$datapath, sep = "\t")
-  })
-  
-  output$table <- renderDT({
-    datatable(data())
-  })
-}
+Here is a simple example of a server function settup including the main parts (additional components provide advanced functionalities):
 
-# Run the app
-shinyApp(ui, server)
-```
-:::
-
-- Solution B. From an SQLite database
-
-:::{.callout-hint .code-overflow-wrap}
-R script
-```{.r}
-quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
-quiet(library(shiny))
-quiet(library(DT))
-quiet(library(DBI))
-
-# UI
-ui <- fluidPage(
-  titlePanel("SQLite Database Viewer"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      fileInput("db_file", "Choose an SQLite Database", accept = c(".sqlite")),
-      textInput("table_name", "Enter Table Name:", value = ""),
-      actionButton("load_button", "Load Table")
-    ),
-    
-    mainPanel(
-      DTOutput("table")
-    )
-  )
-)
-
-# Server
-server <- function(input, output, session) {
-  
-  con <- reactive({
-    if (!is.null(input$db_file)) {
-      dbConnect(SQLite(), input$db_file$datapath)
-    }
-  })
-  
-  data <- reactive({
-    req(input$load_button > 0, input$table_name, con())
-    query <- glue::glue_sql("SELECT * FROM {dbQuoteIdentifier(con(), input$table_name)}")
-    dbGetQuery(con(), query)
-  })
-  
-  output$table <- renderDT({
-    datatable(data())
-  })
-  
-  observeEvent(input$load_button, {
-    output$table <- renderDT({
-      datatable(data())
+```{.r .code-overflow-wrap}
+  server <- function(input, output, session) {
+    # Define a reactive expression for data based on user inputs
+    data <- reactive({
+        req(input$dataInput)  # Ensure data input is available
+        # Load or manipulate data here
     })
-  })
-  
-  # Disconnect from the database when app closes
-  observe({
-    on.exit(dbDisconnect(con()), add = TRUE)
-  })
-}
 
-# Run the app
-shinyApp(ui, server)
+    # Define an output table based on data
+    output$dataTable <- renderTable({
+        data()  # Render the data as a table
+    })
+
+    # Observe a button click event and perform an action
+    observeEvent(input$actionButton, {
+        # Perform an action when the button is clicked
+    })
+
+    # Define cleanup tasks when the app stops
+    onStop(function() {
+        # Close connections or save state if necessary
+    })
+}
 ```
 :::
-
 :::
 
 
@@ -403,10 +315,24 @@ shinyApp(ui, server)
 # Exercise 5: Add complex features to your catalog browser
 Once you've finished the previous exercise, consider implementing these additional ideas to maximize the utility of your catalog browser. 
 
-- Add a tab to create a project directory interactively (and fill up the metadata fields)
+- Add a functionality to only select certain columns `uiOutput("column_select")`
+- Add buttons to order numeric columns ascending or descending using `radioButtons()`
+- Use SQL aggregation functions (e.g., SUM, COUNT, AVG) to perform custom data summaries and calculations.
+- Add a tab `tabPanel()` to create a project directory interactively (and fill up the metadata fields), tips: `dir.create()`, `data.frame()`, `write.table()`
 - Modify existing entries
-- Visualize results using [Cirrocumulus](https://cirrocumulus.readthedocs.io/en/latest/) 
+- Visualize results using [Cirrocumulus](https://cirrocumulus.readthedocs.io/en/latest/), an interactive visualization tool for large-scale single-cell genomics data.  
 
+:::{.callout-hint}
+Explore this example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard [here](./scripts/shiny_sqlite_advanced.r){ target="_blank"}. 
+:::
+
+:::
+
+:::{.callout-tip}
+- For R Enthusiasts
+Explore [demos](https://shiny.posit.co/r/gallery/#feature-demos)from the R Shiny community to kickstart your projects or for inspiration. 
+- For python Enthusiasts
+If you want to dive deeper into Shiny apps and their various uses (such as dynamic plots or other interactive widgets), Shiny for Python provides live, interactive code throughout its entire tutorial. Additionally, it offers a great tool called [Playground](https://shinylive.io/py/examples/#basic-app), where you can code and test your own app to explore how different features render.
 :::
 
 ## Wrap up
@@ -424,7 +350,6 @@ Other sources:
 - [Johns Hopkins Sheridan libraries, RDM](https://guides.library.jhu.edu/documenting_data/medical_research#s-lg-box-wrapper-31197839). They provide a list of medical metadata standards resources.  
 - KU Leuven Guidance: <https://www.kuleuven.be/rdm/en/guidance/documentation-metadata>
 - [Transcriptomics metadata standards and fields](https://faircookbook.elixir-europe.org/content/recipes/interoperability/transcriptomics-metadata.html#analysis-metadata)
-- Biological ontologies for data scientists,[Bionty](https://lamin.ai/docs/bionty)
 - [NIH standardizing data collection](https://www.nlm.nih.gov/oet/ed/cde/tutorial/index.html)
 - [Observational Health Data Sciences and Informatics (OHDSI) OMOP Common Data Model](https://www.ohdsi.org/data-standardization/)
 
@@ -432,4 +357,5 @@ Other sources:
 ### Tools and software
 - [Rightfield](https://rightfield.org.uk/): open source tool facilitates the integration of ontology terms into Excel spreadsheet. 
 - [Owlready2](https://pypi.org/project/owlready2/): Python package, enables the loading of ontologies as Python objects. This versatile tool allows users to manipulate and store ontology classes, instances, and properties as needed.
+- [Shiny Apps](https://shiny.posit.co/): easy interactive web apps for data science
 

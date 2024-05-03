@@ -234,6 +234,8 @@ Next, let's take a look at a possible folder structure and what kind of files yo
 Setting up folder structures manually for each new project can be time-consuming. Thankfully, tools like [Cookiecutter](https://github.com/cookiecutter/cookiecutter) offer a solution by allowing users to create project templates easily. These templates can ensure consistency across projects and save time. Additionally, using [cruft](https://github.com/cruft/cruft) alongside Cookiecutter can assist in maintaining older templates when updates are made (by synchronizing them with the latest version).
 
 :::{.callout-note title="Cookiecutter templates"}
+- [Sandbox Project/Data analysis template](https://github.com/hds-sandbox/cookiecutter-template)
+- [Sandbox Data/Assay template](https://github.com/hds-sandbox/cc-data-template)
 - Cookiecutter template for [Data science projects](https://github.com/drivendata/cookiecutter-data-science)
 - Brickmanlab template for [NGS data](https://github.com/brickmanlab/ngs-template): similar to the folder structures in the examples above. You can download and modify it to suit your needs. 
 :::
@@ -241,8 +243,6 @@ Setting up folder structures manually for each new project can be time-consuming
 ### Quick tutorial on cookiecutter
 :::{.callout-caution title="Sandbox Tutorial"} 
 **Learn how to create your own template [here](./practical_workshop.qmd).**
-
-We offer workshops on practical RDM for biodata. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news/news.html).
 :::
 
 

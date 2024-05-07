@@ -15,13 +15,13 @@ Jose Alejandro Romero Herrera [:custom-orcid:](https://orcid.org/0000-0002-4765-
 
 | CRediT role                                                                                     | Initials |
 |-------------------------------------------------------------------------------------------------|----------|
-| [Conceptualization](https://credit.niso.org/contributor-roles/conceptualization/)               |   JARH   |
-| [Methodology](https://credit.niso.org/contributor-roles/methodology/)                           |   JARH   |
+| [Conceptualization](https://credit.niso.org/contributor-roles/conceptualization/)               |   JARH |
+| [Methodology](https://credit.niso.org/contributor-roles/methodology/)                           |   JARH,ARM   |
 | [Project administration](https://credit.niso.org/contributor-roles/project-administration/)     |   JARH,ARM   |
 | [Resources](https://credit.niso.org/contributor-roles/resources/)                               |   JARH.ARM   |
 | [Visualization](https://credit.niso.org/contributor-roles/visualization/)                       |   JARH,ARM   |
 | [Writing - original draft](https://credit.niso.org/contributor-roles/writing-original-draft/)   |   JARH   |
-| [Writing - review & editing](https://credit.niso.org/contributor-roles/writing-review-editing/) |   JARH,ARM   |
+| [Writing - review & editing](https://credit.niso.org/contributor-roles/writing-review-editing/) |   ARM   |
 | [Data curation](https://credit.niso.org/contributor-roles/data-curation/)                       |   JARH   |
 | [Formal Analysis](https://credit.niso.org/contributor-roles/formal-analysis/)                   |   JARH   |
 | [Funding acquisition](https://credit.niso.org/contributor-roles/funding-acquisition/)           |   JARH   |

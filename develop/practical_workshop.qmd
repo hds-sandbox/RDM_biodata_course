@@ -5,7 +5,6 @@ format:
         code-copy: true
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 summary: This is a workshop on RDM for biodata focused on practical aspects
 hide: 
     - navigation
@@ -775,7 +774,7 @@ Once you've finished the previous exercise, consider implementing these addition
 If you need some assistance, take a look at the code below (Hint). 
 
 :::{.callout-hint}
-Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard [here](./scripts/shiny_sqlite_advanced.r){ target="_blank"}. 
+Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard [here](./scripts/shiny_sqlite_advanced.r). 
 :::
 :::
 
@@ -872,30 +871,28 @@ Here are some useful links to get started with Github Pages:
 
 ## 6. Archive GitHub repositories on Zenodo
 
-Archives are dedicated digital platforms designed for the secure storage, curation, and dissemination of scientific data. These repositories hold great importance in the research community as they serve as reliable archives for preserving valuable datasets. Their standardized formats and robust curation processes ensure the long-term accessibility and citability of research findings. Researchers worldwide rely on these repositories to share, discover, and validate scientific information, thereby fostering transparency, collaboration, and the advancement of knowledge across various domains of study.
+Archives are specialized digital platforms that provide secure storage, curation, and dissemination of scientific data. They play a crucial role in the research community by acting as trusted repositories for preserving valuable datasets. With standardized formats and thorough curation processes, they ensure the long-term accessibility and citability of research findings. Researchers globally rely on these repositories to share, discover, and validate scientific information, promoting transparency, collaboration, and knowledge growth across various fields.
 
-The next practical exercise will be to archive your `Project` folder that contains the data analyses performed on your NGS data in a repository like Zenodo. We can do this by linking your Zenodo account to your GitHub account.
+In the next practical exercise, you will archive your `Project` folder, which contains data analyses (software, code and pipelines), in a repository such as Zenodo. This can be done by linking your Zenodo account to your GitHub account.
 
-:::{.callout-warning title="Archiving your NGS data"}
-In this practical lesson, we will only archive our data analyses in the `Project` folders. Your actual NGS data should be deposited in a domain-specific archive such as [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/) or [Annotare](https://www.ebi.ac.uk/fg/annotare/login/). If you want to know more about these archives, check out this [lesson](./07_repos.qmd)
+:::{.callout-warning title="Archiving data..."}
+Data should be deposited in a domain-specific archive. If you want to know more about these archives, check out this [lesson](./07_repos.qmd).
 :::
 
 ### Zenodo
 
-Zenodo[https://zenodo.org/] is an open-access digital repository designed to facilitate the archiving of scientific research outputs. It operates under the umbrella of the European Organization for Nuclear Research (CERN) and is supported by the European Commission. Zenodo accommodates a broad spectrum of research outputs, including datasets, papers, software, and multimedia files. This versatility makes it an invaluable resource for researchers across a wide array of domains, promoting transparency, collaboration, and the advancement of knowledge on a global scale.
-
-Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to [link your GitHub account](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content), providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project's progress for long-term accessibility and citation.
+[Zenodo](https://zenodo.org/) is an open-access digital repository that supports the archiving of scientific research outputs, including datasets, papers, software, and multimedia files. Affiliated with CERN and backed by the European Commission, Zenodo promotes transparency, collaboration, and the advancement of knowledge globally. Researchers can easily upload, share, and preserve their data on its user-friendly platform. Each deposit receives a unique DOI for citability and long-term accessibility. Zenodo also offers robust metadata options and allows linking your GitHub account to archive a specific release of your GitHub repository directly to Zenodo. This integration streamlines the process of preserving a snapshot of your project's progress.
 
 :::{.callout-exercise}
 # Exercise 6: Archive a Project GitHub repo in Zenodo
 
-1. In order to archive your GitHub repos in Zenodo, you will first need to [link your Zenodo and GitHub accounts](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content).
+1. In order to archive your GitHub repos in Zenodo, [link your Zenodo and GitHub accounts](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
 2. Once your accounts are linked, go to your Zenodo GitHub account settings and turn on the GitHub repository you want to archive.
     ![zenodo_github_link](./images/zenodo_github.png)
-3. Creating a Zenodo archive is now as simple as [making a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in your GitHub repository. Remember to make a proper tag! **NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!**
+3. Creating a Zenodo archive is now as simple as [making a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in your GitHub repository. Remember to create a proper tag and specify the version.  
+    *NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!*
     ![github_release](./images/github_release.png)
-4. Zenodo will automatically detect the release and it should appear on your Zenodo upload page.
-    ![zenodo_archives](./images/zenodo_archives.png)
+4. Zenodo will automatically detect the release and it should appear on your Zenodo upload page: `My dashboard > Uploads`.
 5. This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work.
     ![zenodo_example](./images/zenodo_example.png)
 
@@ -904,8 +901,14 @@ Before submitting your work in a journal, make sure to link your data analysis r
 
 ## Wrap up
 
-In this small workshop, we have learned how to improve the FAIRability of your data, as well as organize and structure it in a way that will be much more useful in the future. These advantages do not serve yourself only, but your teammates, group leader, and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form!
+In this small workshop, we have learned how to improve the FAIRability of your data, as well as organize and structure it in a way that will be much more useful in the future. These advantages do not serve yourself only, but your teammates, group leader, and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to contact us. 
 
-<!--
-[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)
--->
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

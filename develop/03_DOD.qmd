@@ -368,3 +368,13 @@ In this lesson, we have learned some practical tips and examples about how to or
 - Oakland University: <https://library.oakland.edu/services/research-data/file-org.html>
 - Cessda guidelines: <https://dmeg.cessda.eu/Data-Management-Expert-Guide/2.-Organise-Document/File-naming-and-folder-structure>.
 - RDMkit Elixir Europe: <https://rdmkit.elixir-europe.org/data_organisation>
+
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

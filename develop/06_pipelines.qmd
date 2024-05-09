@@ -6,10 +6,8 @@ format:
     toc: false
 date-modified: last-modified
 date-format: long
-date: 2024-04-02
 bibliography: ../resources/references.bib
 summary: Data analysis best practices
-#https://emojidb.org/quarto-emojis for emojis copypaste
 ---
 ## Code and Pipelines for Data Analysis
 
@@ -83,9 +81,7 @@ To maintain clarity and organization in the data analysis process, adopt best pr
 
 
 :::{.callout-warning title="Practical HPC pipes"}
-We provide a hand-on workshop on computational environments and pipelines. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html). 
-
-If you're interested in delving deeper, check out the HPC best practices module we’ve developed [here](https://hds-sandbox.github.io/HPC-lab/). 
+We provide a hand-on workshop on computational environments and pipelines. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html). If you're interested in delving deeper, check out the HPC best practices module we’ve developed [here](https://hds-sandbox.github.io/HPC-lab/). 
 :::
 
 ## Wrap up

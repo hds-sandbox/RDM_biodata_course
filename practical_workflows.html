@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-11-30">
 
-<title>RDM for biodata</title>
+<title>RDM for biodata - FAIR computational pipelines and environments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -173,6 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">FAIR computational pipelines and environments</h1>
 </div>
 
 
@@ -190,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 3, 2024</p>
+      <p class="date-modified">May 6, 2024</p>
     </div>
   </div>
     
@@ -242,8 +243,8 @@ Course Goals
 </ul>
 </div>
 </div>
-<section id="fair-workflows" class="level1">
-<h1>FAIR Workflows</h1>
+<section id="fair-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="fair-workflows">FAIR Workflows</h2>
 <p>Data analysis typically involves the use of different tools, algorithms, and scripts. It often requires multiple steps to transform, filter, aggregate, and visualize data. The process can be time-consuming because each tool may demand specific inputs and parameter settings. As analyses become more complex, the importance of reproducible and scalable automated workflow management increases. Workflow management encompasses tasks such as parallelization, resumption, logging, and data provenance.</p>
 <p>If you develop your own software make sure you follow FAIR principles. We highly endorse following these <a href="https://fair-software.nl/endorse">FAIR recommendations</a> and to register your computational workflow <a href="https://workflowhub.eu/">here</a>.</p>
 <p>Using workflow managers, you ensure:</p>
@@ -257,28 +258,28 @@ Course Goals
 </ul>
 <p>Popular workflow management systems such as Snakemake, Nextflow, and Galaxy can be scaled effortlessly across server, cluster, and cloud environments without altering the workflow definition. They also allow for specifying the necessary software, ensuring the workflows can be deployed in any setting.</p>
 <p>During this lesson, you will learn about: - <strong>Syntax</strong>: understand the syntax of two workflow languages. - <strong>Defining steps</strong>: how to define a step in each of the language (rule in Snakemake, process in Nextflow), including specifying input, outputs and execution statements. - <strong>Generalizing steps</strong>: explore how to generalise steps and create a chain of dependency across multiple steps using wildcards (Snakemake) or parameters and channel operators (Nextflow). - <strong>Advanced Customisation</strong>: gain knowledge of advanced pipeline customisation using configuration files and custom-made functions - <strong>Scaling workflows</strong>: understand how to scale workflows to compute servers and clusters while adapting to hardware-specific constraints</p>
-<section id="snakemake" class="level2">
-<h2 class="anchored" data-anchor-id="snakemake"><a href="https://snakemake.readthedocs.io/en/stable/#">Snakemake</a></h2>
+<section id="snakemake" class="level3">
+<h3 class="anchored" data-anchor-id="snakemake"><a href="https://snakemake.readthedocs.io/en/stable/#">Snakemake</a></h3>
 <p>It is a text-based tool using python-based language plus domain specific syntax. The workflow is decompose into rules that are define to obtain output files from input files. It infers dependencies and the execution order.</p>
-<section id="basics" class="level3">
-<h3 class="anchored" data-anchor-id="basics">Basics</h3>
+<section id="basics" class="level4">
+<h4 class="anchored" data-anchor-id="basics">Basics</h4>
 <ol type="1">
-<li><p>Define rules</p></li>
+<li><p>Semantics: define rules</p></li>
 <li><p>Generalise the rule: creating wildcards You can refer by index or by name</p></li>
 <li><p>Dependencies are determined top-down</p></li>
 </ol>
-<p>For a given target, a rule that can be applied to create it, is determined (a job) For the input files of the rule, go on recursively, If no target is specified, snakemake , tries to apply the first rule</p>
+<p>For a given target, a rule that can be applied to create it, is determined (a job) For the input files of the rule, go on recursively, If no target is specified, snakemake, tries to apply the first rule</p>
 <ol start="4" type="1">
 <li>Rule all: target rule that collects results</li>
 </ol>
 </section>
-<section id="job-execution" class="level3">
-<h3 class="anchored" data-anchor-id="job-execution">Job execution</h3>
+<section id="job-execution" class="level4">
+<h4 class="anchored" data-anchor-id="job-execution">Job execution</h4>
 <p>A job is executed if and only if: - otuput file is target and does not exist - output file needed by another executed job and does not exist - input file newer than output file - input file will be updated by other job (eg. changes in rules) - execution is force (‘–force-all’)</p>
 <p>You can plot the DAG (directed acyclic graph) of the jobs</p>
 </section>
-<section id="useful-command-line-interface" class="level3">
-<h3 class="anchored" data-anchor-id="useful-command-line-interface">Useful command line interface</h3>
+<section id="useful-command-line-interface" class="level4">
+<h4 class="anchored" data-anchor-id="useful-command-line-interface">Useful command line interface</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dry-run (-n), print shell commands (-p)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">snakemake</span> <span class="at">-n</span> <span class="at">-p</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Snakefile named different in another location </span></span>
@@ -288,8 +289,8 @@ Course Goals
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise DAG of jobs using Graphviz dot command</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">snakemake</span> <span class="at">--dag</span> <span class="kw">|</span> <span class="ex">dot</span> <span class="at">-Tsvg</span> <span class="op">&gt;</span> dag.svg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="defining-resources" class="level3">
-<h3 class="anchored" data-anchor-id="defining-resources">Defining resources</h3>
+<section id="defining-resources" class="level4">
+<h4 class="anchored" data-anchor-id="defining-resources">Defining resources</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rule</span> myrule:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">resources:</span> mem_mb= 100 <span class="co">#(100MB memory allocation)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">threads:</span> X</span>
@@ -309,17 +310,17 @@ Course Goals
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"command {threads}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Log files need to define the same wildcards as the output files, otherwise, you will get an error.</p>
 </section>
-<section id="config-files" class="level3">
-<h3 class="anchored" data-anchor-id="config-files">Config files</h3>
+<section id="config-files" class="level4">
+<h4 class="anchored" data-anchor-id="config-files">Config files</h4>
 <p>You can also define values for wildcards or parameters in the config file. This is recommended when the pipeline might be used several times at different time points, to avoid unwanted modifications to the workflow. parameterization is key for such cases.</p>
 </section>
-<section id="cluster-execution" class="level3">
-<h3 class="anchored" data-anchor-id="cluster-execution">Cluster execution</h3>
+<section id="cluster-execution" class="level4">
+<h4 class="anchored" data-anchor-id="cluster-execution">Cluster execution</h4>
 <p>When working from cluster systems you can execute the workflow using -qsub submission command</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snakemake</span> <span class="at">--cluster</span> qsub </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="additional-advanced-features" class="level3">
-<h3 class="anchored" data-anchor-id="additional-advanced-features">Additional advanced features</h3>
+<section id="additional-advanced-features" class="level4">
+<h4 class="anchored" data-anchor-id="additional-advanced-features">Additional advanced features</h4>
 <ul>
 <li>modularization</li>
 <li>handling temporary and protected files: very important for intermediate files that filled up our memory and are not used in the long run and can be deleted once the final output is generated. This is automatically done by snakemake if you defined them in your pipeline HTML5 reports</li>
@@ -329,8 +330,8 @@ Course Goals
 <li>python API for embedding snakemake in other tools</li>
 </ul>
 </section>
-<section id="create-an-isolated-environment-to-install-dependencies" class="level3">
-<h3 class="anchored" data-anchor-id="create-an-isolated-environment-to-install-dependencies">Create an isolated environment to install dependencies</h3>
+<section id="create-an-isolated-environment-to-install-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="create-an-isolated-environment-to-install-dependencies">Create an isolated environment to install dependencies</h4>
 <p>Basic file structure</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">-</span> config.yml</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">-</span> requirements.txt <span class="er">(</span><span class="ex">commonly</span> also named environment.txt<span class="kw">)</span></span>
@@ -348,12 +349,20 @@ Course Goals
 <p>Use git repositories to save your projects and pipelines!</p>
 </section>
 </section>
-<section id="nextflow" class="level2">
-<h2 class="anchored" data-anchor-id="nextflow">Nextflow</h2>
+<section id="nextflow" class="level3">
+<h3 class="anchored" data-anchor-id="nextflow">Nextflow</h3>
 </section>
 </section>
-<section id="fair-environments" class="level1">
-<h1>FAIR environments</h1>
+<section id="fair-environments" class="level2">
+<h2 class="anchored" data-anchor-id="fair-environments">FAIR environments</h2>
+<p>Recording and sharing the computational environment is essential for reproducibility and transparency. There are several methods to achieve this, but we are going to focus on two of them, conda (an environment manager) and Docker (a container). Environment managers are user-friendly, easy to share across different systems, and offer lightweight, efficient, and fast start-up times. However, Docker containers provide complete environment isolation (including the operating system), which ensures consistent behavior across various systems.</p>
+<section id="conda" class="level3">
+<h3 class="anchored" data-anchor-id="conda">Conda</h3>
+</section>
+<section id="docker" class="level3">
+<h3 class="anchored" data-anchor-id="docker">Docker</h3>
+</section>
+</section>
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <ul>
@@ -364,9 +373,9 @@ Course Goals
 <li>Köster, Johannes. “Parallelization, Scalability, and Reproducibility in Next-Generation Sequencing Analysis”, PhD thesis, TU Dortmund 2014.</li>
 <li><a href="https://faircookbook.elixir-europe.org/content/recipes/applied-examples/fair-workflows.html">faircookbook worflows</a></li>
 </ul>
+<p>Register and publish your scientific computational workflow on <a href="https://workflowhub.eu/">WorkflowHub</a></p>
 
 
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>CC-BY-SA 4.0 license</div></div></section></div></main> <!-- /main -->
@@ -593,24 +602,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/hds-sandbox\.github\.io\/RDM_NGS_course\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -645,11 +636,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

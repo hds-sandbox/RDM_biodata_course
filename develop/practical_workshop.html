@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-11-30">
 
 <title>RDM for biodata</title>
 <style>
@@ -212,17 +211,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 30, 2023</p>
-    </div>
-  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 3, 2024</p>
+      <p class="date-modified">May 9, 2024</p>
     </div>
   </div>
     
@@ -1305,7 +1298,7 @@ Hint
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-hint">
-<p>Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard <a href="./scripts/shiny_sqlite_advanced.r" target="_blank">here</a>.</p>
+<p>Explore an example with advanced features such as a two-tab layout, filtering by numeric values and matching strings, and a color-customized dashboard <a href="./scripts/shiny_sqlite_advanced.r">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1465,25 +1458,24 @@ Exercise 7: Create a Github Page using Quarto
 </section>
 <section id="archive-github-repositories-on-zenodo" class="level2">
 <h2 class="anchored" data-anchor-id="archive-github-repositories-on-zenodo">6. Archive GitHub repositories on Zenodo</h2>
-<p>Archives are dedicated digital platforms designed for the secure storage, curation, and dissemination of scientific data. These repositories hold great importance in the research community as they serve as reliable archives for preserving valuable datasets. Their standardized formats and robust curation processes ensure the long-term accessibility and citability of research findings. Researchers worldwide rely on these repositories to share, discover, and validate scientific information, thereby fostering transparency, collaboration, and the advancement of knowledge across various domains of study.</p>
-<p>The next practical exercise will be to archive your <code>Project</code> folder that contains the data analyses performed on your NGS data in a repository like Zenodo. We can do this by linking your Zenodo account to your GitHub account.</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="Archiving your NGS data">
+<p>Archives are specialized digital platforms that provide secure storage, curation, and dissemination of scientific data. They play a crucial role in the research community by acting as trusted repositories for preserving valuable datasets. With standardized formats and thorough curation processes, they ensure the long-term accessibility and citability of research findings. Researchers globally rely on these repositories to share, discover, and validate scientific information, promoting transparency, collaboration, and knowledge growth across various fields.</p>
+<p>In the next practical exercise, you will archive your <code>Project</code> folder, which contains data analyses (software, code and pipelines), in a repository such as Zenodo. This can be done by linking your Zenodo account to your GitHub account.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Archiving data...">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Archiving your NGS data
+Archiving data…
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this practical lesson, we will only archive our data analyses in the <code>Project</code> folders. Your actual NGS data should be deposited in a domain-specific archive such as <a href="https://www.ncbi.nlm.nih.gov/geo/">Gene Expression Omnibus (GEO)</a> or <a href="https://www.ebi.ac.uk/fg/annotare/login/">Annotare</a>. If you want to know more about these archives, check out this <a href="../develop/07_repos.html">lesson</a></p>
+<p>Data should be deposited in a domain-specific archive. If you want to know more about these archives, check out this <a href="../develop/07_repos.html">lesson</a>.</p>
 </div>
 </div>
 <section id="zenodo" class="level3">
 <h3 class="anchored" data-anchor-id="zenodo">Zenodo</h3>
-<p>Zenodo[https://zenodo.org/] is an open-access digital repository designed to facilitate the archiving of scientific research outputs. It operates under the umbrella of the European Organization for Nuclear Research (CERN) and is supported by the European Commission. Zenodo accommodates a broad spectrum of research outputs, including datasets, papers, software, and multimedia files. This versatility makes it an invaluable resource for researchers across a wide array of domains, promoting transparency, collaboration, and the advancement of knowledge on a global scale.</p>
-<p>Operating on a user-friendly web platform, Zenodo allows researchers to easily upload, share, and preserve their research data and related materials. Upon deposit, each item is assigned a unique Digital Object Identifier (DOI), granting it a citable status and ensuring its long-term accessibility. Additionally, Zenodo provides robust metadata capabilities, enabling researchers to enrich their submissions with detailed contextual information. In addition, it allows you to <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">link your GitHub account</a>, providing a streamlined way to archive a specific release of your GitHub repository directly into Zenodo. This integration simplifies the process of preserving a snapshot of your project’s progress for long-term accessibility and citation.</p>
+<p><a href="https://zenodo.org/">Zenodo</a> is an open-access digital repository that supports the archiving of scientific research outputs, including datasets, papers, software, and multimedia files. Affiliated with CERN and backed by the European Commission, Zenodo promotes transparency, collaboration, and the advancement of knowledge globally. Researchers can easily upload, share, and preserve their data on its user-friendly platform. Each deposit receives a unique DOI for citability and long-term accessibility. Zenodo also offers robust metadata options and allows linking your GitHub account to archive a specific release of your GitHub repository directly to Zenodo. This integration streamlines the process of preserving a snapshot of your project’s progress.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1499,10 +1491,11 @@ Exercise 6: Archive a Project GitHub repo in Zenodo
 <div>
 <div class="callout-exercise">
 <ol type="1">
-<li>In order to archive your GitHub repos in Zenodo, you will first need to <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">link your Zenodo and GitHub accounts</a>.</li>
+<li>In order to archive your GitHub repos in Zenodo, <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">link your Zenodo and GitHub accounts</a></li>
 <li>Once your accounts are linked, go to your Zenodo GitHub account settings and turn on the GitHub repository you want to archive. <img src="./images/zenodo_github.png" class="img-fluid" alt="zenodo_github_link"></li>
-<li>Creating a Zenodo archive is now as simple as <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">making a release</a> in your GitHub repository. Remember to make a proper tag! <strong>NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!</strong> <img src="./images/github_release.png" class="img-fluid" alt="github_release"></li>
-<li>Zenodo will automatically detect the release and it should appear on your Zenodo upload page. <img src="./images/zenodo_archives.png" class="img-fluid" alt="zenodo_archives"></li>
+<li>Creating a Zenodo archive is now as simple as <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">making a release</a> in your GitHub repository. Remember to create a proper tag and specify the version.<br>
+<em>NOTE: If you make a release before enabling the GitHub repository in Zenodo, it will not appear in Zenodo!</em> <img src="./images/github_release.png" class="img-fluid" alt="github_release"></li>
+<li>Zenodo will automatically detect the release and it should appear on your Zenodo upload page: <code>My dashboard &gt; Uploads</code>.</li>
 <li>This archive is assigned a unique Digital Object Identifier (DOI), making it a citable reference for your work. <img src="./images/zenodo_example.png" class="img-fluid" alt="zenodo_example"></li>
 </ol>
 <p>Before submitting your work in a journal, make sure to link your data analysis repository to <a href="https://zenodo.org/">Zenodo</a>, get a DOI, and cite it in your manuscript!</p>
@@ -1515,10 +1508,16 @@ Exercise 6: Archive a Project GitHub repo in Zenodo
 </section>
 <section id="wrap-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
-<p>In this small workshop, we have learned how to improve the FAIRability of your data, as well as organize and structure it in a way that will be much more useful in the future. These advantages do not serve yourself only, but your teammates, group leader, and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form!</p>
-<!--
-[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)
--->
+<p>In this small workshop, we have learned how to improve the FAIRability of your data, as well as organize and structure it in a way that will be much more useful in the future. These advantages do not serve yourself only, but your teammates, group leader, and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to contact us.</p>
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>
 
 
 </section>

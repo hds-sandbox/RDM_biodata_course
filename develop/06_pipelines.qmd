@@ -81,6 +81,13 @@ To maintain clarity and organization in the data analysis process, adopt best pr
 - Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensuring adherence to community standards and guidelines.
 - Add a LICENSE file and perform regular updates: clarifying usage permissions and facilitating collaboration.
 
+
+:::{.callout-warning title="Practical HPC pipes"}
+We provide a hand-on workshop on computational environments and pipelines. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html). 
+
+If you're interested in delving deeper, check out the HPC best practices module we’ve developed [here](https://hds-sandbox.github.io/HPC-lab/). 
+:::
+
 ## Wrap up
 This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks, and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability. 
 

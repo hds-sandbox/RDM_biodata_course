@@ -109,9 +109,14 @@ Check the practical material where we demonstrate how to link Zenodo and Github 
 
 In this concluding lesson, we've covered the process of submitting your data to a domain-specific repository and archiving your data analysis GitHub repositories in Zenodo. By applying the lessons from this workshop, you'll significantly enhance the FAIRness of your data and improve its organization for future use. These benefits extend beyond yourself to your teammates, group leader, and the wider scientific community.
 
-We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to answer this form! 
+We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to contact us. 
 
-<!--
-[**FEEDBACK FORM**](https://forms.office.com/e/BZkpzDKL0L)
--->
-
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

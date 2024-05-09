@@ -15,9 +15,20 @@ summary: Data analysis best practices
 
 In this section, we explore essential elements of reproducibility and efficiency in computational research, highlighting techniques and tools for creating robust and transparent coding and workflows. By prioritizing reproducibility and replicability, researchers can enhance the credibility and impact of their findings while fostering collaboration and knowledge dissemination within the scientific community.
 
+:::{.callout-tip}
+# Before you start...
+1. Choose a folder structure (e.g., using cookiecutter)
+2. Choose a file naming system 
+3. Add a README describing the project (and the naming conventions)
+4. Install and set up version control (e.g., Git and Github)
+5. Choose a coding style!
+- Python: [Python's PEP](https://peps.python.org/pep-0008/) or [Google's style guide](https://google.github.io/styleguide/pyguide.html)
+- R: [Google's style guide](https://google.github.io/styleguide/Rguide.html) or [Tidyverse's style guide](https://style.tidyverse.org/)
+:::
+
 ### Reproducibility and Replicability
 
-Through techniques such as scripting, containerization (e.g., Docker), and virtual environments, researchers can create reproducible analyses that enable others to validate and build upon their work. Emphasizing the documentation of data processing steps, parameters, and results ensures transparency and accountability in research outputs.
+Through techniques such as scripting, containerization (e.g., Docker), and virtual environments, researchers can create reproducible analyses that enable others to validate and build upon their work. Emphasizing the documentation of data processing steps, parameters, and results ensures transparency and accountability in research outputs. To write clear and reproducible code, take the following approach: write functions, code defensively (such as input validation, error handling, etc.), add comments, conduct testing, and maintain proper documentation.
 
 Tools for reproducibility:
 
@@ -29,35 +40,73 @@ Tools for reproducibility:
 Computational notebooks (e.g., Jupyter, R Markdown) provide researchers with a versatile platform for exploratory and interactive data analysis. These notebooks facilitate sharing insights with collaborators and documentation of analysis procedures.
 
 #### Pipeline Frameworks and Workflow Management Systems
-Tools such as Nextflow and Snakemake streamline and automate various data analysis steps, enabling parallel processing and seamless integration with existing tools.
+Tools such as Nextflow and Snakemake streamline and automate various data analysis steps, enabling parallel processing and seamless integration with existing tools. Remember to create portable code and use relative paths to ensure transferability between users. 
 
 - **Nextflow**: offers scalable and portable NGS data analysis pipelines, facilitating data processing across diverse computing environments.
 - **Snakemake**: Utilizing Python-based scripting, Snakemake allows for flexible and automated NGS data analysis pipelines, supporting parallel processing and integration with other tools.
+
+Once your scientific computational workflow is ready to be shared, publish your scientific computational workflow on [WorkflowHub](https://workflowhub.eu/).
+
+#### Computational environment 
+
+Each computer or HPC (High-Performance Computing) platform has a unique computational environment that includes its operating system, installed software, versions of software packages, and other features. If a research project is moved to a different computer or platform, the analysis might not run or produce consistent results if it depends on any of these factors.
+
+For research to be reproducible, the original computational environment must be recorded so others can replicate it. There are several methods to achieve this: 
+
+- **Containerization platforms** (e.g., Docker, Singularity): allow the researcher to package their software and dependencies into a standardized container image.
+- **Virtual Machines** (e.g., VirtualBox): can share an entire virtualized computing environment (OS, software and dependencies)
+- **Environment managers**: provide an isolated environment with specific packages and dependencies that can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Configuration files can automate the setup of the computational environment: 
+  - conda: allows users to export environment specifications (software and dependencies) to YAML files enabling easy recreation of the environment on another system
+  - Python `virtualenv`: is a tool for creating isolated environments to manage dependencies specific to a project
+  - requirements.txt: may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables. Package managers can be used to install, upgrade and manage packages. 
+  - R's `renv`: The 'renv' package creates isolated environments in R.
+- **Environment descriptors**
+  - `sessionInfo()` or `devtools::session_info()`: In R, these functions provide detailed information about the current session
+  - `sessionInfo()`, similarly, in Python. Libraries like NumPy and Pandas have `show_versions()` methods to display package versions.
+
+While environment managers are very easy to use and share across different systems, and are lightweight and efficient, offering fast start-up times, Docker containers provide a full env isolation (including the operating system) which ensures consistent behavior across different systems. 
 
 ### Connecting data organization and documentation
 
 To maintain clarity and organization in the data analysis process, adopt best practices such as:
 
-- Create a README.md file 
-- **Annotate** your pipelines and comment your code
-- **Label numerically** to maintain clarity and organization in the data analysis process (scripts, notebooks, pipelines, etc.).
+- Data documentation: create a README.md file to provide an overview of the project and its structure, and metadata for understanding the context of your analysis. 
+- **Annotate** your pipelines and comment your code (look for tutorials and templates such as this one from [freeCodeCamp](https://www.freecodecamp.org/news/code-comments-the-good-the-bad-and-the-ugly-be9cc65fbf83/)).
+- Use **coding style guides** (code lay-out, whitespace in expressions, comments, naming conventions, annotations...) to maintain consistency.
+- **Label files numerically** to organize the entire data analysis process (scripts, notebooks, pipelines, etc.).
   - 00.preprocessing.*, 01.data_analysis_step1.*, etc. 
-- Provide **environment files** for reproducing the computational environment, including:
-  - **Containerization platforms** (e.g., Docker, Singularity): allow the researcher to package their software and dependencies into a standardized container image.
-  - **Virtual Environments** (e.g., Conda, virtualenv): provide an isolated environment with specific packages and dependencies that can be installed without affecting the system-wide configuration. These environments are particularly useful for managing conflicting dependencies and ensuring reproducibility. Moreover, Conda allows users to export environment specifications to YAML files enabling easy recreation of the environment on another system. 
-  - **Environment Configuration Scripts**: Researchers can also provide custom scripts or configuration files that automate the setup of the computational environment. These scripts may contain commands for installing packages (such as pip for Python packages or apt-get for system-level dependencies), configuring system settings, and setting environment variables.
-- Upload your code to **version control systems** (e.g., Git) and **code repository** [Lesson 5](./05_VC.qmd). 
-- Integrated development environments (e.g., RStudio, PyCharm): Provides tools and features for writing, testing, and debugging code
+- Provide **environment files** for reproducing the computational environment (such as 'requirements.txt' for Python or 'environment.yml' for Conda). The simplest way is to document the dependencies by reporting the packages and their versions used to run your analysis. 
+- Data versioning: use **version control systems** (e.g., Git) and upload your code to a **code repository** [Lesson 5](./05_VC.qmd). 
+- Integrated development environments (e.g., RStudio, PyCharm) offer tools and features for writing, testing, and debugging code
 - Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensuring adherence to community standards and guidelines.
+- Add a LICENSE file and perform regular updates: clarifying usage permissions and facilitating collaboration.
 
+
+:::{.callout-warning title="Practical HPC pipes"}
+We provide a hand-on workshop on computational environments and pipelines. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html). 
+
+If you're interested in delving deeper, check out the HPC best practices module we’ve developed [here](https://hds-sandbox.github.io/HPC-lab/). 
+:::
 
 ## Wrap up
 This lesson emphasized the importance of reproducibility in computational research and provided practical techniques for achieving it. Using annotated notebooks, pipeline frameworks, and community-curated pipelines, such as those developed by the nf-core community, enhances reproducibility and readability. 
 
 ### Sources
+- [The turing way - reproducible research](https://the-turing-way.netlify.app/reproducible-research)
 - [RDMkit, Elixir Data Management - Data Analysis](https://rdmkit.elixir-europe.org/data_analysis)
 - [Code documentation by Johns Hopkins Sheridan libraries](https://guides.library.jhu.edu/c.php?g=1096705&p=8066729). This link includes best practices for code documentation, style guides, R markdown, Jupyter Notebook, version control, and code repository. 
 - [Guide to reproducible code in ecology and evolution](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf)
 - [Best practices for Scientific computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 - [Elixir Software Best Practices](https://elixir-europe.org/platforms/tools/software-best-practices)
-- [faircookbook worflows](https://faircookbook.elixir-europe.org/content/recipes/applied-examples/fair-workflows.html)
+- [faircookbook workflows](https://faircookbook.elixir-europe.org/content/recipes/applied-examples/fair-workflows.html)
+- [Atlassian software development tutorial](https://www.atlassian.com/git/tutorials)
+
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

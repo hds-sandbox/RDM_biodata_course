@@ -99,3 +99,13 @@ In this lesson, we covered Data Management Plans (DMPs) and introduced tools to 
 - [NBISweden workshop on RDM practices](https://uppsala.instructure.com/courses/48087/pages/introduction-to-data-management-practices)
 - [Stanford University Library Data Management Services website](https://guides.library.stanford.edu/dmps) 
 - [RDM Guide, Elixir Belgium](https://rdm.elixir-belgium.org/about_DMP)
+
+<!-- script to open links in a new tab, add at the end -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

@@ -326,3 +326,13 @@ In the next lessons, we will explore different resources, tools, and guidelines 
 
 ### Sources
 - [RDMkit](https://rdmkit.elixir-europe.org/index): ELIXIR (2021) Research Data Management Kit. A deliverable from the EU-funded ELIXIR-CONVERGE project (grant agreement 871075).
+
+<!-- script to open links in a new tab, add at the end (after doc has been loaded it sets attribute blank querying all object, links) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.setAttribute('target', '_blank');
+    });
+});
+</script>

@@ -22,7 +22,7 @@ summary: Index page, intro to course
 # You should hide the Table of Contents if there are no important titles
 -->
 :::{.callout-warning title="Practical RDM workshop"}
-We offer workshops on practical RDM for biodata. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news/news.html).
+We offer workshops on practical RDM for biodata. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html).
 :::
 
 ## Research Data Management for biological data

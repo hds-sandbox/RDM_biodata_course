@@ -10,7 +10,6 @@ authors:
     orcid: 0000-0002-4765-2087
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 bibliography: resources/references.bib
 summary: Index page, intro to course
 #https://emojidb.org/quarto-emojis for emojis copypaste

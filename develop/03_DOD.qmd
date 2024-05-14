@@ -3,7 +3,6 @@ title: 3. Data organization and storage
 format: html
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 summary: In this lesson, we discuss about how to organize your files and follow some naming recommendations.
 ---
 

@@ -3,7 +3,6 @@ title: 5. Version Control with Git and GitHub
 format: html
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 summary: In this lesson, we will discuss how to track and version control your data analysis using Git and GitHub.
 ---
 

@@ -3,7 +3,6 @@ title: "1. Introduction to RDM"
 format: html
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 link-citations: true
 number-sections: true
 summary: An introduction to Research Data Management, its advantages, and the Data Life Cycle in relation to NGS data.

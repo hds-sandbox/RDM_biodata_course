@@ -3,7 +3,6 @@ title: 7. Storing and sharing biodata
 format: html
 date-modified: last-modified
 date-format: long
-date: 2023-11-30
 summary: In this lesson, we navigate through different types of repositories and which ones are ideal for depositing your NGS datasets and data analyses.
 ---
 

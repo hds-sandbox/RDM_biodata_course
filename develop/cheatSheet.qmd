@@ -3,7 +3,7 @@ title: Cheat sheet
 format: 
     html:
         code-tools: true
-        embed-resources: true
+embed-resources: true
 date-modified: last-modified
 date-format: long
 summary: This is a computational RDM cheat sheet

@@ -2,7 +2,8 @@
 title: Cheat sheet
 format: 
     html:
-        code-copy: true
+        code-tools: true
+        embed-resources: true
 date-modified: last-modified
 date-format: long
 summary: This is a computational RDM cheat sheet

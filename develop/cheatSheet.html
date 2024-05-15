@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RDM for biodata - Practical material</title>
+<title>RDM for biodata - Cheat sheet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Practical material</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../develop/cheatSheet.html"> 
+    <a class="nav-link active" href="../develop/cheatSheet.html" aria-current="page"> 
 <span class="menu-text">Cheat Sheet</span></a>
   </li>  
 </ul>
@@ -144,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practical material</h1>
+<h1 class="title">Cheat sheet</h1>
 </div>
 
 
@@ -167,27 +170,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Alba Refoyo Martinez <a href="https://orcid.org/0000-0002-3674-4007">:custom-orcid:</a><a href="https://github.com/albarema">:simple-github:</a></p>
-<p>Jose Alejandro Romero Herrera <a href="https://orcid.org/0000-0002-4765-2087">:custom-orcid:</a> <a href="https://github.com/joseale2310">:simple-github:</a></p>
 <!--
-
-| CRediT role                                                                                     | Initials |
-|-------------------------------------------------------------------------------------------------|----------|
-| [Conceptualization](https://credit.niso.org/contributor-roles/conceptualization/)               |   JARH |
-| [Methodology](https://credit.niso.org/contributor-roles/methodology/)                           |   JARH,ARM   |
-| [Project administration](https://credit.niso.org/contributor-roles/project-administration/)     |   JARH,ARM   |
-| [Resources](https://credit.niso.org/contributor-roles/resources/)                               |   JARH.ARM   |
-| [Visualization](https://credit.niso.org/contributor-roles/visualization/)                       |   JARH,ARM   |
-| [Writing - original draft](https://credit.niso.org/contributor-roles/writing-original-draft/)   |   JARH   |
-| [Writing - review & editing](https://credit.niso.org/contributor-roles/writing-review-editing/) |   ARM   |
-| [Data curation](https://credit.niso.org/contributor-roles/data-curation/)                       |   JARH   |
-| [Formal Analysis](https://credit.niso.org/contributor-roles/formal-analysis/)                   |   JARH   |
-| [Funding acquisition](https://credit.niso.org/contributor-roles/funding-acquisition/)           |   JARH   |
-| [Investigation](https://credit.niso.org/contributor-roles/investigation/)                       |   JARH   |
-| [Software](https://credit.niso.org/contributor-roles/software/)                                 |   JARH   |
-| [Supervision](https://credit.niso.org/contributor-roles/supervision/)                           |   JARH   |
-| [Validation](https://credit.niso.org/contributor-roles/validation/)                             |   JARH   |
+https://github.com/shafayetShafee/downloadthis?tab=readme-ov-file
 -->
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Click on the image to enlarge it or use the download button to save it.</p>
+</div>
+</div>
+</div>
+<p><a href="./images/dataLifeCycle_ARM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./images/dataLifeCycle_ARM.png" class="img-fluid"></a></p>
 
 
 
@@ -746,6 +742,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

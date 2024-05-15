@@ -97,7 +97,7 @@ This lesson emphasized the importance of reproducibility in computational resear
 - [faircookbook workflows](https://faircookbook.elixir-europe.org/content/recipes/applied-examples/fair-workflows.html)
 - [Atlassian software development tutorial](https://www.atlassian.com/git/tutorials)
 
-<!-- script to open links in a new tab, add at the end -->
+<!-- script to open links in a new tab, add at the end (after doc has been loaded it sets attribute blank querying all object, links) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var links = document.querySelectorAll('a');

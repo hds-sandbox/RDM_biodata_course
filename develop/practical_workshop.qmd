@@ -902,13 +902,3 @@ Before submitting your work in a journal, make sure to link your data analysis r
 ## Wrap up
 
 In this small workshop, we have learned how to improve the FAIRability of your data, as well as organize and structure it in a way that will be much more useful in the future. These advantages do not serve yourself only, but your teammates, group leader, and the general scientific population! We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to contact us. 
-
-<!-- script to open links in a new tab, add at the end -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var links = document.querySelectorAll('a');
-    links.forEach(function(link) {
-        link.setAttribute('target', '_blank');
-    });
-});
-</script>

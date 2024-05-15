@@ -16,7 +16,7 @@ website:
       - text: "Practical material"
         file: "develop/practical_workshop.qmd"
       - text: "Cheat Sheet"
-        file: "develop/cheat_sheet.qmd"
+        file: "develop/cheatSheet.qmd"
     right: 
       - icon: github
         href: https://github.com/hds-sandbox

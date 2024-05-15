@@ -1,0 +1,19 @@
+---
+title: Cheat sheet
+format: 
+    html:
+        code-copy: true
+date-modified: last-modified
+date-format: long
+summary: This is a computational RDM cheat sheet
+---
+<!--
+https://github.com/shafayetShafee/downloadthis?tab=readme-ov-file
+-->
+:::{.callout-tip  appearance="simple"}
+Click on the image to enlarge it or use the download button to save it.
+:::
+
+![](./images/dataLifeCycle_ARM.png){.lightbox}
+
+{{< downloadthis ./images/dataLifeCycle_ARM.png label="Download me" icon="file-earmark-arrow-down" type="success">}}

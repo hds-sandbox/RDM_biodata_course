@@ -1,8 +1,7 @@
 ---
 title: Cheat sheet
-format: 
-    html:
-        code-tools: true
+format:
+    html
 embed-resources: true
 date-modified: last-modified
 date-format: long

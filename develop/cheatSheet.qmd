@@ -1,6 +1,6 @@
 ---
 title: Cheat sheet
-format: 
+format:
     html
 embed-resources: true
 date-modified: last-modified

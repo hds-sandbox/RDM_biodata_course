@@ -1,5 +1,4 @@
 ---
-title: "Computational Research Data Management"
 format: 
   html:
     toc: false
@@ -10,6 +9,7 @@ authors:
     orcid: 0000-0002-4765-2087
 date-modified: last-modified
 date-format: long
+css: index.css
 bibliography: resources/references.bib
 summary: Index page, intro to course
 #https://emojidb.org/quarto-emojis for emojis copypaste
@@ -19,7 +19,16 @@ summary: Index page, intro to course
 # Put above to hide navigation (left), toc (right) or footer (bottom)
 # You should hide the navigation if there are no subsections
 # You should hide the Table of Contents if there are no important titles
+^[®]{.trademark}^ {.mt-1}
 -->
+
+
+
+::: {.hero-banner}
+# Welcome to RDM for biodata
+:::
+
+
 :::{.callout-warning title="Practical RDM workshop"}
 We offer workshops on practical RDM for biodata. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html).
 :::

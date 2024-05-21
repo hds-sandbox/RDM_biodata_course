@@ -2,12 +2,13 @@ project:
   type: website
 
 website:
-  title: "RDM for biodata" 
+  site-url: 'https://hds-sandbox.github.io/RDM_NGS_course/'
   navbar:
     logo: /img/logo.png
+    logo-href: http://hds-sandbox.github.io/ 
     background: primary
     left:
-      - text: "Home"
+      - text: "Intro RDM"
         file: index.qmd
       - text: "Course material"
         file: develop/01_RDM_intro.qmd

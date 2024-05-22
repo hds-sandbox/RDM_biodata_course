@@ -358,7 +358,7 @@ Other sources:
 - [Owlready2](https://pypi.org/project/owlready2/): Python package, enables the loading of ontologies as Python objects. This versatile tool allows users to manipulate and store ontology classes, instances, and properties as needed.
 - [Shiny Apps](https://shiny.posit.co/): easy interactive web apps for data science
 
-<!-- script to open links in a new tab, add at the end -->
+<!-- script to open links in a new tab, add at the end 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var links = document.querySelectorAll('a');
@@ -367,3 +367,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+-->

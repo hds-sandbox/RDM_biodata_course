@@ -110,7 +110,7 @@ In this concluding lesson, we've covered the process of submitting your data to 
 
 We hope that you found this workshop useful. If you would like to leave us some comments or suggestions, feel free to contact us. 
 
-<!-- script to open links in a new tab, add at the end -->
+<!-- script to open links in a new tab, add at the end 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var links = document.querySelectorAll('a');
@@ -119,3 +119,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+-->

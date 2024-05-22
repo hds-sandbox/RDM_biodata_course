@@ -135,7 +135,7 @@ In this lesson, we explored version control and utilized Git and GitHub to estab
 -  [Version Control and Code Repository Link](https://guides.library.jhu.edu/c.php?g=1096705&p=8066729)
 - [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 
-<!-- script to open links in a new tab, add at the end -->
+<!-- script to open links in a new tab, add at the end 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var links = document.querySelectorAll('a');
@@ -144,3 +144,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+-->

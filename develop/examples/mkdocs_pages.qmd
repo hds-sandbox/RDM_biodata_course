@@ -4,6 +4,20 @@ summary: Build git pages using mkdocs
 ---
 # Build your GitHub Page using Mkdocs
 
+Install MkDocs and MkDocs extensions using the command line. Additional extensions are optional but can be useful if you choose this approach.
+
+```{.bash}
+pip install mkdocs # create webpages
+pip install mkdocs-material # customize webpages
+pip install mkdocs-video # add videos or embed videos from other sources
+pip install mkdocs-minify-plugin # Minimize html code
+pip install mkdocs-git-revision-date-localized-plugin # display last updated date 
+pip install mkdocs-jupyter # include Jupyter notebooks
+pip install mkdocs-bibtex # add references in your text (`.bib`)
+pip install neoteroi-mkdocs # create author cards
+pip install mkdocs-table-reader-plugin # embed tabular format files (`.tsv`)
+```
+
 :::{.callout-exercise}
 
 # Exercise 5: make a project folder and publish a data analysis webpage

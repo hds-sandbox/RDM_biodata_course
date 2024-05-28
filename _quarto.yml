@@ -9,7 +9,7 @@ website:
     logo-href: http://hds-sandbox.github.io/ 
     background: primary
     left:
-      - text: "RDM Home"
+      - text: "Home"
         file: index.qmd
       - text: "Course material"
         file: develop/01_RDM_intro.qmd

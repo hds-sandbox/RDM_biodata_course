@@ -824,6 +824,7 @@ Here are some useful links to get started with Github Pages:
     ```
 
 4. Open the terminal 
+
     ```{.bash filename="Terminal"}
     # Add a .nojekyll file to the root of the repository not to do additional processing of your published site
     touch .nojekyll #copy NUL .nojekyll for windows

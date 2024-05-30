@@ -475,12 +475,13 @@ Cookiecutter templates
 |   |-- main.py
 |-- tests
 |   |-- test_{{cookiecutter.project_name}}.py
-|-- README.md</code></pre>
+|-- README.md
+|__ cookiecutter.json # created in step 2</code></pre>
 <p>In this example, <code>{cookiecutter.project_name}</code> is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script (‘main.py’), a subdirectory (‘tests’) with a second python script named after the project (‘test_{{cookiecutter.project_name}}.py’) and a ‘README.md’ file.</p>
 </section>
 <section id="step-2-create-cookiecutter.json" class="level5">
 <h5 class="anchored" data-anchor-id="step-2-create-cookiecutter.json">Step 2: Create <code>cookiecutter.json</code></h5>
-<p>In the root of your template folder, create a file named <code>cookiecutter.json</code>. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:</p>
+<p>In the root of your template folder, create a file named <code>cookiecutter.json</code>. This file will define the variables (keywords) and default values that users will be prompted to fill in during the template initialization. For our Python project template, it might look like this:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"project_name"</span><span class="fu">:</span> <span class="st">"MyProject"</span><span class="fu">,</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"author_name"</span><span class="fu">:</span> <span class="st">"Your Name"</span><span class="fu">,</span></span>

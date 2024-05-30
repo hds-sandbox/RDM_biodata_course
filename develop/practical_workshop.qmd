@@ -443,7 +443,7 @@ It is time now to customize your Cookiecutter templates and modify the metadata.
     "version": "0.1.0"
     }
     ```
-The metadata file will be filled accordingly.
+The metadata file will be filled out accordingly.
 
 2. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
 
@@ -456,13 +456,13 @@ The metadata file will be filled accordingly.
     },
     ```
 
-3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below: 
+3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below (*short_desc*, *authors*, etc.): 
 
     ```{.yml .code-overflow-wrap filename="metadata.yml"}
     project: {{ cookiecutter.project_name }}
-    author: {{ cookiecutter.author }}
+    authors: {{ cookiecutter.authors }}
     date: {{ cookiecutter.date }}
-    description: {{ cookiecutter.short_description }}
+    description: {{ cookiecutter.short_desc }}
     ```
 4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file and the metadata at the top of the markdown file (top between lines of dashed).
 
@@ -519,8 +519,10 @@ The next step is to collect all the datasets that you have created in the manner
 We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your `Assays` folder), fetches all the `metadata.yml` files, merges them and writes a TSV file as an output. 
 
 1. Create a folder called `dataset` and change directory `cd dataset`
-2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.*While you are welcome to create your own template from scratch, we recommend using this one to save time.*
+2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.*While you are welcome to create your own template from scratch, we recommend using this one to save time.* Then, `git clone <URL to Gihub repo>`. 
 3. Run the `cookiecutter cc-data-template` command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). 
+*Importantly, we recommend assigning values to all entries. If an entry does not apply, use "nan." This will be better for processing metadata later on.*
+*If the path to the cc-data-template is elsewhere than the datasets dir, change the command e.g.:`cookiecutter /home/myTemplates/cc-data-template`*
 4. Execute the script below using R (or create your own script in Python). **Adjust the `folder_path`** variable so that it matches the path to the Assays folder. The resulting table will be saved in the same `folder_path`.
 5. Open your `database_YYYYMMDD.tsv` table in a text editor from the command-line, or view it in Excel for better visualization.
 

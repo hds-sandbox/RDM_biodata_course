@@ -193,13 +193,14 @@ my_template/
 |-- tests
 |   |-- test_{{cookiecutter.project_name}}.py
 |-- README.md
+|__ cookiecutter.json # created in step 2
 ```
 
 In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script ('main.py'), a subdirectory ('tests') with a second python script named after the project ('test_{{cookiecutter.project_name}}.py') and a 'README.md' file. 
 
 ##### Step 2: Create `cookiecutter.json`
 
-In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:
+In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) and default values that users will be prompted to fill in during the template initialization. For our Python project template, it might look like this:
 
 ```{.json .code-overflow-wrap}
 {

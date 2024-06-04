@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hds-sandbox.github.io/RDM_NGS_course/index.html</loc>
-    <lastmod>2024-05-22T08:52:13.227Z</lastmod>
+    <lastmod>2024-06-04T14:19:16.663Z</lastmod>
   </url>
   <url>
     <loc>https://hds-sandbox.github.io/RDM_NGS_course/develop/01_RDM_intro.html</loc>
@@ -35,5 +35,9 @@
   <url>
     <loc>https://hds-sandbox.github.io/RDM_NGS_course/develop/07_repos.html</loc>
     <lastmod>2024-05-22T08:09:55.903Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html</loc>
+    <lastmod>2024-06-04T14:16:27.856Z</lastmod>
   </url>
 </urlset>

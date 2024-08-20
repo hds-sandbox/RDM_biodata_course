@@ -1,4 +1,4 @@
-﻿---
+---
 title: Practical material
 format: 
     html:
@@ -206,13 +206,14 @@ my_template/
 |-- tests
 |   |-- test_{{cookiecutter.project_name}}.py
 |-- README.md
+|__ cookiecutter.json # created in step 2
 ```
 
 In this example, `{{cookiecutter.project_name}}` is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script ('main.py'), a subdirectory ('tests') with a second python script named after the project ('test_{{cookiecutter.project_name}}.py') and a 'README.md' file. 
 
 ##### Step 2: Create `cookiecutter.json`
 
-In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:
+In the root of your template folder, create a file named `cookiecutter.json`. This file will define the variables (keywords) and default values that users will be prompted to fill in during the template initialization. For our Python project template, it might look like this:
 
 ```{.json .code-overflow-wrap}
 {
@@ -460,7 +461,7 @@ It is time now to customize your Cookiecutter templates and modify the metadata.
     "version": "0.1.0"
     }
     ```
-The metadata file will be filled accordingly.
+The metadata file will be filled out accordingly.
 
 2. Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.
 
@@ -473,13 +474,13 @@ The metadata file will be filled accordingly.
     },
     ```
 
-3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below: 
+3. Modify the `metadata.yml` file so that it includes the metadata recorded by the `cookiecutter.json` file. Hint below (*short_desc*, *authors*, etc.): 
 
     ```{.yml .code-overflow-wrap filename="metadata.yml"}
     project: {{ cookiecutter.project_name }}
-    author: {{ cookiecutter.author }}
+    authors: {{ cookiecutter.authors }}
     date: {{ cookiecutter.date }}
-    description: {{ cookiecutter.short_description }}
+    description: {{ cookiecutter.short_desc }}
     ```
 4. Modify the `README.md` file so that it includes the short description recorded by the `cookiecutter.json` file and the metadata at the top of the markdown file (top between lines of dashed).
 
@@ -536,8 +537,10 @@ The next step is to collect all the datasets that you have created in the manner
 We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your `Assays` folder), fetches all the `metadata.yml` files, merges them and writes a TSV file as an output. 
 
 1. Create a folder called `dataset` and change directory `cd dataset`
-2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.*While you are welcome to create your own template from scratch, we recommend using this one to save time.*
+2. Fork [this repository](https://github.com/hds-sandbox/cc-data-template): a Cookiecutter template designed for NGS datasets.*While you are welcome to create your own template from scratch, we recommend using this one to save time.* Then, `git clone <URL to Gihub repo>`. 
 3. Run the `cookiecutter cc-data-template` command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). 
+*Importantly, we recommend assigning values to all entries. If an entry does not apply, use "nan." This will be better for processing metadata later on.*
+*If the path to the cc-data-template is elsewhere than the datasets dir, change the command e.g.:`cookiecutter /home/myTemplates/cc-data-template`*
 4. Execute the script below using R (or create your own script in Python). **Adjust the `folder_path`** variable so that it matches the path to the Assays folder. The resulting table will be saved in the same `folder_path`.
 5. Open your `database_YYYYMMDD.tsv` table in a text editor from the command-line, or view it in Excel for better visualization.
 
@@ -838,6 +841,7 @@ Here are some useful links to get started with Github Pages:
     ```
 
 4. Open the terminal 
+
     ```{.bash filename="Terminal"}
     # Add a .nojekyll file to the root of the repository not to do additional processing of your published site
     touch .nojekyll #copy NUL .nojekyll for windows

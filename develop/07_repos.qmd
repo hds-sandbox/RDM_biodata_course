@@ -30,10 +30,14 @@ Specialized repositories and archives securely store, curate, and disseminate sc
 - **Amplification of Research Impact and Contribution**: Archiving data elevates research quality and extends its impact within the scientific community.
 - **Fulfilling Scholarly Obligations**: Compliance with requirements set by scientific journals and funding agencies ensures adherence to scholarly standards.
 
+:::{.callout-important title="re3data.org"}
+Check the **registry of research data repositories**--[re3data.org](https://www.re3data.org/) for a full overview. You can [browse by subject](https://www.re3data.org/browse/by-subject/) if you are looking within a specific field. 
+:::
+
 There are two types of repositories:
 
 - **General repositories**: relevant to a wide range of disciplines (e.g. Zenodo). 
-- **Domain-specific**: repositories are customized for specific fields, providing specialized curation and context-specific features (e.g. ENA, GEO, Annotare, etc.). 
+- **Domain-specific**: repositories are customized for specific fields, providing specialized curation and context-specific features (e.g. ENA, GEO, Annotare, etc.)
 
 :::{.callout-note}
 # List of repositories for biological data
@@ -89,20 +93,33 @@ By adhering to standards, repositories ensure that submitted data is high qualit
 Following all the recommendations in this course makes it straightforward to provide the necessary documentation and information for these repositories. For instance, repositories specific to NGS data will require the raw FASTQ files, sample metadata, and protocols as well as final pre-processing results (for instance, read count matrices in BED files).  
 
 :::{.callout-warning}
-Keep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo.
-:::
+Keep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo. 
 
+Archives for software source code are essential for long-term accessibility and reproducibility and are becoming very popular. Check [Software Heritage](https://www.softwareheritage.org/) if you are developing software. 
+:::
 
 ## General repositories
 
+There are plenty of data archiving repositories. We recommend to check the [Longwood Research Data management](https://datamanagement.hms.harvard.edu/share-publish/data-repositories) website at Harvard for a quick overview. Some of the most well-known are:
+
+- Dataverse
+- Dryad
+- figshare
+- Open Science Framework (OSF)
+- Zenodo
+
+We will be using Zenodo for our practical workshop. However, please review the table provided by the Longwood, Harvard Biomedical Data Management team, which outlines the differences between various repositories.
+
+![Click to enlarge](./images/longwood_repos.png){.lightbox}
+
+### Zenodo
 [Zenodo](https://zenodo.org/) is one of the widely used repositories for a variety of research outputs. It is an open-access digital platform supported by the European Organization for Nuclear Research (CERN) and the European Commission. It caters to various research outputs, including datasets, papers, software, and multimedia files, making it a valuable resource for researchers worldwide. With its user-friendly platform, researchers can easily upload, share, and preserve their research data. Each deposited item receives a unique Digital Object Identifier (DOI), ensuring citability and long-term accessibility. Additionally, Zenodo offers robust metadata capabilities for enriching submissions with contextual information. Moreover, researchers can [link their GitHub]((https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)) accounts to Zenodo, simplifying the process of archiving the GitHub repository releases for long-term accessibility and citation.
 
 Once your accounts are linked, creating a Zenodo archive becomes as straightforward as tagging a release in your GitHub repository. Zenodo automatically detects the release and generates a corresponding archive, complete with a unique Digital Object Identifier (DOI) for citable reference. Therefore, before submitting your work to a journal, link your data analysis repository to Zenodo, obtain a DOI, and cite it in your manuscript which enhances reproducibility in research.
 
-### Step-by-Step Setup Guide
+#### Step-by-Step Setup Guide
 
 Check the practical material where we demonstrate how to link Zenodo and Github (see **Exercise 6** in the [practical material](./practical_workshop.qmd)).
-
 
 ## Wrap up
 

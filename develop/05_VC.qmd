@@ -71,7 +71,7 @@ We will focus on GitHub for the remainder of this lesson due to its widespread u
 :::
 
 :::{.callout-warning}
-We will discuss repositories for archiving experimental or large datasets in [lesson 7](./07_repos.qmd). 
+We will discuss repositories for archiving experimental or large datasets in [lesson 7](./07_repos.qmd). However, if you are interested in version control large files, we recommend the use of `git annex`. It is important to store files with a checksum (MD5, SHA1, SHA256) to verify that files are not altered or corrupted buy recomputing their signature. 
 :::
 
 #### From Project folders to Git repositories 

@@ -38,20 +38,20 @@ Ensure all necessary tools and software are installed before beginning the pract
 
 Two more tools will be required, choose the one you are familiar with or the first option:
 
-- Option a. Install [Quarto](https://quarto.org/docs/get-started/). We recommend Quarto as is easy to use and provides native support for notebooks (both R Markdown and Jupyter Notebooks). It requires no additional extensions or dependencies. 
-- Option b. Install MkDocs and MkDocs extensions using the command line. Additional extensions are optional but can be useful if you choose this approach. 
+- *Option a*) Install [Quarto](https://quarto.org/docs/get-started/). We recommend Quarto as is easy to use and provides native support for notebooks (both R Markdown and Jupyter Notebooks). It requires no additional extensions or dependencies. 
+- *Option b*) Install MkDocs and MkDocs extensions using the command line. Additional extensions are optional but can be useful if you choose this approach. 
 
-```{.bash}
-pip install mkdocs # create webpages
-pip install mkdocs-material # customize webpages
-pip install mkdocs-video # add videos or embed videos from other sources
-pip install mkdocs-minify-plugin # Minimize html code
-pip install mkdocs-git-revision-date-localized-plugin # display last updated date 
-pip install mkdocs-jupyter # include Jupyter notebooks
-pip install mkdocs-bibtex # add references in your text (`.bib`)
-pip install neoteroi-mkdocs # create author cards
-pip install mkdocs-table-reader-plugin # embed tabular format files (`.tsv`)
-```
+    ```{.bash}
+    pip install mkdocs # create webpages
+    pip install mkdocs-material # customize webpages
+    pip install mkdocs-video # add videos or embed videos from other sources
+    pip install mkdocs-minify-plugin # Minimize html code
+    pip install mkdocs-git-revision-date-localized-plugin # display last updated date 
+    pip install mkdocs-jupyter # include Jupyter notebooks
+    pip install mkdocs-bibtex # add references in your text (`.bib`)
+    pip install neoteroi-mkdocs # create author cards
+    pip install mkdocs-table-reader-plugin # embed tabular format files (`.tsv`)
+    ```
 :::
 
 
@@ -183,7 +183,8 @@ Creating a folder template is straightforward with [cookiecutter](https://github
 Here are some template that you can use to get started, adapt and modify them to your own needs:
 
 - [Python package project](https://cookiecutter.readthedocs.io/en/stable/tutorials/tutorial1.html#step-1-generate-a-python-package-project)
-- [Sandbox test](https://github.com/hds-sandbox/project-template/)
+- [Sandbox bioinformatics project](https://github.com/hds-sandbox/cookiecutter-template/)
+- [Sandbox data project](https://github.com/hds-sandbox/cc-data-template/)
 - [Data science](https://github.com/drivendata/cookiecutter-data-science/)
 - [NGS data](https://github.com/brickmanlab/ngs-template)
 
@@ -259,7 +260,7 @@ After the generation process is complete, navigate to the directory where Cookie
 
 :::{.callout-exercise}
 
-# Exercise 1: Create your own template
+# Exercise 1: Create your own template.
 
 Use Cookiecutter to create custom templates for your folders. You can do it from scratch (see Exercise 1, part B) or opt for one of our pre-made templates available as a Github repository (recommended for this workshop). Feel free to tailor the template to your specific requirements—you don't have to follow our examples exactly.
 
@@ -276,30 +277,34 @@ We assume you have already gone through the requirements at the beginning of the
     ```{.bash}
     git clone <your URL to the template>
     ```
-If you have a GitHub Desktop, click **Add** and select "Clone repository" from the options
+If you have a GitHub Desktop, click **Add** and select "Clone repository" from the options.
 
-3. Open the repository and navigate through the different directories
+3. Open the repository and navigate through the different directories.
 
-4. Modify the contents of the repository as needed to fit your project's requirements. You can change files, add new ones. remove existing one or adjust the folder structure. For inspiration, review the data structure above under 'Project folder'. For instance, this template is missing the 'reports' directory and add the 'requirements.txt' file. Consider creating it, along with a subdirectory named 'reports/figures'. 
+4. Modify the contents of the repository as needed to fit your project's requirements. You can change files, add new ones, remove existing one or adjust the folder structure. For inspiration, review the data structure above under 'Project folder'. Our Cookiecutter template is missing the 'reports' directory or the 'requirements.txt' file. Consider creating them, along with a subdirectory named 'reports/figures'. 
 
     ```plaintext
     ├── results/
     │   ├── figures/
     ├── requirements.txt
     ```
-    Here’s an example of how to do it: 
 
-    ```{.bash}
-    # Open your terminal and navigate to your template directory. Then: 
-    cd \{\{\ cookiecutter.project_name\ \}\}/  
-    mkdir reports 
-    touch requirements.txt
-    ```
-5. Commit and push changes when you are done with your modifications
-- Stage the changes with `git add`
-- Commit the changes with a meaningful commit message `git commit -m "update cookicutter template" `
-- Push the changes to your forked repository on Github `git push origin main` (or the appropriate branch name)
-6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`
+:::{.callout-hint}
+Here’s an example of how to do it: 
+
+```{.bash}
+# Open your terminal and navigate to your template directory. Then: 
+cd \{\{\ cookiecutter.project_name\ \}\}/  
+mkdir reports 
+touch requirements.txt
+```
+:::
+
+5. Commit and push changes when you are done with your modifications.
+- Stage the changes with `git add`.
+- Commit the changes with a meaningful commit message `git commit -m "update cookicutter template" `.
+- Push the changes to your forked repository on Github `git push origin main` (or the appropriate branch name).
+6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`.
 
     Fill up the variables and verify that the new structure (and folders) looks like you would expect. Have any new folders been added, or have some been removed?
 :::

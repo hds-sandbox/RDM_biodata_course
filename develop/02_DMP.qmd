@@ -18,7 +18,7 @@ summary: A brief description of my document.
 
 The process of data management involves implementing tailored best practices for your data but how do you ensure comprehensive coverage of the decisions and that data is well-managed throughout its life cycle. To achieve this, a Data Management Plan (DMP) is essential. 
 
-A DMP serves as a comprehensive document detailing strategies for handling project data, code, and documentation across its life cycle. It includes plans for data collection, documentation, organization, and preservation. 
+DMP are required for grant applications to ensure research data to be FAIR. A DMP serves as a comprehensive document detailing strategies for handling project data, code, and documentation across its life cycle. It includes plans for data collection, documentation, organization, and preservation. 
 
 ### Benefits of writing a DMP
 

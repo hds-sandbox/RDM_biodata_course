@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -234,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#domain-specific-repositories" id="toc-domain-specific-repositories" class="nav-link" data-scroll-target="#domain-specific-repositories">Domain-specific repositories</a></li>
   <li><a href="#general-repositories" id="toc-general-repositories" class="nav-link" data-scroll-target="#general-repositories">General repositories</a>
   <ul class="collapse">
-  <li><a href="#step-by-step-setup-guide" id="toc-step-by-step-setup-guide" class="nav-link" data-scroll-target="#step-by-step-setup-guide">Step-by-Step Setup Guide</a></li>
+  <li><a href="#zenodo" id="toc-zenodo" class="nav-link" data-scroll-target="#zenodo">Zenodo</a></li>
   </ul></li>
   <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
   </ul>
@@ -257,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 22, 2024</p>
+      <p class="date-modified">July 23, 2024</p>
     </div>
   </div>
     
@@ -299,10 +302,23 @@ Course Overview
 <li><strong>Amplification of Research Impact and Contribution</strong>: Archiving data elevates research quality and extends its impact within the scientific community.</li>
 <li><strong>Fulfilling Scholarly Obligations</strong>: Compliance with requirements set by scientific journals and funding agencies ensures adherence to scholarly standards.</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled" title="re3data.org">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+re3data.org
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check the <strong>registry of research data repositories</strong>–<a href="https://www.re3data.org/">re3data.org</a> for a full overview. You can <a href="https://www.re3data.org/browse/by-subject/">browse by subject</a> if you are looking within a specific field.</p>
+</div>
+</div>
 <p>There are two types of repositories:</p>
 <ul>
 <li><strong>General repositories</strong>: relevant to a wide range of disciplines (e.g.&nbsp;Zenodo).</li>
-<li><strong>Domain-specific</strong>: repositories are customized for specific fields, providing specialized curation and context-specific features (e.g.&nbsp;ENA, GEO, Annotare, etc.).</li>
+<li><strong>Domain-specific</strong>: repositories are customized for specific fields, providing specialized curation and context-specific features (e.g.&nbsp;ENA, GEO, Annotare, etc.)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -341,7 +357,7 @@ List of repositories for biological data
 <p>This tailored approach ensures alignment with standards and maximizes the utility and impact of research findings. By catering to particular research areas, these repositories offer researchers a more focused audience, deeper domain expertise, and increased visibility within their specific research community.</p>
 <p>Explore some examples of NGS data repositories below:</p>
 <div class="callout callout-style-default callout-definition no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -350,31 +366,11 @@ ENA (European Nucleotide Archive)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div>
-<div class="callout-definition">
-<p><a href="https://www.ebi.ac.uk/ena/browser/home">ENA</a>: hosted by the European Bioinformatics Institute (EBI), provides researchers with a platform to deposit and access nucleotide sequences along with associated metadata, ensuring data preservation and contextualization. ENA adheres to community standards and guidelines for data submission, including those established by the International Nucleotide Sequence Database Collaboration (INSDC).</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-definition no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-GEO (Gene Expression Omnibus)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-definition">
-<p><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> (Gene Expression Omnibus): curated by the National Center for Biotechnology Information (NCBI), serves as a specialized repository for high-throughput functional genomic data sets, particularly gene expression data across diverse biological conditions and experimental designs. Researchers can easily deposit and access a variety of genomic data, fostering data transparency and reproducibility within the scientific community. GEO assigns unique accession numbers to each dataset, ensuring traceability and proper citation in research publications.</p>
+<p><a href="https://www.ebi.ac.uk/ena/browser/home">ENA</a>: hosted by the European Bioinformatics Institute (EBI), provides researchers with a platform to deposit and access nucleotide sequences along with associated metadata, ensuring data preservation and contextualization. ENA adheres to community standards and guidelines for data submission, including those established by the International Nucleotide Sequence Database Collaboration (INSDC).</p>
 </div>
 </div>
 </div>
@@ -386,11 +382,31 @@ GEO (Gene Expression Omnibus)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Annotare
+GEO (Gene Expression Omnibus)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-definition">
+<p><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> (Gene Expression Omnibus): curated by the National Center for Biotechnology Information (NCBI), serves as a specialized repository for high-throughput functional genomic data sets, particularly gene expression data across diverse biological conditions and experimental designs. Researchers can easily deposit and access a variety of genomic data, fostering data transparency and reproducibility within the scientific community. GEO assigns unique accession numbers to each dataset, ensuring traceability and proper citation in research publications.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-definition no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Annotare
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-definition">
@@ -420,16 +436,35 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Keep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo.</p>
+<p>Archives for software source code are essential for long-term accessibility and reproducibility and are becoming very popular. Check <a href="https://www.softwareheritage.org/">Software Heritage</a> if you are developing software.</p>
 </div>
 </div>
 </section>
 <section id="general-repositories" class="level2">
 <h2 class="anchored" data-anchor-id="general-repositories">General repositories</h2>
+<p>There are plenty of data archiving repositories. We recommend to check the <a href="https://datamanagement.hms.harvard.edu/share-publish/data-repositories">Longwood Research Data management</a> website at Harvard for a quick overview. Some of the most well-known are:</p>
+<ul>
+<li>Dataverse</li>
+<li>Dryad</li>
+<li>figshare</li>
+<li>Open Science Framework (OSF)</li>
+<li>Zenodo</li>
+</ul>
+<p>We will be using Zenodo for our practical workshop. However, please review the table provided by the Longwood, Harvard Biomedical Data Management team, which outlines the differences between various repositories.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./images/longwood_repos.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Click to enlarge"><img src="./images/longwood_repos.png" class="img-fluid figure-img" alt="Click to enlarge"></a></p>
+<figcaption>Click to enlarge</figcaption>
+</figure>
+</div>
+<section id="zenodo" class="level3">
+<h3 class="anchored" data-anchor-id="zenodo">Zenodo</h3>
 <p><a href="https://zenodo.org/">Zenodo</a> is one of the widely used repositories for a variety of research outputs. It is an open-access digital platform supported by the European Organization for Nuclear Research (CERN) and the European Commission. It caters to various research outputs, including datasets, papers, software, and multimedia files, making it a valuable resource for researchers worldwide. With its user-friendly platform, researchers can easily upload, share, and preserve their research data. Each deposited item receives a unique Digital Object Identifier (DOI), ensuring citability and long-term accessibility. Additionally, Zenodo offers robust metadata capabilities for enriching submissions with contextual information. Moreover, researchers can <a href="(https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)">link their GitHub</a> accounts to Zenodo, simplifying the process of archiving the GitHub repository releases for long-term accessibility and citation.</p>
 <p>Once your accounts are linked, creating a Zenodo archive becomes as straightforward as tagging a release in your GitHub repository. Zenodo automatically detects the release and generates a corresponding archive, complete with a unique Digital Object Identifier (DOI) for citable reference. Therefore, before submitting your work to a journal, link your data analysis repository to Zenodo, obtain a DOI, and cite it in your manuscript which enhances reproducibility in research.</p>
-<section id="step-by-step-setup-guide" class="level3">
-<h3 class="anchored" data-anchor-id="step-by-step-setup-guide">Step-by-Step Setup Guide</h3>
+<section id="step-by-step-setup-guide" class="level4">
+<h4 class="anchored" data-anchor-id="step-by-step-setup-guide">Step-by-Step Setup Guide</h4>
 <p>Check the practical material where we demonstrate how to link Zenodo and Github (see <strong>Exercise 6</strong> in the <a href="../develop/practical_workshop.html">practical material</a>).</p>
+</section>
 </section>
 </section>
 <section id="wrap-up" class="level2">
@@ -448,6 +483,9 @@ document.addEventListener('DOMContentLoaded', function () {
 -->
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Click to enlarge</span>
+</div>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>CC-BY-SA 4.0 license</div></div></section></div></main> <!-- /main -->
@@ -983,6 +1021,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

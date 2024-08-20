@@ -76,9 +76,10 @@ To maintain clarity and organization in the data analysis process, adopt best pr
 - Provide **environment files** for reproducing the computational environment (such as 'requirements.txt' for Python or 'environment.yml' for Conda). The simplest way is to document the dependencies by reporting the packages and their versions used to run your analysis. 
 - Data versioning: use **version control systems** (e.g., Git) and upload your code to a **code repository** [Lesson 5](./05_VC.qmd). 
 - Integrated development environments (e.g., RStudio, PyCharm) offer tools and features for writing, testing, and debugging code
+- Use `git submodule` for code and software that is reused in several projects
 - Leverage curated pipelines such as the ones developed by the [nf-core community](https://nf-co.re/), further ensuring adherence to community standards and guidelines.
+- Use [Software Heritage](https://www.softwareheritage.org/) an archive for software source code are essential for long-term accessibility and reproducibility
 - Add a LICENSE file and perform regular updates: clarifying usage permissions and facilitating collaboration.
-
 
 :::{.callout-warning title="Practical HPC pipes"}
 We provide a hand-on workshop on computational environments and pipelines. Keep an eye on the upcoming events on the [Sandbox website](https://hds-sandbox.github.io/news.html). If you're interested in delving deeper, check out the HPC best practices module we’ve developed [here](https://hds-sandbox.github.io/HPC-lab/). 

@@ -6,6 +6,13 @@
 # License:   MIT
 # R version: 4.3.2
 
+# Load libs
+quiet <- function(x) { suppressMessages(suppressWarnings(x)) }
+quiet(library(shiny))
+quiet(library(DT))
+quiet(library(DBI))
+
+
 # Define the UI
 ui <- fluidPage(
   titlePanel("SQLite R Shiny App"),

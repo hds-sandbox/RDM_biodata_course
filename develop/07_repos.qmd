@@ -15,7 +15,19 @@ summary: In this lesson, we navigate through different types of repositories and
 2. Archive your GitHub data analysis repositories
 :::
 
-While platforms like GitHub excel in version control and collaborative coding, repositories like Zenodo, Gene Expression Omnibus, and Annotare specialize in archiving and sharing scientific data, ensuring long-term accessibility for the global research community.
+While platforms like GitHub excel in version control and collaborative coding, repositories specialize in archiving and sharing scientific data (e.g. Zenodo), ensure long-term accessibility for the global research community.
+
+**What to archive and how?**
+
+A framework for reproducibility in computational research can generally be divided into three key, though sometimes overlapping, categories:
+
+1. **Readable Components**: This includes elements such as literature reviews, code documentation, data documentation, and workflow descriptions outlining how the code interacts with the data.
+2. **Executable Components**: These are the actual code, scripts, and software that need to be compiled and run to reproduce results.
+3. **Interpretable Components**: This refers to the data itself—raw or processed—that the code and scripts work on.
+
+Researchers are typically more accustomed to archiving readable components, such as papers or data documentation, compared to executable components like scripts and code. However, for research to be fully reproducible, it is crucial that all key components, including executable ones, are properly archived.
+
+When choosing an archival solution, it's important to recognize that there is no one-size-fits-all option. Several factors must be considered, including data size, format requirements, licensing conditions, cost, and tools for data attribution and citation. Each of these features plays a crucial role in selecting the most suitable archive for your needs.
 
 ## Data Repositories and Archives
 
@@ -31,7 +43,7 @@ Specialized repositories and archives securely store, curate, and disseminate sc
 - **Fulfilling Scholarly Obligations**: Compliance with requirements set by scientific journals and funding agencies ensures adherence to scholarly standards.
 
 :::{.callout-important title="re3data.org"}
-Check the **registry of research data repositories**--[re3data.org](https://www.re3data.org/) for a full overview. You can [browse by subject](https://www.re3data.org/browse/by-subject/) if you are looking within a specific field. 
+Check the **registry of research data repositories**,[re3data.org](https://www.re3data.org/) for a full overview. You can [browse by subject](https://www.re3data.org/browse/by-subject/) if you are looking within a specific field. 
 :::
 
 There are two types of repositories:
@@ -92,15 +104,15 @@ By adhering to standards, repositories ensure that submitted data is high qualit
 
 Following all the recommendations in this course makes it straightforward to provide the necessary documentation and information for these repositories. For instance, repositories specific to NGS data will require the raw FASTQ files, sample metadata, and protocols as well as final pre-processing results (for instance, read count matrices in BED files).  
 
-:::{.callout-warning}
-Keep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo. 
+## Software and computations archives 
+
+Keep in mind that data repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo. 
 
 Archives for software source code are essential for long-term accessibility and reproducibility and are becoming very popular. Check [Software Heritage](https://www.softwareheritage.org/) if you are developing software. 
-:::
 
 ## General repositories
 
-There are plenty of data archiving repositories. We recommend to check the [Longwood Research Data management](https://datamanagement.hms.harvard.edu/share-publish/data-repositories) website at Harvard for a quick overview. Some of the most well-known are:
+There are plenty of general archiving repositories. We recommend to check the [Longwood Research Data management](https://datamanagement.hms.harvard.edu/share-publish/data-repositories) website at Harvard for a quick overview. Some of the most well-known are:
 
 - Dataverse
 - Dryad

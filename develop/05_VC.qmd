@@ -21,7 +21,6 @@ summary: In this lesson, we will discuss how to track and version control your d
 
 This lesson introduces version control with Git and Github and its significance in research. You will gain the ability to create Git repositories, and skills to build GitHub pages for showcasing data analysis.
 
-
 Version control systematically tracks project changes, documenting alterations for understanding project evolution. It holds significant importance in research data management, software development, and data analysis, offering numerous advantages.
 
 :::{.callout-note title="Advantages of using version control"}
@@ -32,16 +31,6 @@ Version control systematically tracks project changes, documenting alterations f
 4. **Reproducibility**: Preserves project state for accurate validation and analysis.
 5. **Branching and Experimentation**: Allows the creation of alternative project versions for experimentation, without altering the main branch.
 6. **Global Accessibility**:  Platforms like GitHub provide visibility for sharing, feedback, and contribution to open science.
-:::
-
-:::{.callout-tip title="Take our course on Git & Github"}
-if you're interested in delving deeper, explore our course on [Git and GitHub](https://heads.ku.dk/course/git_github).
-
-Alternatively, here are some examples and online resources to expand your understanding:
-
-- [Git and GitHub online resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources)
-- [GitHub documentation](https://docs.github.com/get-started)
-- [Git documentation](https://git-scm.com/doc)
 :::
 
 ### Version control using Git
@@ -63,6 +52,8 @@ Alternatively, here are some examples and online resources to expand your unders
 
 In addition to exploring Git, we will also explore [GitHub](https://github.com/), a collaborative platform for hosting Git repositories. GitHub enhances Git's capabilities by offering features like issue tracking, security measures to protect repositories, and GitHub Pages for creating project websites. Additionally, GitHub provides the option to set repositories as private until you are ready to share your work publicly. 
 
+The difference between Git and GitHub is that Git is a version control system used to track changes in code, while GitHub is a cloud-based platform that hosts Git repositories and facilitates collaboration. Essentially, GitHub serves as an online access point for managing and sharing repositories.
+
 :::{.callout-note title="Alternatives flows for collaborative projects"}
 - [GitLab](https://about.gitlab.com/)
 - [BitBucket](https://bitbucket.org/) 
@@ -71,7 +62,7 @@ We will focus on GitHub for the remainder of this lesson due to its widespread u
 :::
 
 :::{.callout-warning}
-We will discuss repositories for archiving experimental or large datasets in [lesson 7](./07_repos.qmd). However, if you are interested in version control large files, we recommend the use of `git annex`. It is important to store files with a checksum (MD5, SHA1, SHA256) to verify that files are not altered or corrupted buy recomputing their signature. 
+We will discuss repositories for archiving experimental or large datasets in [lesson 7](./07_repos.qmd). However, if you are interested in version control large files, we recommend the use of `git annex`. It is also important to archive files with a checksum (MD5, SHA1, SHA256) to verify that files are not altered or corrupted buy recomputing their signature. 
 :::
 
 #### From Project folders to Git repositories 
@@ -132,6 +123,16 @@ We provide an example of setting up Git, Quarto, and a GitHub account, enabling 
 In this lesson, we explored version control and utilized Git and GitHub to establish data analysis repositories from our Project folders. Additionally, we delved into creating a GitHub organization and leveraging GitHub Pages to showcase data analysis scripts and notebooks publicly. Remember to complete the corresponding exercise from the practical workshop to reinforce your knowledge.
 
 ### Sources
+
+:::{.callout-tip title="Take our Git & Github course at KU"}
+If you're interested in delving deeper, explore our course on [Git and GitHub](https://heads.ku.dk/course/git_github).
+:::
+
+Alternatively, here are some examples and online resources to expand your understanding:
+
+- [Git and GitHub online resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources)
+- [GitHub documentation](https://docs.github.com/get-started)
+- [Git documentation](https://git-scm.com/doc)
 -  [Version Control and Code Repository Link](https://guides.library.jhu.edu/c.php?g=1096705&p=8066729)
 - [Git cheat sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 

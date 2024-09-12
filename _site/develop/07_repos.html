@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Intro</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../develop/01_RDM_intro.html" aria-current="page"> 
@@ -235,6 +235,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#data-repositories-and-archives" id="toc-data-repositories-and-archives" class="nav-link active" data-scroll-target="#data-repositories-and-archives">Data Repositories and Archives</a></li>
   <li><a href="#domain-specific-repositories" id="toc-domain-specific-repositories" class="nav-link" data-scroll-target="#domain-specific-repositories">Domain-specific repositories</a></li>
+  <li><a href="#software-and-computations-archives" id="toc-software-and-computations-archives" class="nav-link" data-scroll-target="#software-and-computations-archives">Software and computations archives</a></li>
   <li><a href="#general-repositories" id="toc-general-repositories" class="nav-link" data-scroll-target="#general-repositories">General repositories</a>
   <ul class="collapse">
   <li><a href="#zenodo" id="toc-zenodo" class="nav-link" data-scroll-target="#zenodo">Zenodo</a></li>
@@ -260,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 23, 2024</p>
+      <p class="date-modified">September 10, 2024</p>
     </div>
   </div>
     
@@ -289,7 +290,16 @@ Course Overview
 </ol>
 </div>
 </div>
-<p>While platforms like GitHub excel in version control and collaborative coding, repositories like Zenodo, Gene Expression Omnibus, and Annotare specialize in archiving and sharing scientific data, ensuring long-term accessibility for the global research community.</p>
+<p>While platforms like GitHub excel in version control and collaborative coding, repositories specialize in archiving and sharing scientific data (e.g.&nbsp;Zenodo), ensure long-term accessibility for the global research community.</p>
+<p><strong>What to archive and how?</strong></p>
+<p>A framework for reproducibility in computational research can generally be divided into three key, though sometimes overlapping, categories:</p>
+<ol type="1">
+<li><strong>Readable Components</strong>: This includes elements such as literature reviews, code documentation, data documentation, and workflow descriptions outlining how the code interacts with the data.</li>
+<li><strong>Executable Components</strong>: These are the actual code, scripts, and software that need to be compiled and run to reproduce results.</li>
+<li><strong>Interpretable Components</strong>: This refers to the data itself—raw or processed—that the code and scripts work on.</li>
+</ol>
+<p>Researchers are typically more accustomed to archiving readable components, such as papers or data documentation, compared to executable components like scripts and code. However, for research to be fully reproducible, it is crucial that all key components, including executable ones, are properly archived.</p>
+<p>When choosing an archival solution, it’s important to recognize that there is no one-size-fits-all option. Several factors must be considered, including data size, format requirements, licensing conditions, cost, and tools for data attribution and citation. Each of these features plays a crucial role in selecting the most suitable archive for your needs.</p>
 <section id="data-repositories-and-archives" class="level2">
 <h2 class="anchored" data-anchor-id="data-repositories-and-archives">Data Repositories and Archives</h2>
 <p>Specialized repositories and archives securely store, curate, and disseminate scientific data, ensuring long-term preservation, transparency, and citability of research findings through standardized formats and rigorous curation processes.</p>
@@ -312,7 +322,7 @@ re3data.org
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Check the <strong>registry of research data repositories</strong>–<a href="https://www.re3data.org/">re3data.org</a> for a full overview. You can <a href="https://www.re3data.org/browse/by-subject/">browse by subject</a> if you are looking within a specific field.</p>
+<p>Check the <strong>registry of research data repositories</strong>,<a href="https://www.re3data.org/">re3data.org</a> for a full overview. You can <a href="https://www.re3data.org/browse/by-subject/">browse by subject</a> if you are looking within a specific field.</p>
 </div>
 </div>
 <p>There are two types of repositories:</p>
@@ -425,24 +435,15 @@ Annotare
 </ol>
 <p>By adhering to standards, repositories ensure that submitted data is high quality, well-documented, and compliant with community best practices, promoting data discovery, reproducibility, and interoperability within the scientific community.</p>
 <p>Following all the recommendations in this course makes it straightforward to provide the necessary documentation and information for these repositories. For instance, repositories specific to NGS data will require the raw FASTQ files, sample metadata, and protocols as well as final pre-processing results (for instance, read count matrices in BED files).</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Keep in mind that these repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo.</p>
+</section>
+<section id="software-and-computations-archives" class="level2">
+<h2 class="anchored" data-anchor-id="software-and-computations-archives">Software and computations archives</h2>
+<p>Keep in mind that data repositories are not intended for downstream analysis data and associated code. However, you should already have those versions controlled by GitHub, which eliminates any concerns. You can then archive such repositories in a general repository like Zenodo.</p>
 <p>Archives for software source code are essential for long-term accessibility and reproducibility and are becoming very popular. Check <a href="https://www.softwareheritage.org/">Software Heritage</a> if you are developing software.</p>
-</div>
-</div>
 </section>
 <section id="general-repositories" class="level2">
 <h2 class="anchored" data-anchor-id="general-repositories">General repositories</h2>
-<p>There are plenty of data archiving repositories. We recommend to check the <a href="https://datamanagement.hms.harvard.edu/share-publish/data-repositories">Longwood Research Data management</a> website at Harvard for a quick overview. Some of the most well-known are:</p>
+<p>There are plenty of general archiving repositories. We recommend to check the <a href="https://datamanagement.hms.harvard.edu/share-publish/data-repositories">Longwood Research Data management</a> website at Harvard for a quick overview. Some of the most well-known are:</p>
 <ul>
 <li>Dataverse</li>
 <li>Dryad</li>
@@ -1021,7 +1022,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

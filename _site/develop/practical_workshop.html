@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RDM for biodata</title>
+<title>RDM for biodata - Practical material</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Intro</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../develop/01_RDM_intro.html"> 
@@ -485,12 +485,13 @@ Cookiecutter templates
 |   |-- main.py
 |-- tests
 |   |-- test_{{cookiecutter.project_name}}.py
-|-- README.md</code></pre>
+|-- README.md
+|__ cookiecutter.json # created in step 2</code></pre>
 <p>In this example, <code>{cookiecutter.project_name}</code> is a placeholder that will be replaced with the actual project name when the template is used. This directory contains a python script (‘main.py’), a subdirectory (‘tests’) with a second python script named after the project (‘test_{{cookiecutter.project_name}}.py’) and a ‘README.md’ file.</p>
 </section>
 <section id="step-2-create-cookiecutter.json" class="level5">
 <h5 class="anchored" data-anchor-id="step-2-create-cookiecutter.json">Step 2: Create <code>cookiecutter.json</code></h5>
-<p>In the root of your template folder, create a file named <code>cookiecutter.json</code>. This file will define the variables (keywords) that users will be prompted to fill in. For our Python project template, it might look like this:</p>
+<p>In the root of your template folder, create a file named <code>cookiecutter.json</code>. This file will define the variables (keywords) and default values that users will be prompted to fill in during the template initialization. For our Python project template, it might look like this:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode json code-overflow-wrap code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"project_name"</span><span class="fu">:</span> <span class="st">"MyProject"</span><span class="fu">,</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"author_name"</span><span class="fu">:</span> <span class="st">"Your Name"</span><span class="fu">,</span></span>
@@ -867,7 +868,7 @@ Exercise 2: modify the metadata.yml file in your Cookiecutter template
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.1.0"</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The metadata file will be filled accordingly.</p></li>
+<p>The metadata file will be filled out accordingly.</p></li>
 <li><p>Optional: You can customize or remove this prompt message entirely, allowing you to tailor the text to your preferences for a unique experience each time you use the template.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -880,15 +881,15 @@ Exercise 2: modify the metadata.yml file in your Cookiecutter template
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"short_description"</span><span class="fu">:</span> <span class="st">"Provide a detailed description of the project (context/content)"</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span><span class="er">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
-<li><p>Modify the <code>metadata.yml</code> file so that it includes the metadata recorded by the <code>cookiecutter.json</code> file. Hint below:</p>
+<li><p>Modify the <code>metadata.yml</code> file so that it includes the metadata recorded by the <code>cookiecutter.json</code> file. Hint below (<em>short_desc</em>, <em>authors</em>, etc.):</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>metadata.yml</strong></pre>
 </div>
 <div class="sourceCode" id="cb17" data-filename="metadata.yml"><pre class="sourceCode yml code-overflow-wrap code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.project_name </span><span class="kw">}</span><span class="at">}</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.author </span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authors</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.authors </span><span class="kw">}</span><span class="at">}</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.date </span><span class="kw">}</span><span class="at">}</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.short_description </span><span class="kw">}</span><span class="at">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{ cookiecutter.short_desc </span><span class="kw">}</span><span class="at">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Modify the <code>README.md</code> file so that it includes the short description recorded by the <code>cookiecutter.json</code> file and the metadata at the top of the markdown file (top between lines of dashed).</p>
 <div class="code-with-filename">
@@ -997,8 +998,8 @@ Exercise 4: create a metadata.tsv catalog
 <p>We will make a small script in R (or you can make one with Python) that recursively goes through all the folders inside an input path (like your <code>Assays</code> folder), fetches all the <code>metadata.yml</code> files, merges them and writes a TSV file as an output.</p>
 <ol type="1">
 <li>Create a folder called <code>dataset</code> and change directory <code>cd dataset</code></li>
-<li>Fork <a href="https://github.com/hds-sandbox/cc-data-template">this repository</a>: a Cookiecutter template designed for NGS datasets.<em>While you are welcome to create your own template from scratch, we recommend using this one to save time.</em></li>
-<li>Run the <code>cookiecutter cc-data-template</code> command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created).</li>
+<li>Fork <a href="https://github.com/hds-sandbox/cc-data-template">this repository</a>: a Cookiecutter template designed for NGS datasets.<em>While you are welcome to create your own template from scratch, we recommend using this one to save time.</em> Then, <code>git clone &lt;URL to Gihub repo&gt;</code>.</li>
+<li>Run the <code>cookiecutter cc-data-template</code> command at least twice to create multiple datasets or projects. Use different values each time to simulate various scenarios (do this in the dataset directory that you have previously created). <em>Importantly, we recommend assigning values to all entries. If an entry does not apply, use “nan.” This will be better for processing metadata later on.</em> <em>If the path to the cc-data-template is elsewhere than the datasets dir, change the command e.g.:<code>cookiecutter /home/myTemplates/cc-data-template</code></em></li>
 <li>Execute the script below using R (or create your own script in Python). <strong>Adjust the <code>folder_path</code></strong> variable so that it matches the path to the Assays folder. The resulting table will be saved in the same <code>folder_path</code>.</li>
 <li>Open your <code>database_YYYYMMDD.tsv</code> table in a text editor from the command-line, or view it in Excel for better visualization.</li>
 </ol>
@@ -1444,17 +1445,28 @@ Exercise 7: Create a Github Page using Quarto
 <div class="sourceCode" id="cb23" data-filename="_quarto.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
-<li><p>Open the terminal ```{.bash filename=“Terminal”} # Add a .nojekyll file to the root of the repository not to do additional processing of your published site touch .nojekyll #copy NUL .nojekyll for windows</p>
-<p># Render and push it to Github quarto render git commit -m “Publish site to docs/” git push ```</p></li>
+<li><p>Open the terminal</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb24" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a .nojekyll file to the root of the repository not to do additional processing of your published site</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .nojekyll <span class="co">#copy NUL .nojekyll for windows</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Render and push it to Github</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Publish site to docs/"</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
 <li><p>If you do not have a <code>gh-pages</code>, you can create one as follows</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb24" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="co"># make sure all changes are committed before running this!</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"Initialising gh-pages branch"</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="co"># make sure all changes are committed before running this!</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"Initialising gh-pages branch"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Before attempting to publish you should ensure that the Source branch for your repository is <code>gh-pages</code> and that the site directory is set to the repository root (/)</p>
 <p><img src="./images/github_pages_quarto.png" class="img-fluid"></p></li>
@@ -1463,15 +1475,15 @@ Exercise 7: Create a Github Page using Quarto
 <div class="code-with-filename-file">
 <pre><strong>.gitignore</strong></pre>
 </div>
-<div class="sourceCode" id="cb25" data-filename=".gitignore"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/.quarto/</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/_site/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26" data-filename=".gitignore"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/.quarto/</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/_site/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Now is time to publish your website</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>.Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb26" data-filename=".Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27" data-filename=".Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Once you’ve completed a local publish, add a publish.yml GitHub Action to your project by creating this YAML file and saving it to <code>.github/workflows/publish.yml</code>. Read how to do it <a href="https://quarto.org/docs/publishing/github-pages.html#github-action">here</a></p></li>
 </ol>

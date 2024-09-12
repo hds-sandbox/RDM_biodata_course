@@ -298,11 +298,12 @@ Here’s an example of how to do it:
 cd \{\{\ cookiecutter.project_name\ \}\}/  
 mkdir reports 
 touch requirements.txt
+ls # check new files/dirs 
 ```
 :::
 
 5. Commit and push changes when you are done with your modifications.
-- Stage the changes with `git add`.
+- Stage the changes with `git add .`.
 - Commit the changes with a meaningful commit message `git commit -m "update cookicutter template" `.
 - Push the changes to your forked repository on Github `git push origin main` (or the appropriate branch name).
 6. Test your template by using `cookiecutter <URL to your GitHub repository "cookicutter-template">`.
@@ -323,6 +324,7 @@ my_template/
 |   |-- test_{{cookiecutter.project_name}}.py
 |-- README.md
 ```
+
 - Step 1: Create a directory for the template.
 - Step 2: Write a cookiecutter.json file with variables such as project_name and author.
 - Step 3: Set up the folder structure by creating subdirectories and files as needed.

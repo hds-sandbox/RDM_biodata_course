@@ -271,7 +271,7 @@ We assume you have already gone through the requirements at the beginning of the
     
 **Project**
     
-1. Go to our [Cookicutter template](https://github.com/hds-sandbox/cookiecutter-template) and click on the **Fork** button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization.
+1. Go to our [Cookiecutter template](https://github.com/hds-sandbox/cookiecutter-template) and click on the **Fork** button at the top-right corner of the repository page to create a copy of the repository on your own GitHub account or organization.
     ![fork_repo_example](./images/fork_repo_project.png)
 2. Open a terminal on your computer, copy the URL of your fork and **clone** the repository to your local machine (the URL should look something like https://github.com/your_username/cookiecutter-template):
 

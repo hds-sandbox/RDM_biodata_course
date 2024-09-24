@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -94,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Intro</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../develop/01_RDM_intro.html" aria-current="page"> 
@@ -243,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 24, 2024</p>
+      <p class="date-modified">September 19, 2024</p>
     </div>
   </div>
     
@@ -280,6 +314,94 @@ Before you start…
 </ul>
 </div>
 </div>
+<section id="code-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="code-formatting">Code formatting</h3>
+<p>Numerous tools can automatically format code to maintain style consistency, which is crucial for code quality and collaboration. Most modern interactive development environments (IDE) and text editors, such as <a href="https://www.jetbrains.com/products/">JetBrains IDE Suite</a> and <a href="https://code.visualstudio.com/">VSCode</a>, support automatic code formatting, either natively or through plugins. Additionally, many languages have specific formatting tools that integrate with these editors.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Formatting tools">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Formatting tools
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Language</th>
+<th style="text-align: left;">Formatted tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Python</td>
+<td style="text-align: left;"><a href="https://black.readthedocs.io/en/stable/">Black</a>, <a href="https://pypi.org/project/yapf/">yapf</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><a href="https://yihui.org/formatr/">formatR</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bash/Shell</td>
+<td style="text-align: left;"><a href="https://www.bolthole.com/AWK.html">ShellIndent</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C/C++</td>
+<td style="text-align: left;"><a href="https://www.gnu.org/software/indent/">GNUIndent</a>, <a href="https://sourceforge.net/projects/gcgreatcode/">GreatCode</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Perl</td>
+<td style="text-align: left;"><a href="https://perltidy.sourceforge.net/">PerlTidy</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Javascript</td>
+<td style="text-align: left;"><a href="https://beautifier.io/">beautifier</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MATLAB/Octove</td>
+<td style="text-align: left;"><a href="https://florianschanda.github.io/miss_hit/">MISS_HIT</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Java</td>
+<td style="text-align: left;"><a href="https://github.com/google/google-java-format">Google Java format</a>, <a href="https://www.newforms-tech.com/products/jindent/about">JIndent</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CSS</td>
+<td style="text-align: left;"><a href="https://csstidy.sourceforge.net/">CSSTidy</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HTML</td>
+<td style="text-align: left;"><a href="https://sourceforge.net/projects/html-tidy.mirror/">Tidy</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quick Tip: If you use VS Code as your main text editor, you can enable automatic code formatting in your browser. Go to your preferences page in JSON mode and add:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">"editor.formatOnSave":</span> <span class="er">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="reproducibility-and-replicability" class="level3">
 <h3 class="anchored" data-anchor-id="reproducibility-and-replicability">Reproducibility and Replicability</h3>
 <p>Through techniques such as scripting, containerization (e.g., Docker), and virtual environments, researchers can create reproducible analyses that enable others to validate and build upon their work. Emphasizing the documentation of data processing steps, parameters, and results ensures transparency and accountability in research outputs. To write clear and reproducible code, take the following approach: write functions, code defensively (such as input validation, error handling, etc.), add comments, conduct testing, and maintain proper documentation.</p>

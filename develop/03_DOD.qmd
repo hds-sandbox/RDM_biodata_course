@@ -356,10 +356,10 @@ url="ftp://ftp.ebi.ac.uk/pub/databases/ipd/imgt/hla/hla_prot.fasta"
 # Download the file
 wget $url && \
 md5sum --status --check $md5file
+```
 
 We recommend using the argument `--status` **only** when you incorporate this sanity check as part of your pipeline so that it only prints the errors (it doesn't print output when success).
 
-```
 3. Folder structure 
 ```{.bash}
 genomic_resources/

@@ -364,9 +364,9 @@ Metadata in biological datasets refers to the information that describes the dat
 - Ethical and Legal Compliance (ownership, access, provenance)
 
 :::{.callout-warning title="Metadata and controlled vocabularies"}
-To maximize the usefulness of metadata, aim to use controlled vocabularies across all fields. Read more about data documentation and find ontology services examples in [lesson 4](https://hds-sandbox.github.io/RDM_NGS_course/develop/04_metadata.html#controlled-vocabularies-and-ontologies). We encourage you to begin implementing them systematically on your own (under the "sources" section, you will find some helpful links to guide you putting them in practice). 
+To maximize the usefulness of metadata, aim to use controlled vocabularies across all fields. Read more about data documentation and find ontology services examples in [lesson 4](https://hds-sandbox.github.io/RDM_biodata_course/develop/04_metadata.html#controlled-vocabularies-and-ontologies). We encourage you to begin implementing them systematically on your own (under the "sources" section, you will find some helpful links to guide you putting them in practice). 
 
-If you work with NGS data, check out [this](https://hds-sandbox.github.io/RDM_NGS_course/develop/examples/NGS_metadata.html) recommendations and examples of metadata for samples, projects and datasets. 
+If you work with NGS data, check out [this](https://hds-sandbox.github.io/RDM_biodata_course/develop/examples/NGS_metadata.html) recommendations and examples of metadata for samples, projects and datasets. 
 :::
 
 
@@ -512,7 +512,7 @@ The metadata file will be filled out accordingly.
 
 ## 3. Naming conventions
 
-As discussed in [lesson 3](https://hds-sandbox.github.io/RDM_NGS_course/develop/03_DOD.html#naming-conventions), consistent naming conventions are key for interpreting, comparing, and reproducing findings in scientific research. Standardized naming helps organize and retrieve data or results, allowing researchers to locate and compare similar types of data within or across large datasets. 
+As discussed in [lesson 3](https://hds-sandbox.github.io/RDM_biodata_course/develop/03_DOD.html#naming-conventions), consistent naming conventions are key for interpreting, comparing, and reproducing findings in scientific research. Standardized naming helps organize and retrieve data or results, allowing researchers to locate and compare similar types of data within or across large datasets. 
 
 
 :::{.callout-exercise}
@@ -805,7 +805,7 @@ Once you've established your GitHub organization, be sure to create your reposit
 
 ### Setting up a GitHub repository for your project folder
 
-Version controlling your data analysis folders becomes straightforward once you've established your Cookiecutter templates. After you've created several folder structures and metadata using your Cookiecutter template, you can manage version control by either converting those folders into Git repositories or copying a folder into an existing Git repository. Both approaches are explained in [Lesson 5](https://hds-sandbox.github.io/RDM_NGS_course/develop/05_VC.html#from-project-folders-to-git-repositories).
+Version controlling your data analysis folders becomes straightforward once you've established your Cookiecutter templates. After you've created several folder structures and metadata using your Cookiecutter template, you can manage version control by either converting those folders into Git repositories or copying a folder into an existing Git repository. Both approaches are explained in [Lesson 5](https://hds-sandbox.github.io/RDM_biodata_course/develop/05_VC.html#from-project-folders-to-git-repositories).
 
 :::{.callout-exercise}
 # Exercise 6: initialize a repository from an existing folder:

@@ -21,7 +21,7 @@ summary: In this lesson, we will discuss how to track and version control your d
 
 This lesson introduces version control with Git and Github and its significance in research. You will gain the ability to create Git repositories, and skills to build GitHub pages for showcasing data analysis.
 
-Version control systematically tracks project changes, documenting alterations for understanding project evolution. It holds significant importance in research data management, software development, and data analysis, offering numerous advantages.
+Version control is a systematic approach to tracking project changes, and documenting alterations to understand the project's evolution. It is crucial in research data management, software development, and data analysis, offering numerous advantages. By enabling multiple contributors to sync their changes without conflicts, version control tools facilitate collaboration. These tools allow users to commit changes with descriptions, set and assign project objectives, address software issues, and automatically test code for bugs before they impact users. Whether for teams or individual projects, implementing version control is considered a best practice and a standard approach to project management.
 
 :::{.callout-note title="Advantages of using version control"}
 

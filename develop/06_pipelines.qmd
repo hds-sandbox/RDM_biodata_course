@@ -47,7 +47,7 @@ Numerous tools can automatically format code to maintain style consistency, whic
 :::{.callout-tip}
 Quick Tip: If you use VS Code as your main text editor, you can enable automatic code formatting in your browser. Go to your preferences page in JSON mode and add:
 
-```{.json filename="json"}
+```{.json filename="JSON"}
 "editor.formatOnSave": true
 ```
 :::
@@ -63,7 +63,17 @@ Tools for reproducibility:
 - **Pipeline frameworks or workflow management systems**: Implement systems like Nextflow and Snakemake to automate data analysis steps (including data extraction, transformation, validation, visualization, and more). Additionally, they contribute to ensuring interoperability by facilitating seamless integration and interaction between different components or stages.  
 
 #### Computational notebooks for interactive analysis
-Computational notebooks (e.g., Jupyter, R Markdown) provide researchers with a versatile platform for exploratory and interactive data analysis. These notebooks facilitate sharing insights with collaborators and documentation of analysis procedures.
+
+Computational notebooks, such as Jupyter and R Markdown, offer researchers a flexible platform for interactive and exploratory data analysis, making it easier to document procedures and share insights with collaborators. These notebooks enable users to combine text, images, equations, and executable code within a single document. Typically, text is written using the simple and intuitive Markdown language. In R, Markdown files can be created within the RStudio interface, while Python users often work with Jupyter notebooks for a similar experience.
+
+**Documents with live code**
+
+| Link      | Description                          |
+| :---------- | :----------------------------------- |
+| [Introduction to Markdown](https://rmarkdown.rstudio.com/articles_intro.html)       | Markdown for `R` in `Rstudio`  |
+| [Jupyter notebooks](https://jupyter.org/)       | create interactive code with `python`. You can write `R` code in a Jupyter notebook by using the `python` package [rpy2](https://rpy2.github.io/doc/latest/html/index.html)  |
+
+
 
 #### Pipeline Frameworks and Workflow Management Systems
 Tools such as Nextflow and Snakemake streamline and automate various data analysis steps, enabling parallel processing and seamless integration with existing tools. Remember to create portable code and use relative paths to ensure transferability between users. 

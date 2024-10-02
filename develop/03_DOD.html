@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 13, 2024</p>
+      <p class="date-modified">October 2, 2024</p>
     </div>
   </div>
     
@@ -883,9 +883,8 @@ Optional: Exercise on CHECKSUMS
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the file</span></span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="va">$url</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">md5sum</span> <span class="at">--status</span> <span class="at">--check</span> <span class="va">$md5file</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="ex">We</span> recommend using the argument <span class="kw">`</span><span class="ex">--status</span><span class="kw">`</span> <span class="pp">**</span>only<span class="pp">**</span> when you incorporate this sanity check as part of your pipeline so that it only prints the errors <span class="er">(</span><span class="ex">it</span> doesn<span class="st">'t print output when success).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">md5sum</span> <span class="at">--status</span> <span class="at">--check</span> <span class="va">$md5file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We recommend using the argument <code>--status</code> <strong>only</strong> when you incorporate this sanity check as part of your pipeline so that it only prints the errors (it doesn’t print output when success).</p>
 <ol start="3" type="1">
 <li>Folder structure</li>
 </ol>

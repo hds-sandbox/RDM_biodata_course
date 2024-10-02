@@ -202,7 +202,7 @@ Requirements:
 
 Click on the hint to reveal the solution and a code example for the exercise, which may serve as inspiration.
 
-You can find a thorough guided exercise in the practical material - [Exercise 4](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project).
+You can find a thorough guided exercise in the practical material - [Exercise 4](https://hds-sandbox.github.io/RDM_biodata_course/develop/practical_workshop.html#step-4-review-the-generated-project).
 
 :::{.callout-hint}
 ```{.r .code-overflow-wrap}
@@ -240,7 +240,7 @@ An alternative to the tabular format is SQLite, a lightweight and self-contained
 # Exercise 3: Generate a SQLite database from metadata
 Click on the hint to reveal the necessary libraries and some functions, which may serve as inspiration.
 
-You can find a thorough guided exercise, complete with code example, in the practical material - [Exercise 4, option B](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#step-4-review-the-generated-project).
+You can find a thorough guided exercise, complete with code example, in the practical material - [Exercise 4, option B](https://hds-sandbox.github.io/RDM_biodata_course/develop/practical_workshop.html#step-4-review-the-generated-project).
 
 :::{.callout-hint}
 ```{.r .code-overflow-wrap}
@@ -262,7 +262,7 @@ dbWriteTable()
 
 To further optimize the use of your metadata and improve the integration of all your lab metadata, you can design a user-friendly catalog browser for your database using tools like [Rshiny](https://www.rstudio.com/products/shiny/) or [Panel](https://panel.holoviz.org/). These frameworks provide interfaces for dynamic search, filtering, and visualization, facilitating efficient exploration of database contents.
 
-Creating such a tool with RShiny is straightforward and does not require extensive development knowledge, whether using a TSV file or a SQLite database. In the [practical materials](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder), we demonstrate both scenarios and showcase various functionalities for inspiration. SQLite files are particularly advantageous for data fetching and other operations due to their efficient querying and indexing capabilities.
+Creating such a tool with RShiny is straightforward and does not require extensive development knowledge, whether using a TSV file or a SQLite database. In the [practical materials](https://hds-sandbox.github.io/RDM_biodata_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder), we demonstrate both scenarios and showcase various functionalities for inspiration. SQLite files are particularly advantageous for data fetching and other operations due to their efficient querying and indexing capabilities.
 
 Here's an example of an SQLite database catalog created by the [Brickman Lab](https://renew.ku.dk/research/reseach-groups/brickman-group/) at the Center for Stem Cell Medicine. It's simple yet effective! Clicking on a data row opens the metadata.yml file, allowing access to detailed metadata for that assay.
 
@@ -270,7 +270,7 @@ Here's an example of an SQLite database catalog created by the [Brickman Lab](ht
 
 :::{.callout-exercise}
 # Exercise 4: Create your first catalog browser using Rshiny
-Go to the [practical material](https://hds-sandbox.github.io/RDM_NGS_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder) for complete exercise instructions and solutions. The code provided can serve as inspiration for you to adapt as needed.
+Go to the [practical material](https://hds-sandbox.github.io/RDM_biodata_course/develop/practical_workshop.html#create-a-catalog-of-your-data-folder) for complete exercise instructions and solutions. The code provided can serve as inspiration for you to adapt as needed.
 
 :::{.callout-hint .code-overflow-wrap}
 These are some of the libraries required: 

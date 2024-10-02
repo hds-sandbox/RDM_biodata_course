@@ -20,8 +20,36 @@ In this section, we explore essential elements of reproducibility and efficiency
 3. Add a README describing the project (and the naming conventions)
 4. Install and set up version control (e.g., Git and Github)
 5. Choose a coding style!
-- Python: [Python's PEP](https://peps.python.org/pep-0008/) or [Google's style guide](https://google.github.io/styleguide/pyguide.html)
-- R: [Google's style guide](https://google.github.io/styleguide/Rguide.html) or [Tidyverse's style guide](https://style.tidyverse.org/)
+  - Python: [Python's PEP](https://peps.python.org/pep-0008/) or [Google's style guide](https://google.github.io/styleguide/pyguide.html)
+  - R: [Google's style guide](https://google.github.io/styleguide/Rguide.html) or [Tidyverse's style guide](https://style.tidyverse.org/)
+:::
+
+### Code formatting 
+
+Numerous tools can automatically format code to maintain style consistency, which is crucial for code quality and collaboration. Most modern interactive development environments (IDE) and text editors, such as [JetBrains IDE Suite](https://www.jetbrains.com/products/) and [VSCode](https://code.visualstudio.com/), support automatic code formatting, either natively or through plugins. Additionally, many languages have specific formatting tools that integrate with these editors.
+
+:::{.callout-note title="Formatting tools" collapse="true"}
+| Language | Formatted tools |
+|:-|:----|
+| Python | [Black](https://black.readthedocs.io/en/stable/), [yapf](https://pypi.org/project/yapf/) |
+| R | [formatR](https://yihui.org/formatr/)|
+| Snakemake | [Snakefmt](https://github.com/snakemake/snakefmt) |
+| Bash/Shell | [ShellIndent](https://www.bolthole.com/AWK.html) |
+| C/C++ | [GNUIndent](https://www.gnu.org/software/indent/), [GreatCode](https://sourceforge.net/projects/gcgreatcode/)|
+| Perl | [PerlTidy](https://perltidy.sourceforge.net/)|
+|Javascript |[beautifier](https://beautifier.io/)|
+| MATLAB/Octove |[MISS_HIT](https://florianschanda.github.io/miss_hit/)|
+|Java | [Google Java format](https://github.com/google/google-java-format), [JIndent](https://www.newforms-tech.com/products/jindent/about)|
+|CSS|[CSSTidy](https://csstidy.sourceforge.net/)|
+|HTML| [Tidy](https://sourceforge.net/projects/html-tidy.mirror/)|
+:::
+
+:::{.callout-tip}
+Quick Tip: If you use VS Code as your main text editor, you can enable automatic code formatting in your browser. Go to your preferences page in JSON mode and add:
+
+```{.json filename="json"}
+"editor.formatOnSave": true
+```
 :::
 
 ### Reproducibility and Replicability

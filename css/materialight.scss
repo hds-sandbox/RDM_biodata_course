@@ -54,6 +54,13 @@ div {
   color:#0c0b0c;
 }
 
+.callout-hint .callout-header::after {
+  content: " >";  /* Append > symbol after the title */
+  font-weight: 200; /* Optional: Style the symbol */
+  margin-left: 0.3em; /* Add a small space before > */
+  font-size: 1.5em;
+}
+
 div.callout-hint.callout-style-default > .callout-header {
     background-color: #f3f3f6 !important; 
     height: 25px;}
